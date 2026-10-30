@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FPGA回路生成【2】 &#8212; wiki.morifuku.net</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=f7624688"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-P82LK3ZSXZ');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '生成AI/ハードウェア生成/FPGA回路生成【2】';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://blog.morifuku.net/%E7%94%9F%E6%88%90AI/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2%E7%94%9F%E6%88%90/FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91.html" />
+    <link rel="icon" href="../../_static/ladybug5G32.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="動画生成" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90/index.html" />
+    <link rel="prev" title="FPGA回路生成【1】まずはLチカを作ってもらった" href="FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">本文へスキップ</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>トップに戻る</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="バージョン警告"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="サイトナビゲーション">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/favicon48.png" class="logo__image only-light" alt="wiki.morifuku.net - Home"/>
+    <img src="../../_static/favicon48.png" class="logo__image only-dark pst-js-only" alt="wiki.morifuku.net - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    wiki.morifuku.net
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">生成AI</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">ハードウェア生成</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">FPGA回路生成【1】まずはLチカを作ってもらった</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">FPGA回路生成【2】</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90/index.html">動画生成</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90/Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html">Windows機に中古GPU入れてMiniMax H3環境を作った</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">雑学</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/AI/index.html">AI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/AI/AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html">AIと技術情報サイトの将来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/AI/macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">macOS 27のfmコマンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/AI/%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html">ビッグデータ分析とLLMの違い</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E7%95%AA%E5%8F%B7.html">010677で始まる番号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">お茶と腎結石</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">ハッカソン運用とアイデア</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">円柱とコラムの関係</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">地方選挙の落選常連の資金源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html">大型ドローンの性能強化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">電電公社の電柱に残る古い地名</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="ライト"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="ダーク"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>ライト</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>ダーク</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>FPGA回路生成【2】</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fpga2">
+<h1>FPGA回路生成【2】<a class="headerlink" href="#fpga2" title="Link to this heading">#</a></h1>
+<p>ß</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html"
+       title="前のページ">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title">FPGA回路生成【1】まずはLチカを作ってもらった</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90/index.html"
+       title="次ページ">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">動画生成</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 Shigeru Morifuku
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026 Shigeru Morifuku.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
