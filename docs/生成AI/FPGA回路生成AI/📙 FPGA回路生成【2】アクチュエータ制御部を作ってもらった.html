@@ -59,8 +59,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 FPGA回路生成AI</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F%E3%80%82.html">📙 FPGA回路生成【1】まずはLチカを作ってもらった。</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">📙 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">試作3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">試作3の動作</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟦 動画生成AI</a></li>
@@ -77,43 +75,45 @@
   <section class="tex2jax_ignore mathjax_ignore" id="fpga2">
 <h1>📙 FPGA回路生成【2】アクチュエータ制御部を作ってもらった<a class="headerlink" href="#fpga2" title="Link to this heading">¶</a></h1>
 <p>Lチカ（LEDをチカチカさせるだけの電子工作品）がスムーズにできたので、今回はアクチュエータ制御部を作ってもらった。簡単で見栄えがするアクチュエータといえば、サーボモータ。ラジコンカーのハンドル切ったり、スピードを制御するデバイス。今回はFPGAからサーボモータに制御信号を送って、サーボモータを動かす回路を作った。</p>
-<ol class="arabic simple">
-<li><p>準備</p></li>
-</ol>
+<p><a class="yt-embed" href="https://www.youtube.com/watch?v=lPEP3QT9xvw" data-yt="lPEP3QT9xvw"><img src="https://i.ytimg.com/vi/lPEP3QT9xvw/hqdefault.jpg" alt="YouTube" loading="lazy"></a></p>
+<section id="id1">
+<h2>🟩 1. 準備<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>サーボモータが１個ではつまらないので、３個同時制御するようにし、三相交流のように120度ずつずらして動くようにした。</p>
-<ol class="arabic simple" start="2">
-<li><p>実装</p></li>
-</ol>
-<p>2.1 回路実装</p>
+</section>
+<section id="id2">
+<h2>🟩 2. 実装<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h3>🟨 2.1 回路実装<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>サーボモータの駆動用電源はFPGAからは引っ張り出せないので、別電源とした。アースをFPGAのGNDに接続した。</p>
-<p>2.2 Claudeへの実装指示</p>
+</section>
+<section id="claude">
+<h3>🟨 2.2 Claudeへの実装指示<a class="headerlink" href="#claude" title="Link to this heading">¶</a></h3>
 <p>今回も簡単な指示でFPGAのフラッシュに書き込むところまでやってもらった。CLAUDE.mdの該当部分は以下のとおり。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 試作3
+* MIUZEIのMS18というマイクロサーボを3個制御する
+サーボ端子：接続先
+茶(GND)：外部電源のGND と Tang Nano のGND
+赤(+)：外部の5V電源(ACアダプタ)
+橙(信号)：Tang Nano の Pin 26/27/28につなぐ
+
+# 試作3の動作
+* サーボA、サーボB、サーボCを制御する
+* サーボAの信号は26番端子、サーボBの信号は27番端子、サーボAの信号は28番端子に接続されている
+* 各サーボは、-90度から+90度を3秒周期で往復する
+* 各サーボは、１秒ずつ動作がズレている。位相でいうと120度ズレている
+* リセットしたときに、サーボの位置を全部0度にする
+</pre></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>試作3<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<ul class="simple">
-<li><p>MIUZEIのMS18というマイクロサーボを3個制御する<br />
-サーボ端子：接続先<br />
-茶(GND)：外部電源のGND と Tang Nano のGND<br />
-赤(+)：外部の5V電源(ACアダプタ)<br />
-橙(信号)：Tang Nano の Pin 26/27/28につなぐ</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>試作3の動作<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h1>
-<ul class="simple">
-<li><p>サーボA、サーボB、サーボCを制御する</p></li>
-<li><p>サーボAの信号は26番端子、サーボBの信号は27番端子、サーボAの信号は28番端子に接続されている</p></li>
-<li><p>各サーボは、-90度から+90度を3秒周期で往復する</p></li>
-<li><p>各サーボは、１秒ずつ動作がズレている。位相でいうと120度ズレている</p></li>
-<li><p>リセットしたときに、サーボの位置を全部0度にする</p></li>
-</ul>
-<p>2.3 あっけなく動いてしまう</p>
+<section id="id4">
+<h3>🟨 2.3 あっけなく動いてしまう<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>予想どおりなので、Lチカが動作した時ほどの感動はなかったが、次はどんなアクロバット動作をやらせてみようかという意欲が湧いてくる。</p>
-<ol class="arabic simple" start="3">
-<li><p>まとめ</p></li>
-</ol>
+</section>
+</section>
+<section id="id5">
+<h2>🟩 3. まとめ<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <p>次はセンサーを組み込んで、アクチュエーターとの連携動作を実装してみる。ソフトウェアでは制御できない（困難な）ものにしないと、FPGAに実装する意味がない。そろそろ本気モードに入ろう。</p>
+</section>
 </section>
 
 
