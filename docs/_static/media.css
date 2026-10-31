@@ -1,4 +1,4 @@
-/* YouTube サムネール / プレーヤー (youtube.js) */
+/* 埋め込みメディア: YouTube サムネール / プレーヤー (youtube.js)、動画 */
 a.yt-embed,
 iframe.yt-frame {
   display: block;
@@ -36,4 +36,15 @@ a.yt-embed::after {
 }
 a.yt-embed:hover::after {
   background-color: #f00;
+}
+
+/* ![[動画.mp4]] (prep.py が <video class="embed-video"> に変換) */
+video.embed-video {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0.5em 0;
+  border-radius: 8px;
+  background: #000;
 }
