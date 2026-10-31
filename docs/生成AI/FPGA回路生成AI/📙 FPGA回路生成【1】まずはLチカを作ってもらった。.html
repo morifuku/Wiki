@@ -76,32 +76,33 @@
     
   <section class="tex2jax_ignore mathjax_ignore" id="fpga1l">
 <h1>📙 FPGA回路生成【1】まずはLチカを作ってもらった。<a class="headerlink" href="#fpga1l" title="Link to this heading">¶</a></h1>
-<p>ClaudeにFPGAのLチカ（LEDをチカチカさせるだけの電子工作品）を作ってもらった。長いこと放置していた中華FPGA（TANG NANO 9K）がチカチカ点滅しだした。ハードウェアまでClaudeに作ってもらえるなんて、感動もの。人間の仕事はパーツ調達と半田付けくらいしか残ってないな。。。</p>
+<p>ClaudeにFPGAのLチカ（LEDをチカチカさせるだけの電子工作品）を作ってもらった。長いこと放置していた中華FPGA（TANG NANO 9K）がチカチカ点滅しだした。ハードウェアまでClaudeに作ってもらえるなんて、感動もの。人間の仕事はパーツ調達と半田付けくらいしか残ってないな。</p>
+<p><a class="yt-embed" href="https://www.youtube.com/watch?v=KDFOgygecLk" data-yt="KDFOgygecLk"><img src="https://i.ytimg.com/vi/KDFOgygecLk/hqdefault.jpg" alt="YouTube" loading="lazy"></a></p>
 <section id="id1">
-<h2>1. 準備<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>🟩 1. 準備<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>使用したFPGAは、秋月電子で購入した、「Tang Nano 9K」3,790円也(2026年10月現在)。チュートリアルもいろいろある。</p>
 </section>
 <section id="id2">
-<h2>2. 実装<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-</section>
+<h2>🟩 2. 実装<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <section id="fpga">
-<h2>2.1 FPGA開発アプリ設定<a class="headerlink" href="#fpga" title="Link to this heading">¶</a></h2>
+<h3>🟨 2.1 FPGA開発アプリ設定<a class="headerlink" href="#fpga" title="Link to this heading">¶</a></h3>
 <p>Windows 11にGOWIN FPGA Designer（以下Designer）というFPGA開発アプリをインストールした。教育版という無償バージョンをいれた。このDesignerでFPGA回路を設計したり、FPGAデバイスにそれを焼き込んだりする。インストールしたらUSB-CでWindowsとFPGAデバイスを接続しておく。</p>
 </section>
 <section id="vs-code">
-<h2>2.2 VS Codeの設定<a class="headerlink" href="#vs-code" title="Link to this heading">¶</a></h2>
+<h3>🟨 2.2 VS Codeの設定<a class="headerlink" href="#vs-code" title="Link to this heading">¶</a></h3>
 <p>VisualStudio Codeに設定したClaudeに渡すCLAUDE.mdファイルに、Designerのインストール場所や、プロジェクトのファイルを置く場所等を記述する。Claudeがそれを認識すると、早速、</p>
 </section>
 <section id="l">
-<h2>2.3 Lチカつくりますか？<a class="headerlink" href="#l" title="Link to this heading">¶</a></h2>
+<h3>2.3 🟨 Lチカつくりますか？<a class="headerlink" href="#l" title="Link to this heading">¶</a></h3>
 <p>とClaudeから聞いてきた。こちらは「はい。お願いします」と言うだけ。すると、自動でビットストリーム（FPGAの回路パターン情報）を作成しFPGAデバイスに流してくれる。起動もかかってチカチカがはじまる。実にあっけなかった。</p>
 </section>
+</section>
 <section id="id3">
-<h2>3. まとめ<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h2>🟩 3. まとめ<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <p>Lチカがあっさりできてしまうと、いろいろと妄想してしまう。。。「ジャイロセンサーからの姿勢情報を読みこんで、その情報でモーターの回転速度を制御する」とか指示するだけでハードウェアができあがってくる。細かい式やパラメータはClaudeとディスカッションしながら仕上げていく。ラズパイとかでは実現できないあれこれが、ハード開発経験のない者に作れるようになったと思うと、わくわくしてくる。</p>
 </section>
 <section id="id4">
-<h2>4. 追加<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<h2>🟩 4. 追加<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <p>そういえば、Designerはインストールしただけで、全く操作してない。全部VSCodeのClaudeが裏で操作してくれたんだな。すごいな、Cluade。人間がDesignerで手を加えると、Claudeはそれを汲み取ってくれるんだな、きっと。</p>
 </section>
 </section>
