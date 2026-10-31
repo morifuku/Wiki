@@ -73,13 +73,51 @@
     
   <section class="tex2jax_ignore mathjax_ignore" id="windowsgpuminimax-h3">
 <h1>📙 Windows機に中古GPU入れてMiniMax H3環境を作った<a class="headerlink" href="#windowsgpuminimax-h3" title="Link to this heading">¶</a></h1>
-<p>以下の記事を参考に、MiniMax H3を古いWindows機に導入した。MiniMax H3の仕組みとか、使い方とかに関してはこの記事で勉強させてもらった。残念ながらローカル環境へのセットアップは、どうにもこうにも上手くいかないので、Claude Codeに丸投げした。</p>
+<p><a class="reference external" href="https://note.com/ai_hakase/n/n5f932c19fe6e">この記事</a>を参考に、MiniMax H3を古いWindows機に導入した。MiniMax H3の仕組みとか、使い方とかに関してはこの記事で勉強させてもらった。残念ながらローカル環境へのセットアップは、どうにもこうにも上手くいかないので、Claude Codeに丸投げした。</p>
+<section id="id1">
+<h2>🟩 1. セットアップ<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h3>🟨 1.1 ハードウェアのセットアップ<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p>まず、Windows機は以下のかんじでチューンアップした。性能面に関しては、他の環境を試したことないので何とも言えないが、４万円中古RTX3060/12GBでもちゃんと動画を生成してくれる。</p>
-<p>チューンアップ前・CPU: Intel i7-8700、メモリ: 64GB、GPU:なし・ストレージ: 1TB SATA-SSDと1TB NVMe-SSD・ケース: スリムケース(ロープロファイル)、電源:300Wチューンアップ後・ケースをミドルタワー(標準プロファイル)に大型化、電源を750Wと交換・中古GPU (RTX3060/12GB) 追加・他はそのまま</p>
+<p><strong>チューンアップ前</strong></p>
+<ul class="simple">
+<li><p>CPU: Intel i7-8700、メモリ: 64GB、GPU:なし</p></li>
+<li><p>ストレージ: 1TB SATA-SSDと1TB NVMe-SSD</p></li>
+<li><p>ケース: スリムケース(ロープロファイル)、電源:300W</p></li>
+</ul>
+<p><strong>チューンアップ後</strong></p>
+<ul class="simple">
+<li><p>ケースをミドルタワー(標準プロファイル)に大型化、電源を750Wと交換</p></li>
+<li><p>中古GPU (RTX3060/12GB) 追加</p></li>
+<li><p>他はそのまま</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 1.2 ソフトウェアのセットアップ<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>ローカル環境へのComfy DesktopやMiniMax H3のセットアップが、なかなかうまくいかなかったので、Claude Codeに丸投げした。Comfy DesktopやMiniMax H3を導入する前に、Ollamaを入れてLocal LLMで遊んでいたので、いろいろコンフリクトが起きたのかもしれない。Claude Codeに丸投げすると、バンバン直してくれる。ただ、何がどう直されたのかあまり把握できてない。</p>
-<p>・Python環境の更新・Hugging FaceのAPI設定・Comfyのストレージ領域の拡張（パンクしそうになって、Claudeに拡張しろと言われた）・Comfy Desktopにパッチ当ててた。たぶん何かのバージョンチェック・その他</p>
-<p>まとめ</p>
-<p>・４万円中古RTX3060/12GBでも、MiniMax H3はちゃんと動画を生成してくれる。・セットアップにつまずいても、Claude Codeに丸投げすると、動くまで面倒みてくれる。Comfyの吐き出すエラーメッセージやログメッセージをClaude Codeに渡すだけで、自動で直してくれる。・Comfyはバージョンや設定パラメータ値に厳しい頑固者というかんじがした。長い付き合いになると思うので、注意しよう。</p>
+<ul class="simple">
+<li><p>Python環境の更新</p></li>
+<li><p>Hugging FaceのAPI設定</p></li>
+<li><p>Comfyのストレージ領域の拡張（パンクしそうになって、Claudeに拡張しろと言われた）</p></li>
+<li><p>Comfy Desktopにパッチ当ててた。たぶん何かのバージョンチェック</p></li>
+<li><p>その他</p></li>
+</ul>
+</section>
+</section>
+<section id="id4">
+<h2>🟩 2. 生成してみた<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p><a class="yt-embed" href="https://www.youtube.com/watch?v=FS_kcRq3Qq0" data-yt="FS_kcRq3Qq0"><img src="https://i.ytimg.com/vi/FS_kcRq3Qq0/hqdefault.jpg" alt="YouTube" loading="lazy"></a></p>
+<p><a class="yt-embed" href="https://www.youtube.com/watch?v=WAsUvCr6Gys" data-yt="WAsUvCr6Gys"><img src="https://i.ytimg.com/vi/WAsUvCr6Gys/hqdefault.jpg" alt="YouTube" loading="lazy"></a></p>
+<p><a class="yt-embed" href="https://www.youtube.com/watch?v=bSG1a4FDDuM" data-yt="bSG1a4FDDuM"><img src="https://i.ytimg.com/vi/bSG1a4FDDuM/hqdefault.jpg" alt="YouTube" loading="lazy"></a></p>
+</section>
+<section id="id5">
+<h2>🟩 3. まとめ<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>４万円中古RTX3060/12GBでも、MiniMax H3はちゃんと動画を生成してくれる。</p></li>
+<li><p>セットアップにつまずいても、Claude Codeに丸投げすると、動くまで面倒みてくれる。Comfyの吐き出すエラーメッセージやログメッセージをClaude Codeに渡すだけで、自動で直してくれる。</p></li>
+<li><p>Comfyはバージョンや設定パラメータ値に厳しい頑固者というかんじがした。長い付き合いになると思うので、注意しよう。</p></li>
+</ul>
+</section>
 </section>
 
 
