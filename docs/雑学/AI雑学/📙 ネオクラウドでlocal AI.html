@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 ネオクラウドでlocal AI &#8212; wiki.morifuku.net</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=90365d0e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://blog.morifuku.net/%E9%9B%91%E5%AD%A6/AI%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E3%83%8D%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%A7local%20AI.html" />
+    <link rel="icon" href="../../_static/ladybug5G32.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 ビッグデータ分析とLLMの違い" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html" />
+    <link rel="prev" title="📙 macOS 27のfmコマンド" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/favicon48.png" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 AI雑学</a>
+    <span class="sep">»</span><span class="current">📙 ネオクラウドでlocal AI</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%94%9F%E6%88%90AI/index.html">🟪 生成AI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 AI雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html">📙 AIと技術情報サイトの将来</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">📙 macOS 27のfmコマンド</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 ネオクラウドでlocal AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html">📙 ビッグデータ分析とLLMの違い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html">📙 太陽光でAI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E7%95%AA%E5%8F%B7.html">📙 010677で始まる番号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html">📙 中華NICはなぜ安い</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html">📙 大型ドローンの性能強化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">📙 電電公社の電柱に残る古い地名</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 ネオクラウドでlocal AI</a><ul>
+<li><a class="reference internal" href="#q-100-local-ai">🟩 Q: ネオクラウドで100%構築するとlocal AIって言える？</a></li>
+<li><a class="reference internal" href="#q">🟩 Q: データを自分のところに置いて処理だけネオクラウドで行うのは難しい？</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="local-ai">
+<h1>📙 ネオクラウドでlocal AI<a class="headerlink" href="#local-ai" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/10/21</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-100-local-ai">
+<h2>🟩 Q: ネオクラウドで100%構築するとlocal AIって言える？<a class="headerlink" href="#q-100-local-ai" title="Link to this heading">¶</a></h2>
+<p>厳密には<strong>言えない</strong>、というのが普通の受け取られ方だと思います。ただ「local AI」で何を言いたいかによって、半分くらいは当てはまります。</p>
+<p>「local AI」には大きく3つの意味が混ざっています。</p>
+<ol class="arabic simple">
+<li><p><strong>物理的に手元で動く</strong>(自分のPC・オンプレサーバー・エッジ機器で推論する)。これが本来の意味で、ネオクラウド(CoreWeave、Lambda、Nebius、国内ならさくらインターネットやGMOのGPUクラウドなど)は他人のデータセンターなので当てはまりません。ネットワークが切れたら使えない点も変わりません。</p></li>
+<li><p><strong>オープンウェイトのモデルを自分で動かす</strong>(OpenAIやAnthropicのAPIに投げるのではなく、Llama・Qwen・gpt-ossなどを自前でホストする)。これはネオクラウドでも満たせます。モデルの選択、バージョン固定、ファインチューニングは自分で管理できます。</p></li>
+<li><p><strong>データが外部AIベンダーに渡らない/国内に留まる</strong>。ネオクラウドで閉域接続を使い、国内リージョンを選べば、かなり近い状態にできます。ただし、データはクラウド事業者の管理下にあるので「自社内で完結」とは言えません。</p></li>
+</ol>
+<p>なので、ネオクラウド上で自前ホストしているものを説明するなら、次のような言い方が誤解を招きにくいです。</p>
+<ul class="simple">
+<li><p><strong>セルフホストLLM</strong>/<strong>プライベートLLM</strong></p></li>
+<li><p><strong>専有GPU上のオープンモデル運用</strong>(ベアメタル専有なら強調する価値があります)</p></li>
+<li><p>データ主権を強調したいなら<strong>ソブリンAI</strong>、<strong>国内完結型</strong></p></li>
+</ul>
+<p>「ローカルAI」と書くと、多くの人はオンプレやエッジでの推論を想像します。特に工場や制御系の文脈では「オフラインでも動く」「低遅延」といった意味まで期待されやすいので、ネオクラウド構成をそう呼ぶのは避けたほうが安全だと思います。</p>
+</section>
+<section id="q">
+<h2>🟩 Q: データを自分のところに置いて処理だけネオクラウドで行うのは難しい？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>はい、「データを物理的に手元に置く」が絶対条件なら、ネオクラウドは基本的に対象外です。「処理だけ外で」が難しい理由は単純で、推論するには<strong>GPUのメモリ上でデータが平文になる必要がある</strong>からです。保存は手元でも、処理するたびにデータは相手のデータセンターへ送られ、そこで展開されます。</p>
+<p>データを渡さずに外で処理する技術もありますが、どれも決め手になりません。</p>
+<ul class="simple">
+<li><p><strong>Confidential Computing</strong>(H100/Blackwell以降のGPU TEE+リモートアテステーション): メモリが暗号化され、事業者も中身を見られないことを暗号的に保証します。ただし、データ自体は物理的に外へ出るので、条件を文字通り満たしません。</p></li>
+<li><p><strong>準同型暗号</strong>: 暗号化したまま計算できますが、LLM規模では桁違いに遅く、実用外です。</p></li>
+<li><p><strong>分割推論</strong>(前半の層を手元、後半をクラウドで処理): 中間表現から元の入力をかなり復元できることが知られていて、「データを出していない」とは言い難いです。</p></li>
+</ul>
+<p>結論として、条件を満たすのは<strong>オンプレかエッジにGPUを置く</strong>構成になります。現実的な選択肢は次のあたりです。</p>
+<ul class="simple">
+<li><p>小〜中規模モデル(7B〜30Bクラス、量子化あり): RTX系の大容量VRAMカード、またはDGX Spark/Mac Studioクラスの機器1台</p></li>
+<li><p>大きめのモデルや同時アクセスがある場合: L40SやRTX PRO 6000などを積んだサーバーを自社ラックに置く</p></li>
+</ul>
+<p>一点だけ確認する価値があるのは、その「大前提」の中身です。「保存は手元、処理時に一時的に外へ出るのは可」という意味なら、Confidential Computing+ログを残さない推論で通る可能性があります。逆に「一切外に出さない」(契約や顧客要件、閉域網の制約など)なら、オンプレ一択です。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html"><span class="label">‹ 前へ</span><span class="title">📙 macOS 27のfmコマンド</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html"><span class="label">次へ ›</span><span class="title">📙 ビッグデータ分析とLLMの違い</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
