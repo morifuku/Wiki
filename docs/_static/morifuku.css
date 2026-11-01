@@ -105,6 +105,19 @@ div.sphinxsidebar, aside.sphinxsidebar {
 .globaltoc li.current > a { font-weight: 600; }
 .globaltoc a.current { color: var(--text); }
 
+/* このページの目次 (pagetoc.html) */
+.pagetoc { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--navy); }
+.pagetoc h3 { margin: 0 0 0.5em; font-size: 1em; font-weight: 600; color: var(--text); }
+.pagetoc ul { list-style: none; margin: 0; padding: 0; }
+.pagetoc ul ul { padding-left: 1em; }
+.pagetoc li { margin: 0.15em 0; }
+.pagetoc a { text-decoration: none; }
+.pagetoc a:hover { text-decoration: underline; }
+/* 先頭項目はページタイトルそのものなので出さず、その配下を 1 段目として見せる */
+.pagetoc > ul > li:first-child > a { display: none; }
+.pagetoc > ul > li:first-child > ul { padding-left: 0; }
+.pagetoc a.active { font-weight: 600; color: var(--text); }
+
 /* 本文 */
 .content { min-width: 0; max-width: 900px; padding: 24px 48px 48px; }
 div.body, main.body {
