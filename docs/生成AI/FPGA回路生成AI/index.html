@@ -14,7 +14,7 @@
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/translations.js?v=4755f45a"></script>
     <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
-    <link rel="canonical" href="https://blog.morifuku.net/%E7%94%9F%E6%88%90AI/FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html" />
+    <link rel="canonical" href="https://wiki.morifuku.net/%E7%94%9F%E6%88%90AI/FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html" />
     <link rel="icon" href="../../_static/ladybug5G32.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -72,6 +72,9 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">🟦 FPGA回路生成AI</a><ul>
+<li><a class="reference internal" href="#tang-nano-9k">🟩 1. Tang Nano 9K</a></li>
+<li><a class="reference internal" href="#icesugar">🟩 2. iCESugar</a></li>
+<li><a class="reference internal" href="#colorlight-i5-lattice-epc5">🟩 3. Colorlight i5（Lattice EPC5）</a></li>
 <li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
 </ul>
 </li>
@@ -86,10 +89,43 @@
 <h1>🟦 FPGA回路生成AI<a class="headerlink" href="#fpgaai" title="Link to this heading">¶</a></h1>
 <p>手持ちのFPGAは以下の3種類。回路設計は初学者レベルなので、AIにやってもらう。人間は部品調達と半田付けを担当する。</p>
 <ul class="simple">
-<li><p>Lattice ECP5 ULX3s、ebayで購入、25.16ドル</p></li>
-<li><p>iCESugar:（ICE40UP5k）、AliExpressで購入、5,224円</p></li>
 <li><p>Tang Nano 9K（Gowin GW1NR-9）、秋月電子通商で購入、3,780円</p></li>
+<li><p>iCESugar（ICE40UP5k）、AliExpressで購入、5,224円</p></li>
+<li><p>Lattice ECP5 Colorlight i5、ebayで購入、73.81ドル</p></li>
 </ul>
+<section id="tang-nano-9k">
+<h2>🟩 1. Tang Nano 9K<a class="headerlink" href="#tang-nano-9k" title="Link to this heading">¶</a></h2>
+<p>Sipeed製のボードで、中国Gowin社のFPGAを載せています。</p>
+<ul class="simple">
+<li><p><strong>ロジック規模</strong>: 約8,640 LUT4、ブロックRAM 約468Kbit、乗算器20個、PLL 2個</p></li>
+<li><p><strong>特徴</strong>: 64Mbit の PSRAM をチップに内蔵しているので、外付けRAMなしで大きめのバッファを持てます</p></li>
+<li><p><strong>ボード</strong>: HDMIコネクタ、RGB LCDコネクタ、LED 6個、ボタン 2個、USB-C（書き込み・UARTはBL702が担当）、27MHzクロック</p></li>
+<li><p><strong>開発環境</strong>: Gowin EDA（教育版は無料）。オープンソースの Project Apicula + Yosys + nextpnr-gowin も使えます</p></li>
+<li><p><strong>向いている用途</strong>: HDMI出力の実験、PicoRV32などのソフトCPU、LCD表示。値段に対して機能が多く、入門用として定番です</p></li>
+</ul>
+</section>
+<section id="icesugar">
+<h2>🟩 2. iCESugar<a class="headerlink" href="#icesugar" title="Link to this heading">¶</a></h2>
+<p>MuseLab製です。iCE40はビットストリームが解析済みで、オープンソースFPGA開発の元祖にあたる石です。</p>
+<ul class="simple">
+<li><p><strong>ロジック規模</strong>: 5,280 LUT4、EBR 120Kbit、SPRAM 1Mbit（128KB）、DSP（16×16 MAC）8個、PLL 1個</p></li>
+<li><p><strong>特徴</strong>: 消費電力が非常に小さいです。I2C/SPIのハードIPとRGB LEDドライバを内蔵しています</p></li>
+<li><p><strong>ボード</strong>: 書き込み用のiCELink（STM32）を載せていて、PCからUSBメモリとして見えるので、.binファイルをドラッグ＆ドロップするだけで書き込めます。PMODコネクタ、RGB LED、12MHzクロック</p></li>
+<li><p><strong>開発環境</strong>: Yosys + nextpnr-ice40 + IceStorm の完全オープンソース構成が主流です（Lattice Radiantも可）</p></li>
+<li><p><strong>向いている用途</strong>: オープンソースのツールチェーンを学ぶ入門用、小さなステートマシンやペリフェラルの実験。3枚の中では一番小規模です</p></li>
+</ul>
+</section>
+<section id="colorlight-i5-lattice-epc5">
+<h2>🟩 3. Colorlight i5（Lattice EPC5）<a class="headerlink" href="#colorlight-i5-lattice-epc5" title="Link to this heading">¶</a></h2>
+<p>LEDビジョンの受信カードを作っているColorlight社のFPGAモジュールです。ノートPCのメモリと同じSO-DIMM形状で、拡張ボード（キャリアボード）に差して使います。3枚の中では最上位です。</p>
+<ul class="simple">
+<li><p><strong>ロジック規模</strong>: LFE5U-25F（約24K LUT）、ブロックRAM 約1Mbit、乗算器（18×18）28個、PLL 2個。同じ形状のi9はLFE5U-45F（約44K LUT）です</p></li>
+<li><p><strong>モジュール</strong>: 8MB SDRAM（32bit幅）、4MB SPI Flash、ギガビットEthernet PHY×2、25MHzクロック</p></li>
+<li><p><strong>拡張ボード</strong>: USB-C（USB-JTAGとUARTを兼ねます）、HDMI出力、ピンヘッダ P1〜P6、JTAGピン、電源ボタン</p></li>
+<li><p><strong>開発環境</strong>: Yosys + nextpnr-ecp5 + Project Trellis の完全オープンソース構成。Lattice Diamondも使えます。書き込みは openFPGALoader が使えます</p></li>
+<li><p><strong>向いている用途</strong>: LiteX + VexRiscv で Linux を動かす（LiteXが colorlight_i5 として正式に対応しています）、SDRAMを使ったSoC、HDMI出力の実験</p></li>
+</ul>
+</section>
 <section id="contents">
 <h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
