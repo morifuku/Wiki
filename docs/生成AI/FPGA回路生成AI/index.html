@@ -75,6 +75,13 @@
 <li><a class="reference internal" href="#tang-nano-9k">🟩 1. Tang Nano 9K</a></li>
 <li><a class="reference internal" href="#icesugar">🟩 2. iCESugar</a></li>
 <li><a class="reference internal" href="#colorlight-i5-lattice-epc5">🟩 3. Colorlight i5（Lattice EPC5）</a></li>
+<li><a class="reference internal" href="#id1">🟩 4. 開発環境</a><ul>
+<li><a class="reference internal" href="#gowin-eda">🟨 4.1 Gowin EDA</a></li>
+<li><a class="reference internal" href="#yosis">🟨 4.2 Yosis</a></li>
+<li><a class="reference internal" href="#nextpnr">🟨 4.3 nextpnr</a></li>
+<li><a class="reference internal" href="#icestorm-project-trilles">🟨 4.4 IceStorm / Project Trilles</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
 </ul>
 </li>
@@ -92,6 +99,13 @@
 <li><p>Tang Nano 9K（Gowin GW1NR-9）、秋月電子通商で購入、3,780円</p></li>
 <li><p>iCESugar（ICE40UP5k）、AliExpressで購入、5,224円</p></li>
 <li><p>Lattice ECP5 Colorlight i5、ebayで購入、73.81ドル</p></li>
+</ul>
+<p>開発環境はWindows 11で構築する。Visual Studio Code上のClaude Codeで遠隔操作してもらう予定。</p>
+<ul class="simple">
+<li><p>Gowin EDA: Tang Nano 9K用開発環境</p></li>
+<li><p>Yosis: 論理合成、FPGAの基本要素に変換</p></li>
+<li><p>nextpnr: 配置配線、チップ上の配置と配線</p></li>
+<li><p>IceStorm / Project Trilles: 実際のビットストリームに変換するツール</p></li>
 </ul>
 <section id="tang-nano-9k">
 <h2>🟩 1. Tang Nano 9K<a class="headerlink" href="#tang-nano-9k" title="Link to this heading">¶</a></h2>
@@ -125,6 +139,25 @@
 <li><p><strong>開発環境</strong>: Yosys + nextpnr-ecp5 + Project Trellis の完全オープンソース構成。Lattice Diamondも使えます。書き込みは openFPGALoader が使えます</p></li>
 <li><p><strong>向いている用途</strong>: LiteX + VexRiscv で Linux を動かす（LiteXが colorlight_i5 として正式に対応しています）、SDRAMを使ったSoC、HDMI出力の実験</p></li>
 </ul>
+</section>
+<section id="id1">
+<h2>🟩 4. 開発環境<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="gowin-eda">
+<h3>🟨 4.1 Gowin EDA<a class="headerlink" href="#gowin-eda" title="Link to this heading">¶</a></h3>
+<p>Tang Nano 9K用開発環</p>
+</section>
+<section id="yosis">
+<h3>🟨 4.2 Yosis<a class="headerlink" href="#yosis" title="Link to this heading">¶</a></h3>
+<p>Verilogを読み込み、FPGAの基本要素（LUT、フリップフロップ、BRAM、DSP）の組み合わせに変換します。チップの系統ごとに専用コマンドがあり、synth_ice40、synth_ecp5、synth_gowin のように使い分けます。3系統で共通に使うツールです。</p>
+</section>
+<section id="nextpnr">
+<h3>🟨 4.3 nextpnr<a class="headerlink" href="#nextpnr" title="Link to this heading">¶</a></h3>
+<p>合成結果をチップ上のどこに置き、どう配線するかを決めます。タイミング解析もここで行い、到達できる最大クロック周波数を表示してくれます。ピンの割り当ては制約ファイルで指定します（iCE40は .pcf、ECP5は .lpf、Gowinは .cst）。</p>
+</section>
+<section id="icestorm-project-trilles">
+<h3>🟨 4.4 IceStorm / Project Trilles<a class="headerlink" href="#icestorm-project-trilles" title="Link to this heading">¶</a></h3>
+<p>各社が公開していないビットストリームの形式を、リバースエンジニアリングで解析したプロジェクトです。nextpnrが使うチップの内部構造データと、配置配線の結果を実際のビットストリームに変換するツールを提供しています。</p>
+</section>
 </section>
 <section id="contents">
 <h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
