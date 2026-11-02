@@ -77,9 +77,9 @@
 <li><a class="reference internal" href="#colorlight-i5-lattice-epc5">🟩 3. Colorlight i5（Lattice EPC5）</a></li>
 <li><a class="reference internal" href="#id1">🟩 4. 開発環境</a><ul>
 <li><a class="reference internal" href="#gowin-eda">🟨 4.1 Gowin EDA</a></li>
-<li><a class="reference internal" href="#yosis">🟨 4.2 Yosis</a></li>
+<li><a class="reference internal" href="#yosis">🟨 4.2 yosis</a></li>
 <li><a class="reference internal" href="#nextpnr">🟨 4.3 nextpnr</a></li>
-<li><a class="reference internal" href="#icestorm-project-trilles">🟨 4.4 IceStorm / Project Trilles</a></li>
+<li><a class="reference internal" href="#packer">🟨 4.4 packer</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
@@ -142,21 +142,21 @@
 </section>
 <section id="id1">
 <h2>🟩 4. 開発環境<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>具体的はFPGA回路設計はClaudeに丸投げなので、開発環境の操作もVisual Studio Code上のClaude Codeにやってもらう。</p>
+<p>具体的なFPGA回路設計はClaudeに丸投げなので、開発環境の操作もVisual Studio Code上のClaude Codeにやってもらう。なので、本wikiの操作説明はClaudeに投げたプロンプトぐらいしかない場合がある。</p>
 <section id="gowin-eda">
 <h3>🟨 4.1 Gowin EDA<a class="headerlink" href="#gowin-eda" title="Link to this heading">¶</a></h3>
-<p>Tang Nano 9K用開発環</p>
+<p>Tang Nano 9K用統合環境。Yosis+nextpnr+packerで開発する方法もあるが、一部機能が開発中となっている。</p>
 </section>
 <section id="yosis">
-<h3>🟨 4.2 Yosis<a class="headerlink" href="#yosis" title="Link to this heading">¶</a></h3>
+<h3>🟨 4.2 yosis<a class="headerlink" href="#yosis" title="Link to this heading">¶</a></h3>
 <p>Verilogを読み込み、FPGAの基本要素（LUT、フリップフロップ、BRAM、DSP）の組み合わせに変換します。チップの系統ごとに専用コマンドがあり、synth_ice40、synth_ecp5、synth_gowin のように使い分けます。3系統で共通に使うツールです。</p>
 </section>
 <section id="nextpnr">
 <h3>🟨 4.3 nextpnr<a class="headerlink" href="#nextpnr" title="Link to this heading">¶</a></h3>
 <p>合成結果をチップ上のどこに置き、どう配線するかを決めます。タイミング解析もここで行い、到達できる最大クロック周波数を表示してくれます。ピンの割り当ては制約ファイルで指定します（iCE40は .pcf、ECP5は .lpf、Gowinは .cst）。</p>
 </section>
-<section id="icestorm-project-trilles">
-<h3>🟨 4.4 IceStorm / Project Trilles<a class="headerlink" href="#icestorm-project-trilles" title="Link to this heading">¶</a></h3>
+<section id="packer">
+<h3>🟨 4.4 packer<a class="headerlink" href="#packer" title="Link to this heading">¶</a></h3>
 <p>各社が公開していないビットストリームの形式を、リバースエンジニアリングで解析したプロジェクトです。nextpnrが使うチップの内部構造データと、配置配線の結果を実際のビットストリームに変換するツールを提供しています。</p>
 </section>
 </section>
