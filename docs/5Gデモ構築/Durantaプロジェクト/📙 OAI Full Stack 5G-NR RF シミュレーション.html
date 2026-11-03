@@ -74,8 +74,9 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">📙 OAI Full Stack 5G-NR RF シミュレーション</a><ul>
-<li><a class="reference internal" href="#id1">🟩 1. 構築手順</a></li>
-<li><a class="reference internal" href="#id2">🟩 2. 動かしてみる</a></li>
+<li><a class="reference internal" href="#id1">🟩 1. 構成</a></li>
+<li><a class="reference internal" href="#id2">🟩 2. 構築手順</a></li>
+<li><a class="reference internal" href="#id3">🟩 3. 動かしてみる</a></li>
 </ul>
 </li>
 </ul>
@@ -87,15 +88,70 @@
     
   <section class="tex2jax_ignore mathjax_ignore" id="oai-full-stack-5g-nr-rf">
 <h1>📙 OAI Full Stack 5G-NR RF シミュレーション<a class="headerlink" href="#oai-full-stack-5g-nr-rf" title="Link to this heading">¶</a></h1>
-<p>DockerHubにリリースされているOAIの各種CNFを使って、UE-RAN-CN-DNのフルスタックのデモができる。Kubernetesではなく、普通のDocker Composeで動かすシンプルなもの。UDR周辺をMySQLで代替する等、ナンチャッテCNFもある。</p>
+<p>DockerHubにリリースされているOAIの各種CNFを使って、UE-RAN-CN-DNのフルスタックのデモができる。Kubernetesではなく、普通のDocker Composeで動かすシンプルなもの。AUSF/UDMをMySQLで代替する等、ナンチャッテCNFもある。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/duranta-project/openairinterface5g/tree/develop/ci-scripts/yaml_files/5g_rfsimulator">https://github.com/duranta-project/openairinterface5g/tree/develop/ci-scripts/yaml_files/5g_rfsimulator</a></p></li>
 </ul>
 <section id="id1">
-<h2>🟩 1. 構築手順<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>🟩 1. 構成<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p><strong>CNF一覧</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>CNF</p></th>
+<th class="head text-left"><p>役割</p></th>
+<th class="head text-left"><p>参照点(プロトコル)</p></th>
+<th class="head text-left"><p>備考</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>oai-nr-ue</p></td>
+<td class="text-left"><p>NR-UE</p></td>
+<td class="text-left"><p>N1(NAS)</p></td>
+<td class="text-left"><p>iperf実装</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oai-gnb</p></td>
+<td class="text-left"><p>gNB</p></td>
+<td class="text-left"><p>N1, N2(NGAP), N3(GTPU)</p></td>
+<td class="text-left"><p>CU/DUに分離可能</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oai-amf</p></td>
+<td class="text-left"><p>AMF</p></td>
+<td class="text-left"><p>N2, N12(SQL/TCP), N11(SBI)</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>mysql</p></td>
+<td class="text-left"><p>AUSF/UDM</p></td>
+<td class="text-left"><p>N12</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oai-nrf</p></td>
+<td class="text-left"><p>NRF</p></td>
+<td class="text-left"><p>(SBI)</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oai-smf</p></td>
+<td class="text-left"><p>SMF</p></td>
+<td class="text-left"><p>N11, N4(PFCP)</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>oai-spgwu</p></td>
+<td class="text-left"><p>UPF</p></td>
+<td class="text-left"><p>N3, N4, N6(IP)</p></td>
+<td class="text-left"><p>PGW-Uを拡張したもの</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>oai-ext-dn</p></td>
+<td class="text-left"><p>DN</p></td>
+<td class="text-left"><p>N6</p></td>
+<td class="text-left"><p>iperf実装</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="id2">
-<h2>🟩 2. 動かしてみる<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h2>🟩 2. 構築手順<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id3">
+<h2>🟩 3. 動かしてみる<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 </section>
 </section>
 
