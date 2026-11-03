@@ -109,7 +109,7 @@
 <li><a class="reference internal" href="#id11">🟨 普通のスマホがそのままつながる方式</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id12">🟩 全端末向けの周波数を調整するなんて神業だ</a></li>
+<li><a class="reference internal" href="#id12">🟩 端末ごとに周波数を調整するなんて神業だ</a></li>
 <li><a class="reference internal" href="#id13">🟩 東京向けのビームと大阪向けのビームを１つの衛星が受け持つことあるの？１箇所だけ？</a><ul>
 <li><a class="reference internal" href="#id14">🟨 東京と大阪は1機の視野にすっぽり入る</a></li>
 <li><a class="reference internal" href="#id15">🟨 何本ものビームを同時に出せる</a></li>
@@ -289,7 +289,7 @@ LEOではドップラーシフトが数十kHz規模になり、伝搬遅延も�
 </section>
 </section>
 <section id="id12">
-<h2>🟩 全端末向けの周波数を調整するなんて神業だ<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<h2>🟩 端末ごとに周波数を調整するなんて神業だ<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
 <p>本当によくできていますね。ただ実際は、端末1台ずつの周波数を合わせているわけではなく、ビーム単位でまとめて大まかに合わせ、残りを端末と受信機で吸収する二段構えです。</p>
 <p><strong>ビーム単位で合わせれば、端末どうしの差は小さい</strong></p>
 <p>衛星までの距離が600 km以上あるのに対して、1本のビームが照らす範囲は直径数十 km程度です。衛星から見ると、ビーム内のどの端末もほぼ同じ方向にいます。そのため、ドップラーの大部分(数十 kHz)はビーム内の全端末に共通で、端末ごとの違いはせいぜい数 kHz程度に収まります。衛星はビーム中心の値だけを計算して全体をずらせばよく、軌道から計算できるので、やっていることは「ビームの数だけ周波数の引き算をする」に近いです。</p>
