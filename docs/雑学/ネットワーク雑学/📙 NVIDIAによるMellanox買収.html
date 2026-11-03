@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 NVIDIAによるMellanox買収 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=90365d0e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 中華NICはなぜ安い" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html" />
+    <link rel="prev" title="📙 010677で始まる電話番号" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ネットワーク雑学</a>
+    <span class="sep">»</span><span class="current">📙 NVIDIAによるMellanox買収</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%94%9F%E6%88%90AI/index.html">🟪 生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ネットワーク雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html">📙 010677で始まる電話番号</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 NVIDIAによるMellanox買収</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html">📙 中華NICはなぜ安い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9F%BA%E5%9C%B0%E5%B1%80%E3%81%AE%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1.html">📙 基地局の位置情報</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%BB%8A%E8%BC%89%E5%9E%8B%E5%9F%BA%E5%9C%B0%E5%B1%80.html">📙 車載型基地局</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html">📙 閉域ネットワークはセキュアなのか</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">📙 電電公社の電柱に残る古い地名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html">📙 大型ドローンの性能強化</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 NVIDIAによるMellanox買収</a><ul>
+<li><a class="reference internal" href="#q-nvidiamellanoxrdma">🟩 Q: NVIDIAはMellanoxのRDMA技術が欲しかったの？</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="nvidiamellanox">
+<h1>📙 NVIDIAによるMellanox買収<a class="headerlink" href="#nvidiamellanox" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/3</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-nvidiamellanoxrdma">
+<h2>🟩 Q: NVIDIAはMellanoxのRDMA技術が欲しかったの？<a class="headerlink" href="#q-nvidiamellanoxrdma" title="Link to this heading">¶</a></h2>
+<p>RDMAは理由の一部ですが、主な理由ではありません。RDMAそのものよりも、<strong>データセンター規模でGPUをつなぐネットワーク全体</strong>（ハードウェア、ソフトウェア、エンジニア）を手に入れることが目的でした。</p>
+<p><strong>RDMAだけでは説明できない理由</strong><br />
+RDMAの仕様は公開されています（InfiniBand Verbs、RoCE、iWARP）。またNVIDIAは買収の前から、Mellanoxと組んでGPUDirect RDMAを実現していました。協業で足りていたことに約69億ドル（2019年3月発表、2020年4月完了）を払う必要はありません。Intelも買収に名乗りを上げていたので、競合に取られないための買収という面もありました。</p>
+<p><strong>実際に欲しかったもの</strong></p>
+<ul class="simple">
+<li><p><strong>InfiniBandの独占的な地位</strong>：HPCやAI学習クラスタの接続は、事実上Mellanoxが独占していました。大規模な分散学習ではGPU間の通信がボトルネックになるため、そこを自社で押さえたかったということです。</p></li>
+<li><p><strong>ConnectX NICの実装力</strong>：RDMAの転送処理をハードウェアで行う技術、低遅延、輻輳制御などです。仕様が公開されていても、高い完成度で作れるかどうかは別の話です。</p></li>
+<li><p><strong>SHARP（In-Network Computing）</strong>：AllReduceのような集団通信をスイッチの中で処理する技術です。分散学習に直接効きます。</p></li>
+<li><p><strong>BlueField DPU</strong>：NIC上にArmコアを載せた製品で、インフラ処理をCPUから切り離す流れに乗るためのものです。</p></li>
+<li><p><strong>Spectrum Ethernetスイッチ</strong>：のちのSpectrum-X（AI向けEthernet）につながります。</p></li>
+<li><p><strong>イスラエルの技術者チーム</strong>：ネットワーク用ASICやファームウェアの人材です。</p></li>
+</ul>
+<p><strong>背景にある考え方</strong><br />
+Jensen Huangは「データセンターが一つのコンピュータになる」と繰り返し言っています。GPU、CPU（Grace）、ノード内の接続（NVLink/NVSwitch）、ノード間の接続（InfiniBand/Ethernet）、DPUまでをすべて自社で揃え、ラック単位、クラスタ単位で売るという戦略です。Mellanoxはその中で、ノード間の接続を担う部品でした。</p>
+<p><strong>結果</strong><br />
+生成AIブームで、この買収は大成功と言われるものになりました。NVIDIAのネットワーク事業は年間で数百億ドル規模に伸びていて、DGX/HGXやGB200 NVL72のようなシステム売りの土台になっています。</p>
+<p>DPDKとの関係で言うと、DPDKはパケット処理をユーザ空間に移す技術です。一方RDMAは、転送処理そのものをNICのハードウェアに任せて、CPUをほとんど使わない技術です。Mellanoxはどちらでも強く（mlx5 PMDは定番のDPDKドライバの一つ）、この両方を持っていたことも価値の一部でした。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html"><span class="label">‹ 前へ</span><span class="title">📙 010677で始まる電話番号</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html"><span class="label">次へ ›</span><span class="title">📙 中華NICはなぜ安い</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
