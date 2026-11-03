@@ -13,6 +13,8 @@
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
     <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E8%A1%9B%E6%98%9F%E5%9F%BA%E5%9C%B0%E5%B1%80%E9%96%93%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AA%E3%83%BC%E3%83%90.html" />
     <link rel="icon" href="../../_static/llama.ico"/>
@@ -100,6 +102,14 @@
 <li><a class="reference internal" href="#starlink">🟨 Starlinkは別体系</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#id9">🟩 ドップラーシフトって電波の周波数がゆらぐの？端末側も大変そうだ</a><ul>
+<li><a class="reference internal" href="#id10">🟨 ずれ方は予測できる</a></li>
+<li><a class="reference internal" href="#leo600-km-7-5-km-s">🟨 大きさの目安(LEO、高度600 km、速度 約7.5 km/s)</a></li>
+<li><a class="reference internal" href="#gpp-ntn">🟨 補正の分担(3GPP NTN)</a></li>
+<li><a class="reference internal" href="#id11">🟨 普通のスマホがそのままつながる方式</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">🟩 全端末向けの周波数を調整するなんて神業だ</a></li>
 </ul>
 </li>
 </ul>
@@ -212,6 +222,77 @@ LEOではドップラーシフトが数十kHz規模になり、伝搬遅延も�
 <p>ここまでの話は3GPP NTN(衛星から直接スマホにつなぐ方式など)が前提です。Starlink本体のアンテナ端末は独自の方式で、常時接続を前提に、中央のスケジューラが15秒ごとにどの衛星・どのビームを使うかを割り当てています。携帯網のような「位置登録」の概念とは別物です。</p>
 <p>まとめると、位置登録は地上に固定したTA単位にして衛星の動きと切り離しているので、止まっている端末は登録し直しません。衛星の移動が負荷になるのは通信中のハンドオーバの方で、そこは軌道が予測できることを使った事前設定で集中を抑えています。</p>
 </section>
+</section>
+<section id="id9">
+<h2>🟩 ドップラーシフトって電波の周波数がゆらぐの？端末側も大変そうだ<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<p>揺らぐというより、決まった形でなめらかにずれていきます。ずれ幅がとても大きいので、端末側の負担は増えます。</p>
+<section id="id10">
+<h3>🟨 ずれ方は予測できる<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<p>衛星が近づいてくる間は周波数が上がり、真上を通る瞬間(最接近)にずれがゼロになり、遠ざかる間は下がります。救急車のサイレンと同じ原理です。グラフに描くとS字の曲線になり、軌道がわかれば計算でかなり正確に予測できます。</p>
+</section>
+<section id="leo600-km-7-5-km-s">
+<h3>🟨 大きさの目安(LEO、高度600 km、速度 約7.5 km/s)<a class="headerlink" href="#leo600-km-7-5-km-s" title="Link to this heading">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[f_d = \frac{v_r}{c} f_c\]</div>
+<p>(<span class="math notranslate nohighlight">\(f_d\)</span>:ドップラーシフト、<span class="math notranslate nohighlight">\(v_r\)</span>:端末から見た衛星の接近・後退速度、<span class="math notranslate nohighlight">\(c\)</span>:光速、<span class="math notranslate nohighlight">\(f_c\)</span>:搬送波周波数)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>地上の高速鉄道(500 km/h、2 GHz)</p></th>
+<th class="head"><p>LEO衛星(2 GHz)</p></th>
+<th class="head"><p>LEO衛星(Ka帯 30 GHz)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>最大ずれ</p></td>
+<td><p>約1 kHz</p></td>
+<td><p>約±48 kHz</p></td>
+<td><p>約±700 kHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>変化の速さ</p></td>
+<td><p>ほぼ一定</p></td>
+<td><p>最大で数百 Hz/秒(真上を通るとき)</p></td>
+<td><p>さらに15倍</p></td>
+</tr>
+</tbody>
+</table>
+<p>LTEやNRの副搬送波(OFDMで並べる細い搬送波)の間隔は15 kHzです。±48 kHzのずれは副搬送波3つ分以上にあたり、補正しないと隣の副搬送波と干渉して信号が読めなくなります。地上の高速鉄道と比べると桁が2つ違います。</p>
+</section>
+<section id="gpp-ntn">
+<h3>🟨 補正の分担(3GPP NTN)<a class="headerlink" href="#gpp-ntn" title="Link to this heading">¶</a></h3>
+<p><strong>下り(衛星から端末)</strong></p>
+<ul class="simple">
+<li><p>衛星と地上局の間の回線(フィーダリンク)で生じるずれは、ネットワーク側が補正する。</p></li>
+<li><p>端末と衛星の間の回線(サービスリンク)のずれは、ネットワーク側がビーム中心を基準にあらかじめ補正(事前補正)することもできる。</p></li>
+<li><p>残ったずれは、端末が同期信号を追いかけて合わせる。</p></li>
+</ul>
+<p><strong>上り(端末から衛星)</strong>: ここが端末の負担になる部分です。</p>
+<ul class="simple">
+<li><p>端末は自分の位置をGNSSで測る。</p></li>
+<li><p>衛星の軌道情報(エフェメリス)は報知情報(SIB19)で受け取る。</p></li>
+<li><p>この2つから衛星との相対速度を計算し、送信周波数を事前にずらして送る。</p></li>
+<li><p>衛星までの距離も時々刻々と変わるので、送信タイミング(TA)も自分で計算して更新し続ける。</p></li>
+</ul>
+<p>そのため、Rel-17のNTN端末はGNSS搭載が前提です。安価なIoT端末(NB-IoT/eMTC)は、GNSSと通信を同時に動かせないことが多いです。そこで、一度測った位置をどれくらいの時間使い続けてよいかを決める「GNSS有効期間」が規定されていて、期限が来たらいったん通信を止めて測位し直します。</p>
+</section>
+<section id="id11">
+<h3>🟨 普通のスマホがそのままつながる方式<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<p>Starlinkの Direct to Cell のように、改造していない既存のLTEスマホが衛星とつながるサービスもあります。端末はドップラーのことを何も知らないので、衛星側がビームごとにずれを事前補正して、端末から見ると地上局と同じように見せています。ビームの中心と端の間に残る差は、端末の通常の周波数追従でなんとか吸収できる範囲に収めています。</p>
+<p>まとめると、ずれは大きくても予測できるので、GNSSと軌道情報で計算して打ち消すのが基本です。その計算を端末にさせるのが3GPP NTN方式で、衛星側が全部引き受けて普通のスマホのまま使えるようにしたのが Direct to Cell 方式です。</p>
+</section>
+</section>
+<section id="id12">
+<h2>🟩 全端末向けの周波数を調整するなんて神業だ<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<p>本当によくできていますね。ただ実際は、端末1台ずつの周波数を合わせているわけではなく、ビーム単位でまとめて大まかに合わせ、残りを端末と受信機で吸収する二段構えです。</p>
+<p><strong>ビーム単位で合わせれば、端末どうしの差は小さい</strong></p>
+<p>衛星までの距離が600 km以上あるのに対して、1本のビームが照らす範囲は直径数十 km程度です。衛星から見ると、ビーム内のどの端末もほぼ同じ方向にいます。そのため、ドップラーの大部分(数十 kHz)はビーム内の全端末に共通で、端末ごとの違いはせいぜい数 kHz程度に収まります。衛星はビーム中心の値だけを計算して全体をずらせばよく、軌道から計算できるので、やっていることは「ビームの数だけ周波数の引き算をする」に近いです。</p>
+<p><strong>残りの差は既存の仕組みで吸収する</strong></p>
+<ul class="simple">
+<li><p>下り:端末はもともと地上局と自分の水晶発振器のずれ(数 kHz)を同期信号で合わせる機能を持っているので、残差はその範囲で吸収できる。</p></li>
+<li><p>上り:各端末の電波は少しずつずれた周波数で届くので、衛星側の受信機が端末ごとにずれを推定して補正する。地上の高速鉄道向け基地局でも行っている処理の延長です。</p></li>
+</ul>
+<p>つまり「全端末の周波数を個別に合わせる」のではなく、「大部分は軌道計算でまとめて打ち消し、残った小さな差を既存の仕組みで吸収する」設計です。</p>
+<p>それでも、時速2万7千kmで飛ぶ衛星の上でビームを何本も作り、それぞれの補正値を絶えず更新しながら地上局のふりをしているのですから、神業というのはそのとおりだと思います。</p>
 </section>
 </section>
 
