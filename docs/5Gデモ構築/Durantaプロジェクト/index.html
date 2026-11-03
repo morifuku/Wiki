@@ -67,17 +67,74 @@
 </ul>
 
 </nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">🟦 Durantaプロジェクト</a><ul>
+<li><a class="reference internal" href="#id1">🟩 1. 概要</a></li>
+<li><a class="reference internal" href="#id2">🟩 2. ロードマップ（2026年6月時点の資料から）</a></li>
+<li><a class="reference internal" href="#id3">🟩 3. リファレンス</a></li>
+<li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
   </aside>
   <div class="content">
   <main class="body" role="main">
     
   <section class="tex2jax_ignore mathjax_ignore" id="duranta">
 <h1>🟦 Durantaプロジェクト<a class="headerlink" href="#duranta" title="Link to this heading">¶</a></h1>
+<p>Durantaは、OpenAirInterface（OAI）のRANとUEのコードを引き継いで、Linux Foundation Networking（LFN）の傘下で開発を続けるオープンソースプロジェクトです。</p>
+<p>OAIで研究用として育ったRANスタックを、LFNの体制のもとで「商用一歩手前まで持っていけるリファレンス」に格上げしようとしている、と捉えるのが分かりやすいと思います。コードの中身はOAIからそのまま続いていて、大きく変わったのはガバナンス・ライセンス・ホスティングです。</p>
+<section id="id1">
+<h2>🟩 1. 概要<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p><strong>成り立ち</strong></p>
+<ul class="simple">
+<li><p>2025年8月に、OSAとLFNがOAIのコミュニティソフトウェアをもとに、新しい候補プロジェクトDurantaを立ち上げると発表しました。</p></li>
+<li><p>正式に動き出したのは2026年6月22日、ポルトで開かれたOAIサマーワークショップです。OAIのRelease 2026.w24がシードコードになりました。</p></li>
+<li><p>その後、<code class="docutils literal notranslate"><span class="pre">openairinterface5g</span></code>の開発拠点はGitLab（Eurecom）から<code class="docutils literal notranslate"><span class="pre">github.com/duranta-project/openairinterface5g</span></code>へ正式に移っています。</p></li>
+</ul>
+<p><strong>何を作るのか</strong></p>
+<ul class="simple">
+<li><p>研究・試験・初期導入向けの、オープンソースのRANとUEのリファレンススタックです。</p></li>
+<li><p>サブプロジェクトは2つあります。1つはCU/DUとUEの共同開発（ドキュメント、テスト資産、統合用の成果物を含む）を行うRAN &amp; UE、もう1つはCI/CD、パッケージング、ラボ構成、再現性のあるテストハーネス、運用手順書を扱うOperationsです。</p></li>
+<li><p>Core NetworkとO&amp;Mは今は範囲外で、後から追加する予定になっています。</p></li>
+</ul>
+<p><strong>OAIから何が変わったのか</strong></p>
+<ul class="simple">
+<li><p>ガバナンス：LF Networkingのもとでの中立的なガバナンスと、ガバニングボードの監督・専任スタッフ・セキュリティのベストプラクティスによる組織的な支援が加わりました。OSA（つまりEurecom）主導の色が薄まり、業界企業が参加しやすい形になっています。</p></li>
+<li><p>ライセンス：OAI Public License v1.1を汎用的な表現に書き直したCSSL v1.0に変わりました。研究・試験目的なら特許ライセンスは無償、商用ならFRANDという、3GPP向けの骨格はそのままです。</p></li>
+<li><p>LFN内の連携：CNFのデプロイと自動化を担うLFNのNephioとの統合がうたわれていて、クラウドネイティブな運用を意識しています。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>🟩 2. ロードマップ（2026年6月時点の資料から）<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>RAN：2026年第2四半期にGPU LDPCアクセラレータ、NR-DC、64 UE対応、第4四半期にFHI 7.2のCat-B、RAN Paging、L1での下りMU-MIMO</p></li>
+<li><p>UE：ハンドオーバ、Sidelinkの基本手順、2レイヤの上り・下り、ATコマンドインタフェース、キャリアスキャン</p></li>
+<li><p>全体の流れはRAN/UEの基盤づくり → 運用面の整備 → CoreとO&amp;Mへの展開 → 成熟度と適合性（テストスイート、性能のベースライン、リリース基準）の4段階です。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>🟩 3. リファレンス<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lfnetworking.org/projects/duranta/">LF Networking: Duranta</a></p></li>
+<li><p><a class="reference external" href="https://www.linuxfoundation.org/press/lf-networking-and-openairinterface-software-alliance-osa-collaborate-to-announce-duranta-to-advance-open-source-ran-innovation">Linux Foundation press release (2025-08-27)</a></p></li>
+<li><p><a class="reference external" href="https://lfnetworking.org/?p=40467">LFN announcement</a></p></li>
+<li><p><a class="reference external" href="https://openairinterface.org/wp-content/uploads/2026/06/Summer-2026-OAI-Workshop-Duranta.pdf">Summer 2026 OAI Workshop – Introduction to Duranta (PDF)</a></p></li>
+<li><p><a class="reference external" href="https://openairinterface.org/wp-content/uploads/2025/12/2025-11-12-CSSL.pdf">OAI CSSL webinar slides (PDF)</a></p></li>
+</ul>
+</section>
+<section id="contents">
+<h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="%F0%9F%93%99%20OAI%20Full%20Stack%205G-NR%20RF%20%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.html">📙 OAI Full Stack 5G-NR RF シミュレーション</a></li>
 </ul>
 </div>
+</section>
 </section>
 
 
