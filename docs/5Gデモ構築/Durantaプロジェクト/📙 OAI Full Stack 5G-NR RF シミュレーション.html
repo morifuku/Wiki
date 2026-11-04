@@ -146,6 +146,51 @@
 </tr>
 </tbody>
 </table>
+<p><strong>主なファイル</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ファイル</p></th>
+<th class="head"><p>役割</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code></p></td>
+<td><p>本体。コア NF、gNB、UE ×10 の定義</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mini_nonrf_config.yaml</span></code></p></td>
+<td><p>OAI CN5G（AMF/SMF/UPF）共通の設定ファイル</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oai_db.sql</span></code></p></td>
+<td><p>加入者 DB の初期データ（IMSI 208990100001100〜…115 の16件）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mysql-healthcheck.sh</span></code></p></td>
+<td><p>MySQL の healthcheck（DB に初期データが入ったかを確認）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">local-override.yaml</span></code></p></td>
+<td><p>手元でビルドした nr-softmodem / nr-uesoftmodem / librfsimulator.so を差し替えて動かす override</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">local-override-ue-gdb.yaml</span></code></p></td>
+<td><p>UE を gdb の下で起動する override</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> / <code class="docutils literal notranslate"><span class="pre">oai-end-to-end.jpg</span></code></p></td>
+<td><p>手順書と構成図</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>ネットワーク構成</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public_net</span></code>：192.168.71.128/26。制御系と N2/N3/N4、RFsim の通信が通る</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">traffic_net</span></code>：192.168.72.128/26。N6（UPF から外部 DN への出口）</p></li>
+</ul>
+<p><strong>主なパラメータ</strong></p>
+<ul class="simple">
+<li><p><strong>PLMN</strong>：MCC 208 / MNC 99、TAC 0x0001</p></li>
+<li><p><strong>スライス</strong>：SST=1（eMBB）、DNN は <code class="docutils literal notranslate"><span class="pre">oai</span></code></p></li>
+<li><p><strong>UE の IP プール</strong>：12.1.1.0/24（IPv4）</p></li>
+<li><p><strong>QoS</strong>：5QI 9、AMBR は UL 200 Mbps / DL 400 Mbps</p></li>
+<li><p><strong>無線</strong>：band 78、106 PRB、numerology 1（30 kHz SCS）、中心周波数 3319.68 MHz（<code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">3319680000</span></code>）</p></li>
+<li><p><strong>認証</strong>：K=<code class="docutils literal notranslate"><span class="pre">fec86ba6…</span></code>、OPc=<code class="docutils literal notranslate"><span class="pre">c4244936…</span></code>（全 UE で共通）</p></li>
+</ul>
 </section>
 <section id="id2">
 <h2>🟩 2. 構築手順<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
