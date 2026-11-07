@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 ロボットの模倣学習 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=ef6ae84c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%81%AE%E6%A8%A1%E5%80%A3%E5%AD%A6%E7%BF%92.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 大型ドローンの性能強化" href="%F0%9F%93%99%20%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html" />
+    <link rel="prev" title="📙 ロボットの姿勢制御" href="%F0%9F%93%99%20%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%81%AE%E5%A7%BF%E5%8B%A2%E5%88%B6%E5%BE%A1.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ロボット雑学</a>
+    <span class="sep">»</span><span class="current">📙 ロボットの模倣学習</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%94%9F%E6%88%90AI/index.html">🟪 生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ロボット雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89.html">📙 ヒューマノイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%95%E3%82%A3%E3%82%B8%E3%82%AB%E3%83%ABAI%E3%81%AF%E3%81%8A%E7%A5%AD%E3%82%8A%E9%A8%92%E3%81%8E.html">📙 フィジカルAIはお祭り騒ぎ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%81%AE%E5%A7%BF%E5%8B%A2%E5%88%B6%E5%BE%A1.html">📙 ロボットの姿勢制御</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 ロボットの模倣学習</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html">📙 大型ドローンの性能強化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%89%E3%81%84%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E6%8E%A2%E3%81%97.html">📙 安いアクチュエータ探し</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E7%B6%B1%E6%B8%A1%E3%82%8A%E6%9B%B2%E8%8A%B8%E5%B8%AB%E3%81%AE%E9%87%8D%E5%BF%83%E3%81%AE%E7%89%A9%E7%90%86%E5%AD%A6.html">📙 綱渡り曲芸師の重心の物理学</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 ロボットの模倣学習</a><ul>
+<li><a class="reference internal" href="#q">🟩 Q: ロボットは模倣学習で人間から何を学ぶの？筋肉の動かし方？</a></li>
+<li><a class="reference internal" href="#q-1980">🟩 Q: 1980年代に大学で習った人間工学に似ている。人に上手く作業させる手法</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>📙 ロボットの模倣学習<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/7</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q">
+<h2>🟩 Q: ロボットは模倣学習で人間から何を学ぶの？筋肉の動かし方？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>いいえ、筋肉の動かし方ではありません。ロボットが人間の動画から学ぶのは、主に <strong>「何を、どの順番で、どこへ、どう動かすか」という作業のやり方</strong> です。</p>
+<p><strong>筋肉を学ばない理由</strong></p>
+<p>ロボットには筋肉がありません。動かしているのはモーターと関節で、腕の長さ、関節の数、手の形も人間とは違います。人間の筋肉の使い方を真似ても、ロボットはそれを実行できません。ダンスの動画を見て振り付けを覚える場合を考えると分かりやすいと思います。覚えるのは手足の軌跡や順番であって、相手の筋肉の動かし方ではありません。実際に体を動かすのは自分の筋肉です。</p>
+<p><strong>人間の動画から取れる情報</strong></p>
+<ul class="simple">
+<li><p>どの物体をつかむか、どこに置くか(作業の目的と手順)</p></li>
+<li><p>手や物体が空間の中でどう動くか(軌跡)</p></li>
+<li><p>物体どうしの位置関係や、触れるタイミング</p></li>
+</ul>
+<p><strong>一般的な模倣学習の考え方</strong></p>
+<ol class="arabic simple">
+<li><p><strong>見た目のずれを消す(仮想試着)</strong><br />
+ロボットは学習時も実際の作業時も、カメラ映像を見て動きます。学習用の映像に人間の手が映っていて、本番では自分のロボットアームが映ると、ロボットは混乱します。そこで、作業内容と背景はそのままにして、人間の姿だけをロボットの外観に描き替えます。</p></li>
+<li><p><strong>動作ラベルを推定する(逆動力学モデル)</strong><br />
+動画には「どの関節をどれだけ動かしたか」という情報が含まれていません。そこで、連続する2つのフレームの変化を見て「この変化を起こすには、ロボットがどんな指令を出せばよいか」を逆算し、ロボット自身の動作に翻訳します。深度情報を使うのは、奥行きを含めた3次元の動きを推定しやすくするためでしょう。</p></li>
+</ol>
+<p>最終的にロボットが学ぶのは、「この映像が見えたら、自分の関節をこう動かす」という対応関係です。人間はお手本として作業の流れを示し、その動きをロボットの体で実行できる形に変換している、というイメージです。</p>
+<p><strong>動画では取りにくい情報</strong></p>
+<ul class="simple">
+<li><p><strong>力や手触り</strong>:どれくらい強く握るか、どれくらい押し込むかは、映像からはほとんど分かりません。</p></li>
+<li><p><strong>体の違い</strong>:人間には簡単でも、ロボットの関節では再現できない動きがあります。</p></li>
+</ul>
+</section>
+<section id="q-1980">
+<h2>🟩 Q: 1980年代に大学で習った人間工学に似ている。人に上手く作業させる手法<a class="headerlink" href="#q-1980" title="Link to this heading">¶</a></h2>
+<p>確かに似ていますね。むしろ、同じ流れの先にある話と言えるかもしれません。</p>
+<p>当時習われたのは、ギルブレスの動作研究やサーブリッグ(「つかむ」「運ぶ」「位置決め」など作業を細かい動作に分ける方法)、動作経済の原則といった内容だったのではないでしょうか。人の作業をビデオやフィルムで撮り、細かい動作に分けて、無駄を省いた手順や配置を設計する、という考え方です。</p>
+<p>ロボットの模倣学習も、人の作業映像から「どこへ手を伸ばし、何をつかみ、どこへ運ぶか」を取り出す点では、ほとんど同じことをしています。違うのは目的の向きです。</p>
+<ul class="simple">
+<li><p><strong>当時</strong>:作業を分析して、人間がうまく作業できるように手順や環境を整える</p></li>
+<li><p><strong>今</strong>:作業を分析して、その手順をロボットの体に移し替える</p></li>
+</ul>
+<p>もう一つ面白いのは、ヒューマノイドが作られる理由そのものが人間工学とつながっていることです。工場や家庭の道具、棚の高さ、ドアノブ、作業台は、人間工学によって人間の体に合わせて設計されてきました。その環境をそのまま使うには、人間に近い形のロボットが都合がいい。人間に合わせて整えてきた世界に、今度はロボットのほうが合わせにいっている、という構図です。</p>
+<p>人間工学の「人に上手く作業させる」ための知見が、ロボットに作業を教えるための土台になっているわけです。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%81%AE%E5%A7%BF%E5%8B%A2%E5%88%B6%E5%BE%A1.html"><span class="label">‹ 前へ</span><span class="title">📙 ロボットの姿勢制御</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html"><span class="label">次へ ›</span><span class="title">📙 大型ドローンの性能強化</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
