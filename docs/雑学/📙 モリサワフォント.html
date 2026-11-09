@@ -86,6 +86,12 @@
 <li><a class="reference internal" href="#adobe-illustrator">🟩 Adobe Illustratorの位置づけ。フォントの発展に触発された？</a></li>
 <li><a class="reference internal" href="#macintoshillustrator">🟩 おまけ：初期のMacintoshに、Illustratorのデモスタックが付いてた気がする</a></li>
 <li><a class="reference internal" href="#laserwriter-apple-xerox">🟩 おまけ：LaserWriterは誰が開発したの？Apple？Xerox？</a></li>
+<li><a class="reference internal" href="#xeroxj-starpostscript-apple">🟩 おまけ：XeroxのJ-StarはPostScriptで日本語印刷してた？Appleとの関係は</a><ul>
+<li><a class="reference internal" href="#j-star">🟨 J-Starの印刷方式</a></li>
+<li><a class="reference internal" href="#postscript">🟨 PostScriptとの関係（ここがつながり）</a></li>
+<li><a class="reference internal" href="#apple">🟨 Appleとの関係</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -222,6 +228,36 @@ TeXはもう仕様を固定していて、バージョン番号が3.14、3.141�
 <li><p>スティーブ・ジョブズはPostScriptに目をつけ、Adobeに出資してLaserWriterに採用しました。</p></li>
 </ul>
 <p>まとめると、レーザー印刷の原理とPostScriptの源流はXerox、印字部分はCanon、PostScriptを実際に作ったのはAdobe、全体をまとめて製品にしたのがAppleです。LaserWriterとMac、そしてAldus PageMakerがそろったことで、DTPが始まりました。この回答も調べずに書いているので、細かいところは目安として見てください。</p>
+</section>
+<section id="xeroxj-starpostscript-apple">
+<h2>🟩 おまけ：XeroxのJ-StarはPostScriptで日本語印刷してた？Appleとの関係は<a class="headerlink" href="#xeroxj-starpostscript-apple" title="Link to this heading">¶</a></h2>
+<p>いいえ。J-Starは<strong>PostScriptを使っていません</strong>。時期を並べると理由がわかります。</p>
+<section id="j-star">
+<h3>🟨 J-Starの印刷方式<a class="headerlink" href="#j-star" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Xerox Star（8010）は1981年、日本語版のJ-Star（富士ゼロックス）は1982年頃の発売です。PostScriptが登場したのは1984年なので、時期的に使えません。</p></li>
+<li><p>Starの系統は、Xerox自社のページ記述言語を使っていました。PARCで使われた<strong>Press</strong>形式と、その後継の<strong>Interpress</strong>です。Starからは、Ethernetにつながったプリントサーバー経由でXeroxのレーザープリンタに出力していました。</p></li>
+<li><p>日本語は、Xeroxの16ビット文字コード体系（Xerox Character Code Standard）で漢字を扱い、プリンタ側のフォントで印字していました。製品や時期によってPressとInterpressのどちらで出力したか、細かい点はうろ覚えなので、正確な情報が必要なら一次資料で確認してください。</p></li>
+</ul>
+</section>
+<section id="postscript">
+<h3>🟨 PostScriptとの関係（ここがつながり）<a class="headerlink" href="#postscript" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Interpressを開発したのは、PARCのJohn WarnockとChuck Geschkeらです。</p></li>
+<li><p>二人はInterpressを早く外販したいと考えていましたが、Xeroxは消極的でした。そこで1982年にXeroxを辞めてAdobeを創業し、Interpressの考え方を受け継いだ<strong>PostScript</strong>を作りました。</p></li>
+<li><p>つまりPostScriptは、Starの印刷技術のいわば「スピンアウトした子孫」です。</p></li>
+</ul>
+</section>
+<section id="apple">
+<h3>🟨 Appleとの関係<a class="headerlink" href="#apple" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>1979年のPARC見学</strong>：上場前のAppleの株をXeroxに買わせる見返りに、Steve JobsたちがPARCを見学しました。そこでAltoのGUIを見たことが、LisaとMacintoshにつながります。StarとLisa/Macは、ほぼ同じ時代に同じ源流から生まれた兄弟のような関係です。</p></li>
+<li><p><strong>LaserWriter（1985年）</strong>：AppleがAdobeのPostScriptを採用し、Mac＋LaserWriter＋PageMakerでDTPが始まりました。Xeroxの印刷思想は、Adobe経由でAppleに入ったことになります。</p></li>
+<li><p><strong>日本語PostScript</strong>：1989年頃に、モリサワのリュウミン・中ゴシックを載せた日本語PostScriptプリンタ（LaserWriter II NTX-Jなど）が出て、日本のMac DTPが広がりました。日本語の組版・印刷では、J-Starがこれより何年も先行していたことになります。</p></li>
+<li><p><strong>訴訟</strong>：1989年にXeroxは、Mac/LisaのGUIについてAppleを訴えましたが、1990年に大部分が棄却されました。</p></li>
+</ol>
+<p>まとめると、J-Starの日本語印刷はXerox独自のInterpress系の方式です。その技術を作った人たちがAdobeでPostScriptを作り、それがAppleのLaserWriterに採用されて世界中に広まった、という流れです。</p>
+</section>
 </section>
 </section>
 
