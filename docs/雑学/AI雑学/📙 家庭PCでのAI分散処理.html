@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 家庭PCでのAI分散処理 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=ef6ae84c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/AI%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E5%AE%B6%E5%BA%ADPC%E3%81%A7%E3%81%AEAI%E5%88%86%E6%95%A3%E5%87%A6%E7%90%86.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="🟦 ネットワーク雑学" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html" />
+    <link rel="prev" title="📙 太陽光でAI" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 AI雑学</a>
+    <span class="sep">»</span><span class="current">📙 家庭PCでのAI分散処理</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 AI雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html">📙 AIと技術情報サイトの将来</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html">📙 Hugging FaceのMicroduck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">📙 macOS 27のfmコマンド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%8D%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%A7local%20AI.html">📙 ネオクラウドでlocal AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html">📙 ビッグデータ分析とLLMの違い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%BA%BA%E5%B7%A5%E7%84%A1%E8%83%BD%E3%81%AE%E5%BE%A9%E6%A8%A9.html">📙 人工無能の復権</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html">📙 太陽光でAI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 家庭PCでのAI分散処理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 家庭PCでのAI分散処理</a><ul>
+<li><a class="reference internal" href="#q-pcai">🟩 Q: 多数のボランティアPCで、宇宙からの電波データを分散処理した手法で、AIの重いタスクも処理できないか？</a><ul>
+<li><a class="reference internal" href="#seti-home">🟨 SETI&#64;homeがうまくいった理由</a></li>
+<li><a class="reference internal" href="#id1">🟨 推論（モデルを動かす）：実用レベルに達している</a></li>
+<li><a class="reference internal" href="#id2">🟨 学習（モデルを作る）：最大の壁は帯域</a></li>
+<li><a class="reference internal" href="#pc">🟨 家庭PCならではの課題</a></li>
+<li><a class="reference internal" href="#id3">🟨 身近なところでは</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="pcai">
+<h1>📙 家庭PCでのAI分散処理<a class="headerlink" href="#pcai" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/11</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-pcai">
+<h2>🟩 Q: 多数のボランティアPCで、宇宙からの電波データを分散処理した手法で、AIの重いタスクも処理できないか？<a class="headerlink" href="#q-pcai" title="Link to this heading">¶</a></h2>
+<p>できます。しかも、すでに実際に動いています。ただし「推論」と「学習」で難しさがまったく違います。</p>
+<section id="seti-home">
+<h3>🟨 SETI&#64;homeがうまくいった理由<a class="headerlink" href="#seti-home" title="Link to this heading">¶</a></h3>
+<p>SETI&#64;homeは、電波データを小さな塊に切り分けて配り、各PCが独立に解析して結果を返すだけの仕組みでした。PC同士がやり取りする必要がない、いわゆる「embarrassingly parallel」な処理です。似た仕組みの例では、COVID期間中にFolding&#64;homeが世界の200万台のボランティア機から2.4 exaFLOPSの計算力を集めました。</p>
+<p>AIの処理はこの形になっていません。どこが難しいかは、推論と学習で分かれます。</p>
+</section>
+<section id="id1">
+<h3>🟨 推論（モデルを動かす）：実用レベルに達している<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>代表例はPetalsです。仕組みは、ボランティアのサーバーがLLMの一部のレイヤーを受け持ち、クライアントがそれらのサーバーを順につないで推論するパイプライン並列です。層の境界で受け渡すのは隠れ状態だけなので、通信量は少なくて済みます。</p>
+<ul class="simple">
+<li><p>Llama 2 (70B) や BLOOM (176B) をインターネット越しに動かし、対話的な生成ではオフロード方式より最大10倍速いという結果が出ています。</p></li>
+<li><p>技術的な課題は、どのノードがいつ突然切断しても推論を続けられること、性能がばらばらの機器が自由に参加・離脱する中でモデルを分割することの2点です。家庭PCを使う分散処理なら、どれも避けて通れない問題です。</p></li>
+</ul>
+<p>商用でも、ゲーミングPCの空きGPUを推論用に束ねるネットワークが次々に出ています。たとえばFAR Labsは、ゲーミングPCやワークステーション、小型サーバーの空きGPUをつなぐ分散推論ネットワークを立ち上げました。</p>
+</section>
+<section id="id2">
+<h3>🟨 学習（モデルを作る）：最大の壁は帯域<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>業界での見方は、学習には近接性が要るが、推論には要らないという一言にまとまります。</p>
+<ul class="simple">
+<li><p>従来のデータ並列学習では、数十GBの勾配を数秒ごとに共有する必要があり、家庭のインターネット回線ではとても追いつきません。</p></li>
+<li><p>そのため最先端モデルの学習では、インターネットの遅延と信頼性が、データセンター内で密に結合したハードウェアに太刀打ちできず、分散ネットワークは現実的ではないとされています。</p></li>
+</ul>
+<p>それでも、通信量を減らすアルゴリズム（DiLoCo系の「ローカルで何百ステップも進めてから、まれに同期する」方式など）で状況は変わってきています。2026年6月には、Pluralisが数千台の異種GPUで8Bパラメータのモデルを分散学習しました。強化学習の分野ではGensynのRL Swarmなども動いています。</p>
+</section>
+<section id="pc">
+<h3>🟨 家庭PCならではの課題<a class="headerlink" href="#pc" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>VRAM不足</strong>：コンシューマGPUはメモリが小さいので、モデルを細かく分割する必要があり、その分通信が増えます。</p></li>
+<li><p><strong>計算結果の検証</strong>：参加者がでたらめな結果を返しても見抜けないと困ります。SETI&#64;homeでは同じ仕事を複数台に配って照合していました。AIでは計算量が大きいので、抜き取りの再計算や担保（ステーク）を取るといった仕組みが研究されています。</p></li>
+<li><p><strong>電気代とインセンティブ</strong>：ボランティアだけでは続かないので、多くのプロジェクトが暗号資産で報酬を払う形を取っています。ただし怪しい案件も混じっています。</p></li>
+<li><p><strong>プライバシー</strong>：推論では、入力したプロンプトが他人のマシンを通過します。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 身近なところでは<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>インターネット規模でなくても、自宅LAN内の数台を束ねるのは、すぐ試せる現実的な選択肢です。llama.cppのRPCバックエンドやexoを使えば、複数台に層を分散させて、1台のVRAMやRAMに収まらないモデルを動かせます。LAN内なら遅延も帯域もインターネットよりずっと有利です。</p>
+<p>まとめると、推論の分散はPetalsの頃から実用段階にあり、学習の分散は低通信アルゴリズムの登場でようやく数十億パラメータ級まで来たところです。フロンティア級のモデルの学習は、今もデータセンターでしかできません。</p>
+<p>Sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2312.08361v1">Distributed Inference and Fine-tuning of Large Language Models Over The Internet (arXiv)</a></p></li>
+<li><p><a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/28bf1419b9a1f908c15f6195f58cb865-Abstract.html">NeurIPS 2023 – Petals論文</a></p></li>
+<li><p><a class="reference external" href="https://www.alphaxiv.org/overview/2209.01188">alphaXiv – Petals overview</a></p></li>
+<li><p><a class="reference external" href="https://blog.gensyn.ai/gpt-home-why-the-future-of-training-is-decentralized/">Gensyn – GPT&#64;home</a></p></li>
+<li><p><a class="reference external" href="https://cointelegraph.com/news/what-role-is-left-for-decentralized-gpu-networks-in-ai?rand=50490">Cointelegraph – What role is left for decentralized GPU networks in AI?</a></p></li>
+<li><p><a class="reference external" href="https://app.dealroom.co/news/note/all-in-panel-on-distributed-compute-idle-gpus-into-shared-inference-training-pools">Dealroom – All-In panel on distributed compute</a></p></li>
+<li><p><a class="reference external" href="https://www.dispersed.com/blog-posts/your-gpu-wants-to-work-nights">Dispersed – Your GPU Wants to Work Nights</a></p></li>
+<li><p><a class="reference external" href="https://www.fairobserver.com/more/science/you-dont-need-data-centers-to-win-the-ai-race/">Fair Observer – You Don't Need Data Centers to Win the AI Race</a></p></li>
+<li><p><a class="reference external" href="https://hackernoon.com/lite/far-labs-launches-distributed-compute-network-for-ai-inference">HackerNoon – FAR Labs</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html"><span class="label">‹ 前へ</span><span class="title">📙 太陽光でAI</span></a>
+      <a class="next" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html"><span class="label">次へ ›</span><span class="title">🟦 ネットワーク雑学</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
