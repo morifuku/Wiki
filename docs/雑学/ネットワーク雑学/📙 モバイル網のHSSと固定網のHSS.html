@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 モバイル網のHSSと固定網のHSS &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%B6%B2%E3%81%AEHSS%E3%81%A8%E5%9B%BA%E5%AE%9A%E7%B6%B2%E3%81%AEHSS.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 中華NICはなぜ安い" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html" />
+    <link rel="prev" title="📙 NVIDIAによるMellanox買収" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ネットワーク雑学</a>
+    <span class="sep">»</span><span class="current">📙 モバイル網のHSSと固定網のHSS</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ネットワーク雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html">📙 010677で始まる電話番号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html">📙 NVIDIAによるMellanox買収</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 モバイル網のHSSと固定網のHSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html">📙 中華NICはなぜ安い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9F%BA%E5%9C%B0%E5%B1%80%E3%81%AE%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1.html">📙 基地局の位置情報</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%A1%9B%E6%98%9F%E5%9F%BA%E5%9C%B0%E5%B1%80%E9%96%93%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AA%E3%83%BC%E3%83%90.html">📙 衛星基地局間のハンドオーバ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%BB%8A%E8%BC%89%E5%9E%8B%E5%9F%BA%E5%9C%B0%E5%B1%80.html">📙 車載型基地局</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html">📙 閉域ネットワークはセキュアなのか</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E6%B3%A2%E6%9A%97%E5%AE%A4%E3%81%A8%E7%84%A1%E9%9F%BF%E5%AE%A4.html">📙 電波暗室と無響室</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">📙 電電公社の電柱に残る古い地名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 モバイル網のHSSと固定網のHSS</a><ul>
+<li><a class="reference internal" href="#q-hss-5gudm">🟩 Q: モバイル網用と固定網用でそれぞれHSSを運用してたのは、異文化すぎて融合できなかったから？5GのUDMで融合できた？</a><ul>
+<li><a class="reference internal" href="#hss">🟨 そもそも固定網側はHSS中心ではなかった</a></li>
+<li><a class="reference internal" href="#id1">🟨 別々に運用された主な理由</a></li>
+<li><a class="reference internal" href="#g">🟨 5Gで何が変わったか</a></li>
+<li><a class="reference internal" href="#id2">🟨 実際の展開状況</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-hss">🟩 Q: 固定網HSSの認証の位置づけがよく分からない。固定網端末の何を認証しているの？</a><ul>
+<li><a class="reference internal" href="#sip-digest">🟨 1. SIP Digest認証：契約のパスワードを知っているか</a></li>
+<li><a class="reference internal" href="#nass-bundled-tispan">🟨 2. NASS-Bundled認証（TISPAN）：契約どおりの回線から来ているか</a></li>
+<li><a class="reference internal" href="#id3">🟨 モバイル網との対比</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-2">🟩 Q: 自分が所有している２つの台帳間でチェックする意味あるの？</a><ul>
+<li><a class="reference internal" href="#id4">🟨 何を照合しているか</a></li>
+<li><a class="reference internal" href="#id5">🟨 2つの台帳は性質が違う</a></li>
+<li><a class="reference internal" href="#id6">🟨 同じ会社の台帳とは限らない</a></li>
+<li><a class="reference internal" href="#ip">🟨 前提：送信元IPアドレスが偽れないこと</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="hsshss">
+<h1>📙 モバイル網のHSSと固定網のHSS<a class="headerlink" href="#hsshss" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/12公開 2026/11/12更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/12</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-hss-5gudm">
+<h2>🟩 Q: モバイル網用と固定網用でそれぞれHSSを運用してたのは、異文化すぎて融合できなかったから？5GのUDMで融合できた？<a class="headerlink" href="#q-hss-5gudm" title="Link to this heading">¶</a></h2>
+<p>「異文化」も理由の一つですが、それより大きかったのは認証方式、識別子、組織と規制の違いです。5GのUDMで規格上は融合できるようになりました。ただし実際の運用ではまだ限られている、というのが私の理解です。</p>
+<section id="hss">
+<h3>🟨 そもそも固定網側はHSS中心ではなかった<a class="headerlink" href="#hss" title="Link to this heading">¶</a></h3>
+<p>固定網のブロードバンドは昔からBRAS/BNG、RADIUS/AAA、LDAP系の加入者DBで動いていて、HSSは使っていません。固定網でHSSが出てくるのはIMSで固定電話を提供する場合、つまりTISPAN NGNやNTTのNGNのような世界だけです。なので「固定網用HSS」は、実態としては「固定網IMS用HSS」でした。</p>
+</section>
+<section id="id1">
+<h3>🟨 別々に運用された主な理由<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>認証方式が違う</strong>: モバイル網はSIMとAKAで、認証ベクタ（RAND/AUTN/XRES）の生成がHSSの中心的な仕事です。固定網IMSはSIMがないので、SIP Digest認証か、回線に紐付けた認証（TISPANのNASS-bundled）が基本でした。同じHSSでも、使う機能がかなり違います。</p></li>
+<li><p><strong>識別子が違う</strong>: モバイル網はIMSIとMSISDN、固定網は回線IDや固定電話番号です。データモデルも、番号の扱いも、番号ポータビリティの仕組みも別系統でした。</p></li>
+<li><p><strong>組織と規制</strong>: 日本ではこれが決定的です。NGNはNTT東西、モバイル網はドコモと会社が別で、NTT法や公正競争の観点からも設備を共用しにくい構造でした。海外でも、固定網部門とモバイル網部門で調達やベンダーが別というのはよくある話です。</p></li>
+<li><p><strong>障害の影響範囲とリスク</strong>: 加入者DBを一つにまとめると、障害が起きたときに固定網とモバイル網が同時に止まります。運用部門として、まとめる動機より避けたい理由のほうが強かった面があります。</p></li>
+</ul>
+</section>
+<section id="g">
+<h3>🟨 5Gで何が変わったか<a class="headerlink" href="#g" title="Link to this heading">¶</a></h3>
+<p>Rel-16の Wireless and Wireline Convergence（WWC。BBFのTR-456/TR-470と連携した仕様）で、固定網アクセスが正式に5GCにつながる形になりました。</p>
+<ul class="simple">
+<li><p><strong>アクセス側</strong>: W-5GAN（固定網アクセスを5GCにつなぐ仕組み）とW-AGF（その収容ゲートウェイ）が定義されました。5G NASを話すCPEが5G-RGです。NASを話せない従来のCPE（FN-RG）は、W-AGFが代理で5GCに登録します。</p></li>
+<li><p><strong>UDM/UDR側</strong>: SUPIの種類が広がり、固定網回線用のGLI（Global Line Identifier）とケーブル用のGCI（Global Cable Identifier）が追加されました。これで固定網の加入者も、モバイル網と同じUDM/UDRに加入者データを持てます。FN-RGの認証は、W-AGFが回線ベースで信頼する前提で、AKAを省略する扱いです。</p></li>
+</ul>
+<p>実は、データ層の融合はもっと前から始まっていました。Rel-9のUDC（User Data Convergence）でフロントエンドとUDRを分ける構成になり、ベンダー製品では「HLR/HSS/AAA統合」がかなり前から一般的です。UDMはその流れの延長で、固定網まで識別子と手順を揃えたもの、と見るのが正確だと思います。</p>
+</section>
+<section id="id2">
+<h3>🟨 実際の展開状況<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>WWCは、欧州の固定網とモバイル網の両方を持つ事業者を中心に検証や一部導入が話題になってきました。ただ、固定網ブロードバンドの大半はいまもBNGとRADIUSで動いているはずです。既存のBNGが十分よく動いていて、5GCに載せ替える投資効果が見えにくいからです。日本はNTT東西とドコモの構造が変わらない限り、UDMで固定網とモバイル網を一体運用する形にはなりにくいでしょう。</p>
+<p>まとめると、技術面の壁（AKAの有無、識別子、アクセスの手順）は5Gでほぼ取り除かれました。残っているのは経済性と組織・規制の壁、というのが今の状況だと思います。最新の導入事例が必要なら調べます。</p>
+</section>
+</section>
+<section id="q-hss">
+<h2>🟩 Q: 固定網HSSの認証の位置づけがよく分からない。固定網端末の何を認証しているの？<a class="headerlink" href="#q-hss" title="Link to this heading">¶</a></h2>
+<p>固定網端末そのものを認証しているわけではありません。認証の対象はIMSの契約、つまりIMPI（プライベートID）とIMPU（公開ID、電話番号など）です。SIMがないので「誰が持っている端末か」をHSSが確かめる手段はなく、代わりに「その契約のパスワードを知っているか」か「契約どおりの回線から来ているか」を確認します。方式は大きく2つです。</p>
+<section id="sip-digest">
+<h3>🟨 1. SIP Digest認証：契約のパスワードを知っているか<a class="headerlink" href="#sip-digest" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>HSSには、IMPIごとにパスワード（実際にはH(A1)などのハッシュ値）が格納されています。</p></li>
+<li><p>REGISTERを受けたS-CSCFは、Cx（S-CSCFとHSS間のインターフェース）のMAR/MAAでHSSから認証情報を取得します。</p></li>
+<li><p>そのうえでS-CSCFが端末にチャレンジを返し、端末は設定されたパスワードを使って応答します。</p></li>
+</ul>
+<p>認証しているのは「その契約の資格情報を持っているか」です。資格情報が入っていれば、どの機器からでも通ってしまいます。HTTPのDigest認証と本質的には同じです。</p>
+</section>
+<section id="nass-bundled-tispan">
+<h3>🟨 2. NASS-Bundled認証（TISPAN）：契約どおりの回線から来ているか<a class="headerlink" href="#nass-bundled-tispan" title="Link to this heading">¶</a></h3>
+<p>固定網ではこちらの考え方が中心です。</p>
+<ol class="arabic simple">
+<li><p>端末やHGW（ホームゲートウェイ）がネットワークにつながる時点で、アクセス網がその回線を認証し、IPアドレスを割り当てます。管理するのはNASS（TISPANのアタッチ管理機能）です。回線とIPアドレスの対応はCLF（位置情報を管理する機能）が保持します。</p></li>
+<li><p>P-CSCFはREGISTERの送信元IPアドレスをキーにCLFへ問い合わせ、回線の位置情報を取得します。それをP-Access-Network-Infoヘッダ（DSLの場合は回線位置を示すdsl-location）としてREGISTERに付けます。</p></li>
+<li><p>S-CSCFはHSSから、その契約に紐付いたLine-Identifierを取得します。</p></li>
+<li><p>2と3の回線情報が一致すれば認証成功です。端末とのチャレンジ／レスポンスはありません。</p></li>
+</ol>
+<p>HSSの役割は「認証ベクタを作ること」から「契約と回線の対応表を持つこと」に変わります。最終的に信頼しているのは物理回線で、その回線の加入者が契約者本人だという前提に立っています。3GPP側にも、IPアドレスとの結び付けで認証するGIBA（Early IMS）という似た方式があります。</p>
+</section>
+<section id="id3">
+<h3>🟨 モバイル網との対比<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>認証の根拠</p></th>
+<th class="head"><p>HSSの役割</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>モバイル網（AKA）</p></td>
+<td><p>SIM内の鍵K。端末とネットワークが互いを認証する</p></td>
+<td><p>認証ベクタの生成</p></td>
+</tr>
+<tr class="row-odd"><td><p>固定網（Digest）</p></td>
+<td><p>契約のパスワード</p></td>
+<td><p>パスワード（ハッシュ）の保持</p></td>
+</tr>
+<tr class="row-even"><td><p>固定網（NASS-Bundled）</p></td>
+<td><p>物理回線とアクセス網での認証</p></td>
+<td><p>契約と回線の対応の保持</p></td>
+</tr>
+</tbody>
+</table>
+<p>前回「HSSの中で使う機能がかなり違う」と書いたのはこの点です。モバイル網のHSSは鍵とアルゴリズムを持つ「暗号エンジン」、固定網IMSのHSSは「契約と回線の台帳」に近い存在です。</p>
+<p>NTTのNGN（ひかり電話）も、HGWを経由した回線ベースの信頼モデルだと理解しています。ただ、内部で具体的にどの方式を使っているかは公開情報が少なく、断言はできません。</p>
+</section>
+</section>
+<section id="q-2">
+<h2>🟩 Q: 自分が所有している２つの台帳間でチェックする意味あるの？<a class="headerlink" href="#q-2" title="Link to this heading">¶</a></h2>
+<p>意味があります。チェックしているのは2つの台帳どうしの整合性ではなく、端末が送ってきた「自分はこの契約者だ」という申告です。2つの台帳は、その申告を確かめるための材料として使っています。</p>
+<section id="id4">
+<h3>🟨 何を照合しているか<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>REGISTERの中身（IMPIやIMPU）は端末が勝手に書けるので、信用できません。照合の流れはこうです。</p>
+<ul class="simple">
+<li><p><strong>端末の申告</strong>: 「私はIMPI=Aです」</p></li>
+<li><p><strong>CLF（動的な事実）</strong>: このREGISTERは送信元IP Xから届いた。IP Xは今、回線Lに割り当てられている。</p></li>
+<li><p><strong>HSS（静的な契約）</strong>: IMPI=Aは回線Lで契約されている。</p></li>
+</ul>
+<p>この3つが噛み合って初めて「回線Lにいる人が、回線Lの契約を名乗っている」と言えます。照合しなければ、どの回線からでも他人の電話番号でREGISTERでき、発信者番号を簡単になりすませてしまいます。</p>
+<p>役所の窓口にたとえると分かりやすいです。住民票の台帳も窓口の受付記録も役所のものですが、確かめたいのは目の前の人の名乗りです。</p>
+</section>
+<section id="id5">
+<h3>🟨 2つの台帳は性質が違う<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>HSS</strong>: 開通工事のときに登録される、ほぼ変わらない契約情報です。</p></li>
+<li><p><strong>CLF</strong>: アタッチやDHCPのリースのたびに変わる実行時の情報です。IPアドレスと回線の対応は毎回同じとは限りません。</p></li>
+</ul>
+<p>なので、片方からもう片方を導くことはできません。「今このIPアドレスにいるのは誰か」は、その瞬間にしか分からない情報です。</p>
+</section>
+<section id="id6">
+<h3>🟨 同じ会社の台帳とは限らない<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>TISPANは、アクセス網の事業者とIMSサービスの事業者が別会社である構成（卸、オープンアクセス）も想定しています。その場合、CLFとHSSは文字どおり別会社の台帳で、P-CSCFとCLFの間のe2インターフェースは事業者間の境界になります。</p>
+</section>
+<section id="ip">
+<h3>🟨 前提：送信元IPアドレスが偽れないこと<a class="headerlink" href="#ip" title="Link to this heading">¶</a></h3>
+<p>この方式が成り立つのは、BNGなどのアクセス網側で送信元IPアドレスの詐称を防いでいる（anti-spoofing）からです。IPアドレスを偽れるなら、回線ベースの認証は崩れます。固定網で「回線を信頼する」というのは、正確には「アクセス網が保証する、IPアドレスと回線の結び付きを信頼する」という意味です。</p>
+<p>ご指摘のとおり、照合する両方が静的な台帳で、端末からの入力が絡まないなら意味はありません。この照合に意味があるのは、端末が自由に書ける申告を、端末が偽れない情報（送信元IPと、アクセス網での回線認証）で裏付けているからです。</p>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html"><span class="label">‹ 前へ</span><span class="title">📙 NVIDIAによるMellanox買収</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html"><span class="label">次へ ›</span><span class="title">📙 中華NICはなぜ安い</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
