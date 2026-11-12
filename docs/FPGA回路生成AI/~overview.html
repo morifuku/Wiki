@@ -94,13 +94,13 @@
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>📙 概要<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <p class="page-dates">2026/10/30公開 2026/11/12更新</p>
-<p>手持ちのFPGAは以下の3種類。回路設計は初学者レベルなので、AIにやってもらう。人間は部品調達と半田付けを担当する。</p>
+<p>ClaudeにFPGAの回路設計をやってもらう。Claudeにほぼ丸投げとなる。人間は部品調達と半田付けを担当する。手持ちのFPGAは以下の3種類。</p>
 <ul class="simple">
 <li><p>Tang Nano 9K（Gowin GW1NR-9）、秋月電子通商で購入、3,780円</p></li>
 <li><p>iCESugar（ICE40UP5k）、AliExpressで購入、5,224円</p></li>
 <li><p>Lattice ECP5 Colorlight i5、ebayで購入、73.81ドル</p></li>
 </ul>
-<p>開発環境はWindows 11で構築する。Visual Studio Code上のClaude Codeで遠隔操作してもらう予定。</p>
+<p>開発環境はWindows 11に構築する。Visual Studio Code上のClaude Codeに開発環境に入ってもらい、回路設計からビットストリーム作成、FPGAへの焼き込みまで全部やってもらう。開発環境としては以下のものがある。</p>
 <ul class="simple">
 <li><p>Gowin EDA: Tang Nano 9K用開発環境</p></li>
 <li><p>Yosis: 論理合成、FPGAの基本要素に変換</p></li>
@@ -142,7 +142,7 @@
 </section>
 <section id="id2">
 <h2>🟩 4. 開発環境<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p>具体的なFPGA回路設計はClaudeに丸投げなので、開発環境の操作もVisual Studio Code上のClaude Codeにやってもらう。なので、本wikiの操作説明はClaudeに投げたプロンプトぐらいしかない場合がある。</p>
+<p>Claudeに、回路設計からビットストリーム作成、FPGAへの焼き込みまで全部やってもらうので、本wikiの操作説明はClaudeに投げたプロンプトぐらいしかない場合がある。</p>
 <section id="gowin-eda">
 <h3>🟨 4.1 Gowin EDA<a class="headerlink" href="#gowin-eda" title="Link to this heading">¶</a></h3>
 <p>Tang Nano 9K用統合環境。Yosis+nextpnr+packerで開発する方法もあるが、一部機能が開発中となっている。</p>
