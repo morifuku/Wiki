@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🟪 FPGA回路生成AI &#8212; Llama in Bliss</title>
+    <title>FPGA回路生成AI &#8212; Llama in Bliss</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=941180d7" />
     <link rel="stylesheet" type="text/css" href="../_static/media.css?v=fb0e13d2" />
@@ -18,7 +18,7 @@
     <link rel="icon" href="../_static/llama.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="📙 FPGA回路生成【1】まずはLチカを作ってもらった" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html" />
+    <link rel="next" title="📙 概要" href="~overview.html" />
     <link rel="prev" title="📙 Windows機に中古GPU入れてMiniMax H3環境を作った" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/%F0%9F%93%99%20Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
@@ -38,7 +38,7 @@
   </div>
   <nav class="breadcrumbs" aria-label="現在位置">
     <a href="../index.html">ホーム</a>
-    <span class="sep">»</span><span class="current">🟪 FPGA回路生成AI</span>
+    <span class="sep">»</span><span class="current">FPGA回路生成AI</span>
   </nav>
 </header>
 <div class="page">
@@ -56,7 +56,8 @@
 <nav class="globaltoc" aria-label="サイトナビゲーション">
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">🟪 FPGA回路生成AI</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FPGA回路生成AI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="~overview.html">📙 概要</a></li>
 <li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">📙 FPGA回路生成【1】まずはLチカを作ってもらった</a></li>
 <li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">📙 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</a></li>
 </ul>
@@ -69,17 +70,7 @@
 <nav class="pagetoc" aria-labelledby="pagetoc-label">
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
-<li><a class="reference internal" href="#">🟪 FPGA回路生成AI</a><ul>
-<li><a class="reference internal" href="#tang-nano-9k">🟩 1. Tang Nano 9K</a></li>
-<li><a class="reference internal" href="#icesugar">🟩 2. iCESugar</a></li>
-<li><a class="reference internal" href="#colorlight-i5-lattice-epc5">🟩 3. Colorlight i5（Lattice EPC5）</a></li>
-<li><a class="reference internal" href="#id1">🟩 4. 開発環境</a><ul>
-<li><a class="reference internal" href="#gowin-eda">🟨 4.1 Gowin EDA</a></li>
-<li><a class="reference internal" href="#yosis">🟨 4.2 yosis</a></li>
-<li><a class="reference internal" href="#nextpnr">🟨 4.3 nextpnr</a></li>
-<li><a class="reference internal" href="#packer">🟨 4.4 packer</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">FPGA回路生成AI</a><ul>
 <li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
 </ul>
 </li>
@@ -91,77 +82,13 @@
   <main class="body" role="main">
     
   <section class="tex2jax_ignore mathjax_ignore" id="fpgaai">
-<h1>🟪 FPGA回路生成AI<a class="headerlink" href="#fpgaai" title="Link to this heading">¶</a></h1>
-<p>手持ちのFPGAは以下の3種類。回路設計は初学者レベルなので、AIにやってもらう。人間は部品調達と半田付けを担当する。</p>
-<ul class="simple">
-<li><p>Tang Nano 9K（Gowin GW1NR-9）、秋月電子通商で購入、3,780円</p></li>
-<li><p>iCESugar（ICE40UP5k）、AliExpressで購入、5,224円</p></li>
-<li><p>Lattice ECP5 Colorlight i5、ebayで購入、73.81ドル</p></li>
-</ul>
-<p>開発環境はWindows 11で構築する。Visual Studio Code上のClaude Codeで遠隔操作してもらう予定。</p>
-<ul class="simple">
-<li><p>Gowin EDA: Tang Nano 9K用開発環境</p></li>
-<li><p>Yosis: 論理合成、FPGAの基本要素に変換</p></li>
-<li><p>nextpnr: 配置配線、チップ上の配置と配線</p></li>
-<li><p>IceStorm / Project Trilles: 実際のビットストリームに変換するツール</p></li>
-</ul>
-<section id="tang-nano-9k">
-<h2>🟩 1. Tang Nano 9K<a class="headerlink" href="#tang-nano-9k" title="Link to this heading">¶</a></h2>
-<p>Sipeed製のボードで、中国Gowin社のFPGAを載せています。</p>
-<ul class="simple">
-<li><p><strong>ロジック規模</strong>: 約8,640 LUT4、ブロックRAM 約468Kbit、乗算器20個、PLL 2個</p></li>
-<li><p><strong>特徴</strong>: 64Mbit の PSRAM をチップに内蔵しているので、外付けRAMなしで大きめのバッファを持てます</p></li>
-<li><p><strong>ボード</strong>: HDMIコネクタ、RGB LCDコネクタ、LED 6個、ボタン 2個、USB-C（書き込み・UARTはBL702が担当）、27MHzクロック</p></li>
-<li><p><strong>開発環境</strong>: Gowin EDA（教育版は無料）。オープンソースの Project Apicula + Yosys + nextpnr-gowin も使えます</p></li>
-<li><p><strong>向いている用途</strong>: HDMI出力の実験、PicoRV32などのソフトCPU、LCD表示。値段に対して機能が多く、入門用として定番です</p></li>
-</ul>
-</section>
-<section id="icesugar">
-<h2>🟩 2. iCESugar<a class="headerlink" href="#icesugar" title="Link to this heading">¶</a></h2>
-<p>MuseLab製です。iCE40はビットストリームが解析済みで、オープンソースFPGA開発の元祖にあたる石です。</p>
-<ul class="simple">
-<li><p><strong>ロジック規模</strong>: 5,280 LUT4、EBR 120Kbit、SPRAM 1Mbit（128KB）、DSP（16×16 MAC）8個、PLL 1個</p></li>
-<li><p><strong>特徴</strong>: 消費電力が非常に小さいです。I2C/SPIのハードIPとRGB LEDドライバを内蔵しています</p></li>
-<li><p><strong>ボード</strong>: 書き込み用のiCELink（STM32）を載せていて、PCからUSBメモリとして見えるので、.binファイルをドラッグ＆ドロップするだけで書き込めます。PMODコネクタ、RGB LED、12MHzクロック</p></li>
-<li><p><strong>開発環境</strong>: Yosys + nextpnr-ice40 + IceStorm の完全オープンソース構成が主流です（Lattice Radiantも可）</p></li>
-<li><p><strong>向いている用途</strong>: オープンソースのツールチェーンを学ぶ入門用、小さなステートマシンやペリフェラルの実験。3枚の中では一番小規模です</p></li>
-</ul>
-</section>
-<section id="colorlight-i5-lattice-epc5">
-<h2>🟩 3. Colorlight i5（Lattice EPC5）<a class="headerlink" href="#colorlight-i5-lattice-epc5" title="Link to this heading">¶</a></h2>
-<p>LEDビジョンの受信カードを作っているColorlight社のFPGAモジュールです。ノートPCのメモリと同じSO-DIMM形状で、拡張ボード（キャリアボード）に差して使います。3枚の中では最上位です。</p>
-<ul class="simple">
-<li><p><strong>ロジック規模</strong>: LFE5U-25F（約24K LUT）、ブロックRAM 約1Mbit、乗算器（18×18）28個、PLL 2個。同じ形状のi9はLFE5U-45F（約44K LUT）です</p></li>
-<li><p><strong>モジュール</strong>: 8MB SDRAM（32bit幅）、4MB SPI Flash、ギガビットEthernet PHY×2、25MHzクロック</p></li>
-<li><p><strong>拡張ボード</strong>: USB-C（USB-JTAGとUARTを兼ねます）、HDMI出力、ピンヘッダ P1〜P6、JTAGピン、電源ボタン</p></li>
-<li><p><strong>開発環境</strong>: Yosys + nextpnr-ecp5 + Project Trellis の完全オープンソース構成。Lattice Diamondも使えます。書き込みは openFPGALoader が使えます</p></li>
-<li><p><strong>向いている用途</strong>: LiteX + VexRiscv で Linux を動かす（LiteXが colorlight_i5 として正式に対応しています）、SDRAMを使ったSoC、HDMI出力の実験</p></li>
-</ul>
-</section>
-<section id="id1">
-<h2>🟩 4. 開発環境<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>具体的なFPGA回路設計はClaudeに丸投げなので、開発環境の操作もVisual Studio Code上のClaude Codeにやってもらう。なので、本wikiの操作説明はClaudeに投げたプロンプトぐらいしかない場合がある。</p>
-<section id="gowin-eda">
-<h3>🟨 4.1 Gowin EDA<a class="headerlink" href="#gowin-eda" title="Link to this heading">¶</a></h3>
-<p>Tang Nano 9K用統合環境。Yosis+nextpnr+packerで開発する方法もあるが、一部機能が開発中となっている。</p>
-</section>
-<section id="yosis">
-<h3>🟨 4.2 yosis<a class="headerlink" href="#yosis" title="Link to this heading">¶</a></h3>
-<p>Verilogを読み込み、FPGAの基本要素（LUT、フリップフロップ、BRAM、DSP）の組み合わせに変換します。チップの系統ごとに専用コマンドがあり、synth_ice40、synth_ecp5、synth_gowin のように使い分けます。3系統で共通に使うツールです。</p>
-</section>
-<section id="nextpnr">
-<h3>🟨 4.3 nextpnr<a class="headerlink" href="#nextpnr" title="Link to this heading">¶</a></h3>
-<p>合成結果をチップ上のどこに置き、どう配線するかを決めます。タイミング解析もここで行い、到達できる最大クロック周波数を表示してくれます。ピンの割り当ては制約ファイルで指定します（iCE40は .pcf、ECP5は .lpf、Gowinは .cst）。</p>
-</section>
-<section id="packer">
-<h3>🟨 4.4 packer<a class="headerlink" href="#packer" title="Link to this heading">¶</a></h3>
-<p>各社が公開していないビットストリームの形式を、リバースエンジニアリングで解析したプロジェクトです。nextpnrが使うチップの内部構造データと、配置配線の結果を実際のビットストリームに変換するツールを提供しています。</p>
-</section>
-</section>
+<h1>FPGA回路生成AI<a class="headerlink" href="#fpgaai" title="Link to this heading">¶</a></h1>
+<p>ClaudeにFPGAのLチカ（LEDをチカチカさせるだけの電子工作品）を作ってもらった。長いこと放置していた中華FPGA（Tang Nano 9K）がチカチカ点滅しだした。ハードウェアまでClaudeに作ってもらえるなんて、感動もの。人間の仕事はパーツ調達と半田付けくらいしか残ってないな。</p>
 <section id="contents">
 <h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="~overview.html">📙 概要</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">📙 FPGA回路生成【1】まずはLチカを作ってもらった</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">📙 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</a></li>
 </ul>
@@ -173,7 +100,7 @@
   </main>
     <nav class="prev-next" aria-label="前後のページ">
       <a class="prev" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/%F0%9F%93%99%20Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html"><span class="label">‹ 前へ</span><span class="title">📙 Windows機に中古GPU入れてMiniMax H3環境を作った</span></a>
-      <a class="next" href="%F0%9F%93%99%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html"><span class="label">次へ ›</span><span class="title">📙 FPGA回路生成【1】まずはLチカを作ってもらった</span></a>
+      <a class="next" href="~overview.html"><span class="label">次へ ›</span><span class="title">📙 概要</span></a>
     </nav>
   </div>
 </div>
