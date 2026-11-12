@@ -131,6 +131,8 @@ div.body h1, div.body h2, div.body h3, main.body h1, main.body h2, main.body h3 
   font-weight: 600;
 }
 main.body h1 { font-size: 1.9em; margin: 0.2em 0 0.8em; }
+/* prep.py が H1 直後に入れる公開日・更新日 */
+main.body p.page-dates { margin: -0.6em 0 1.2em; text-align: right; font-size: 0.85em; color: #666; }
 main.body h2 { font-size: 1.5em; margin-top: 1.6em; padding-bottom: 0.2em; border-bottom: 1px solid var(--border); }
 main.body h3 { font-size: 1.2em; margin-top: 1.4em; }
 main.body img { max-width: 100%; height: auto; }
