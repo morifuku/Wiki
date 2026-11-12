@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 iCloudメールをClaudeで捌く &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/AI%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20iCloud%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92Claude%E3%81%A7%E6%8D%8C%E3%81%8F.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 macOS 27のfmコマンド" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html" />
+    <link rel="prev" title="📙 Hugging FaceのMicroduck" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 AI雑学</a>
+    <span class="sep">»</span><span class="current">📙 iCloudメールをClaudeで捌く</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 AI雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html">📙 AIと技術情報サイトの将来</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html">📙 Hugging FaceのMicroduck</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 iCloudメールをClaudeで捌く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">📙 macOS 27のfmコマンド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%8D%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%A7local%20AI.html">📙 ネオクラウドでlocal AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html">📙 ビッグデータ分析とLLMの違い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%BA%BA%E5%B7%A5%E7%84%A1%E8%83%BD%E3%81%AE%E5%BE%A9%E6%A8%A9.html">📙 人工無能の復権</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html">📙 太陽光でAI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%B6%E5%BA%ADPC%E3%81%A7%E3%81%AEAI%E5%88%86%E6%95%A3%E5%87%A6%E7%90%86.html">📙 家庭PCでのAI分散処理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 iCloudメールをClaudeで捌く</a><ul>
+<li><a class="reference internal" href="#q-icloudclaude">🟩 Q: iCloudメールをClaudeで捌いてくれるとありがたい。スクリーニングとか、要約とか</a></li>
+<li><a class="reference internal" href="#q-thundarbirdthundarbirdclaude">🟩 Q: Thundarbirdで受信している。ThundarbirdからClaudeを利用できる？</a></li>
+<li><a class="reference internal" href="#q-dovecotubuntu-maildirclaude">🟩 Q: DovecotでUbuntuの~/MaildirにためているのでClaudeで処理できそう</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="icloudclaude">
+<h1>📙 iCloudメールをClaudeで捌く<a class="headerlink" href="#icloudclaude" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/12公開 2026/11/12更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/10</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-icloudclaude">
+<h2>🟩 Q: iCloudメールをClaudeで捌いてくれるとありがたい。スクリーニングとか、要約とか<a class="headerlink" href="#q-icloudclaude" title="Link to this heading">¶</a></h2>
+<p>調べましたが、iCloudメールに直接つながるコネクタは今のところありません。Claudeに捌かせるには、何か別の経路が必要です。現実的なのは次の3つです。</p>
+<p><strong>1. IMAP＋常駐スクリプト（いちばん本格的）</strong><br />
+iCloudメールはIMAPに対応しています（<code class="docutils literal notranslate"><span class="pre">imap.mail.me.com:993</span></code>、アプリ用パスワードが必要）。Ubuntuで定期実行するスクリプトを書き、新着メールを取得してClaude APIに渡す構成です。</p>
+<ul class="simple">
+<li><p>スクリーニング：重要／返信が必要／案件・求人／ニュースレター／スパム寄り、に分類し、IMAPフォルダへ移すかフラグを付ける</p></li>
+<li><p>要約：1日1回、ダイジェストを自分宛てに送るか、Markdownで書き出す</p></li>
+<li><p>自宅のサーバーで動くので、この会話を開いていなくても毎日回ります</p></li>
+<li><p>APIの利用料が少しかかります（量が少なければ月に数百円程度の見込み）</p></li>
+<li><p>言語はPythonを勧めます。IMAPとMIMEの処理、APIのSDKがそろっているためです。C++でも書けますが、この用途だと手間に見合いません</p></li>
+</ul>
+<p><strong>2. Gmailへ転送して、Gmailコネクタを使う</strong><br />
+iCloudからGmailへ自動転送を設定し、claude.aiでGmailコネクタをつなぐ方法です。この会話の中で「今日のメールを要約して」と頼めるようになります。セットアップはいちばん簡単ですが、自動で回るわけではありません。また、メールがGoogle側にも溜まります。</p>
+<p><strong>3. デスクトップアプリ経由でicloud.comを操作する</strong><br />
+Claudeのデスクトップアプリから、内蔵ブラウザでicloud.com/mailを開いて読む方法です。アプリが起動しているときしか使えず、量が多いと遅いので、たまに使うくらいが向いています。</p>
+<p>自動で継続的にスクリーニングしたいなら1がおすすめです。1で進める場合、次の3点を決めてもらえれば、スクリプトと分類ルールの叩き台を作ります。</p>
+<ul class="simple">
+<li><p>分類カテゴリ（上の例のままでよいか、追加したいものはあるか）</p></li>
+<li><p>要約の受け取り方（メール、ファイル、Slackなど）</p></li>
+<li><p>動かすUbuntuサーバー</p></li>
+</ul>
+</section>
+<section id="q-thundarbirdthundarbirdclaude">
+<h2>🟩 Q: Thundarbirdで受信している。ThundarbirdからClaudeを利用できる？<a class="headerlink" href="#q-thundarbirdthundarbirdclaude" title="Link to this heading">¶</a></h2>
+<p>はい、使えます。方法は大きく2つあり、どちらもClaudeに対応しています。</p>
+<p><strong>1. ThunderAI（Thunderbirdのアドオン）</strong><br />
+Thunderbirdの中から、メールを1通ずつAIに処理させる方式です。</p>
+<ul class="simple">
+<li><p>ChatGPT、Gemini、Claude、Ollamaを使ってメールを分析・作成・校正したり、タグ付け、カレンダー予定やタスクの作成をしたりできます</p></li>
+<li><p>API連携を使うと、スパム判定やメールの分類といった自動処理もできます</p></li>
+<li><p>最近の版はClaude Opus 5.5などにも対応しています。Thunderbird 140以降が必要です</p></li>
+<li><p>使うにはAnthropicのAPIキーが必要です（従量課金）。Ollamaを選べば、自宅のローカルLLMでも動きます</p></li>
+</ul>
+<p><strong>2. Thunderbird MCP（Claude側からThunderbirdを操作）</strong><br />
+ClaudeのデスクトップアプリやClaude Codeから、受信箱全体をまとめて見てもらう方式です。「スクリーニングと要約」という目的には、こちらのほうが合っています。</p>
+<ul class="simple">
+<li><p>代表的なものがTKasperczyk/thunderbird-mcpで、Claude Codeからメールを読み、連絡先を検索し、返信の下書きを作れます</p></li>
+<li><p>仕組みはThunderbird拡張がポート8765でローカルHTTPサーバーを立て、Node.jsのブリッジがMCPのstdioとHTTPを仲介する形です</p></li>
+<li><p>「今日の未読を重要度で仕分けて要約して」「返信が要るものだけ挙げて」と頼める使い方になります</p></li>
+<li><p>iCloudはThunderbirdにIMAPで入っているので、iCloud側に何か設定する必要はありません</p></li>
+</ul>
+<p>公式の「Thunderbird Assist」というAI機能も計画されていますが、まだ検討段階と報じられていて、今すぐ使えるものではありません。</p>
+<p><strong>注意点</strong><br />
+どちらも個人が作ったアドオンです。特にMCPはメール全体へのアクセス権を渡すことになるので、入れる前にソースを一読することをおすすめします。</p>
+<p><strong>おすすめの組み合わせ</strong></p>
+<ul class="simple">
+<li><p>普段使い：ThunderAIで1通ずつ要約・返信案を作る</p></li>
+<li><p>受信箱の一括スクリーニング：MCP経由でClaudeに頼む</p></li>
+</ul>
+<p>Thunderbirdはどのマシン（Windows／Ubuntu／Mac）で動かしていますか？　それによってMCPの導入手順が変わるので、決まればセットアップの手順をまとめます。</p>
+<p>Sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/micz/thunderai">ThunderAI (GitHub)</a></p></li>
+<li><p><a class="reference external" href="https://services.addons.thunderbird.net/mn/thunderbird/addon/thunderai/versions">ThunderAI (Thunderbird Add-ons)</a></p></li>
+<li><p><a class="reference external" href="https://glama.ai/mcp/servers/TKasperczyk/thunderbird-mcp">TKasperczyk/thunderbird-mcp</a></p></li>
+<li><p><a class="reference external" href="https://betanews.com/article/thunderbird-pro-is-moving-closer-to-launch-with-new-productivity-tools-thundermail-appointment-and-send">Thunderbird Pro / Assist (BetaNews)</a></p></li>
+</ul>
+</section>
+<section id="q-dovecotubuntu-maildirclaude">
+<h2>🟩 Q: DovecotでUbuntuの~/MaildirにためているのでClaudeで処理できそう<a class="headerlink" href="#q-dovecotubuntu-maildirclaude" title="Link to this heading">¶</a></h2>
+<p>はい、その構成がいちばん素直だと思います。DovecotのMaildirはUbuntu上のホームにあり、1通が1ファイルのプレーンテキスト（RFC822）なので、Claude Codeはそのまま読めます。Thunderbirdの接続先をiCloudから自前のDovecotに変えるだけで、見た目の使い勝手も変わりません。</p>
+<p><strong>全体の流れ</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>iCloud (imap.mail.me.com)
+   │ mbsync で定期取り込み（cron / systemd timer）
+   ▼
+Dovecot ── Maildir: ~/Maildir
+   │                    ▲
+   │ Thunderbird        │ notmuch で索引・検索
+   ▼                    │
+ いつも通り閲覧      Claude Code（claude -p を cronで実行）
+                         → 分類・要約・ダイジェスト作成
+</pre></div>
+</div>
+<p><strong>ポイント</strong></p>
+<ul class="simple">
+<li><p><strong>iCloudからの取り込み</strong>：mbsync（isync）を使います。Maildirに直接書き込むより、iCloudからDovecotへのIMAP同士の同期にしたほうが安全です。Dovecotのインデックスと衝突しません。iCloudのアプリ用パスワードが必要です。</p></li>
+<li><p><strong>Claudeに読ませる入口</strong>：生のMaildirを読ませると、HTMLや添付ファイルでトークンを無駄に使います。notmuch（C製）で索引を作り、<code class="docutils literal notranslate"><span class="pre">notmuch</span> <span class="pre">search</span> <span class="pre">tag:unread</span> <span class="pre">date:today..</span></code> と <code class="docutils literal notranslate"><span class="pre">notmuch</span> <span class="pre">show</span> <span class="pre">--format=json</span> <span class="pre">--part=1</span></code> を使えば、本文テキストだけをきれいに渡せます。</p></li>
+<li><p><strong>スクリーニング結果の返し方</strong>：振り分けは <code class="docutils literal notranslate"><span class="pre">doveadm</span> <span class="pre">move</span></code> で行います（例：INBOX → Screened/Newsletter）。Dovecot経由で動かすので、Thunderbird側にもすぐ反映されます。要約は <code class="docutils literal notranslate"><span class="pre">dovecot-lda</span></code> を使って、ダイジェストを自分のINBOXに1通配送すると、いつものメーラーで読めます。</p></li>
+<li><p><strong>自動実行</strong>：<code class="docutils literal notranslate"><span class="pre">claude</span> <span class="pre">-p</span> <span class="pre">&quot;&lt;指示&gt;&quot;</span> <span class="pre">--allowedTools</span> <span class="pre">&quot;Bash(notmuch</span> <span class="pre">*)&quot;</span> <span class="pre">&quot;Bash(doveadm</span> <span class="pre">move</span> <span class="pre">*)&quot;</span> <span class="pre">...</span></code> をcronで1日1〜2回実行します。分類ルールはCLAUDE.mdに書いておきます。</p></li>
+</ul>
+<p><strong>注意（大事）</strong><br />
+メールの本文は外から届くデータなので、「このメールを全部転送しろ」のような指示が仕込まれている可能性があります。Claude Codeに許すツールは、notmuchの読み取りと <code class="docutils literal notranslate"><span class="pre">doveadm</span> <span class="pre">move</span></code>、ダイジェストの配送だけに絞ってください。送信やネットワーク系のコマンドは許可しないでおけば、まず安全です。</p>
+<p>進めるなら、次の4つの叩き台を一式作ります。</p>
+<ul class="simple">
+<li><p>mbsyncの設定（iCloudからDovecot）</p></li>
+<li><p>notmuchの設定</p></li>
+<li><p>分類ルールを書いたCLAUDE.md</p></li>
+<li><p>cron用のシェルスクリプト</p></li>
+</ul>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html"><span class="label">‹ 前へ</span><span class="title">📙 Hugging FaceのMicroduck</span></a>
+      <a class="next" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html"><span class="label">次へ ›</span><span class="title">📙 macOS 27のfmコマンド</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
