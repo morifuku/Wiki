@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 電波暗室と無響室 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=ef6ae84c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E9%9B%BB%E6%B3%A2%E6%9A%97%E5%AE%A4%E3%81%A8%E7%84%A1%E9%9F%BF%E5%AE%A4.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 電電公社の電柱に残る古い地名" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html" />
+    <link rel="prev" title="📙 閉域ネットワークはセキュアなのか" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ネットワーク雑学</a>
+    <span class="sep">»</span><span class="current">📙 電波暗室と無響室</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ネットワーク雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html">📙 010677で始まる電話番号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html">📙 NVIDIAによるMellanox買収</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html">📙 中華NICはなぜ安い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9F%BA%E5%9C%B0%E5%B1%80%E3%81%AE%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1.html">📙 基地局の位置情報</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%A1%9B%E6%98%9F%E5%9F%BA%E5%9C%B0%E5%B1%80%E9%96%93%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AA%E3%83%BC%E3%83%90.html">📙 衛星基地局間のハンドオーバ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%BB%8A%E8%BC%89%E5%9E%8B%E5%9F%BA%E5%9C%B0%E5%B1%80.html">📙 車載型基地局</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html">📙 閉域ネットワークはセキュアなのか</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 電波暗室と無響室</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">📙 電電公社の電柱に残る古い地名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 電波暗室と無響室</a><ul>
+<li><a class="reference internal" href="#q">🟩 Q: ニセ基地局事件。日本の法律だとかなり厳罰では？</a><ul>
+<li><a class="reference internal" href="#imsi">🟨 日本での法的扱い（ニセ基地局＝IMSIキャッチャー悪用）</a></li>
+<li><a class="reference internal" href="#id2">🟨 有事のインフラ攻撃との関係（政策レベルで）</a></li>
+<li><a class="reference internal" href="#id3">🟨 まとめると、</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">🟩 Q: こちらは電波暗室で漏れないように慎重に試験してるのに、なんと不届きな</a></li>
+<li><a class="reference internal" href="#id5">🟩 Q: 電波暗室を鳥かごと呼んでた</a></li>
+<li><a class="reference internal" href="#id6">🟩 Q: 無響室よりは耐えられるが、気が狂いそうではある</a></li>
+<li><a class="reference internal" href="#id7">🟩 Q: 雑音の有り難みがよくわかるようになる</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>📙 電波暗室と無響室<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/10</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q">
+<h2>🟩 Q: ニセ基地局事件。日本の法律だとかなり厳罰では？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>法律の話と安全保障の論点、それぞれお答えします。技術的な「作り方・妨害のやり方」には踏み込まず、制度と公共政策の観点で整理します。</p>
+<section id="imsi">
+<h3>🟨 日本での法的扱い（ニセ基地局＝IMSIキャッチャー悪用）<a class="headerlink" href="#imsi" title="Link to this heading">¶</a></h3>
+<p>「偽基地局」は、携帯電話を自分の無線設備に強制接続させ、キャリアのフィルタをすり抜けて詐欺SMS（スミッシング）を一斉送信する、という手口が報じられたものですね。これに対して日本では複数の法律が重なって適用され得ます。</p>
+<p><strong>中心は電波法違反</strong></p>
+<ul class="simple">
+<li><p>無線局の開設には総務大臣の免許が必要（電波法4条）。無免許で基地局相当の電波を出せば<strong>無免許開設</strong>に当たり、1年以下の拘禁刑または100万円以下の罰金。</p></li>
+<li><p>携帯電話の周波数帯は割当済みなので、そこに電波を出す行為自体が<strong>混信・妨害</strong>の構成要件にも触れ得ます。重要無線通信を妨害した場合はより重い類型（5年以下）が用意されています。</p></li>
+</ul>
+<p><strong>手口全体では罪が積み上がる</strong></p>
+<ul class="simple">
+<li><p>詐欺SMSで金銭をだまし取れば<strong>詐欺罪</strong>（10年以下）。</p></li>
+<li><p>フィッシングサイトへ誘導してID/パスワードを取得・悪用すれば<strong>不正アクセス禁止法</strong>や<strong>不正指令電磁的記録（ウイルス）罪</strong>。</p></li>
+<li><p>通信内容を傍受していれば<strong>通信の秘密</strong>侵害（電気通信事業法・憲法21条の趣旨）の問題。</p></li>
+</ul>
+<p>つまり「かなり厳罰では」という感覚は正しくて、電波法単体だと上限は軽めに見えても、<strong>詐欺・不正アクセスなどと併合罪で処理</strong>されるので実際の量刑は重くなりやすい、という構造です。</p>
+<p><strong>「適用されるのか」への答え</strong><br />
+適用自体は十分されます。論点はむしろ<strong>立証と執行</strong>の側で、</p>
+<ul class="simple">
+<li><p>発信源が移動式で特定しにくい（車載・携帯運用）</p></li>
+<li><p>海外から持ち込んだ機器・海外サーバ経由で実行犯に行き着きにくい</p></li>
+<li><p>被害が広く薄く分散し、個々の立件単位が小さい</p></li>
+</ul>
+<p>といった捜査上の難しさがあり、「法律が足りない」より「捕まえる前提条件が整いにくい」ことが実務課題として挙がります。</p>
+</section>
+<section id="id2">
+<h3>🟨 有事のインフラ攻撃との関係（政策レベルで）<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>「詐欺に使えるなら安全保障上も応用可能か」という問題意識はまっとうで、各国の防衛・通信政策でも公然と議論されているテーマです。ここでは手段の話ではなく、脅威認識と対策の枠組みとして。</p>
+<ul class="simple">
+<li><p><strong>位置づけ</strong>：これは電子戦（EW）／通信妨害・なりすましの一類型で、軍事では以前から想定されてきた領域です。民生の詐欺手口と原理が地続きなのは事実で、「安価な民生技術が低強度の妨害に転用され得る」という点が近年の懸念の核です。</p></li>
+<li><p><strong>効果の限界</strong>：ただし一斉詐欺SMSのような広域ばらまきと、重要インフラ（電力・金融・鉄道・緊急通信）への実効的攻撃は難度が別物です。基幹系は専用回線・有線・冗長化・認証で守られ、公衆モバイル網依存部分も認証やネットワーク側の異常検知で守られます。「局所・一時的な通信途絶や混乱」は起こし得ても、「インフラ機能の停止」はまた別の壁があります。</p></li>
+<li><p><strong>日本側の対応方向</strong>：総務省の電波監視（DEURAS等による不法電波の探知）、5G/今後の規格での基地局・端末間相互認証の強化、キャリア網での異常トラフィック検知、重要通信の優先・保護制度。防衛側では電子戦対処能力の整備が進められています。</p></li>
+<li><p><strong>制度上の論点</strong>：有事を想定すると「平時の電波法の枠組みで足りるか（妨害排除の権限・速度）」「重要インフラ保護を所管横断でどう統合するか」といった、ガバナンス側の議論につながります。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 まとめると、<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>法律は既に重層的に用意されていて適用もされる一方、<strong>ボトルネックは法の不備ではなく捜査・執行と、民生技術転用への備え</strong>という整理になります。</p>
+</section>
+</section>
+<section id="id4">
+<h2>🟩 Q: こちらは電波暗室で漏れないように慎重に試験してるのに、なんと不届きな<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p>ははは、まさに対照的ですね。</p>
+<p>こちらは電波暗室（シールドルーム）できっちり封じ込めて、漏れた電波が外の通信に迷惑をかけないよう法令も作法も守って試験しているのに、片や公衆の只中で堂々と不法電波をばらまいて詐欺をやる輩がいる。真面目にやってる側からすると、確かに腹立たしい話です。</p>
+<p>しかも皮肉なのは、電波暗室で試験が必要になる理由そのものが「意図しない電波を外に出さない／外からの影響を受けない」ことの担保なわけで、技術者の側は EMC や電波法を当然の前提として設計・検証しているんですよね。基地局相当の機器を扱うなら尚さら、免許や試験設備のコストも時間もかけている。その土俵に、車載の安物機材で免許も試験もすっ飛ばして割り込んでくる、と。</p>
+<p>ちなみに電波暗室運用で言うと、ニセ基地局の連中が逆立ちしても持っていないもの:</p>
+<ul class="simple">
+<li><p><strong>シールド性能の担保</strong>（遮蔽量を実測して漏れを管理）</p></li>
+<li><p><strong>キャリブレーション済みの測定環境</strong>（出した電波を正しく把握している）</p></li>
+<li><p><strong>そもそも合法</strong></p></li>
+</ul>
+<p>向こうは「漏らす・混信させる」ことが目的で、こちらは「漏らさない」ことに手間をかけている。使っている物理は地続きでも、職業倫理は正反対というのがよく分かる対比だと思います。</p>
+</section>
+<section id="id5">
+<h2>🟩 Q: 電波暗室を鳥かごと呼んでた<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<p>「鳥かご」、言い得て妙ですね。あのメッシュ状のシールドルーム、確かに人間が入る大きな鳥かごそのものです。ファラデーケージの格子を文字通り鳥かごに見立てる命名、現場っぽくて好きです。</p>
+<p>電波を「閉じ込める」側の構造物なのに、見た目は「閉じ込められる」鳥の檻、というのも一周回って面白い。中にいる人間（と被試験機）の方が籠の鳥、外の世界こそ自由、みたいな。</p>
+<p>その手の現場呼び、他にもいろいろありそうですね。アンテナのフェライト吸収体を「たまご」とか「たけのこ」とか呼んだり、暗室の壁一面の電波吸収体を見て初めて入った人がギョッとしたり。</p>
+<p>今もその鳥かごに籠って試験してるんですか。長時間の放射試験だと、人間の方が先に参ってきそうですが。</p>
+</section>
+<section id="id6">
+<h2>🟩 Q: 無響室よりは耐えられるが、気が狂いそうではある<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<p>わかります。無響室（anechoic chamber）のあの「音が死んでる」感覚は、電波暗室の比じゃないですからね。自分の声が一切返ってこない、耳鳴りと血流の音だけがやたら大きく聞こえてくる、あの world-record「世界一静かな部屋」で何十分も平気な人はそういない、という話も有名です。方向感覚までおかしくなってくる。</p>
+<p>電波暗室はまだ「音」は普通に反射するので、無響室ほど感覚を奪われはしない。ただ、あの壁一面の楔形吸収体に四方を囲まれて、窓もなく、計測のために一人で長時間こもっていると、じわじわ来るものはありますよね。視界に入るものが全部トゲトゲの灰色か青で、生き物の気配ゼロ。鳥かごというより、感覚遮断タンクに片足突っ込んでいるような。</p>
+<p>EMC試験は試験で、スイープがゆっくり回るのをひたすら監視する時間も長いですし。かといって集中は切らせない。退屈と緊張が同居する、精神衛生にはよろしくない環境です。</p>
+<p>せめて音楽でも持ち込めればいいんですが、試験中だと機材のノイズ源になりかねないから迂闊に持ち込めない、なんてこともありそうですね。無事に今日の試験が終わることを祈ってます。籠りすぎにはご注意を。</p>
+</section>
+<section id="id7">
+<h2>🟩 Q: 雑音の有り難みがよくわかるようになる<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<p>本当にそうですね。普段「邪魔者」でしかない雑音が、実は世界が生きていることの証だったと気づく。空調の唸り、遠くの車の音、誰かの話し声、そういう背景のざわめきが全部あってはじめて、人間の感覚は「正常」でいられるんでしょうね。</p>
+<p>EMC屋さんが日がな一日かけて消そう消そうとしているノイズフロアも、暗室から出た瞬間には急にありがたいものに変わる、というのは皮肉というか、味わい深い話です。測定上は底まで下げたい相手が、人間の精神にとっては必要な環境音だった、と。</p>
+<p>ノイズキャンセリングヘッドホンが流行っても、完全な無音じゃなくてわざと環境音や雨音を流す人が多いのも、たぶん同じことなんだと思います。人は完全な「ゼロ」には耐えられないようにできている。1/fゆらぎみたいな適度な雑音がある方が落ち着く。</p>
+<p>無響室や電波暗室は、その「ゼロ」を人工的に作れてしまう数少ない場所なわけで、そこに籠る仕事は、図らずも雑音のありがたみを体で教えてくれる修行の場でもある、と。</p>
+<p>外に出たら、いつものざわざわした世界を少し愛おしく感じられそうですね。お疲れさまです。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html"><span class="label">‹ 前へ</span><span class="title">📙 閉域ネットワークはセキュアなのか</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html"><span class="label">次へ ›</span><span class="title">📙 電電公社の電柱に残る古い地名</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
