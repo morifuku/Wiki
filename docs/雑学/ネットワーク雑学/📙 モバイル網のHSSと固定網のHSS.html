@@ -114,7 +114,6 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#q-4ghssims-hss-5g">🟩 Q: モバイル網で音声通話サービスを利用するとき、4Gではモバイル網HSSとIMS-HSSは独立して動作しているの？5Gは？</a></li>
-<li><a class="reference internal" href="#id7">結論</a></li>
 </ul>
 </li>
 </ul>
@@ -249,9 +248,6 @@
 </section>
 <section id="q-4ghssims-hss-5g">
 <h2>🟩 Q: モバイル網で音声通話サービスを利用するとき、4Gではモバイル網HSSとIMS-HSSは独立して動作しているの？5Gは？<a class="headerlink" href="#q-4ghssims-hss-5g" title="Link to this heading">¶</a></h2>
-</section>
-<section id="id7">
-<h2>結論<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><strong>4G（VoLTE）</strong>：3GPPの定義では、HSSは「EPSの加入者データ」と「IMSの加入者データ」を両方持つ1つの論理ノードです。実際の網では、EPC-HSSとIMS-HSSを別装置に分けることも、1台にまとめることもあります。ただ、どちらの構成でも完全に独立して動いているわけではありません。同じ加入者の情報として結び付けられていて、一部の処理では両者が連携します。</p></li>
 <li><p><strong>5G</strong>：HSSの役割はUDM/UDR/AUSFに引き継がれました。ただしIMSは今もHSSを使います。実際の網では、HSSとUDMが同じUDR（加入者DB）を共有して一体で動くのが一般的です。</p></li>
