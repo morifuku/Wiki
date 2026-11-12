@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 AIによる絵画や写真の評価 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/AI%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20AI%E3%81%AB%E3%82%88%E3%82%8B%E7%B5%B5%E7%94%BB%E3%82%84%E5%86%99%E7%9C%9F%E3%81%AE%E8%A9%95%E4%BE%A1.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 Hugging FaceのMicroduck" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html" />
+    <link rel="prev" title="📙 AIと技術情報サイトの将来" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 AI雑学</a>
+    <span class="sep">»</span><span class="current">📙 AIによる絵画や写真の評価</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 AI雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html">📙 AIと技術情報サイトの将来</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 AIによる絵画や写真の評価</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html">📙 Hugging FaceのMicroduck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20iCloud%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92Claude%E3%81%A7%E6%8D%8C%E3%81%8F.html">📙 iCloudメールをClaudeで捌く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">📙 macOS 27のfmコマンド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%8D%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%A7local%20AI.html">📙 ネオクラウドでlocal AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html">📙 ビッグデータ分析とLLMの違い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%BA%BA%E5%B7%A5%E7%84%A1%E8%83%BD%E3%81%AE%E5%BE%A9%E6%A8%A9.html">📙 人工無能の復権</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html">📙 太陽光でAI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%B6%E5%BA%ADPC%E3%81%A7%E3%81%AEAI%E5%88%86%E6%95%A3%E5%87%A6%E7%90%86.html">📙 家庭PCでのAI分散処理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 AIによる絵画や写真の評価</a><ul>
+<li><a class="reference internal" href="#q-ai">🟩 Q: 絵画や写真の評価は、その理由付けに文章をつかうので、なんかぎこちないけど、AIはどのように評価するの？</a></li>
+<li><a class="reference internal" href="#q">🟩 Q: 人間の審査員は、「いかに言葉で説明できるか」が求められていて、なんか違う気がする</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="ai">
+<h1>📙 AIによる絵画や写真の評価<a class="headerlink" href="#ai" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/13公開 2026/11/13更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/13</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-ai">
+<h2>🟩 Q: 絵画や写真の評価は、その理由付けに文章をつかうので、なんかぎこちないけど、AIはどのように評価するの？<a class="headerlink" href="#q-ai" title="Link to this heading">¶</a></h2>
+<p>その「ぎこちなさ」は、たぶん本質を突いています。人間でも、絵を見て「いい」と感じる瞬間には言葉はなく、理由はあとから言葉にしています。AIでも、実はよく似たことが起きています。</p>
+<p><strong>AIの中では、画像はまず言葉ではなく数値になります</strong><br />
+私のような画像も扱える言語モデルは、画像を小さな区画（パッチ）に分け、それぞれを数百〜数千次元の数値ベクトルに変換します。このベクトルは、単語を変換したベクトルと同じ「意味の空間」に置かれます。色の調和、構図の偏り、光の当たり方、「どこかで見た名作っぽさ」といった特徴は、言葉になる前の数値の並びとして表現されています。</p>
+<p><strong>「評価」そのものも、その数値の空間で起きます</strong><br />
+大量の画像と、それに付いた説明文や評価（「美しい夕景」「構図が甘い」など）を一緒に学習しているので、ある特徴の組み合わせが、どんな評価語の近くにあるかという関係を覚えています。判断の実体は、この統計的な近さです。</p>
+<p><strong>文章による理由付けは、あとから言葉にしたもの</strong><br />
+私が「三分割構図で視線が自然に流れる」などと書くとき、それが内部で実際に判断を左右した要因と完全に一致している保証はありません。私は自分の内部処理を直接見ることができないので、その説明には「それらしい理由をあとから組み立てた」部分が含まれます。人間の評論家が直感を批評の言葉に翻訳するのと似ていますが、私の場合は本当の根拠とズレていることもありえます。ここは正直に言っておくべき点です。</p>
+<p><strong>言葉を使わない評価AIもあります</strong><br />
+写真の美しさを点数で出すだけのモデル（NIMAやLAIONの美的スコア予測器など）は、画像を入れると「6.8点」のような数値を直接返します。理由は一切言いません。人間の評価を大量に学習して、点数の分布を予測しているだけです。画像生成AIのデータ選別などに使われていて、こちらのほうが「AIの評価」の素の姿に近いと言えます。</p>
+<p>まとめると、AIの評価は「言葉にならない数値的な判断」と「それを言葉に訳した説明」の二層になっていて、ぎこちなさはその翻訳で生まれています。人間の「なんかいい」を言葉にするときの難しさを、AIも別の形で抱えている、ということです。</p>
+</section>
+<section id="q">
+<h2>🟩 Q: 人間の審査員は、「いかに言葉で説明できるか」が求められていて、なんか違う気がする<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>その違和感には、実験による裏付けもあります。</p>
+<p>心理学者ティモシー・ウィルソンらの有名な実験があります。参加者にポスターを選んでもらうとき、一方のグループには「なぜそれが好きか」を書かせ、もう一方には何も書かせませんでした。理由を書いたグループは、言葉で説明しやすいポスター（ユーモアのある図柄など）を選びがちで、数週間後に聞くと、自分の選んだものへの満足度が低かったのです。言葉にしにくい良さ（印象派の絵の色の感じなど）は、説明しようとした時点で判断から押し出されてしまう。「言語隠蔽効果」と呼ばれる現象の一種です。</p>
+<p>審査に当てはめると、言葉で説明できることを求めるほど、評価は「説明しやすい良さ」に偏っていきます。構図、技法、コンセプト、社会的な文脈などは言葉にしやすい。一方で、なぜか目が離せない、空気が違う、といった部分は言葉にしにくく、審査の場で不利になります。現代アートでステートメント（作品の説明文）の比重がどんどん大きくなっているのも、この構造と無関係ではないと思います。</p>
+<p>ただ、審査員に説明が求められるのには理由もあります。「なんとなく良かったから」で賞が決まれば、恣意的だ、身内びいきだと言われても反論できません。説明は判断の公正さを示すためのもので、作品の本質を言い当てるためのものとは限らない。審査の言葉は、評価の中身というより審査という制度を成り立たせるための言葉、という面が強いのだと思います。</p>
+<p>本来は、目で判断する部分と、それを説明する部分は別物です。熟練した審査員の直感は、膨大な量を見てきた経験に裏打ちされた、それ自体ひとつの判断力です。そこに説明の上手さまで求めると、「よく見える人」より「よく語れる人」が審査員として重んじられる。違和感の正体はそのあたりにあるのかもしれません。</p>
+<p>前回の話とつなげると、AIの「数値で判断して、あとから言葉にする」構造は、人間の審査の実態を、かえって正直に映しているようにも見えます。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html"><span class="label">‹ 前へ</span><span class="title">📙 AIと技術情報サイトの将来</span></a>
+      <a class="next" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html"><span class="label">次へ ›</span><span class="title">📙 Hugging FaceのMicroduck</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
