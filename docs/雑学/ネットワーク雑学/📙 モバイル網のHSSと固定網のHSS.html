@@ -113,6 +113,8 @@
 <li><a class="reference internal" href="#ip">🟨 前提：送信元IPアドレスが偽れないこと</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#q-4ghssims-hss-5g">🟩 Q: モバイル網で音声通話サービスを利用するとき、4Gではモバイル網HSSとIMS-HSSは独立して動作しているの？5Gは？</a></li>
+<li><a class="reference internal" href="#id7">結論</a></li>
 </ul>
 </li>
 </ul>
@@ -244,6 +246,17 @@
 <p>この方式が成り立つのは、BNGなどのアクセス網側で送信元IPアドレスの詐称を防いでいる（anti-spoofing）からです。IPアドレスを偽れるなら、回線ベースの認証は崩れます。固定網で「回線を信頼する」というのは、正確には「アクセス網が保証する、IPアドレスと回線の結び付きを信頼する」という意味です。</p>
 <p>ご指摘のとおり、照合する両方が静的な台帳で、端末からの入力が絡まないなら意味はありません。この照合に意味があるのは、端末が自由に書ける申告を、端末が偽れない情報（送信元IPと、アクセス網での回線認証）で裏付けているからです。</p>
 </section>
+</section>
+<section id="q-4ghssims-hss-5g">
+<h2>🟩 Q: モバイル網で音声通話サービスを利用するとき、4Gではモバイル網HSSとIMS-HSSは独立して動作しているの？5Gは？<a class="headerlink" href="#q-4ghssims-hss-5g" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id7">
+<h2>結論<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>4G（VoLTE）</strong>：3GPPの定義では、HSSは「EPSの加入者データ」と「IMSの加入者データ」を両方持つ1つの論理ノードです。実際の網では、EPC-HSSとIMS-HSSを別装置に分けることも、1台にまとめることもあります。ただ、どちらの構成でも完全に独立して動いているわけではありません。同じ加入者の情報として結び付けられていて、一部の処理では両者が連携します。</p></li>
+<li><p><strong>5G</strong>：HSSの役割はUDM/UDR/AUSFに引き継がれました。ただしIMSは今もHSSを使います。実際の網では、HSSとUDMが同じUDR（加入者DB）を共有して一体で動くのが一般的です。</p></li>
+</ul>
+<p>ベンダーごとの具体的な構成（Ericsson、Nokia、Huaweiの統合HSS/UDM製品がどう分かれているかなど）は、事業者や製品によってかなり違います。</p>
 </section>
 </section>
 
