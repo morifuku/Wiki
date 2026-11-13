@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 pingに応答するもの &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20ping%E3%81%AB%E5%BF%9C%E7%AD%94%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 モバイル網のHSSと固定網のHSS" href="%F0%9F%93%99%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%B6%B2%E3%81%AEHSS%E3%81%A8%E5%9B%BA%E5%AE%9A%E7%B6%B2%E3%81%AEHSS.html" />
+    <link rel="prev" title="📙 NVIDIAによるMellanox買収" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ネットワーク雑学</a>
+    <span class="sep">»</span><span class="current">📙 pingに応答するもの</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ネットワーク雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html">📙 010677で始まる電話番号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html">📙 NVIDIAによるMellanox買収</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 pingに応答するもの</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%B6%B2%E3%81%AEHSS%E3%81%A8%E5%9B%BA%E5%AE%9A%E7%B6%B2%E3%81%AEHSS.html">📙 モバイル網のHSSと固定網のHSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html">📙 中華NICはなぜ安い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9F%BA%E5%9C%B0%E5%B1%80%E3%81%AE%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1.html">📙 基地局の位置情報</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%B6%E5%BA%AD%E5%90%91%E3%81%9110Gbp%E5%85%89%E5%9B%9E%E7%B7%9A%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A8%E5%A5%91%E7%B4%84%E3%81%99%E3%82%8B%E6%84%8F%E5%91%B3.html">📙 家庭向け10Gbp光回線サービスと契約する意味</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%A1%9B%E6%98%9F%E5%9F%BA%E5%9C%B0%E5%B1%80%E9%96%93%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AA%E3%83%BC%E3%83%90.html">📙 衛星基地局間のハンドオーバ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%BB%8A%E8%BC%89%E5%9E%8B%E5%9F%BA%E5%9C%B0%E5%B1%80.html">📙 車載型基地局</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html">📙 閉域ネットワークはセキュアなのか</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E6%B3%A2%E6%9A%97%E5%AE%A4%E3%81%A8%E7%84%A1%E9%9F%BF%E5%AE%A4.html">📙 電波暗室と無響室</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">📙 電電公社の電柱に残る古い地名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 pingに応答するもの</a><ul>
+<li><a class="reference internal" href="#q-icmp-echonic-kernel">🟩 Q: ICMP echoって、NICが返しているの？Kernelのお世話になっているの？</a><ul>
+<li><a class="reference internal" href="#linux">🟨 Linuxでの流れ</a></li>
+<li><a class="reference internal" href="#id1">🟨 このことから分かる実用上のポイント</a></li>
+<li><a class="reference internal" href="#nic">🟨 例外：NICやカーネル以外が返すケース</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-arp">🟩 Q: ARPは？どこまで動く？</a><ul>
+<li><a class="reference internal" href="#id2">🟨 Linuxでの流れ</a></li>
+<li><a class="reference internal" href="#id3">🟨 どこまで動くか</a></li>
+<li><a class="reference internal" href="#linux-weak-host-model">🟨 Linux特有のクセ(weak host model)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-wol">🟩 Q: カーネルが止まっいても動くのはWoLくらい？</a><ul>
+<li><a class="reference internal" href="#id4">🟨 1. NICのハードウェア/ファームウェアだけで動くもの</a></li>
+<li><a class="reference internal" href="#cpu-os">🟨 2. 別のCPU/OSで動くもの(本命)</a></li>
+<li><a class="reference internal" href="#id5">🟨 3. 止まりかけのカーネル自身が最後にやること</a></li>
+<li><a class="reference internal" href="#id6">🟨 補足:「止まっている」の程度で変わります</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="ping">
+<h1>📙 pingに応答するもの<a class="headerlink" href="#ping" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/13公開 2026/11/13更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/13</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-icmp-echonic-kernel">
+<h2>🟩 Q: ICMP echoって、NICが返しているの？Kernelのお世話になっているの？<a class="headerlink" href="#q-icmp-echonic-kernel" title="Link to this heading">¶</a></h2>
+<p><strong>基本的にはカーネルが返しています。</strong> NICはパケットを受信して送信するだけで、ICMPの中身は見ていません。</p>
+<section id="linux">
+<h3>🟨 Linuxでの流れ<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>NIC受信 → DMAでRXリングへ書き込み → IRQ → NAPI poll (softirq)
+  → __netif_receive_skb → ip_rcv → ip_local_deliver
+  → icmp_rcv → icmp_echo → icmp_reply   (net/ipv4/icmp.c)
+  → ip_push_pending_frames → dev_queue_xmit → NIC送信
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>処理はすべて<strong>softirqコンテキスト</strong>で完結します。ユーザ空間のプロセスは関わらず、コンテキストスイッチも起きません。</p></li>
+<li><p>応答パケットはカーネルが組み立てます。受信したペイロードをそのままコピーして、type 0 (Echo Reply) にするだけです。ICMPのチェックサムも普通はソフトウェアで計算します。NICのTXチェックサムオフロードの対象はTCP/UDPが中心です。</p></li>
+<li><p>次の設定で応答を止められます。</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">net.ipv4.icmp_echo_ignore_all</span></code> / <code class="docutils literal notranslate"><span class="pre">icmp_echo_ignore_broadcasts</span></code></p></li>
+<li><p>IPv6では <code class="docutils literal notranslate"><span class="pre">net.ipv6.icmp.echo_ignore_all</span></code></p></li>
+<li><p>ほかに netfilter で落とす方法もあります。</p></li>
+</ul>
+</li>
+<li><p>Windowsも同じで、カーネルドライバの tcpip.sys が返しています。</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>🟨 このことから分かる実用上のポイント<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p><strong>pingが返る＝カーネルのネットワークスタックとNICドライバが生きている、という意味でしかありません。</strong> ユーザ空間がハングしていても、OOMでアプリが死んでいても、ping は返ります。逆にカーネルパニックしたホストは基本的に返しません。死活監視でpingを使うなら、この点に注意が必要です。</p>
+</section>
+<section id="nic">
+<h3>🟨 例外：NICやカーネル以外が返すケース<a class="headerlink" href="#nic" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ケース</p></th>
+<th class="head"><p>誰が返すか</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>DPDK などのカーネルバイパス</strong></p></td>
+<td><p>カーネルがNICを手放すので、<strong>誰も返しません</strong>。自分のアプリでARPやICMPを実装するか、KNI / virtio-user などでカーネルに処理を回す必要があります</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BMC (IPMI/iDRAC/iLO) の共有NIC (NC-SI)</strong></p></td>
+<td><p>NICがBMC宛てのパケットを振り分け、BMC側のファームウェアが返します。ホストOSが落ちていても返ります</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Intel AMT / ME</strong></p></td>
+<td><p>NIC経由で、ME側のファームウェアが応答する構成があります</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SmartNIC / DPU (BlueField等)</strong></p></td>
+<td><p>NIC上のArm CPUで動くLinuxやファームウェアが返します。結局はそこで動く「カーネル」が返していることが多いです</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ルータ / L3スイッチ</strong></p></td>
+<td><p>転送はASICが行いますが、自分宛てのICMPはコントロールプレーンのCPUに上げて処理します。CoPPでレート制限されるので、ルータへのpingの遅延やロスは転送性能の指標になりません</p></td>
+</tr>
+</tbody>
+</table>
+<p>DPDKを触る予定があるなら、「ping が返らなくなる」はハマりどころなので覚えておくと役に立ちます。</p>
+</section>
+</section>
+<section id="q-arp">
+<h2>🟩 Q: ARPは？どこまで動く？<a class="headerlink" href="#q-arp" title="Link to this heading">¶</a></h2>
+<p>ARPも基本的には<strong>カーネルが返します</strong>。ただしICMPより低い層で処理されるので、ICMPよりもしぶとく動きます。</p>
+<section id="id2">
+<h3>🟨 Linuxでの流れ<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>NIC受信 → NAPI poll (softirq) → __netif_receive_skb
+  → EtherType 0x0806 で振り分け → arp_rcv → arp_process  (net/ipv4/arp.c)
+     ├ 自分宛てのRequestなら → arp_send で Reply を返す
+     └ 送信元の情報を近隣テーブル(neighbour)に学習・更新
+</pre></div>
+</div>
+<p>ARPは <code class="docutils literal notranslate"><span class="pre">ip_rcv</span></code> を通りません。IPスタックとは別の入口(packet_type)から入り、IP層とは<strong>近隣テーブル(<code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">neigh</span></code>)だけを共有</strong>しています。</p>
+</section>
+<section id="id3">
+<h3>🟨 どこまで動くか<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>状態</p></th>
+<th class="head"><p>ARP応答</p></th>
+<th class="head"><p>ping応答</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ユーザ空間がハング / OOM</p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">icmp_echo_ignore_all=1</span></code></p></td>
+<td><p>○</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>iptables/nftables の <code class="docutils literal notranslate"><span class="pre">ip</span></code> ファミリで全部DROP</p></td>
+<td><p>○(素通り)</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">arptables</span></code> / nft の <code class="docutils literal notranslate"><span class="pre">arp</span></code> ファミリでDROP</p></td>
+<td><p>×</p></td>
+<td><p>×(実質)</p></td>
+</tr>
+<tr class="row-even"><td><p>IFにIPが付いていない</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span> <span class="pre">set</span> <span class="pre">down</span></code></p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>カーネルパニック</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>DPDKでNICをバインド</p></td>
+<td><p>×(自前で実装が必要)</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>スリープ(S3)中 + NICのARP Offload</strong></p></td>
+<td><p><strong>○(NICが返す)</strong></p></td>
+<td><p>×</p></td>
+</tr>
+</tbody>
+</table>
+<p>ポイントは次の3つです。</p>
+<ul class="simple">
+<li><p><strong>iptablesではARPを止められません。</strong> ARPはIPパケットではないからです。<code class="docutils literal notranslate"><span class="pre">ping</span></code> は通らないのに <code class="docutils literal notranslate"><span class="pre">arping</span></code> は通る、という状況が普通に起こります。生存確認を「L2の到達性」と「L3/カーネルIPスタック」に分けたいときは、<code class="docutils literal notranslate"><span class="pre">arping</span></code> と <code class="docutils literal notranslate"><span class="pre">ping</span></code> を使い分けると便利です。</p></li>
+<li><p><strong>最後の行がNICだけで返す数少ない例です。</strong> Intelなどの一部のNICは「ARP Offload」「NS Offload」に対応しています。ホストがスリープしている間、OSが事前に登録しておいたIPに対してNICのハードウェアがARP Replyを返します。WindowsのNICのプロパティ(電源の管理)に出てくる設定がそれです。スイッチやルータのARPエントリが消えないので、WoLで起こすときにも都合がよい仕組みです。</p></li>
+<li><p>IPv6のNDP(Neighbor Solicitation/Advertisement)はICMPv6の上に乗っています。それでも <code class="docutils literal notranslate"><span class="pre">net.ipv6.icmp.echo_ignore_all</span></code> が止めるのはEchoだけで、NDPは動き続けます。</p></li>
+</ul>
+</section>
+<section id="linux-weak-host-model">
+<h3>🟨 Linux特有のクセ(weak host model)<a class="headerlink" href="#linux-weak-host-model" title="Link to this heading">¶</a></h3>
+<p>Linuxはデフォルト(<code class="docutils literal notranslate"><span class="pre">arp_ignore=0</span></code>)の状態だと、<strong>どのインタフェースに来たARP Requestでも、ホストが持つIPなら答えます</strong>。eth0宛てのARPにeth1のIPで答えることもあります。マルチホームやLVS-DRで問題になる挙動です。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arp_ignore=1</span></code>: 受信したIFに付いているIPにだけ応答する</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arp_announce=2</span></code>: 送信するARPの送信元IPに、出ていくIFのIPを使う</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arp_filter</span></code>、<code class="docutils literal notranslate"><span class="pre">proxy_arp</span></code> も関係するノブです</p></li>
+</ul>
+<p>現場(産業系のLANで複数セグメントにまたがる構成など)で「なぜか違うMACが返ってくる」ときは、たいていこれが原因です。</p>
+</section>
+</section>
+<section id="q-wol">
+<h2>🟩 Q: カーネルが止まっいても動くのはWoLくらい？<a class="headerlink" href="#q-wol" title="Link to this heading">¶</a></h2>
+<p>WoLだけではありません。ただし、カーネルが止まっているときに応答するのは、<strong>カーネルとは別に動いているハードウェアやファームウェア</strong>に限られます。誰が動いているかで分けると次のとおりです。</p>
+<section id="id4">
+<h3>🟨 1. NICのハードウェア/ファームウェアだけで動くもの<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>機能</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>リンク維持(PHY)</strong></p></td>
+<td><p>オートネゴシエーションとリンクアップは続きます。スイッチ側からは「リンクは上がっているのに無反応」に見えます</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>WoL</strong></p></td>
+<td><p>マジックパケットやパターンマッチで電源投入を要求します。S3/S4/S5でも待機電源で動きます</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ARP/NS Offload</strong></p></td>
+<td><p>スリープ時だけ有効です。OSが寝る前にドライバ経由でNICへ登録しておく仕組みなので、<strong>パニック時には効きません</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PAUSEフレーム(フロー制御)</strong></p></td>
+<td><p>RXバッファがあふれるとNICが自発的に出します。止まったホストがPAUSEを出し続けて、スイッチのポートを詰まらせる事故もあります</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ファームウェアLLDP</strong></p></td>
+<td><p>Intel X710/E810などは、NICファームウェアがOSと無関係にLLDPを喋ります(<code class="docutils literal notranslate"><span class="pre">ethtool</span> <span class="pre">--set-priv-flags</span> <span class="pre">...</span> <span class="pre">disable-fw-lldp</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cpu-os">
+<h3>🟨 2. 別のCPU/OSで動くもの(本命)<a class="headerlink" href="#cpu-os" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>BMC (IPMI / Redfish / iDRAC / iLO)</strong>: サーバ管理用のSoCが独立して動いています。電源OFFやパニック中でもping・ARPに応答し、SOL(Serial over LAN)でパニック画面を見たり、電源をリセットしたりできます。専用ポートかNC-SIの共有NIC経由で使います。<strong>カーネルが止まった後に頼れるのは、事実上これです。</strong></p></li>
+<li><p><strong>Intel AMT / vPro(ME)</strong>: BMCのクライアントPC版です。KVM over IPまで使えます。</p></li>
+<li><p><strong>SmartNIC / DPU</strong>: NIC上のArm Linuxはホストとは独立して動きます。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>🟨 3. 止まりかけのカーネル自身が最後にやること<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>netconsole</strong>: パニック時に、割り込みを使わないポーリングモードでUDPのログを送ります。</p></li>
+<li><p><strong>kdump</strong>: 予約しておいたメモリ上で第2カーネルが起動し、ダンプを保存します。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">kernel.panic=N</span></code></strong> やハードウェアウォッチドッグ(iTCO、BMCウォッチドッグ)による自動リセット。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>🟨 補足:「止まっている」の程度で変わります<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>プロセスだけ詰まっている(softirqは生きている)</strong>: ping・ARPとも返ります。</p></li>
+<li><p><strong>soft lockup</strong>: CPUによっては返ったり返らなかったりします。</p></li>
+<li><p><strong>hard lockup / パニック</strong>: 返りません。RXリングがいっぱいになると、NICは受信パケットを捨てるだけになります。</p></li>
+</ul>
+<p>つまり、<strong>pingは返らないがBMCにはpingが通る</strong>状態なら、ハードウェアと電源は生きていてOS側で止まっている、と切り分けられます。</p>
+<p>ｓ</p>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html"><span class="label">‹ 前へ</span><span class="title">📙 NVIDIAによるMellanox買収</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%B6%B2%E3%81%AEHSS%E3%81%A8%E5%9B%BA%E5%AE%9A%E7%B6%B2%E3%81%AEHSS.html"><span class="label">次へ ›</span><span class="title">📙 モバイル網のHSSと固定網のHSS</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
