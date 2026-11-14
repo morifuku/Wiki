@@ -209,7 +209,6 @@
 <p>一方向のRDMA WRITE/READでは、受信側はカーネルどころかアプリのCPUすら関与しません。NICがrkeyを検査して、そのままメモリに書き込むだけです。相手側のプロセスは、データがいつ届いたのかも分からないので、「書き終わったら最後にフラグを立てる」といった約束を自分たちで決めておく必要があります。</p>
 <p><strong>UDPなのにカーネルのUDPスタックは見ていない</strong></p>
 <p>RoCEv2のパケットは宛先ポート4791のUDPですが、NICが受信の時点で振り分けて、RDMAエンジンに直接回します。そのため、カーネルのUDPソケットの統計にも、通常のtcpdumpにも出てきません（Mellanox系ならドライバ経由でスニファモードにすれば見られます）。その代わり、デバッグは<code class="docutils literal notranslate"><span class="pre">ibv_devinfo</span></code>、<code class="docutils literal notranslate"><span class="pre">rdma</span> <span class="pre">statistic</span></code>、NICのハードウェアカウンタ頼みになります。ドロップや再送の監視も、そのNICのカウンタを見ることになります。</p>
-<p>PLCとの通信のようなリアルタイム寄りの用途でも、「制御パスだけOSに任せ、データパスはユーザー空間から直接叩く」という考え方は、DPDKと共通しています。</p>
 </section>
 </section>
 
