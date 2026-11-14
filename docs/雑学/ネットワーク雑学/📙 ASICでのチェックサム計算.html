@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 ASICでのチェックサム計算 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20ASIC%E3%81%A7%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%B5%E3%83%A0%E8%A8%88%E7%AE%97.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 NVIDIAによるMellanox買収" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html" />
+    <link rel="prev" title="📙 010677で始まる電話番号" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ネットワーク雑学</a>
+    <span class="sep">»</span><span class="current">📙 ASICでのチェックサム計算</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ネットワーク雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html">📙 010677で始まる電話番号</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 ASICでのチェックサム計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html">📙 NVIDIAによるMellanox買収</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20ping%E3%81%AB%E5%BF%9C%E7%AD%94%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE.html">📙 pingに応答するもの</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E7%B6%B2%E3%81%AEHSS%E3%81%A8%E5%9B%BA%E5%AE%9A%E7%B6%B2%E3%81%AEHSS.html">📙 モバイル網のHSSと固定網のHSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%B8%AD%E8%8F%AFNIC%E3%81%AF%E3%81%AA%E3%81%9C%E5%AE%89%E3%81%84.html">📙 中華NICはなぜ安い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9F%BA%E5%9C%B0%E5%B1%80%E3%81%AE%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1.html">📙 基地局の位置情報</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%B6%E5%BA%AD%E5%90%91%E3%81%9110Gbp%E5%85%89%E5%9B%9E%E7%B7%9A%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A8%E5%A5%91%E7%B4%84%E3%81%99%E3%82%8B%E6%84%8F%E5%91%B3.html">📙 家庭向け10Gbp光回線サービスと契約する意味</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%A1%9B%E6%98%9F%E5%9F%BA%E5%9C%B0%E5%B1%80%E9%96%93%E3%81%AE%E3%83%8F%E3%83%B3%E3%83%89%E3%82%AA%E3%83%BC%E3%83%90.html">📙 衛星基地局間のハンドオーバ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E8%BB%8A%E8%BC%89%E5%9E%8B%E5%9F%BA%E5%9C%B0%E5%B1%80.html">📙 車載型基地局</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%96%89%E5%9F%9F%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AF%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%81%AE%E3%81%8B.html">📙 閉域ネットワークはセキュアなのか</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E6%B3%A2%E6%9A%97%E5%AE%A4%E3%81%A8%E7%84%A1%E9%9F%BF%E5%AE%A4.html">📙 電波暗室と無響室</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%9B%BB%E9%9B%BB%E5%85%AC%E7%A4%BE%E3%81%AE%E9%9B%BB%E6%9F%B1%E3%81%AB%E6%AE%8B%E3%82%8B%E5%8F%A4%E3%81%84%E5%9C%B0%E5%90%8D.html">📙 電電公社の電柱に残る古い地名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E7%89%B9%E8%A8%B1%E3%81%AE%E7%B6%B2%E7%BE%85%E7%9A%84%E5%8F%96%E5%BE%97.html">📙 化学特許の網羅的取得</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 ASICでのチェックサム計算</a><ul>
+<li><a class="reference internal" href="#q-ipudpasic">🟩 Q: IPヘッダやUDPペイロード等のチェックサムを、ASICで計算しているの神業に思える</a></li>
+<li><a class="reference internal" href="#q-1">🟩 Q: パケットの指定位置のビットが1だったら、データをシフトするとか書き換えるとかも大変そう</a></li>
+<li><a class="reference internal" href="#q-udp-asic">🟩 Q: カーネルのパケットのキューイング制御は、やればできそうかなレベルだけど、UDPのパケット分割/再構築はASICじゃあ不可能でしょう。ドロップしてないかの監視もあるし</a></li>
+<li><a class="reference internal" href="#q-rocedma">🟩 Q: そうかRoCEはDMAなのでカーネルに知られないように頑張っているんだ</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="asic">
+<h1>📙 ASICでのチェックサム計算<a class="headerlink" href="#asic" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/14公開 2026/11/14更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/14</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-ipudpasic">
+<h2>🟩 Q: IPヘッダやUDPペイロード等のチェックサムを、ASICで計算しているの神業に思える<a class="headerlink" href="#q-ipudpasic" title="Link to this heading">¶</a></h2>
+<p>実は、インターネットチェックサムはハードウェア向きに作られている面があって、ASIC屋さんから見ると「計算そのもの」は楽なほうです。神業に見えるのは、ラインレートで流れるデータに対して、どのタイミングで計算するかの工夫のほうだと思います。</p>
+<p><strong>計算自体が軽い理由</strong></p>
+<p>RFC 1071の1の補数和には、ハードウェアにとって都合のいい性質がそろっています。</p>
+<ul class="simple">
+<li><p>結合則・交換則が成り立つので、足す順番を自由に変えられます。512bitバスなら、1クロックで来る16bitワード32個をCSA（キャリー保存加算器）のツリーで一気に足し込めます。</p></li>
+<li><p>桁上がりはエンドアラウンドキャリー（最上位からの桁上がりを最下位に戻すこと）で処理できます。途中は幅の広いアキュムレータに溜めておき、最後にまとめて折り返せばいいので、クリティカルパスも短く済みます。</p></li>
+<li><p>バイトオーダーに依存しません。ビッグエンディアンのまま足しても、バイトスワップして足しても、最後にスワップすれば同じ結果になります。</p></li>
+<li><p>CRCのような多項式除算と違って、テーブルもLFSRも要りません。ほぼ加算器だけです。</p></li>
+</ul>
+<p><strong>ルーターのTTL減算は差分更新で済む</strong></p>
+<p>IPヘッダを書き換えるたびにヘッダ全体を足し直す必要はありません。RFC 1624の差分更新、</p>
+<p>HC' = ~(~HC + ~m + m')</p>
+<p>を使えば、変わった16bitワード（TTLを含むワード）の分だけで直せます。数ゲートの話なので、パイプラインの1ステージに収まります。ちなみにIPv6では、どうせL4でチェックするからと、ヘッダチェックサム自体がなくなりました。</p>
+<p><strong>本当にいやらしいのはUDP/TCPの送信側</strong></p>
+<p>チェックサムのフィールドはヘッダにあるのに、計算範囲はペイロードの最後まで含んでいます。そのため、</p>
+<ul class="simple">
+<li><p>受信側は簡単です。ストリームで流しながら足し込み、最後にゼロかどうかを見るだけです。</p></li>
+<li><p>送信側は、ヘッダを送り出す前にペイロードを全部見ておかないといけません。カットスルーでは送れないので、NICのTxオフロードはDMAでいったんパケット全体をオンチップバッファに読み込み、計算してからフィールドに書き込んで送り出します。もう一つの手として、ドライバがpseudo-header分の部分和だけを入れておき（Linuxの<code class="docutils literal notranslate"><span class="pre">CHECKSUM_PARTIAL</span></code>、<code class="docutils literal notranslate"><span class="pre">csum_start</span></code>/<code class="docutils literal notranslate"><span class="pre">csum_offset</span></code>）、NICは「この位置からこの位置まで足して、ここに書け」という汎用的な処理だけを受け持つ、という分担もあります。</p></li>
+</ul>
+<p>UDPでチェックサム0を「計算していない」という意味に使えるのも、当時の実装コストへの配慮の名残といえます。</p>
+<p>つまり、アルゴリズムを選んだ時点でハードウェア実装をかなり意識していて、残った難所（送信時の先読み）はバッファとソフトとの分担で逃げている、というのが実態です。NICの設計者の工夫が光るのは、むしろTSO（大きなパケットを分割して送る機能）でセグメントごとにチェックサムを作り直すあたりかもしれません。</p>
+</section>
+<section id="q-1">
+<h2>🟩 Q: パケットの指定位置のビットが1だったら、データをシフトするとか書き換えるとかも大変そう<a class="headerlink" href="#q-1" title="Link to this heading">¶</a></h2>
+<p>おっしゃる通りで、実はそちらのほうがチェックサムよりずっと面倒です。加算は足す順番を気にしなくていいのに、シフトや挿入は「どこからどれだけずれるか」がパケットごとに変わるからです。</p>
+<p><strong>何がつらいか</strong></p>
+<p>たとえば、あるフラグが立っていたらVLANタグ（4バイト）を挿入する、という処理を考えます。512bit（64バイト）バスだと、挿入点より後ろのデータはすべて4バイトずれます。すると、</p>
+<ul class="simple">
+<li><p>各ビートの末尾4バイトが次のビートにはみ出すので、前のビートの残りを持ち越すレジスタが要ります。</p></li>
+<li><p>出力の各バイトレーンは「入力のどのレーンから取るか」を選ぶマルチプレクサになります。ずれ量が任意だと64入力のmuxがバイトレーンの数だけ並ぶ、つまりバレルシフタです。面積も配線も大きく、タイミングも厳しくなります。</p></li>
+<li><p>パケットの最後で、ビートが1つ増えたり減ったりします。バイトイネーブル（有効バイトのマスク）や「最後のビート」を示す信号の付け直しも必要です。</p></li>
+</ul>
+<p>さらに、可変長ヘッダ（IPv4のオプション、IPv6の拡張ヘッダ、MPLSのラベルスタック、トンネルの多重カプセル化など）があると、次のヘッダがどこから始まるかを前のヘッダを読まないと決められません。この依存関係の連鎖が、パーサのクリティカルパスになります。</p>
+<p><strong>どうやって逃げているか</strong></p>
+<p>よくある設計パターンは次のとおりです。</p>
+<ul class="simple">
+<li><p><strong>ヘッダとペイロードを分ける</strong>: パーサが先頭の数百バイトだけを読み、ヘッダの各フィールドを固定位置のレジスタ群に展開します。P4/PISAでいうPHV（Packet Header Vector）です。書き換えはこの固定配置の上でやるので、シフトは要りません。ペイロードはバッファに置いたまま触りません。</p></li>
+<li><p><strong>デパーサで最後に1回だけ組み立てる</strong>: 「どのヘッダが有効か」のビットを見て、出力順に詰め直します。シフトの処理を1か所にまとめ、そこだけ深くパイプライン化して力技で通します。</p></li>
+<li><p><strong>ずれ量を制限する</strong>: 任意バイトのずれを許さず、2バイトや4バイト単位、あるいは数種類のパターンだけに絞れば、muxの入力数が一気に減ります。プロトコル側がヘッダ長を4バイト単位で決めているのも、ここで効いてきます。</p></li>
+<li><p><strong>パースの状態遷移はTCAMで</strong>: 「このフィールドがこの値なら次はこのヘッダで、長さはこう」という分岐を、TCAMのマッチ結果と状態遷移で表します。1段で処理しきれない分は、パイプラインを多段にするか、パケットを入口に戻して再処理（recirculation）させます。</p></li>
+</ul>
+<p>FPGAで同じことを書くと、バレルシフタとビートをまたぐ持ち越し処理だけで、LUTの消費とタイミング違反にかなり泣かされます。Tang NanoやColorlightでも、64bit幅くらいでパケットをそのまま流しながらVLANタグを挿入・削除する回路を作ってみると、この大変さがよく実感できると思います。</p>
+</section>
+<section id="q-udp-asic">
+<h2>🟩 Q: カーネルのパケットのキューイング制御は、やればできそうかなレベルだけど、UDPのパケット分割/再構築はASICじゃあ不可能でしょう。ドロップしてないかの監視もあるし<a class="headerlink" href="#q-udp-asic" title="Link to this heading">¶</a></h2>
+<p>分割と再構築で難しさがかなり違います。それに、「UDPの上で再構築も再送もASICでやっている」実例もあります。</p>
+<p><strong>分割（送信側）は普通にハードウェアでやっている</strong></p>
+<p>大きなデータを受け取ってMTUごとに切り、ヘッダをコピーし、長さ・ID・オフセット・チェックサムを直して送り出す処理は、状態がそのパケット1つの中で完結します。前回の話でいえば、デパーサがヘッダを何度も出し直すだけです。TSOはずっと前からNICの定番ですし、UDPにもUSO（UDPのセグメンテーションオフロード。別々のUDPデータグラムに切る）があります。ちなみに、IPフラグメントに切るほうのUFOはLinuxからは外されました。</p>
+<p><strong>再構築（受信側）が難しいのは本当</strong></p>
+<p>ただ、難しさの中身は計算ではなく状態管理です。</p>
+<ul class="simple">
+<li><p>順不同で届く断片を、フロー（送信元・宛先・ID）ごとにバッファで待たせておく必要があります。並行して組み立て中のデータグラムがいくつあるかの上限が読めません。</p></li>
+<li><p>重なった断片や不正なオフセットを処理し、タイムアウトで捨てる必要があります。</p></li>
+<li><p>断片を大量に送りつけてメモリを食い潰す攻撃に耐えなければなりません。</p></li>
+</ul>
+<p>固定パイプラインはこういう「いつ終わるか分からない状態を大量に抱える」処理が苦手です。そのため、ファイアウォールやロードバランサのASICでも、フラグメントは遅い経路（組み込みCPUやネットワークプロセッサのコア）に回すのが典型です。</p>
+<p>ただ、IP再構築の「ドロップの監視」は、実はたいしたことをしていません。断片が1つでも欠けたら、タイムアウトでデータグラムごと捨てるだけです（Linuxの<code class="docutils literal notranslate"><span class="pre">ipfrag_time</span></code>）。再送はしないので、本当に重いのはTCPのほうです。</p>
+<p><strong>でも、信頼性のある転送をUDPの上で丸ごとASICでやっている例がある</strong></p>
+<p>それがRoCEv2です。中身はUDP（宛先ポート4791）ですが、RDMA NICは次のことをすべてハードウェアでこなしています。</p>
+<ul class="simple">
+<li><p>メッセージをMTU単位のパケットに分割し、PSN（パケット順序番号）を付ける</p></li>
+<li><p>受信側でPSNを見て、相手のメモリに直接書き込む。順番どおりに届けば、再構築用のバッファすら要らない</p></li>
+<li><p>ACK/NAKを返し、欠けがあれば再送する（従来はGo-back-N）</p></li>
+<li><p>再送タイマーと輻輳制御（DCQCN）</p></li>
+</ul>
+<p>「再構築用バッファが要らない」のがミソです。各パケットに書き込み先のアドレスやオフセットが入っているので、届いた順にそのまま最終的な置き場所へ書けます。IPフラグメントが難しいのは、断片の行き先が全部そろうまで決まらないからで、RDMAはプロトコルの設計でその問題を最初から消しています。</p>
+<p>さらに最近は、AWSのSRDやUltra Ethernetのように、順不同での到着を許したまま選択的に再送する方式も、NIC/DPUの中で実装されています。数千〜数万の接続状態をオンチップメモリとホストメモリのキャッシュに持つ方式で、正直、こちらのほうがチェックサムよりよほど神業だと思います。</p>
+</section>
+<section id="q-rocedma">
+<h2>🟩 Q: そうかRoCEはDMAなのでカーネルに知られないように頑張っているんだ<a class="headerlink" href="#q-rocedma" title="Link to this heading">¶</a></h2>
+<p>「知られないように」というより、「最初の手続きだけカーネルに任せ、あとは横を素通りする」というイメージです。</p>
+<p><strong>制御パス（カーネルを通る）</strong></p>
+<ul class="simple">
+<li><p>QP（Queue Pair、送受信キューの組）やCQ（完了キュー）の作成は、<code class="docutils literal notranslate"><span class="pre">ib_uverbs</span></code>経由でカーネルドライバに頼みます。</p></li>
+<li><p>メモリ登録（<code class="docutils literal notranslate"><span class="pre">ibv_reg_mr</span></code>）では、カーネルがユーザーのページを固定（pin）し、仮想アドレスから物理アドレスへの変換表をNICに渡します。同時に、アクセス権の鍵であるlkey/rkeyが発行されます。</p></li>
+<li><p>NICのドアベル用レジスタのページを、ユーザープロセスにmmapします。</p></li>
+</ul>
+<p><strong>データパス（カーネルを通らない）</strong></p>
+<ul class="simple">
+<li><p>アプリは、mmapされたキューにWQE（仕事の依頼書）を直接書き、ドアベルのレジスタにMMIOで書き込むだけです。システムコールは発生しません。</p></li>
+<li><p>NICが自分でWQEを読みに行き、登録済みのバッファからDMAで読み出して送信します。</p></li>
+<li><p>完了はCQをポーリングして確認します。割り込みもコンテキストスイッチもありません。</p></li>
+</ul>
+<p>つまり安全性は、カーネルが毎回チェックする代わりに、登録時にNICへ渡した変換表と鍵をNIC自身が毎回検査することで保たれています。アプリが登録していないアドレスを指定しても、NICが弾きます。</p>
+<p><strong>相手側はもっと徹底している</strong></p>
+<p>一方向のRDMA WRITE/READでは、受信側はカーネルどころかアプリのCPUすら関与しません。NICがrkeyを検査して、そのままメモリに書き込むだけです。相手側のプロセスは、データがいつ届いたのかも分からないので、「書き終わったら最後にフラグを立てる」といった約束を自分たちで決めておく必要があります。</p>
+<p><strong>UDPなのにカーネルのUDPスタックは見ていない</strong></p>
+<p>RoCEv2のパケットは宛先ポート4791のUDPですが、NICが受信の時点で振り分けて、RDMAエンジンに直接回します。そのため、カーネルのUDPソケットの統計にも、通常のtcpdumpにも出てきません（Mellanox系ならドライバ経由でスニファモードにすれば見られます）。その代わり、デバッグは<code class="docutils literal notranslate"><span class="pre">ibv_devinfo</span></code>、<code class="docutils literal notranslate"><span class="pre">rdma</span> <span class="pre">statistic</span></code>、NICのハードウェアカウンタ頼みになります。ドロップや再送の監視も、そのNICのカウンタを見ることになります。</p>
+<p>PLCとの通信のようなリアルタイム寄りの用途でも、「制御パスだけOSに任せ、データパスはユーザー空間から直接叩く」という考え方は、DPDKと共通しています。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20010677%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7.html"><span class="label">‹ 前へ</span><span class="title">📙 010677で始まる電話番号</span></a>
+      <a class="next" href="%F0%9F%93%99%20NVIDIA%E3%81%AB%E3%82%88%E3%82%8BMellanox%E8%B2%B7%E5%8F%8E.html"><span class="label">次へ ›</span><span class="title">📙 NVIDIAによるMellanox買収</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
