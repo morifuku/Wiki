@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 AIの知能ベンチマーク &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/AI%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20AI%E3%81%AE%E7%9F%A5%E8%83%BD%E3%83%99%E3%83%B3%E3%83%81%E3%83%9E%E3%83%BC%E3%82%AF.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 Hugging FaceのMicroduck" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html" />
+    <link rel="prev" title="📙 AIによる絵画や写真の評価" href="%F0%9F%93%99%20AI%E3%81%AB%E3%82%88%E3%82%8B%E7%B5%B5%E7%94%BB%E3%82%84%E5%86%99%E7%9C%9F%E3%81%AE%E8%A9%95%E4%BE%A1.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 AI雑学</a>
+    <span class="sep">»</span><span class="current">📙 AIの知能ベンチマーク</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 AI雑学</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20AI%E3%81%A8%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%B0%86%E6%9D%A5.html">📙 AIと技術情報サイトの将来</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20AI%E3%81%AB%E3%82%88%E3%82%8B%E7%B5%B5%E7%94%BB%E3%82%84%E5%86%99%E7%9C%9F%E3%81%AE%E8%A9%95%E4%BE%A1.html">📙 AIによる絵画や写真の評価</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 AIの知能ベンチマーク</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html">📙 Hugging FaceのMicroduck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20iCloud%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92Claude%E3%81%A7%E6%8D%8C%E3%81%8F.html">📙 iCloudメールをClaudeで捌く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">📙 macOS 27のfmコマンド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%8D%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%A7local%20AI.html">📙 ネオクラウドでlocal AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%A8LLM%E3%81%AE%E9%81%95%E3%81%84.html">📙 ビッグデータ分析とLLMの違い</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%BA%BA%E5%B7%A5%E7%84%A1%E8%83%BD%E3%81%AE%E5%BE%A9%E6%A8%A9.html">📙 人工無能の復権</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%AA%E9%99%BD%E5%85%89%E3%81%A7AI.html">📙 太陽光でAI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%B6%E5%BA%ADPC%E3%81%A7%E3%81%AEAI%E5%88%86%E6%95%A3%E5%87%A6%E7%90%86.html">📙 家庭PCでのAI分散処理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%81%8A%E8%8C%B6%E3%81%A8%E8%85%8E%E7%B5%90%E7%9F%B3.html">📙 お茶と腎結石</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E3%81%AE%E5%AD%A6%E5%95%8F%E8%A6%B3.html">📙 化学の学問観</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%8C%96%E5%AD%A6%E7%89%B9%E8%A8%B1%E3%81%AE%E7%B6%B2%E7%BE%85%E7%9A%84%E5%8F%96%E5%BE%97.html">📙 化学特許の網羅的取得</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 AIの知能ベンチマーク</a><ul>
+<li><a class="reference internal" href="#q">🟩 Q: 知能のベンチマークの方法を教えて。学習対象の質や量が変わると変化するの？</a><ul>
+<li><a class="reference internal" href="#id1">🟨 ベンチマークの仕組み</a></li>
+<li><a class="reference internal" href="#id2">🟨 学習データの質や量で変わるか</a></li>
+<li><a class="reference internal" href="#id3">🟨 発表の数字を読むときの注意</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-ai">🟩 Q: データ汚染：過去問やってる受験生みたいだ。ある意味、AIは過去問しか勉強しない</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="ai">
+<h1>📙 AIの知能ベンチマーク<a class="headerlink" href="#ai" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/14公開 2026/11/14更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/14</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q">
+<h2>🟩 Q: 知能のベンチマークの方法を教えて。学習対象の質や量が変わると変化するの？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3>🟨 ベンチマークの仕組み<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>AIの「知能ベンチマーク」は、基本的には<strong>答えが決まっている問題集</strong>です。モデルに解かせて正答率を出します。</p>
+<ol class="arabic simple">
+<li><p><strong>問題セットを固定する</strong>：数百〜数千問。正解は事前に用意しておく</p></li>
+<li><p><strong>同じ条件で解かせる</strong>：プロンプトの形式、例題の数（0-shot、5-shotなど）、思考に使えるトークン量などを揃える</p></li>
+<li><p><strong>採点する</strong></p>
+<ul class="simple">
+<li><p>選択式や数値の答え：完全一致で判定</p></li>
+<li><p>コーディング：生成したコードをテストケースで実行し、通るかどうか（pass&#64;1 など）</p></li>
+<li><p>エージェント系：実際の環境でタスクを完遂できたかどうか（例：GitHubのissueを直してテストが通るか）</p></li>
+<li><p>自由記述：別のLLMや人間が判定する。この方式は判定にブレが出やすい</p></li>
+</ul>
+</li>
+</ol>
+<p>よく使われるものを分野別に挙げます。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>分野</p></th>
+<th class="head"><p>例</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>知識・推論</p></td>
+<td><p>MMLU-Pro、GPQA Diamond（大学院レベルの科学）、Humanity's Last Exam</p></td>
+</tr>
+<tr class="row-odd"><td><p>数学</p></td>
+<td><p>AIME、FrontierMath</p></td>
+</tr>
+<tr class="row-even"><td><p>コーディング</p></td>
+<td><p>SWE-bench Verified、LiveCodeBench、Terminal-Bench</p></td>
+</tr>
+<tr class="row-odd"><td><p>抽象推論</p></td>
+<td><p>ARC-AGI</p></td>
+</tr>
+<tr class="row-even"><td><p>ツール操作・エージェント</p></td>
+<td><p>τ-bench、OSWorld、BrowseComp</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>🟨 学習データの質や量で変わるか<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p><strong>変わります。</strong> しかもかなり大きく変わります。</p>
+<ul class="simple">
+<li><p><strong>量</strong>：スケーリング則と呼ばれる経験則があり、パラメータ数・データ量・計算量を増やすと損失が予測どおりに下がり、スコアもおおむね上がります。ただしその伸びは対数的で、だんだん鈍ります。</p></li>
+<li><p><strong>質</strong>：最近はこちらの効果が大きいです。重複除去、低品質なWebテキストの除外、教科書的なデータや合成データの追加によって、小さいモデルでも大きいモデルに迫ることがよくあります。「Flash級のモデルが上位モデルを一部で上回る」という現象の多くはこれと、次の事後学習で説明できます。</p></li>
+<li><p><strong>事後学習</strong>：数学やコードのように正誤を自動判定できる課題で強化学習をすると、推論系ベンチマークのスコアが大きく伸びます。何を重点的に鍛えるかで、得意分野が偏ります。</p></li>
+<li><p><strong>データ汚染</strong>：ベンチマークの問題や答えが学習データに混入すると、「解いた」のではなく「覚えていた」状態になり、スコアが水増しされます。これがベンチマーク最大の弱点です。対策として、問題を非公開にしたもの（HLEの一部など）や、定期的に新しい問題に入れ替えるもの（LiveCodeBenchなど）が作られています。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 発表の数字を読むときの注意<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>**「一部のベンチマークで上回る」**は、得意な項目を選んで載せている可能性が高い表現です。全項目の表を見るのが確実です。</p></li>
+<li><p><strong>自社測定か第三者測定か</strong>：プロンプトや思考量の設定を変えるだけで数ポイント動きます。Artificial Analysis、LMArena、Epoch AI などの第三者評価と照らし合わせるのがおすすめです。</p></li>
+<li><p>**「2.5倍高速」**は知能とは別軸で、トークン生成速度やタスク完了時間の話です。どの条件で測ったかで大きく変わります。</p></li>
+<li><p><strong>飽和</strong>：MMLUのように各社が90%超で横並びになったベンチマークは、もう差を測れていません。新しくて難しいものほど参考になります。</p></li>
+</ul>
+<p>実務での使い勝手は、ベンチマークの数字より、自分のタスク（例えばC/C++のコード生成やログ解析）で数十件の小さな評価セットを作り、各モデルを比べるほうが確実です。</p>
+</section>
+</section>
+<section id="q-ai">
+<h2>🟩 Q: データ汚染：過去問やってる受験生みたいだ。ある意味、AIは過去問しか勉強しない<a class="headerlink" href="#q-ai" title="Link to this heading">¶</a></h2>
+<p>うまい例えですね。半分は当たっていると思います。</p>
+<p>当たっているのは、AIの学習データが原理的に「すでに書かれたもの」だけだという点です。教科書も論文も、Stack Overflowの回答も、全部が過去問のようなものです。最近の強化学習は、正解のわかる数学やコードの問題を大量に解かせて採点するので、問題演習で鍛えるという意味でも受験勉強そっくりです。</p>
+<p>ただ、汚染の問題は「過去問で勉強したこと」とは別物です。本番の問題そのものを事前に見ていた、つまり試験問題が漏れていた状態のことです。過去問で解き方を身につけた受験生は初見の問題も解けますが、答えを丸暗記しただけの受験生は少しひねられると崩れます。ベンチマークが測りたいのは前者で、汚染されると後者との区別がつかなくなる、というのが問題の本質です。</p>
+<p>実際、ベンチマークの数字を少し変えたり言い回しを変えたりするとスコアが落ちるモデルがあり、丸暗記型の振る舞いが観測されています。逆に、ARC-AGIのように毎回まったく新しいパズルを出す形式は、「過去問に載っていない問題をどれだけ解けるか」を測ろうとする試みです。</p>
+<p>考えてみると、人間も過去の経験からしか学べないのは同じです。違いがあるとすれば、人間は少ない過去問から規則を抜き出すのが上手く、AIは膨大な過去問を見てようやく同じところに届く、という効率の差です。ここが今のAI研究の大きなテーマの一つでもあります。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20AI%E3%81%AB%E3%82%88%E3%82%8B%E7%B5%B5%E7%94%BB%E3%82%84%E5%86%99%E7%9C%9F%E3%81%AE%E8%A9%95%E4%BE%A1.html"><span class="label">‹ 前へ</span><span class="title">📙 AIによる絵画や写真の評価</span></a>
+      <a class="next" href="%F0%9F%93%99%20Hugging%20Face%E3%81%AEMicroduck.html"><span class="label">次へ ›</span><span class="title">📙 Hugging FaceのMicroduck</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
