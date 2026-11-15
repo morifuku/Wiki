@@ -66,18 +66,106 @@
 </ul>
 
 </nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">🟪 5Gデモ構築</a><ul>
+<li><a class="reference internal" href="#gcn">🟩 5GCN（コアネットワーク）</a><ul>
+<li><a class="reference internal" href="#oai-cn5g-openairinterface-core-network">🟨 OAI CN5G（OpenAirInterface Core Network）</a></li>
+<li><a class="reference internal" href="#open5gs">🟨 Open5GS</a></li>
+<li><a class="reference internal" href="#free5gc">🟨 free5GC</a></li>
+<li><a class="reference internal" href="#sd-core-aether-onf">🟨 SD-Core（Aether / ONF系）</a></li>
+<li><a class="reference internal" href="#magma">🟨 Magma</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gran">🟩 5GRAN</a><ul>
+<li><a class="reference internal" href="#ueransim">🟨 UERANSIM</a></li>
+<li><a class="reference internal" href="#duranta-oai-ran-nr-softmodem-nr-uesoftmodem">🟨 Duranta / OAI RAN（nr-softmodem, nr-uesoftmodem）</a></li>
+<li><a class="reference internal" href="#srsran-project-ocudu">🟨 srsRAN Project / OCUDU</a></li>
+<li><a class="reference internal" href="#packetrusher">🟨 PacketRusher</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">🟩 最初の一歩としての構成例</a></li>
+<li><a class="reference internal" href="#sources">🟩 Sources:</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
   </aside>
   <div class="content">
   <main class="body" role="main">
     
   <section class="tex2jax_ignore mathjax_ignore" id="g">
 <h1>🟪 5Gデモ構築<a class="headerlink" href="#g" title="Link to this heading">¶</a></h1>
+<section id="gcn">
+<h2>🟩 5GCN（コアネットワーク）<a class="headerlink" href="#gcn" title="Link to this heading">¶</a></h2>
+<section id="oai-cn5g-openairinterface-core-network">
+<h3>🟨 OAI CN5G（OpenAirInterface Core Network）<a class="headerlink" href="#oai-cn5g-openairinterface-core-network" title="Link to this heading">¶</a></h3>
+<p>3GPP準拠の5G SAコアです。ベアメタル/VM、Docker Composeでのコンテナ展開、OpenShift/Kubernetes上でのHelm Chart展開に対応しています。社内LANで進めているOpenShift環境にもHelmでそのまま載せられます。ライセンスはOAI Public License。</p>
+</section>
+<section id="open5gs">
+<h3>🟨 Open5GS<a class="headerlink" href="#open5gs" title="Link to this heading">¶</a></h3>
+<p>C言語で書かれています。Release 16準拠の4G/5G NSA対応EPCと5G SAコアを実装しており、ライセンスはAGPLv3です。安定性とドキュメントの充実から最も広く使われていると評価されており、最初の一本ならこれが無難です。</p>
+</section>
+<section id="free5gc">
+<h3>🟨 free5GC<a class="headerlink" href="#free5gc" title="Link to this heading">¶</a></h3>
+<p>Go言語で書かれています。台湾NYCUの研究者が2019年に作った、最初のオープンソース5Gコアで、2024年にLinux Foundation傘下に入りました。N3IWF（非3GPPアクセス）などを試すのに向いています。</p>
+</section>
+<section id="sd-core-aether-onf">
+<h3>🟨 SD-Core（Aether / ONF系）<a class="headerlink" href="#sd-core-aether-onf" title="Link to this heading">¶</a></h3>
+<p>クラウドネイティブ寄りの5Gコアです。論文ではOpen5GS・OAI・free5GCと並ぶ主要プラットフォームとして比較されています。Kubernetes前提で使います。</p>
+</section>
+<section id="magma">
+<h3>🟨 Magma<a class="headerlink" href="#magma" title="Link to this heading">¶</a></h3>
+<p>もともとはFacebook発で、現在はLinux Foundationのプロジェクトです。EPC/5GCに加えて、アクセスゲートウェイや管理機能まで含みます。主な用途は通信事業者や地域ネットワーク向けです。</p>
+<p>性能面のざっくりした傾向としては、制御プレーンの遅延はOpen5GSが最も良く、データレートはOAIが最高、リソース消費はfree5GCが最小という評価があります。</p>
+</section>
+</section>
+<section id="gran">
+<h2>🟩 5GRAN<a class="headerlink" href="#gran" title="Link to this heading">¶</a></h2>
+<section id="ueransim">
+<h3>🟨 UERANSIM<a class="headerlink" href="#ueransim" title="Link to this heading">¶</a></h3>
+<p>gNBとUEのソフトウェアシミュレータです。無線機がなくても、コアへのRegistrationやPDUセッションを確認できます。コアだけ試すなら必須級です。</p>
+</section>
+<section id="duranta-oai-ran-nr-softmodem-nr-uesoftmodem">
+<h3>🟨 Duranta / OAI RAN（nr-softmodem, nr-uesoftmodem）<a class="headerlink" href="#duranta-oai-ran-nr-softmodem-nr-uesoftmodem" title="Link to this heading">¶</a></h3>
+<p>USRPで実際の電波を出し、市販のQuectel 5Gモデムを接続する構成まで組めます。RFsimulatorモードを使えばSDRなしでも動きます。</p>
+</section>
+<section id="srsran-project-ocudu">
+<h3>🟨 srsRAN Project / OCUDU<a class="headerlink" href="#srsran-project-ocudu" title="Link to this heading">¶</a></h3>
+<p>C++製のgNBです。OCUDUはsrsRAN-Projectのフォークです。</p>
+</section>
+<section id="packetrusher">
+<h3>🟨 PacketRusher<a class="headerlink" href="#packetrusher" title="Link to this heading">¶</a></h3>
+<p>Go製のUE/gNBシミュレータで、負荷試験向けです。</p>
+</section>
+</section>
+<section id="id1">
+<h2>🟩 最初の一歩としての構成例<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>ソフトだけで完結させる</strong>：Open5GS（またはOAI CN5G）とUERANSIMを、1台のUbuntuかVMに入れます。半日ほどでPDUセッションの確立と <code class="docutils literal notranslate"><span class="pre">ping</span></code> まで確認できます。</p></li>
+<li><p><strong>OAIで統一する</strong>：OAI CN5GをDocker Composeで立て、Duranta gNBとOAI UEをRFsimulatorモードで動かします。</p></li>
+<li><p><strong>実機で電波を出す</strong>：2.の構成にUSRP（B210など）と5Gモデム、テスト用SIMを加えます。実際に電波を出すので、電波法上の扱い（実験試験局の免許やシールド環境など）は事前に確認が必要です。</p></li>
+</ol>
+</section>
+<section id="sources">
+<h2>🟩 Sources:<a class="headerlink" href="#sources" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.linuxfoundation.org/press/lf-networking-and-openairinterface-software-alliance-osa-collaborate-to-announce-duranta-to-advance-open-source-ran-innovation">LF Networking and OSA announce Duranta</a></p></li>
+<li><p><a class="reference external" href="https://openairinterface.org/core-network/">OAI Core Network</a></p></li>
+<li><p><a class="reference external" href="https://www.cosmos-lab.org/wiki/public/tutorials/cellular-4g5g-oran/duranta-5g-sa-oai-cn5g">COSMOS: Duranta 5G SA + OAI CN5G チュートリアル</a></p></li>
+<li><p><a class="reference external" href="https://open-5g.github.io/core/">Open 5G – Core Network一覧</a></p></li>
+<li><p><a class="reference external" href="https://d2j16w31g89z0j.cloudfront.net/site/icoin2025/abs/B-2-5.pdf">Open-Source 5G Core Platforms: Performance Evaluation</a></p></li>
+<li><p><a class="reference external" href="https://convergedigest.com/?p=97808">free5GC joins Linux Foundation</a></p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/index.html">🟦 OpenShift環境構築 (0)</a></li>
 </ul>
 </div>
+</section>
 </section>
 
 
