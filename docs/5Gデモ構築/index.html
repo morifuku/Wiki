@@ -80,13 +80,14 @@
 </li>
 <li><a class="reference internal" href="#gran">🟩 5GRAN</a><ul>
 <li><a class="reference internal" href="#ueransim">🟨 UERANSIM</a></li>
-<li><a class="reference internal" href="#duranta-oai-ran-nr-softmodem-nr-uesoftmodem">🟨 Duranta / OAI RAN（nr-softmodem, nr-uesoftmodem）</a></li>
+<li><a class="reference internal" href="#duranta">🟨 Durantaプロジェクト</a></li>
 <li><a class="reference internal" href="#srsran-project-ocudu">🟨 srsRAN Project / OCUDU</a></li>
 <li><a class="reference internal" href="#packetrusher">🟨 PacketRusher</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id1">🟩 最初の一歩としての構成例</a></li>
 <li><a class="reference internal" href="#sources">🟩 Sources:</a></li>
+<li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
 </ul>
 </li>
 </ul>
@@ -102,7 +103,10 @@
 <h2>🟩 5GCN（コアネットワーク）<a class="headerlink" href="#gcn" title="Link to this heading">¶</a></h2>
 <section id="oai-cn5g-openairinterface-core-network">
 <h3>🟨 OAI CN5G（OpenAirInterface Core Network）<a class="headerlink" href="#oai-cn5g-openairinterface-core-network" title="Link to this heading">¶</a></h3>
-<p>3GPP準拠の5G SAコアです。ベアメタル/VM、Docker Composeでのコンテナ展開、OpenShift/Kubernetes上でのHelm Chart展開に対応しています。社内LANで進めているOpenShift環境にもHelmでそのまま載せられます。ライセンスはOAI Public License。</p>
+<ul class="simple">
+<li><p>3GPP準拠の5G SAコアです。ベアメタル/VM、Docker Composeでのコンテナ展開、OpenShift/Kubernetes上でのHelm Chart展開に対応しています。社内LANで進めているOpenShift環境にもHelmでそのまま載せられます。ライセンスはOAI Public License。</p></li>
+<li><p>将来的にDurantaプロジェクトに移行予定</p></li>
+</ul>
 </section>
 <section id="open5gs">
 <h3>🟨 Open5GS<a class="headerlink" href="#open5gs" title="Link to this heading">¶</a></h3>
@@ -128,8 +132,8 @@
 <h3>🟨 UERANSIM<a class="headerlink" href="#ueransim" title="Link to this heading">¶</a></h3>
 <p>gNBとUEのソフトウェアシミュレータです。無線機がなくても、コアへのRegistrationやPDUセッションを確認できます。コアだけ試すなら必須級です。</p>
 </section>
-<section id="duranta-oai-ran-nr-softmodem-nr-uesoftmodem">
-<h3>🟨 Duranta / OAI RAN（nr-softmodem, nr-uesoftmodem）<a class="headerlink" href="#duranta-oai-ran-nr-softmodem-nr-uesoftmodem" title="Link to this heading">¶</a></h3>
+<section id="duranta">
+<h3>🟨 Durantaプロジェクト<a class="headerlink" href="#duranta" title="Link to this heading">¶</a></h3>
 <p>USRPで実際の電波を出し、市販のQuectel 5Gモデムを接続する構成まで組めます。RFsimulatorモードを使えばSDRなしでも動きます。</p>
 </section>
 <section id="srsran-project-ocudu">
@@ -159,6 +163,9 @@
 <li><p><a class="reference external" href="https://d2j16w31g89z0j.cloudfront.net/site/icoin2025/abs/B-2-5.pdf">Open-Source 5G Core Platforms: Performance Evaluation</a></p></li>
 <li><p><a class="reference external" href="https://convergedigest.com/?p=97808">free5GC joins Linux Foundation</a></p></li>
 </ul>
+</section>
+<section id="contents">
+<h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
