@@ -80,6 +80,7 @@
 <li><a class="reference internal" href="#id1">🟩 1. 構成</a></li>
 <li><a class="reference internal" href="#id2">🟩 2. 構築手順</a></li>
 <li><a class="reference internal" href="#id3">🟩 3. 動かしてみる</a></li>
+<li><a class="reference internal" href="#id4">🟩 4. 各種通信プロトコルを鑑賞する</a></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +92,7 @@
     
   <section class="tex2jax_ignore mathjax_ignore" id="oai-full-stack-5g-nr-rf">
 <h1>📙 OAI Full Stack 5G-NR RF シミュレーション<a class="headerlink" href="#oai-full-stack-5g-nr-rf" title="Link to this heading">¶</a></h1>
-<p class="page-dates">2026/08/29公開 2026/11/12更新</p>
+<p class="page-dates">2026/08/29公開 2026/11/15更新</p>
 <p>DockerHubにリリースされているOAIの各種CNFを使って、UE-RAN-CN-DNのフルスタックのデモができる。Kubernetesではなく、普通のDocker Composeで動かすシンプルなもの。AUSF/UDMをMySQLで代替する等、ナンチャッテCNFもある。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/duranta-project/openairinterface5g/tree/develop/ci-scripts/yaml_files/5g_rfsimulator">https://github.com/duranta-project/openairinterface5g/tree/develop/ci-scripts/yaml_files/5g_rfsimulator</a></p></li>
@@ -99,7 +100,7 @@
 <p><a class="reference internal" href="../../_images/Pasted_image_20261109211652.png"><img alt="Pasted image 20261109211652" src="../../_images/Pasted_image_20261109211652.png" style="width: 566px;" /></a></p>
 <section id="id1">
 <h2>🟩 1. 構成<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p><strong>CNF一覧</strong></p>
+<p><strong>Container Network Function (CNF) 一覧</strong></p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>CNF</p></th>
@@ -151,7 +152,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>主なファイル</strong></p>
+<p><strong>主な設定ファイル</strong></p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>ファイル</p></th>
@@ -196,9 +197,36 @@
 </section>
 <section id="id2">
 <h2>🟩 2. 構築手順<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>CNFはDockerHubに登録されている。手順は以下の通り</p>
+<ul class="simple">
+<li><p>Docker Compose環境を作って</p></li>
+<li><p>DockerHubにログインして</p></li>
+<li><p>CNFをDockerHubからダウンロードする</p></li>
+</ul>
 </section>
 <section id="id3">
 <h2>🟩 3. 動かしてみる<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>NR-UEもDNもコンテナなので、内部で各種Linuxコマンドが動かせる。両端でiperfを起動することで、Uプレーントラフィックを流している。</p></li>
+<li><p>N1-N2-N3-N6トンネルを連結し、その中にトンネルを作ってiperf通信を動かしている。</p></li>
+</ul>
+<p><strong>NR-UEコンテナ</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><strong>DNコンテナ</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>🟩 4. 各種通信プロトコルを鑑賞する<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p>WireSharkをブリッジにつなぎ込んで、各種通信プロトコルを眺めてみる。結構真面目に実装されていることがわかる。ただし認証系はナンチャッテになっている。</p>
+<p><strong>N1AP/NGAP</strong></p>
+<p><strong>GTP-U</strong></p>
+<p><strong>SBI</strong></p>
+<p><strong>PFCP</strong></p>
+<p><strong>SGI</strong></p>
 </section>
 </section>
 
