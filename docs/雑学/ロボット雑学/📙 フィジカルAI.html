@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 フィジカルAI &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E3%83%95%E3%82%A3%E3%82%B8%E3%82%AB%E3%83%ABAI.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 フィジカルAIはお祭り騒ぎ" href="%F0%9F%93%99%20%E3%83%95%E3%82%A3%E3%82%B8%E3%82%AB%E3%83%ABAI%E3%81%AF%E3%81%8A%E7%A5%AD%E3%82%8A%E9%A8%92%E3%81%8E.html" />
+    <link rel="prev" title="📙 ヒューマノイドの安全規格" href="%F0%9F%93%99%20%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89%E3%81%AE%E5%AE%89%E5%85%A8%E8%A6%8F%E6%A0%BC.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 ロボット雑学</a>
+    <span class="sep">»</span><span class="current">📙 フィジカルAI</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築 (3)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学 (43)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学 (11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学 (13)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 ロボット雑学 (10)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89.html">📙 ヒューマノイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89%E3%81%AE%E5%AE%89%E5%85%A8%E8%A6%8F%E6%A0%BC.html">📙 ヒューマノイドの安全規格</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 フィジカルAI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%95%E3%82%A3%E3%82%B8%E3%82%AB%E3%83%ABAI%E3%81%AF%E3%81%8A%E7%A5%AD%E3%82%8A%E9%A8%92%E3%81%8E.html">📙 フィジカルAIはお祭り騒ぎ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%81%AE%E5%A7%BF%E5%8B%A2%E5%88%B6%E5%BE%A1.html">📙 ロボットの姿勢制御</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%81%AE%E6%A8%A1%E5%80%A3%E5%AD%A6%E7%BF%92.html">📙 ロボットの模倣学習</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%A4%A7%E5%9E%8B%E3%83%89%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AE%E6%80%A7%E8%83%BD%E5%BC%B7%E5%8C%96.html">📙 大型ドローンの性能強化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%AE%89%E3%81%84%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E6%8E%A2%E3%81%97.html">📙 安いアクチュエータ探し</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E7%B6%B1%E6%B8%A1%E3%82%8A%E6%9B%B2%E8%8A%B8%E5%B8%AB%E3%81%AE%E9%87%8D%E5%BF%83%E3%81%AE%E7%89%A9%E7%90%86%E5%AD%A6.html">📙 綱渡り曲芸師の重心の物理学</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E9%89%84%E4%BA%BA28%E5%8F%B7%E3%81%AE%E3%83%AA%E3%83%A2%E3%82%B3%E3%83%B3.html">📙 鉄人28号のリモコン</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../%E5%8C%96%E5%AD%A6%E3%81%AE%E9%9B%91%E5%AD%A6/index.html">🟦 化学の雑学 (3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E9%9B%91%E5%AD%A6/index.html">🟦 その他 (6)</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 フィジカルAI</a><ul>
+<li><a class="reference internal" href="#q">🟩 Q: ビジネス的な定義は？</a></li>
+<li><a class="reference internal" href="#q-ai">🟩 Q: AIが「センサー入力を処理してアクチュエーターに出力する」をグルグル回す</a></li>
+<li><a class="reference internal" href="#q-123">🟩 Q: 二足歩行のようなキビキビした制御ではなく「①よく見て②しっかり考えて③ちゃんと動かす」がテーマ？</a></li>
+<li><a class="reference internal" href="#q-vla">🟩 Q: VLAの課題は？</a></li>
+<li><a class="reference internal" href="#id1">🟩 Q: VLAにも「よく訓練された人工無能」が有効と思った</a></li>
+<li><a class="reference internal" href="#q-100">🟩 Q: 人間の付随運動はどう感じで習得されるの？100%生まれつきでもないでしょう</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="ai">
+<h1>📙 フィジカルAI<a class="headerlink" href="#ai" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/15公開 2026/11/15更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/7</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q">
+<h2>🟩 Q: ビジネス的な定義は？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>統一された定義はまだありません。ビジネスの文脈では、おおむね <strong>「AIがセンサーで現実世界を認識・判断し、ロボットや機械を動かして、これまで人が体を使ってやっていた業務を代わりに行う、または手伝う仕組み」</strong> という意味で使われています。</p>
+<p><strong>よく使われる定義</strong></p>
+<ul class="simple">
+<li><p>一般的な説明では、カメラやセンサーで現実世界の状況を認識し、AI が状況を判断して、ロボットや機械を自律的に動かす一連の仕組みとされます。「認識→判断→行動」のループを物理空間で実行できる点が、従来の AI との本質的な差異だと説明されています。</p></li>
+<li><p>対象は、工場の組み立て工程、物流倉庫のピッキング、農業の収穫作業、手術支援などの現場作業です。生成AIとの違いは生成 AI は「知的な会話相手」、フィジカル AI は「知的な現場作業者」とたとえられます。</p></li>
+<li><p>IBMは範囲を広く取り、個々のロボットにとどまらず、AIで動く工場全体、スマートグリッド、自動運転車の車両群まで含めています。</p></li>
+</ul>
+<p><strong>定義には「広い」ものと「狭い」ものがある</strong></p>
+<ul class="simple">
+<li><p><strong>広い定義（NVIDIAなど）：</strong> &quot;AI with a body&quot;（身体を持つAI）という考え方で、自動運転車、ドローン、産業用ロボット、ヒューマノイド、デジタルツインまで含みます。ただしGPUベンダーであるNVIDIAにとって、さまざまなGPUの用途を「フィジカルAI」という言葉でまとめるのは理にかなっているという指摘もあります。つまり、売る側の都合で広く取っている面もあります。</p></li>
+<li><p><strong>狭い定義（Physical Intelligence、Google DeepMind、Figure AIなどのロボットAI開発企業）：</strong> VLA（Vision-Language-Action）モデルや、センサー入力から動作までを一つのモデルで学習するエンドツーエンド学習による汎用ロボットを指します。VLAによって以前は難しかったロボットの動作が可能になったことが、いま注目されている一番の理由だとされます。</p></li>
+</ul>
+<p><strong>実務で使うときの注意点</strong></p>
+<ul class="simple">
+<li><p>言葉を広げすぎる宣伝には注意が必要です。ネットにつながった家電は自動的にフィジカルAIになるわけではなく、センサー付きでも遠隔操作のドローンはフィジカルAIではないという指摘があります。</p></li>
+<li><p>導入効果が大きいのは、ばらつきが例外ではなく当たり前の現場（多品種のSKU、照明の変化、人の接近、季節による条件の違い、在庫レイアウトの変更など）です。</p></li>
+<li><p>「ロボットとの違い」は、ロボットは身体（ハードウェア）、フィジカルAIはそれを自律的に動かす頭脳と整理されます。</p></li>
+</ul>
+<p><strong>市場・政策の動き</strong></p>
+<ul class="simple">
+<li><p>Gartnerは2026年の戦略的テクノロジートレンドのトップの一つにフィジカルAIを挙げています。</p></li>
+<li><p>日本では、政府が「戦略17分野」でフィジカルAIに10.5兆円を投じ、2040年に20兆円規模・世界シェア3割超を狙うとされています。</p></li>
+</ul>
+<p>まとめると、ビジネスで話すときは「認識→判断→行動を現実世界で自律的に回し、人の身体作業を置き換える、または補うAIシステム」という意味で通じます。ただ、相手が広い意味（NVIDIA流）で言っているのか、狭い意味（VLA系の汎用ロボット）で言っているのかで話がずれやすいので、最初にどちらの意味か確認しておくと安全です。従来のルールベースのFA（PLCで決まった手順どおり動かす自動化）は、狭い定義ではフィジカルAIに含まれず、それと区別するための言葉として使われることが多いです。</p>
+</section>
+<section id="q-ai">
+<h2>🟩 Q: AIが「センサー入力を処理してアクチュエーターに出力する」をグルグル回す<a class="headerlink" href="#q-ai" title="Link to this heading">¶</a></h2>
+<p>そうです、骨格はそのループです。ただ、それだけだとPLCのスキャンやPID制御も同じ形になるので、何がフィジカルAIなのかは次の2点で決まります。</p>
+<p><strong>1. ループの真ん中が「学習したモデル」であること</strong></p>
+<ul class="simple">
+<li><p>従来の制御は、ラダーやPIDのように人が書いたロジックや式でセンサー値を出力に変えます。想定外の状況には対応できません。</p></li>
+<li><p>フィジカルAIは、カメラ画像などの曖昧な入力から、学習したモデル（VLAなど）が出力を決めます。初めて見るワークや配置にも、ある程度は対応できます。</p></li>
+</ul>
+<p><strong>2. 実際は周期の違うループが何層かに重なっていること</strong><br />
+AIの推論が直接モーターを叩くことはあまりなく、典型的にはこう分かれます。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>層</p></th>
+<th class="head"><p>周期の目安</p></th>
+<th class="head"><p>担当</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>タスク計画（LLM/VLMなど）</p></td>
+<td><p>秒〜</p></td>
+<td><p>「箱を取って棚に置く」のような手順を決める</p></td>
+</tr>
+<tr class="row-odd"><td><p>動作生成（VLAなど）</p></td>
+<td><p>数Hz〜数十Hz</p></td>
+<td><p>目標の姿勢や軌道を出す</p></td>
+</tr>
+<tr class="row-even"><td><p>低レベル制御（サーボ、PLC、モーションコントローラ）</p></td>
+<td><p>kHz級</p></td>
+<td><p>位置・速度・トルクを追従させる</p></td>
+</tr>
+<tr class="row-odd"><td><p>安全系（非常停止、セーフティPLC、速度・力の制限）</p></td>
+<td><p>常時</p></td>
+<td><p>AIの出力より優先して止める</p></td>
+</tr>
+</tbody>
+</table>
+<p>上の層ほど遅くて賢く、下の層ほど速くて決まった動きをします。AIは上位の「目標を出す」役で、最後の速いループとインターロックは従来の決まった動きをする制御が持つ、という分担が現実的な構成です。推論は遅れやばらつきがあり、間違えることもあるので、そのまま実時間制御には使えません。</p>
+<p>なので「グルグル回す」に一言足すなら、<strong>「賢いけど遅いループを、速くて確実な従来の制御ループの上に載せて回す」</strong> になります。PLCやMCプロトコルの層は置き換えられるのではなく、AIからの指令を受けて実際に機械を動かす層としてむしろ重要になります。</p>
+</section>
+<section id="q-123">
+<h2>🟩 Q: 二足歩行のようなキビキビした制御ではなく「①よく見て②しっかり考えて③ちゃんと動かす」がテーマ？<a class="headerlink" href="#q-123" title="Link to this heading">¶</a></h2>
+<p>半分は当たっています。ただ、「キビキビした制御」の側でもAIはすでに使われているので、言い方を少し変えたほうが正確です。</p>
+<p><strong>当たっている部分</strong><br />
+いまのフィジカルAIブームで新しく価値が出ているのは、上位層の「見て、状況を理解して、何をどう動かすか決める」ところです。特に物をつかむ、置く、組み立てるといったマニピュレーション（物を扱う作業）では、形も位置もバラバラなワークを人が教え直さなくても扱える、という汎用性がセールスポイントになっています。業務の置き換えという意味では、ここが本丸です。</p>
+<p><strong>ずれている部分</strong><br />
+二足歩行のようなキビキビした運動も、最近はAIで作るのが主流です。物理シミュレーションの中で強化学習を大量に回して歩き方を身につけさせ（学習した方策をpolicyと呼びます）、それを実機に移します（sim-to-real）。この方策はロボットに載せた計算機で高い周期で回っています。人が書いたZMP制御などの歩行制御を、学習した方策で置き換えている、という流れです。なので「AI＝遅くて考える担当」とは限りません。</p>
+<p><strong>今の主流の構図</strong><br />
+人間の「速い思考／遅い思考」になぞらえて、2つを組み合わせる設計が増えています。</p>
+<ul class="simple">
+<li><p><strong>遅い系</strong>：視覚と言語を扱うモデル（VLM）が、状況理解や指示の解釈をする（数Hz程度）</p></li>
+<li><p><strong>速い系</strong>：小さな方策モデルが、その意図を受けて関節指令を高い周期で出す（数百Hz程度）</p></li>
+<li><p>その下に、従来のサーボ制御と安全系がある</p></li>
+</ul>
+<p>つまり「よく考えてから動く」というより、<strong>「見て意図を決める遅いAI」と「反射的に体を動かす速いAI」を重ね、さらに一番下は従来の制御で支える</strong> という形です。</p>
+<p>テーマを一言で言うなら、遅さや慎重さではなく <strong>「想定外のばらつきに、プログラムし直さずに対応できること」</strong> です。従来のFAが苦手だった部分をAIで埋める、という見方がいちばん実態に近いと思います。</p>
+</section>
+<section id="q-vla">
+<h2>🟩 Q: VLAの課題は？<a class="headerlink" href="#q-vla" title="Link to this heading">¶</a></h2>
+<p>大きく分けると、「データ」「信頼性」「速度」「安全性」の4つが壁になっています。</p>
+<p><strong>1. データが足りない</strong></p>
+<ul class="simple">
+<li><p>LLMはネット上の膨大なテキストで学習できますが、ロボットの「この画像のとき、関節をこう動かした」というデータはネットに存在しません。人がロボットを遠隔操作して（テレオペ）一つずつ集める必要があり、コストも時間もかかります。</p></li>
+<li><p>ロボットごとに腕の長さや関節構成、グリッパーが違うため、別の機体で集めたデータがそのまま使えるとは限りません（クロスエンボディメントの問題）。</p></li>
+<li><p>シミュレーションで補う手もありますが、接触、摩擦、柔らかい物の変形は再現しきれず、実機では挙動が違います（sim-to-realギャップ）。</p></li>
+</ul>
+<p><strong>2. 成功率が業務に使える水準に届きにくい</strong></p>
+<ul class="simple">
+<li><p>デモ動画で「できた」ことと、工場で24時間ほぼ100%成功し続けることの間には大きな差があります。成功率が9割でも、ラインに入れたら毎時間止まる計算になります。</p></li>
+<li><p>手順が長いタスクでは、小さなズレが積み重なって途中で破綻しやすくなります。</p></li>
+<li><p>頻度は低いが種類の多い例外（ロングテール）で、どう失敗するか予測できません。</p></li>
+</ul>
+<p><strong>3. 遅い、重い</strong></p>
+<ul class="simple">
+<li><p>モデルが大きいため、推論に時間がかかり、ばらつきもあります。ロボット側に載せる計算機の性能や電力、熱にも制約があります。</p></li>
+<li><p>数ステップ分の動作をまとめて出力する工夫（アクションチャンキング）などで補っていますが、タクトタイムが厳しい工程では従来の専用機に勝てない場面が多いです。</p></li>
+</ul>
+<p><strong>4. 安全性を検証・保証できない</strong></p>
+<ul class="simple">
+<li><p>中身がブラックボックスで、同じ入力でも出力が揺れることがあるため、「この条件なら絶対にこう動く」と証明できません。</p></li>
+<li><p>機能安全（IEC 61508）やロボット安全（ISO 10218）は、決まった動きを前提にした仕組みなので、そのままでは適合を示しにくいです。そのため前に話したように、安全系は従来の制御側に残すのが前提になります。</p></li>
+</ul>
+<p><strong>5. 「触る」感覚が弱い</strong></p>
+<ul class="simple">
+<li><p>VLAの入力は主に画像と言語で、力覚や触覚の扱いはまだ発展途上です。はめ込み、ねじ締め、ケーブルの取り回しのように、力加減やサブミリの精度が必要な作業は苦手です。</p></li>
+</ul>
+<p><strong>6. 評価の仕方が定まっていない</strong></p>
+<ul class="simple">
+<li><p>実機での評価は手間がかかり、環境が違うと再現できません。標準的なベンチマークもまだ発展途上で、モデル同士を公平に比べにくい状況です。</p></li>
+</ul>
+<p>ビジネス的にまとめると、決まった動作を高速で繰り返す工程では、今でも従来のFAのほうが安く、速く、確実です。VLAが向くのは、品種やレイアウトの変化が多く、ティーチングをやり直すコストが重い現場です。その前提で「成功率」「タクト」「失敗時の止め方」をどこまで詰められるかが、導入判断のポイントになります。</p>
+</section>
+<section id="id1">
+<h2>🟩 Q: VLAにも「よく訓練された人工無能」が有効と思った<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>その感覚は、今のロボット研究の流れとかなり一致していると思います。「人工無能」の見方は2通りあって、どちらもVLAに当てはまります。</p>
+<p>ひとつめは、VLAそのものがすでに「よく訓練された人工無能」だという見方です。模倣学習で作られたVLAは、物理を理解して計画しているわけではありません。「この画像とこの指示なら、次はこう手を動かす」という対応を大量のデモから覚えているだけです。ELIZAが文型に定型の返答を返していたのと、本質的には同じ構図です。それでも、デモの分布の中ではちゃんと動きます。逆に分布の外に出ると、もっともらしいけれど的外れな動きをします。この壊れ方も人工無能によく似ています。</p>
+<p>ふたつめは、重いVLAを毎回回さずに、反射的な層に任せるという設計です。前に話題になった企業チャットボットで、定型質問は軽い分類器で返すのと同じ発想です。実際、Figureの「Helix」やNVIDIAの「GR00T N1」は、遅くて賢いSystem 2と速くて反射的なSystem 1に分ける構成をとっています。System 2は数Hzで状況を解釈し、System 1は数百Hzで手先を制御します。System 1は「考えない」ので、よく訓練された人工無能と言ってよいと思います。把持や追従のような低レベルの動作に、毎回言語レベルの推論を挟む意味はありません。</p>
+<p>産業用の現場から見ると、この話はもっとはっきりします。PLCのラダーやシーケンス制御は、ある意味で究極の人工無能です。条件がそろえば決まった動作をするだけですが、だからこそ検証でき、壊れ方を予測でき、リアルタイム性も保証できます。現実的な落としどころは、VLAが人間の指示を解釈して「どの定型動作を、どのパラメータで呼ぶか」を選び、実行は検証済みの決定論的な層に任せる形だと思います。安全とサイクルタイムの責任をニューラルネットに負わせない、という意味でもこの分担は筋がいいです。</p>
+<p>ただ、限界もあります。人工無能が成り立つのは、状況のバリエーションが有限で、事前に網羅できるときだけです。ロボットが家庭のような散らかった環境に出ていくほど、定型でさばける割合は下がります。結局は「どこまでを人工無能に任せ、どこから先を賢い層に上げるか」の境界線をどこに引くかが、設計の中心になると思います。</p>
+</section>
+<section id="q-100">
+<h2>🟩 Q: 人間の付随運動はどう感じで習得されるの？100%生まれつきでもないでしょう<a class="headerlink" href="#q-100" title="Link to this heading">¶</a></h2>
+<p>おっしゃる通り、100%生まれつきではありません。大まかに言うと「生まれつきの骨組み」の上に、「試行錯誤で調整する仕組み」と「繰り返しで自動化する仕組み」が乗っている、という三層構造で習得されます。</p>
+<p><strong>生まれつきの部分</strong><br />
+脊髄には、左右交互のリズムを作る回路（CPG、中枢パターン発生器）が最初から備わっています。新生児を立たせると足を交互に出す「原始歩行」という反射があり、これがその証拠です。ただしこの反射は生後2か月ほどでいったん消え、そのあと実際に歩く経験を通じて作り直されます。つまり、生まれつき持っているのは完成品ではなく「リズムの種」くらいのものです。</p>
+<p><strong>試行錯誤で調整される部分（小脳）</strong><br />
+乳児は意味のない手足のバタバタを延々と繰り返します。これは「自分の体をこう動かすと、こう感じる」という対応を集めている時期です。小脳はこの経験から、動かした結果を先回りして予測するモデル（順モデル）を作り、予測と実際のずれを誤差として学習します。「腕を前に出すと重心が前にずれるから、その直前に脚や体幹を踏ん張る」という予測的な姿勢調整がその代表です。この調整は子どもでは未熟で、10代にかけて少しずつ洗練されていきます。</p>
+<p><strong>繰り返しで自動化される部分（大脳基底核）</strong><br />
+うまくいった動きの組み合わせは、繰り返すうちにひとかたまり（チャンク）にまとめられ、意識しなくても出るようになります。運動学習の古典的な段階分けで言うと「考えながらやる段階」から「勝手に体が動く段階」への移行です。基底核がこの自動化を担っていることは、基底核の働きが落ちると歩行時の腕振りのような付随運動が小さくなることからもわかります。</p>
+<p><strong>歩行時の腕振りの例</strong><br />
+よちよち歩きの幼児は、腕を肩の高さに上げたまま歩き、振りません。腕振りは歩行経験を積むなかで現れてきます。しかも腕振りは、半分は振り子の力学で受動的に生じ、半分は神経で積極的に制御されています。体の物理特性をうまく利用するように、経験の中で調整されていくわけです。</p>
+<p>逆の例として、子どもが片手でグーを作るともう片方の手もつられて動く「鏡像運動」があります。これは成長とともに抑えられていきます。付随運動の習得には、「必要な動きを付け加える」ことだけでなく、「不要な動きを止める」ことも含まれているということです。</p>
+<p><strong>前回のVLAの話につなげると</strong><br />
+人間は最初から人工無能なのではありません。意識的で遅い制御から始めて、繰り返すうちに速くて考えない制御に「蒸留」していきます。CPGは事前の構造、バタバタはロボットの自己探索、小脳は誤差で学ぶ予測モデル、基底核は強化学習と動作のパッケージ化に相当します。ロボットに置き換えると、賢いVLAで時間をかけて解いた動作を、軽いSystem 1の方策に落とし込んで反射化するという流れです。この方向は、人間の運動学習の構造とかなりよく対応していると思います。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89%E3%81%AE%E5%AE%89%E5%85%A8%E8%A6%8F%E6%A0%BC.html"><span class="label">‹ 前へ</span><span class="title">📙 ヒューマノイドの安全規格</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E3%83%95%E3%82%A3%E3%82%B8%E3%82%AB%E3%83%ABAI%E3%81%AF%E3%81%8A%E7%A5%AD%E3%82%8A%E9%A8%92%E3%81%8E.html"><span class="label">次へ ›</span><span class="title">📙 フィジカルAIはお祭り騒ぎ</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
