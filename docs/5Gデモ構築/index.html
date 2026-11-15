@@ -79,8 +79,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#gran">🟩 5GRAN</a><ul>
-<li><a class="reference internal" href="#ueransim">🟨 UERANSIM</a></li>
 <li><a class="reference internal" href="#duranta">🟨 Durantaプロジェクト</a></li>
+<li><a class="reference internal" href="#ueransim">🟨 UERANSIM</a></li>
 <li><a class="reference internal" href="#srsran-project-ocudu">🟨 srsRAN Project / OCUDU</a></li>
 <li><a class="reference internal" href="#packetrusher">🟨 PacketRusher</a></li>
 </ul>
@@ -101,11 +101,12 @@
 <h1>🟪 5Gデモ構築<a class="headerlink" href="#g" title="Link to this heading">¶</a></h1>
 <section id="gcn">
 <h2>🟩 5GCN（コアネットワーク）<a class="headerlink" href="#gcn" title="Link to this heading">¶</a></h2>
+<p>性能面のざっくりした傾向としては、制御プレーンの遅延はOpen5GSが最も良く、データレートはOAIが最高、リソース消費はfree5GCが最小という評価があります。</p>
 <section id="oai-cn5g-openairinterface-core-network">
 <h3>🟨 OAI CN5G（OpenAirInterface Core Network）<a class="headerlink" href="#oai-cn5g-openairinterface-core-network" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>3GPP準拠の5G SAコアです。ベアメタル/VM、Docker Composeでのコンテナ展開、OpenShift/Kubernetes上でのHelm Chart展開に対応しています。社内LANで進めているOpenShift環境にもHelmでそのまま載せられます。ライセンスはOAI Public License。</p></li>
-<li><p>将来的にDurantaプロジェクトに移行予定</p></li>
+<li><p>将来的に <strong>Durantaプロジェクト</strong> に移行予定。ソースコードはすでにDurantaプロジェクトのGitHubリポジトリにも配置されている。</p></li>
 </ul>
 </section>
 <section id="open5gs">
@@ -123,18 +124,17 @@
 <section id="magma">
 <h3>🟨 Magma<a class="headerlink" href="#magma" title="Link to this heading">¶</a></h3>
 <p>もともとはFacebook発で、現在はLinux Foundationのプロジェクトです。EPC/5GCに加えて、アクセスゲートウェイや管理機能まで含みます。主な用途は通信事業者や地域ネットワーク向けです。</p>
-<p>性能面のざっくりした傾向としては、制御プレーンの遅延はOpen5GSが最も良く、データレートはOAIが最高、リソース消費はfree5GCが最小という評価があります。</p>
 </section>
 </section>
 <section id="gran">
 <h2>🟩 5GRAN<a class="headerlink" href="#gran" title="Link to this heading">¶</a></h2>
-<section id="ueransim">
-<h3>🟨 UERANSIM<a class="headerlink" href="#ueransim" title="Link to this heading">¶</a></h3>
-<p>gNBとUEのソフトウェアシミュレータです。無線機がなくても、コアへのRegistrationやPDUセッションを確認できます。コアだけ試すなら必須級です。</p>
-</section>
 <section id="duranta">
 <h3>🟨 Durantaプロジェクト<a class="headerlink" href="#duranta" title="Link to this heading">¶</a></h3>
 <p>USRPで実際の電波を出し、市販のQuectel 5Gモデムを接続する構成まで組めます。RFsimulatorモードを使えばSDRなしでも動きます。</p>
+</section>
+<section id="ueransim">
+<h3>🟨 UERANSIM<a class="headerlink" href="#ueransim" title="Link to this heading">¶</a></h3>
+<p>gNBとUEのソフトウェアシミュレータです。無線機がなくても、コアへのRegistrationやPDUセッションを確認できます。コアだけ試すなら必須級です。</p>
 </section>
 <section id="srsran-project-ocudu">
 <h3>🟨 srsRAN Project / OCUDU<a class="headerlink" href="#srsran-project-ocudu" title="Link to this heading">¶</a></h3>
