@@ -87,11 +87,11 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">📙 フィジカルAIと人工無能のコラボ</a><ul>
-<li><a class="reference internal" href="#q">🟩 Q: ビジネス的な定義は？</a></li>
-<li><a class="reference internal" href="#q-ai">🟩 Q: AIが「センサー入力を処理してアクチュエーターに出力する」をグルグル回す</a></li>
+<li><a class="reference internal" href="#q-ai">🟩 Q: フィジカルAIのビジネス的な定義は？</a></li>
+<li><a class="reference internal" href="#id1">🟩 Q: AIが「センサー入力を処理してアクチュエーターに出力する」をグルグル回す</a></li>
 <li><a class="reference internal" href="#q-123">🟩 Q: 二足歩行のようなキビキビした制御ではなく「①よく見て②しっかり考えて③ちゃんと動かす」がテーマ？</a></li>
 <li><a class="reference internal" href="#q-vla">🟩 Q: VLAの課題は？</a></li>
-<li><a class="reference internal" href="#id1">🟩 Q: VLAにも「よく訓練された人工無能」が有効と思った</a></li>
+<li><a class="reference internal" href="#id2">🟩 Q: VLAにも「よく訓練された人工無能」が有効と思った</a></li>
 <li><a class="reference internal" href="#q-100">🟩 Q: 人間の付随運動はどう感じで習得されるの？100%生まれつきでもないでしょう</a></li>
 </ul>
 </li>
@@ -111,8 +111,8 @@
 <li><p>回答日: 2026/11/15</p></li>
 <li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
 </ul>
-<section id="q">
-<h2>🟩 Q: ビジネス的な定義は？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<section id="q-ai">
+<h2>🟩 Q: フィジカルAIのビジネス的な定義は？<a class="headerlink" href="#q-ai" title="Link to this heading">¶</a></h2>
 <p>統一された定義はまだありません。ビジネスの文脈では、おおむね <strong>「AIがセンサーで現実世界を認識・判断し、ロボットや機械を動かして、これまで人が体を使ってやっていた業務を代わりに行う、または手伝う仕組み」</strong> という意味で使われています。</p>
 <p><strong>よく使われる定義</strong></p>
 <ul class="simple">
@@ -138,8 +138,8 @@
 </ul>
 <p>まとめると、ビジネスで話すときは「認識→判断→行動を現実世界で自律的に回し、人の身体作業を置き換える、または補うAIシステム」という意味で通じます。ただ、相手が広い意味（NVIDIA流）で言っているのか、狭い意味（VLA系の汎用ロボット）で言っているのかで話がずれやすいので、最初にどちらの意味か確認しておくと安全です。従来のルールベースのFA（PLCで決まった手順どおり動かす自動化）は、狭い定義ではフィジカルAIに含まれず、それと区別するための言葉として使われることが多いです。</p>
 </section>
-<section id="q-ai">
-<h2>🟩 Q: AIが「センサー入力を処理してアクチュエーターに出力する」をグルグル回す<a class="headerlink" href="#q-ai" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h2>🟩 Q: AIが「センサー入力を処理してアクチュエーターに出力する」をグルグル回す<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>そうです、骨格はそのループです。ただ、それだけだとPLCのスキャンやPID制御も同じ形になるので、何がフィジカルAIなのかは次の2点で決まります。</p>
 <p><strong>1. ループの真ん中が「学習したモデル」であること</strong></p>
 <ul class="simple">
@@ -229,8 +229,8 @@ AIの推論が直接モーターを叩くことはあまりなく、典型的に
 </ul>
 <p>ビジネス的にまとめると、決まった動作を高速で繰り返す工程では、今でも従来のFAのほうが安く、速く、確実です。VLAが向くのは、品種やレイアウトの変化が多く、ティーチングをやり直すコストが重い現場です。その前提で「成功率」「タクト」「失敗時の止め方」をどこまで詰められるかが、導入判断のポイントになります。</p>
 </section>
-<section id="id1">
-<h2>🟩 Q: VLAにも「よく訓練された人工無能」が有効と思った<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h2>🟩 Q: VLAにも「よく訓練された人工無能」が有効と思った<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <p>その感覚は、今のロボット研究の流れとかなり一致していると思います。「人工無能」の見方は2通りあって、どちらもVLAに当てはまります。</p>
 <p>ひとつめは、VLAそのものがすでに「よく訓練された人工無能」だという見方です。模倣学習で作られたVLAは、物理を理解して計画しているわけではありません。「この画像とこの指示なら、次はこう手を動かす」という対応を大量のデモから覚えているだけです。ELIZAが文型に定型の返答を返していたのと、本質的には同じ構図です。それでも、デモの分布の中ではちゃんと動きます。逆に分布の外に出ると、もっともらしいけれど的外れな動きをします。この壊れ方も人工無能によく似ています。</p>
 <p>ふたつめは、重いVLAを毎回回さずに、反射的な層に任せるという設計です。前に話題になった企業チャットボットで、定型質問は軽い分類器で返すのと同じ発想です。実際、Figureの「Helix」やNVIDIAの「GR00T N1」は、遅くて賢いSystem 2と速くて反射的なSystem 1に分ける構成をとっています。System 2は数Hzで状況を解釈し、System 1は数百Hzで手先を制御します。System 1は「考えない」ので、よく訓練された人工無能と言ってよいと思います。把持や追従のような低レベルの動作に、毎回言語レベルの推論を挟む意味はありません。</p>
