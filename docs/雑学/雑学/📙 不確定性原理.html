@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 不確定性原理 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=8a2712fc" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20%E4%B8%8D%E7%A2%BA%E5%AE%9A%E6%80%A7%E5%8E%9F%E7%90%86.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 円山応挙の遊虎図" href="%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html" />
+    <link rel="prev" title="📙 モリサワフォント" href="%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 その他</a>
+    <span class="sep">»</span><span class="current">📙 不確定性原理</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/index.html">🟪 5Gデモ構築 (3)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学 (45)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学 (11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学 (13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学 (10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E5%8C%96%E5%AD%A6%E3%81%AE%E9%9B%91%E5%AD%A6/index.html">🟦 化学の雑学 (3)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 その他 (8)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 不確定性原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%8F%A9%E3%81%8B%E3%82%8C%E7%B6%9A%E3%81%91%E3%81%A6%E5%BC%B7%E3%81%8F%E3%81%AA%E3%82%8B%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E7%AE%A1%E7%90%86%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9.html">📙 叩かれ続けて強くなるパスワード管理サービス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 不確定性原理</a><ul>
+<li><a class="reference internal" href="#q">🟩 Q: 不確定性原理は、何がどういう状況で、不確定になるの？</a><ul>
+<li><a class="reference internal" href="#id2">🟨 何が不確定になるのか</a></li>
+<li><a class="reference internal" href="#id3">🟨 どういう状況で不確定になるのか</a></li>
+<li><a class="reference internal" href="#id4">🟨 信号処理で考えると分かりやすい</a></li>
+<li><a class="reference internal" href="#id5">🟨 よくある誤解：「測ると乱すから」ではない</a></li>
+<li><a class="reference internal" href="#id6">🟨 エネルギーと時間について</a></li>
+<li><a class="reference internal" href="#id7">🟨 効いてくるスケール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>📙 不確定性原理<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/17公開 2026/11/17更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/15</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q">
+<h2>🟩 Q: 不確定性原理は、何がどういう状況で、不確定になるの？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>ひと言でいうと、<strong>「位置と運動量」のように特定の組になった物理量は、どんな状態でも両方を同時にきっちり決まった値にはできない</strong>、という原理です。測り方が下手だからそうなるのではなく、量子系の状態そのものが持つ性質です。</p>
+<section id="id2">
+<h3>🟨 何が不確定になるのか<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p><strong>交換しない（非可換な）物理量のペア</strong>です。代表は次のような組です。</p>
+<ul class="simple">
+<li><p>位置 x と、同じ方向の運動量 pₓ：Δx·Δpₓ ≥ ħ/2</p></li>
+<li><p>スピンの x 成分と z 成分</p></li>
+<li><p>一般化すると、演算子 A と B について ΔA·ΔB ≥ |⟨[A, B]⟩|/2（Robertson の不等式）</p></li>
+</ul>
+<p>逆に、交換する組は両方を同時に確定できます。たとえば x 方向の位置と y 方向の運動量は同時に確定できます。何でも曖昧になるわけではなく、組み合わせで決まります。</p>
+</section>
+<section id="id3">
+<h3>🟨 どういう状況で不確定になるのか<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p><strong>常に、あらゆる状態で</strong>成り立ちます。意味を正確に言うと次の通りです。</p>
+<ol class="arabic simple">
+<li><p>同じ状態の粒子をたくさん用意する</p></li>
+<li><p>一部では位置を測り、残りでは運動量を測る</p></li>
+<li><p>測定値のばらつきを Δx、Δp とする</p></li>
+</ol>
+<p>このとき、どんなに工夫して状態を用意しても Δx·Δp を ħ/2 より小さくはできません。位置を鋭く絞った状態を作ると運動量の分布が広がり、運動量を絞ると位置が広がります。</p>
+</section>
+<section id="id4">
+<h3>🟨 信号処理で考えると分かりやすい<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>これはフーリエ変換の性質と同じです。量子力学では粒子の状態は波（波動関数）で表され、運動量は波数に対応します（p = ħk）。</p>
+<ul class="simple">
+<li><p>時間的に短いパルスほど、周波数スペクトルは広がる（Δt·Δf ≥ 1/4π）</p></li>
+<li><p>純粋な正弦波（帯域ゼロ）は時間方向に無限に続く</p></li>
+</ul>
+<p>位置の波形と運動量の波形はフーリエ変換の関係にあるので、「両方を同時に細くする」ことが数学的にできません。不確定性原理の中身は、ほぼこれです。</p>
+</section>
+<section id="id5">
+<h3>🟨 よくある誤解：「測ると乱すから」ではない<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>教科書によく出てくる「光を当てて位置を測ると、光子がぶつかって運動量が乱れる」（ハイゼンベルクの顕微鏡）という説明は、直感をつかむための比喩です。本来の不確定性原理は、上で説明した<strong>状態のばらつきについての原理</strong>です。</p>
+<p>「測定誤差と、測定による擾乱」の関係は別の問題として研究されています。小澤正直氏が2003年に修正版の不等式を示し、ハイゼンベルクの素朴な形が破れうることは中性子を使った実験（2012年、長谷川祐司氏らのグループ）でも確かめられています。</p>
+</section>
+<section id="id6">
+<h3>🟨 エネルギーと時間について<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>ΔE·Δt ≳ ħ/2 もよく並べて書かれますが、量子力学では時間は演算子ではないので、意味が少し違います。「寿命 Δt の短い励起状態ほど、放出される光のエネルギー幅（スペクトル線幅）が広い」というような関係を表しています。</p>
+</section>
+<section id="id7">
+<h3>🟨 効いてくるスケール<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<p>ħ ≈ 1.05×10⁻³⁴ J·s ととても小さいので、効くのはミクロの世界だけです。</p>
+<ul class="simple">
+<li><p>原子の大きさ（約10⁻¹⁰ m）に閉じ込めた電子：速度の不確定さは最低でも約6×10⁵ m/s。無視できないので、電子は軌道を回る点としては描けない</p></li>
+<li><p>野球ボール（0.15 kg）の位置を1 µm まで決めた場合：速度の不確定さは約3×10⁻²⁸ m/s。まったく気にならない</p></li>
+</ul>
+<p>まとめると、不確定になるのは<strong>非可換な物理量のペア</strong>で、不確定になる状況は<strong>いつでも</strong>です。原因は測定の不器用さではなく、粒子が波として振る舞うことにあります。</p>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html"><span class="label">‹ 前へ</span><span class="title">📙 モリサワフォント</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html"><span class="label">次へ ›</span><span class="title">📙 円山応挙の遊虎図</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
