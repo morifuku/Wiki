@@ -48,3 +48,26 @@ video.embed-video {
   border-radius: 8px;
   background: #000;
 }
+
+/* 幅の広い PNG のクリック拡大 (zoom.js) */
+main.body img.zoomable {
+  cursor: zoom-in;
+}
+dialog.zoom-dialog {
+  max-width: 100vw;
+  max-height: 100vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-out;
+}
+dialog.zoom-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+}
+dialog.zoom-dialog img {
+  display: block;
+  max-width: 95vw;
+  max-height: 95vh;
+  margin: 0;
+  background: #fff;
+}
