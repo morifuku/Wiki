@@ -85,7 +85,15 @@
 <li><a class="reference internal" href="#packetrusher">🟨 PacketRusher</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id1">🟩 最初の一歩としての構成例</a></li>
+<li><a class="reference internal" href="#id1">🟩 仮想インフラ</a><ul>
+<li><a class="reference internal" href="#kubernetes-oss5gc-ran">🟨 素のKubernetes＋OSSの5GC/RAN（いちばん多い構成）</a></li>
+<li><a class="reference internal" href="#okd-openshift-sno">🟨 OKD／OpenShift SNO</a></li>
+<li><a class="reference internal" href="#starlingx-wind-riveross">🟨 StarlingX（Wind Riverの基盤のOSS版）</a></li>
+<li><a class="reference internal" href="#openstack-vnf">🟨 OpenStack（VNF時代の構成を試す場合）</a></li>
+<li><a class="reference internal" href="#oss">🟨 自動化・オーケストレーション層のOSS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">🟩 最初の一歩としての構成例</a></li>
 <li><a class="reference internal" href="#sources">🟩 Sources:</a></li>
 <li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
 </ul>
@@ -146,7 +154,52 @@
 </section>
 </section>
 <section id="id1">
-<h2>🟩 最初の一歩としての構成例<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>🟩 仮想インフラ<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>5GCやRANの動きを学ぶなら、k3sやkubeadmにOpen5GS／free5GC、UERANSIMを組み合わせるのが最小構成で、手軽です。</p></li>
+<li><p>商用のテレコム基盤の運用を体験するなら、OpenShift SNO（またはOKD）にworkerを追加し、free5GCやOAIを載せるのがおすすめです。</p></li>
+<li><p>低遅延のvRAN、PTP、リアルタイム処理を見たいなら、StarlingXかOpenShiftのTelco RANプロファイルが向いています。</p></li>
+</ul>
+<ul class="simple">
+<li><p>ラボ規模では、商用の基盤よりも素のKubernetesやOSS版の基盤が使われることが多いです。よく見かける構成は次のとおりです。</p></li>
+</ul>
+<section id="kubernetes-oss5gc-ran">
+<h3>🟨 素のKubernetes＋OSSの5GC/RAN（いちばん多い構成）<a class="headerlink" href="#kubernetes-oss5gc-ran" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>k3s、kubeadm、MicroK8s、kindなどで軽量なクラスタを作り、その上でOpen5GS、free5GC、OAI（OpenAirInterface）のCN/RANをHelmで載せる構成です。</p></li>
+<li><p>研究室やPoC（概念実証）、個人の検証ではほぼこれが基本です。マシン1台でも動きます。</p></li>
+<li><p>ONFのAether（SD-Core）も、Kubernetes上で動く5GC一式として、大学や企業の私設5Gラボで使われています。</p></li>
+</ul>
+</section>
+<section id="okd-openshift-sno">
+<h3>🟨 OKD／OpenShift SNO<a class="headerlink" href="#okd-openshift-sno" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>商用に近い形で検証したい場合の定番です。SR-IOV Operator、PTP Operator、NUMA対応のスケジューリングなど、テレコム向けの機能をそのまま試せます。</p></li>
+<li><p>必要リソースが大きく、SNOでも8コア・32GB前後は欲しいところです。free5GCやOAIはOpenShift上での動作手順も公開されています。</p></li>
+</ul>
+</section>
+<section id="starlingx-wind-riveross">
+<h3>🟨 StarlingX（Wind Riverの基盤のOSS版）<a class="headerlink" href="#starlingx-wind-riveross" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>AIO-SX（1台構成）で動かせます。vRAN/エッジ寄りの検証、特にリアルタイムカーネルやPTPを試したいときに向いています。</p></li>
+<li><p>情報量はOpenShiftより少なめで、構築の手間もやや大きいです。</p></li>
+</ul>
+</section>
+<section id="openstack-vnf">
+<h3>🟨 OpenStack（VNF時代の構成を試す場合）<a class="headerlink" href="#openstack-vnf" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>DevStack、MicroStack、Kolla-Ansibleなどで構築します。今はCNFが主流なので、新しく選ぶ理由は少なくなっています。</p></li>
+</ul>
+</section>
+<section id="oss">
+<h3>🟨 自動化・オーケストレーション層のOSS<a class="headerlink" href="#oss" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Nephio（Kubernetesネイティブなネットワーク自動化）や、欧州キャリア主導のSylvaは、上記の基盤の上に載せてラボで評価されています。</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>🟩 最初の一歩としての構成例<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p><strong>ソフトだけで完結させる</strong>：Open5GS（またはOAI CN5G）とUERANSIMを、1台のUbuntuかVMに入れます。半日ほどでPDUセッションの確立と <code class="docutils literal notranslate"><span class="pre">ping</span></code> まで確認できます。</p></li>
 <li><p><strong>OAIで統一する</strong>：OAI CN5GをDocker Composeで立て、Duranta gNBとOAI UEをRFsimulatorモードで動かします。</p></li>
