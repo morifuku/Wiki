@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🟦 OpenShift環境構築 &#8212; Llama in Bliss</title>
+    <title>🟦 OpenShift SNO環境構築 &#8212; Llama in Bliss</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=941180d7" />
     <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=fb0e13d2" />
@@ -39,7 +39,7 @@
   <nav class="breadcrumbs" aria-label="現在位置">
     <a href="../../index.html">ホーム</a>
     <span class="sep">»</span><a href="../index.html">🟪 5Gデモ構築</a>
-    <span class="sep">»</span><span class="current">🟦 OpenShift環境構築</span>
+    <span class="sep">»</span><span class="current">🟦 OpenShift SNO環境構築</span>
   </nav>
 </header>
 <div class="page">
@@ -60,7 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 5Gデモ構築 (3)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">🟦 OpenShift環境構築 (0)</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">🟦 OpenShift SNO環境構築 (0)</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -69,26 +69,51 @@
 </ul>
 
 </nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">🟦 OpenShift SNO環境構築</a><ul>
+<li><a class="reference internal" href="#id1">🟩 ドラフト</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
   </aside>
   <div class="content">
   <main class="body" role="main">
     
-  <section class="tex2jax_ignore mathjax_ignore" id="openshift">
-<h1>🟦 OpenShift環境構築<a class="headerlink" href="#openshift" title="Link to this heading">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="openshift-sno">
+<h1>🟦 OpenShift SNO環境構築<a class="headerlink" href="#openshift-sno" title="Link to this heading">¶</a></h1>
 <p>OpenShiftがテレコム界隈でデファクトになりつつある（例外もある）ようなので、5Gデモ用に軽量のOpenShift環境を構築する。ベアメタル2台で動くらしいで、以下のスペックのマシンを用意した。</p>
 <p><strong>MASTER / BASTION</strong></p>
 <ul class="simple">
 <li><p>i7 (12 vCPU)</p></li>
 <li><p>64 GB memory</p></li>
+<li><p>Ubuntu 24.0</p></li>
 </ul>
 <p><strong>WORKER</strong></p>
 <ul class="simple">
 <li><p>i9 (16 vCPU)</p></li>
 <li><p>128 GB memory</p></li>
+<li><p>Ununtu 24.0</p></li>
 </ul>
-<p>AAA</p>
+<section id="id1">
+<h2>🟩 ドラフト<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>Claudeによる初期デザインは数の通り。</p>
+<p><strong>NETWORK</strong></p>
+<ul class="simple">
+<li><p>EXTERNAL: 192.168.0.0/24, HGWを経由してインターネットに繋がる</p></li>
+<li><p>INTERNAL:  192.168.1.0/24, vlanで構築している</p></li>
+</ul>
+<p><strong>メモ</strong></p>
+<ul class="simple">
+<li><p>PXE bootにしないと、再構築に苦労するので、最初から入れておく。<br />
+<img alt="Pasted image 20261116220947" src="../../_images/Pasted_image_20261116220947.png" /></p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 
