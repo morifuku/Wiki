@@ -71,3 +71,21 @@ dialog.zoom-dialog img {
   margin: 0;
   background: #fff;
 }
+/* 拡大表示の閉じるボタン (画面右上に固定) */
+dialog.zoom-dialog .zoom-close {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+  font-size: 28px;
+  line-height: 44px;
+  cursor: pointer;
+}
+dialog.zoom-dialog .zoom-close:hover {
+  background: #fff;
+}
