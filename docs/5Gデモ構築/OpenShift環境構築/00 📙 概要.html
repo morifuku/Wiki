@@ -79,10 +79,10 @@
   <ul>
 <li><a class="reference internal" href="#">📙 概要</a><ul>
 <li><a class="reference internal" href="#id2">🟩 構成図ドラフト</a></li>
-<li><a class="reference internal" href="#kvm">🟩 KVM環境構築</a></li>
-<li><a class="reference internal" href="#pxerhcos">🟩 PXE環境構築とRHCOSインストール</a></li>
-<li><a class="reference internal" href="#openshift-master">🟩 OpenShift MASTERアプリインストール</a></li>
-<li><a class="reference internal" href="#openshift-worker">🟩 OpenShift WORKERアプリインストール</a></li>
+<li><a class="reference internal" href="#step-1-kvm">🟩 Step 1: KVM環境構築</a></li>
+<li><a class="reference internal" href="#step-2-pxerhcos">🟩 Step 2: PXE環境構築とRHCOSインストール</a></li>
+<li><a class="reference internal" href="#step-3-openshift-master">🟩 Step 3: OpenShift MASTERアプリインストール</a></li>
+<li><a class="reference internal" href="#step-4-openshift-worker">🟩 Step 4: OpenShift WORKERアプリインストール</a></li>
 </ul>
 </li>
 </ul>
@@ -109,27 +109,27 @@
 <img alt="Pasted image 20261116220947" class="zoomable" src="../../_images/Pasted_image_20261116220947.png" /></p></li>
 </ul>
 </section>
-<section id="kvm">
-<h2>🟩 KVM環境構築<a class="headerlink" href="#kvm" title="Link to this heading">¶</a></h2>
+<section id="step-1-kvm">
+<h2>🟩 Step 1: KVM環境構築<a class="headerlink" href="#step-1-kvm" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>MASTER 1台と、WORKER 2台はKVMのVMで構成する</p></li>
 <li><p>各VMはINTERNAL LANに接続される</p></li>
 <li><p>INTERNAL LANはVLANで構築されている。2台のベアメタルからは専用の物理NICで接続されるが、L2SWはEXTERNAL LANと共用している。</p></li>
 </ul>
 </section>
-<section id="pxerhcos">
-<h2>🟩 PXE環境構築とRHCOSインストール<a class="headerlink" href="#pxerhcos" title="Link to this heading">¶</a></h2>
+<section id="step-2-pxerhcos">
+<h2>🟩 Step 2: PXE環境構築とRHCOSインストール<a class="headerlink" href="#step-2-pxerhcos" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>各VMはPXEブートが設定されていて、初期起動時RHCOSがインストールされてる。2回目以降は、インストールされたOSで自力で立ち上がる</p></li>
 <li><p>BOOTプロトコルはDNSMASQとMATCHBOXの連携で実現される</p></li>
 <li><p>DHCPやTFTPプロトコルは到達力が弱いので、遠くのPXEには向いてないが、家庭内LANなので問題ない</p></li>
 </ul>
 </section>
-<section id="openshift-master">
-<h2>🟩 OpenShift MASTERアプリインストール<a class="headerlink" href="#openshift-master" title="Link to this heading">¶</a></h2>
+<section id="step-3-openshift-master">
+<h2>🟩 Step 3: OpenShift MASTERアプリインストール<a class="headerlink" href="#step-3-openshift-master" title="Link to this heading">¶</a></h2>
 </section>
-<section id="openshift-worker">
-<h2>🟩 OpenShift WORKERアプリインストール<a class="headerlink" href="#openshift-worker" title="Link to this heading">¶</a></h2>
+<section id="step-4-openshift-worker">
+<h2>🟩 Step 4: OpenShift WORKERアプリインストール<a class="headerlink" href="#step-4-openshift-worker" title="Link to this heading">¶</a></h2>
 </section>
 </section>
 
