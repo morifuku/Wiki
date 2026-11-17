@@ -116,7 +116,7 @@
 <section id="oai-cn5g-openairinterface-core-network-duranta">
 <h3>🟨 OAI CN5G（OpenAirInterface Core Network）/ Durantaプロジェクト<a class="headerlink" href="#oai-cn5g-openairinterface-core-network-duranta" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>3GPP準拠の5G SAコアです。ベアメタル/VM、Docker Composeでのコンテナ展開、OpenShift/Kubernetes上でのHelm Chart展開に対応しています。社内LANで進めているOpenShift環境にもHelmでそのまま載せられます。ライセンスはOAI Public License。</p></li>
+<li><p>3GPP準拠の5G SAコアです。ベアメタル/VM、Docker Composeでのコンテナ展開、<mark>OpenShift/Kubernetes上でのHelm Chart展開に対応</mark>しています。ライセンスはOAI Public License。</p></li>
 <li><p>将来的に <strong>Durantaプロジェクト</strong> に移行予定。ソースコードはすでにDurantaプロジェクトのGitHubリポジトリにも配置されている。</p></li>
 </ul>
 </section>
@@ -141,7 +141,7 @@
 <h2>🟩 5GRAN<a class="headerlink" href="#gran" title="Link to this heading">¶</a></h2>
 <section id="duranta">
 <h3>🟨 Durantaプロジェクト<a class="headerlink" href="#duranta" title="Link to this heading">¶</a></h3>
-<p>USRPで実際の電波を出し、市販のQuectel 5Gモデムを接続する構成まで組めます。RFsimulatorモードを使えばSDRなしでも動きます。</p>
+<p><mark>USRPで実際の電波を出し、市販のQuectel 5Gモデムを接続する構成まで組めます</mark>。RFsimulatorモードを使えばSDRなしでも動きます。</p>
 </section>
 <section id="ueransim">
 <h3>🟨 UERANSIM<a class="headerlink" href="#ueransim" title="Link to this heading">¶</a></h3>
@@ -160,7 +160,7 @@
 <h2>🟩 仮想化インフラ<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>5GCやRANの動きを学ぶなら、k3sやkubeadmにOpen5GS／free5GC、UERANSIMを組み合わせるのが最小構成で、手軽です。</p></li>
-<li><p>商用のテレコム基盤の運用を体験するなら、OpenShift SNO（またはOKD）にworkerを追加し、free5GCやOAIを載せるのがおすすめです。</p></li>
+<li><p>商用のテレコム基盤の運用を体験するなら、<mark>OpenShift SNO（またはOKD）にworkerを追加し</mark>、free5GCや<mark>OAIを載せる</mark>のがおすすめです。</p></li>
 <li><p>低遅延のvRAN、PTP、リアルタイム処理を見たいなら、StarlingXかOpenShiftのTelco RANプロファイルが向いています。</p></li>
 <li><p>ラボ規模では、商用の基盤よりも素のKubernetesやOSS版の基盤が使われることが多いです。よく見かける構成は次のとおりです。</p></li>
 </ul>
@@ -175,7 +175,7 @@
 <section id="okd-openshift-sno">
 <h3>🟨 OKD／OpenShift SNO<a class="headerlink" href="#okd-openshift-sno" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>商用に近い形で検証したい場合の定番です。SR-IOV Operator、PTP Operator、NUMA対応のスケジューリングなど、テレコム向けの機能をそのまま試せます。</p></li>
+<li><p>商用に近い形で検証したい場合の定番です。SR-IOV Operator、PTP Operator、NUMA対応のスケジューリングなど、<mark>テレコム向けの機能をそのまま試せます</mark>。</p></li>
 <li><p>必要リソースが大きく、SNOでも8コア・32GB前後は欲しいところです。free5GCやOAIはOpenShift上での動作手順も公開されています。</p></li>
 </ul>
 </section>
@@ -203,7 +203,7 @@
 <h2>🟩 最初の一歩としての構成例<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p><strong>ソフトだけで完結させる</strong>：Open5GS（またはOAI CN5G）とUERANSIMを、1台のUbuntuかVMに入れます。半日ほどでPDUセッションの確立と <code class="docutils literal notranslate"><span class="pre">ping</span></code> まで確認できます。</p></li>
-<li><p><strong>OAIで統一する</strong>：OAI CN5GをDocker Composeで立て、Duranta gNBとOAI UEをRFsimulatorモードで動かします。</p></li>
+<li><p><strong>OAIで統一する</strong>：<mark>OAI CN5GをDocker Composeで立て、Duranta gNBとOAI UEをRFsimulatorモードで動かします</mark>。</p></li>
 <li><p><strong>実機で電波を出す</strong>：2.の構成にUSRP（B210など）と5Gモデム、テスト用SIMを加えます。実際に電波を出すので、電波法上の扱い（実験試験局の免許やシールド環境など）は事前に確認が必要です。</p></li>
 </ol>
 </section>
