@@ -73,25 +73,39 @@
 </ul>
 
 </nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">🟦 OpenShift SNO環境構築</a><ul>
+<li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
   </aside>
   <div class="content">
   <main class="body" role="main">
     
   <section class="tex2jax_ignore mathjax_ignore" id="openshift-sno">
 <h1>🟦 OpenShift SNO環境構築<a class="headerlink" href="#openshift-sno" title="Link to this heading">¶</a></h1>
-<p>OpenShiftがテレコム界隈でデファクトになりつつある（例外もある）ようなので、5Gデモ用に軽量のOpenShift環境を構築する。ベアメタル2台で動くらしいで、以下のスペックのマシンを用意した。</p>
+<p>OpenShiftがテレコム界隈でデファクトになりつつある（例外もある）ようなので、5Gデモ用に軽量のOpenShift環境を構築する。ベアメタル2台で動くらしいで、以下のスペックのマシンに構築する。</p>
 <p><strong>MASTER / BASTION</strong></p>
 <ul class="simple">
-<li><p>i7 (12 vCPU)</p></li>
-<li><p>64 GB memory</p></li>
+<li><p>CPU: Intel i7-8700 CPU &#64; 3.20GHz（第8世代）</p></li>
+<li><p>12 vCPU</p></li>
+<li><p>RAM: 64GB</p></li>
 <li><p>Ubuntu 24.04.5</p></li>
 </ul>
 <p><strong>WORKER</strong></p>
 <ul class="simple">
-<li><p>i9 (16 vCPU)</p></li>
-<li><p>128 GB memory</p></li>
+<li><p>CPU: Intel i9-9900 CPU &#64; 3.10GHz（第9世代）</p></li>
+<li><p>16 vCPU</p></li>
+<li><p>RAM: 128 GB</p></li>
 <li><p>Ubuntu 24.04.5</p></li>
 </ul>
+<section id="contents">
+<h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="00%20%F0%9F%93%99%20%E6%A6%82%E8%A6%81.html">📙 概要</a></li>
@@ -99,6 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="20%20%F0%9F%93%99%20PXE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html">📙 PXE環境構築とRHCOSインストール</a></li>
 </ul>
 </div>
+</section>
 </section>
 
 
