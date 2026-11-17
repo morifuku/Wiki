@@ -114,7 +114,7 @@
 <ul class="simple">
 <li><p>MASTER 1台と、WORKER 2台はKVMのVMで構成する</p></li>
 <li><p>各VMはINTERNAL LANに接続される</p></li>
-<li><p>INTERNAL LANはVLANで構築されている。<mark>2台のベアメタル</mark>からは専用の物理NICで接続されるが、L2SWはEXTERNAL LANと共用している。</p></li>
+<li><p>INTERNAL LANはVLANで構築されている。2台のベアメタルからは専用の物理NICで接続されるが、L2SWはEXTERNAL LANと共用している。</p></li>
 </ul>
 </section>
 <section id="step-2-pxerhcos">
@@ -123,7 +123,7 @@
 <li><p>各VMはPXEブートが設定されていて、初期起動時、RHCOSがインストールされる。2回目以降は、インストールされたRHCOSで立ち上がる</p></li>
 <li><p>BOOTプロトコルはDNSMASQとMATCHBOXの連携で実現される。</p></li>
 <li><p>TFTPは【調査中】。TFTPでRHCOSインストールメディアが転送される。</p></li>
-<li><p>BOOTプロトコルやTFTPプロトコルは到達力が弱い。<mark>地理的に遠いVMはPXEブートが向いてないが</mark>、家庭内LANなので問題ない。</p></li>
+<li><p>BOOTプロトコルやTFTPプロトコルは到達力が弱い。地理的に遠いVMはPXEブートが向いてないが、家庭内LANなので問題ない。</p></li>
 </ul>
 </section>
 <section id="step-3-openshift-master">
