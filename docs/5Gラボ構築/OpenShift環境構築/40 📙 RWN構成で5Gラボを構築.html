@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 RWN構成で5Gラボを構築 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=8a2712fc" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/40%20%F0%9F%93%99%20RWN%E6%A7%8B%E6%88%90%E3%81%A75G%E3%83%A9%E3%83%9C%E3%82%92%E6%A7%8B%E7%AF%89.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="🟪 雑学" href="../../%E9%9B%91%E5%AD%A6/index.html" />
+    <link rel="prev" title="📙 PXE環境構築とRHCOSインストール" href="20%20%F0%9F%93%99%20PXE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 5Gデモ構築</a>
+    <span class="sep">»</span><a href="index.html">🟦 OpenShift SNO環境構築</a>
+    <span class="sep">»</span><span class="current">📙 RWN構成で5Gラボを構築</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 5Gデモ構築 (7)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 OpenShift SNO環境構築 (4)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="00%20%F0%9F%93%99%20%E6%A6%82%E8%A6%81.html">📙 概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10%20%F0%9F%93%99%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html">📙 KVM環境構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20%20%F0%9F%93%99%20PXE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html">📙 PXE環境構築とRHCOSインストール</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 RWN構成で5Gラボを構築</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (45)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 RWN構成で5Gラボを構築</a><ul>
+<li><a class="reference internal" href="#q-sno-masterworker">🟩 Q: SNO MASTERをセンター、WORKERをエッジに配置にしたい</a><ul>
+<li><a class="reference internal" href="#id1">🟨 公式の位置づけ</a></li>
+<li><a class="reference internal" href="#id2">🟨 設計で効いてくる点</a></li>
+<li><a class="reference internal" href="#sno">🟨 SNOをセンターにする場合の注意</a></li>
+<li><a class="reference internal" href="#id3">🟨 もう一つの定番構成</a></li>
+<li><a class="reference internal" href="#id4">🟨 ラボでの試し方</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-gnbupf">🟩 Q: エッジにgNBとUPFを置いて、その他はセンターに配置する構成にしたい</a><ul>
+<li><a class="reference internal" href="#wan">🟨 機能配置とWANをまたぐインターフェース</a></li>
+<li><a class="reference internal" href="#openshift">🟨 OpenShiftでの注意点</a></li>
+<li><a class="reference internal" href="#rwnsno">🟨 RWNか、エッジごとのSNOか</a></li>
+<li><a class="reference internal" href="#id5">🟨 ラボの実装候補（無線なしで構成できるもの）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="rwn5g">
+<h1>📙 RWN構成で5Gラボを構築<a class="headerlink" href="#rwn5g" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/17公開 2026/11/17更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/17</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-sno-masterworker">
+<h2>🟩 Q: SNO MASTERをセンター、WORKERをエッジに配置にしたい<a class="headerlink" href="#q-sno-masterworker" title="Link to this heading">¶</a></h2>
+<p><img alt="Pasted image 20261117220917" class="zoomable" src="../../_images/Pasted_image_20261117220917.png" /></p>
+<p>現実的です。「センターのcontrol planeから、遠隔地のworkerを制御する」構成は、OpenShiftでは <strong>Remote Worker Nodes（RWN）</strong> という正式な構成として扱われています。ただし、ネットワーク断への備えが設計の中心になります。</p>
+<section id="id1">
+<h3>🟨 公式の位置づけ<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>OpenShiftには、ネットワークエッジに置いたworkerをクラスタに組み込む「remote worker nodes」が用意されています。Red Hatは4.6でこれをエッジ向けのデプロイ構成として追加しました。</p></li>
+<li><p>典型的な用途は通信キャリアの5G RANで、中央のCUが多数のDUを制御する構成です。「センターが制御し、エッジで処理する」という今回の発想そのものです。</p></li>
+<li><p>control planeとの接続が切れても、workload自体はエッジ側で動き続けます。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>🟨 設計で効いてくる点<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>L3ルーティング</strong>：control planeとエッジノードの間のL2/L3接続は、利用者が構築・保守する前提です。また各エッジノードとの間にルートかデフォルトゲートウェイを用意し、Ingress VIPはcontrol plane側に置く必要があります。今のVLAN（192.168.1.0/24）をVPNでエッジまで延ばすか、エッジを別サブネットにしてルーティングするかを決めることになります。</p></li>
+<li><p><strong>断線時の挙動</strong>：既定では、heartbeatが一定時間途絶えるとPodが退避され、別のノードで再スケジュールされます。エッジ専用の処理なら、DaemonSetやstatic podを使うことが推奨されています。taintとtolerationで「センター側には逃がさない」設計にします。</p></li>
+<li><p><strong>遅延への耐性</strong>：worker latency profileが複数用意されていて、遅延に対するクラスタの反応を調整できます。</p></li>
+<li><p><strong>断線中の再起動</strong>：ネットワーク断の最中にworkerが再起動すると、追加の対策をしない限りworkloadは復旧しません。エッジ側にイメージのミラーやキャッシュを置くことも検討してください。</p></li>
+<li><p><strong>OVN-KubernetesのGeneveトンネル</strong>：Geneveトンネルが拠点間をまたぐので、VPNを経由する場合はMTUを詰めて設定する必要があります。</p></li>
+</ol>
+</section>
+<section id="sno">
+<h3>🟨 SNOをセンターにする場合の注意<a class="headerlink" href="#sno" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>センターがSPOFになります。センターが落ちるとエッジは制御不能になります。動いている処理は止まりませんが、デプロイや更新はできなくなります。</p></li>
+<li><p>SNOに追加するworkerは、テスト済みの上限が2台で推奨とされています。それを超える台数のエッジを抱えるなら、センターは3 master構成にするべきです。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 もう一つの定番構成<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>エッジ拠点が多い、またはWANが不安定な場合は、<strong>各エッジにSNOを1台ずつ置き、センターのRed Hat Advanced Cluster Management（ACM）でまとめて管理する</strong>hub-spoke型が主流です。各エッジが自律したクラスタになるので、断線に強くなります。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>RWN（今回の構想）</p></th>
+<th class="head"><p>エッジごとにSNO＋ACM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>向いている条件</p></td>
+<td><p>拠点が少なく、回線が安定している</p></td>
+<td><p>拠点が多い、または回線が不安定</p></td>
+</tr>
+<tr class="row-odd"><td><p>エッジ側の自律性</p></td>
+<td><p>低い（制御はセンター依存）</p></td>
+<td><p>高い</p></td>
+</tr>
+<tr class="row-even"><td><p>エッジ側のリソース消費</p></td>
+<td><p>小さい（workerだけ）</p></td>
+<td><p>大きい（control planeの分、数コアと十数GBを食う）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>🟨 ラボでの試し方<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>i9のworker VMを「エッジ役」として、i7とi9の間に<code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">...</span> <span class="pre">netem</span> <span class="pre">delay</span> <span class="pre">30ms</span> <span class="pre">loss</span> <span class="pre">1%</span></code>で遅延と損失を入れると、RWNの挙動（退避のタイミング、latency profileの効き方）を手元で検証できます。</p>
+<p>Sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/nodes/remote-worker-nodes-on-the-network-edge">Remote worker nodes on the network edge (OCP 4.22)</a></p></li>
+<li><p><a class="reference external" href="https://docs.redhat.com/fr/documentation/openshift_container_platform/4.16/html/nodes/worker-nodes-for-single-node-openshift-clusters">Worker nodes for single-node OpenShift clusters (OCP 4.16)</a></p></li>
+<li><p><a class="reference external" href="https://www.redhat.com/es/blog/openshift-architectures-for-the-edge-with-openshift-4.6">OpenShift architectures for the edge with OpenShift 4.6</a></p></li>
+<li><p><a class="reference external" href="https://docs.redhat.com/en/learn/learning-paths/edge-computing-and-red-hat-device-edge-explained/red-hat-openshifts-flexibility-our-topologies-your-topographies">Edge computing and Red Hat Device Edge explained</a></p></li>
+</ul>
+</section>
+</section>
+<section id="q-gnbupf">
+<h2>🟩 Q: エッジにgNBとUPFを置いて、その他はセンターに配置する構成にしたい<a class="headerlink" href="#q-gnbupf" title="Link to this heading">¶</a></h2>
+<p>その配置（gNBとUPFをエッジ、5GCの制御系をセンター）は、CUPSによるC/U分離とMEC（ローカルブレイクアウト）の、5Gでは標準的な構成です。OpenShiftの上でもそのまま実現できます。インターフェースごとに整理すると、エッジとセンターの間でWANをまたぐのはN2とN4だけです。</p>
+<section id="wan">
+<h3>🟨 機能配置とWANをまたぐインターフェース<a class="headerlink" href="#wan" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[エッジ]                                   [センター]
+ gNB (DU/CU) ──N3(GTP-U)── UPF ──N6── ローカルDN
+   │                         │
+   └─N2 (NGAP/SCTP)──WAN──→ AMF
+                             └─N4 (PFCP/UDP 8805)──WAN──→ SMF
+                                                   NRF/AUSF/UDM/PCF/NSSF…
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>N3とN6はエッジ内で完結</strong>するので、ユーザープレーンの遅延と帯域はWANに左右されません。</p></li>
+<li><p><strong>N2とN4はシグナリングだけ</strong>なので、WANの遅延（数十ms程度）は許容できます。</p></li>
+</ul>
+</section>
+<section id="openshift">
+<h3>🟨 OpenShiftでの注意点<a class="headerlink" href="#openshift" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>SCTPは既定で無効</strong>：N2のNGAPはSCTPを使います。OpenShiftではSCTPが既定で無効なので、MachineConfigでsctpモジュールを読み込む設定が必要です。</p></li>
+<li><p><strong>N3とN6はセカンダリネットワーク</strong>：Multusで、N3やN6用のNetworkAttachmentDefinitionを作ります。本番ならSR-IOVとDPDK、ラボならmacvlanやbridgeを使います。</p></li>
+<li><p><strong>エッジのノードチューニング</strong>：PerformanceProfileで、CPUの専有割り当て、hugepages、RTカーネル（DU向け）を設定します。DUには、さらにPTP Operatorでの時刻同期と、FECアクセラレータが必要です。</p></li>
+<li><p><strong>断線時の挙動はk8sより5GC側で決まる</strong>：WANが切れても、確立済みのセッションはUPFで転送が続きます。一方で、新規アタッチ、PDUセッション確立、ハンドオーバはAMFとSMFに届かないので失敗します。k8s側では、それに加えてUPFやgNBのPodが退避されないよう、DaemonSetやtolerationで固定することが必須です。</p></li>
+</ol>
+</section>
+<section id="rwnsno">
+<h3>🟨 RWNか、エッジごとのSNOか<a class="headerlink" href="#rwnsno" title="Link to this heading">¶</a></h3>
+<p>Red Hatの通信キャリア向けRANリファレンス構成は、<strong>セルサイトごとにSNOを置き（DUなど）、センターのACMハブからZTPとGitOpsで一括管理する</strong>形です。理由は、エッジごとにPerformanceProfileやPTPの設定が異なり、OSの更新タイミングも拠点単位で制御したいからです。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>RWN</p></th>
+<th class="head"><p>エッジごとにSNO＋ACM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>センター</p></td>
+<td><p>SNO（または3 master）に5GC CPを載せる</p></td>
+<td><p>3 masterに5GC CPとACMハブを載せる</p></td>
+</tr>
+<tr class="row-odd"><td><p>エッジ</p></td>
+<td><p>workerにgNBとUPF</p></td>
+<td><p>SNOにgNBとUPF</p></td>
+</tr>
+<tr class="row-even"><td><p>ラボでの手軽さ</p></td>
+<td><p>◎ 今の図のまま</p></td>
+<td><p>△ ACMの分、リソースを食う</p></td>
+</tr>
+<tr class="row-odd"><td><p>実運用での主流</p></td>
+<td><p>少数拠点向け</p></td>
+<td><p><strong>通信キャリアの主流</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>ラボで試すなら、まずは今の図のままRWN（i9のworkerをエッジ役）で組むのが近道です。</p>
+</section>
+<section id="id5">
+<h3>🟨 ラボの実装候補（無線なしで構成できるもの）<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>gNBとUE</strong>：UERANSIMでシミュレートします。</p></li>
+<li><p><strong>5GC</strong>：Open5GSかfree5GCを使います。</p>
+<ul>
+<li><p>free5GCのUPFは、カーネルモジュールgtp5gが必要です。RHCOSには、KMM OperatorとDriver Toolkitでビルドして読み込ませる必要があり、手間がかかります。</p></li>
+<li><p>Open5GSのUPFはTUNで動くので、OpenShiftに載せやすいです。eBPFベースのeUPFも選択肢になります。</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><mark>冒頭図：i7をセンター（AMF、SMFなど）、i9をエッジ（UERANSIMとUPF）として書き込んでいます</mark></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="20%20%F0%9F%93%99%20PXE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html"><span class="label">‹ 前へ</span><span class="title">📙 PXE環境構築とRHCOSインストール</span></a>
+      <a class="next" href="../../%E9%9B%91%E5%AD%A6/index.html"><span class="label">次へ ›</span><span class="title">🟪 雑学</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>

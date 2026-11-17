@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📙 PXE環境構築とRHCOSインストール &#8212; Llama in Bliss</title>
+    <title>📙 OpenShift環境でCNFをビルドする &#8212; Llama in Bliss</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=f411a948" />
     <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=8a2712fc" />
@@ -15,12 +15,12 @@
     <script src="../../_static/translations.js?v=4755f45a"></script>
     <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
     <script defer="defer" src="../../_static/zoom.js?v=1260aa77"></script>
-    <link rel="canonical" href="https://wiki.morifuku.net/5G%E3%83%87%E3%83%A2%E6%A7%8B%E7%AF%89/OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/20%20%F0%9F%93%99%20PXE%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html" />
+    <link rel="canonical" href="https://wiki.morifuku.net/5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/20%20%F0%9F%93%99%20OpenShift%E7%92%B0%E5%A2%83%E3%81%A7CNF%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B.html" />
     <link rel="icon" href="../../_static/llama.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="🟪 雑学" href="../../%E9%9B%91%E5%AD%A6/index.html" />
-    <link rel="prev" title="📙 KVM環境構築" href="10%20%F0%9F%93%99%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html" />
+    <link rel="next" title="🟦 OpenShift SNO環境構築" href="../OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/index.html" />
+    <link rel="prev" title="📙 OAI Full Stack 5G-NR RF シミュレーション" href="10%20%F0%9F%93%99%20OAI%20Full%20Stack%205G-NR%20RF%20%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
 <script defer src="../../_static/pagetoc.js"></script>
@@ -40,8 +40,8 @@
   <nav class="breadcrumbs" aria-label="現在位置">
     <a href="../../index.html">ホーム</a>
     <span class="sep">»</span><a href="../index.html">🟪 5Gデモ構築</a>
-    <span class="sep">»</span><a href="index.html">🟦 OpenShift SNO環境構築</a>
-    <span class="sep">»</span><span class="current">📙 PXE環境構築とRHCOSインストール</span>
+    <span class="sep">»</span><a href="index.html">🟦 Durantaプロジェクト</a>
+    <span class="sep">»</span><span class="current">📙 OpenShift環境でCNFをビルドする</span>
   </nav>
 </header>
 <div class="page">
@@ -60,17 +60,28 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 5Gデモ構築 (6)</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 OpenShift SNO環境構築 (3)</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 5Gデモ構築 (7)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 Durantaプロジェクト (3)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="00%20%F0%9F%93%99%20%E6%A6%82%E8%A6%81.html">📙 概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="10%20%F0%9F%93%99%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html">📙 KVM環境構築</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 PXE環境構築とRHCOSインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10%20%F0%9F%93%99%20OAI%20Full%20Stack%205G-NR%20RF%20%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.html">📙 OAI Full Stack 5G-NR RF シミュレーション</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 OpenShift環境でCNFをビルドする</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/index.html">🟦 OpenShift SNO環境構築 (4)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (45)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 OpenShift環境でCNFをビルドする</a><ul>
+<li><a class="reference internal" href="#id1">🟩 1. ビルド手順</a></li>
+<li><a class="reference internal" href="#id2">🟩 2. 動かしてみる</a></li>
+</ul>
+</li>
 </ul>
 
 </nav>
@@ -78,16 +89,23 @@
   <div class="content">
   <main class="body" role="main">
     
-  <section class="tex2jax_ignore mathjax_ignore" id="pxerhcos">
-<h1>📙 PXE環境構築とRHCOSインストール<a class="headerlink" href="#pxerhcos" title="Link to this heading">¶</a></h1>
-<p class="page-dates">2026/11/17公開 2026/11/17更新</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="openshiftcnf">
+<h1>📙 OpenShift環境でCNFをビルドする<a class="headerlink" href="#openshiftcnf" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/03公開 2026/11/17更新</p>
+<p>HelmでCNFをソースコードからビルドできる。その手順</p>
+<section id="id1">
+<h2>🟩 1. ビルド手順<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id2">
+<h2>🟩 2. 動かしてみる<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+</section>
 </section>
 
 
   </main>
     <nav class="prev-next" aria-label="前後のページ">
-      <a class="prev" href="10%20%F0%9F%93%99%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html"><span class="label">‹ 前へ</span><span class="title">📙 KVM環境構築</span></a>
-      <a class="next" href="../../%E9%9B%91%E5%AD%A6/index.html"><span class="label">次へ ›</span><span class="title">🟪 雑学</span></a>
+      <a class="prev" href="10%20%F0%9F%93%99%20OAI%20Full%20Stack%205G-NR%20RF%20%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.html"><span class="label">‹ 前へ</span><span class="title">📙 OAI Full Stack 5G-NR RF シミュレーション</span></a>
+      <a class="next" href="../OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/index.html"><span class="label">次へ ›</span><span class="title">🟦 OpenShift SNO環境構築</span></a>
     </nav>
   </div>
 </div>
