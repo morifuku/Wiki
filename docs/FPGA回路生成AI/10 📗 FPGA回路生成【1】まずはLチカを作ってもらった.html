@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📘 FPGA回路生成【1】まずはLチカを作ってもらった &#8212; Llama in Bliss</title>
+    <title>📗 FPGA回路生成【1】まずはLチカを作ってもらった &#8212; Llama in Bliss</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=f411a948" />
     <link rel="stylesheet" type="text/css" href="../_static/media.css?v=8a2712fc" />
@@ -15,12 +15,12 @@
     <script src="../_static/translations.js?v=4755f45a"></script>
     <script defer="defer" src="../_static/youtube.js?v=894bc34c"></script>
     <script defer="defer" src="../_static/zoom.js?v=1260aa77"></script>
-    <link rel="canonical" href="https://wiki.morifuku.net/FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/10%20%F0%9F%93%98%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html" />
+    <link rel="canonical" href="https://wiki.morifuku.net/FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/10%20%F0%9F%93%97%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%901%E3%80%91%E3%81%BE%E3%81%9A%E3%81%AFL%E3%83%81%E3%82%AB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html" />
     <link rel="icon" href="../_static/llama.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="📘 FPGA回路生成【2】アクチュエータ制御部を作ってもらった" href="11%20%F0%9F%93%98%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html" />
-    <link rel="prev" title="📘 概要" href="00%20%F0%9F%93%98%20%E6%A6%82%E8%A6%81.html" />
+    <link rel="next" title="📗 FPGA回路生成【2】アクチュエータ制御部を作ってもらった" href="11%20%F0%9F%93%97%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html" />
+    <link rel="prev" title="📗 概要" href="00%20%F0%9F%93%97%20%E6%A6%82%E8%A6%81.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
 <script defer src="../_static/pagetoc.js"></script>
@@ -40,7 +40,7 @@
   <nav class="breadcrumbs" aria-label="現在位置">
     <a href="../index.html">ホーム</a>
     <span class="sep">»</span><a href="index.html">🟪 FPGA回路生成AI</a>
-    <span class="sep">»</span><span class="current">📘 FPGA回路生成【1】まずはLチカを作ってもらった</span>
+    <span class="sep">»</span><span class="current">📗 FPGA回路生成【1】まずはLチカを作ってもらった</span>
   </nav>
 </header>
 <div class="page">
@@ -59,9 +59,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (1)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">🟪 FPGA回路生成AI (3)</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="00%20%F0%9F%93%98%20%E6%A6%82%E8%A6%81.html">📘 概要</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">📘 FPGA回路生成【1】まずはLチカを作ってもらった</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11%20%F0%9F%93%98%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">📘 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00%20%F0%9F%93%97%20%E6%A6%82%E8%A6%81.html">📗 概要</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">📗 FPGA回路生成【1】まずはLチカを作ってもらった</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11%20%F0%9F%93%97%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html">📗 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (7)</a></li>
@@ -72,7 +72,7 @@
 <nav class="pagetoc" aria-labelledby="pagetoc-label">
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
-<li><a class="reference internal" href="#">📘 FPGA回路生成【1】まずはLチカを作ってもらった</a><ul>
+<li><a class="reference internal" href="#">📗 FPGA回路生成【1】まずはLチカを作ってもらった</a><ul>
 <li><a class="reference internal" href="#id1">🟩 1. 準備</a></li>
 <li><a class="reference internal" href="#id2">🟩 2. 実装</a><ul>
 <li><a class="reference internal" href="#fpga">🟨 2.1 FPGA開発アプリ設定</a></li>
@@ -92,7 +92,7 @@
   <main class="body" role="main">
     
   <section class="tex2jax_ignore mathjax_ignore" id="fpga1l">
-<h1>📘 FPGA回路生成【1】まずはLチカを作ってもらった<a class="headerlink" href="#fpga1l" title="Link to this heading">¶</a></h1>
+<h1>📗 FPGA回路生成【1】まずはLチカを作ってもらった<a class="headerlink" href="#fpga1l" title="Link to this heading">¶</a></h1>
 <p class="page-dates">2026/10/30公開 2026/11/18更新</p>
 <p>ClaudeにFPGAのLチカ（LEDをチカチカさせるだけの電子工作品）を作ってもらった。長いこと放置していた中華FPGA（Tang Nano 9K）がチカチカ点滅しだした。ハードウェアまでClaudeに作ってもらえるなんて、感動もの。人間の仕事はパーツ調達と半田付けくらいしか残ってないな。</p>
 <p><a class="yt-embed" href="https://www.youtube.com/watch?v=KDFOgygecLk" data-yt="KDFOgygecLk"><img src="https://i.ytimg.com/vi/KDFOgygecLk/hqdefault.jpg" alt="YouTube" loading="lazy"></a></p>
@@ -128,8 +128,8 @@
 
   </main>
     <nav class="prev-next" aria-label="前後のページ">
-      <a class="prev" href="00%20%F0%9F%93%98%20%E6%A6%82%E8%A6%81.html"><span class="label">‹ 前へ</span><span class="title">📘 概要</span></a>
-      <a class="next" href="11%20%F0%9F%93%98%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html"><span class="label">次へ ›</span><span class="title">📘 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</span></a>
+      <a class="prev" href="00%20%F0%9F%93%97%20%E6%A6%82%E8%A6%81.html"><span class="label">‹ 前へ</span><span class="title">📗 概要</span></a>
+      <a class="next" href="11%20%F0%9F%93%97%20FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90%E3%80%902%E3%80%91%E3%82%A2%E3%82%AF%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%BF%E5%88%B6%E5%BE%A1%E9%83%A8%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%82%82%E3%82%89%E3%81%A3%E3%81%9F.html"><span class="label">次へ ›</span><span class="title">📗 FPGA回路生成【2】アクチュエータ制御部を作ってもらった</span></a>
     </nav>
   </div>
 </div>
