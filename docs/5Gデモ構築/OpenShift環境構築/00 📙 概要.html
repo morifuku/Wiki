@@ -78,7 +78,7 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">📙 概要</a><ul>
-<li><a class="reference internal" href="#id2">🟩 構成図ドラフト</a></li>
+<li><a class="reference internal" href="#id2">🟩 システム構成【ドラフト】</a></li>
 <li><a class="reference internal" href="#step-1-kvm">🟩 Step 1: KVM環境構築</a></li>
 <li><a class="reference internal" href="#step-2-pxerhcos">🟩 Step 2: PXE環境構築とRHCOSインストール</a></li>
 <li><a class="reference internal" href="#step-3-openshift-master">🟩 Step 3: OpenShift MASTERアプリインストール</a></li>
@@ -96,8 +96,8 @@
 <h1>📙 概要<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <p class="page-dates">2026/11/17公開 2026/11/17更新</p>
 <section id="id2">
-<h2>🟩 構成図ドラフト<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p>Claudeによるお薦めのデザインは下図の通り。</p>
+<h2>🟩 システム構成【ドラフト】<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>Claudeによるお薦めのデザインは下図の通り。「PVはCephかな」等は後回し。</p>
 <p><strong>NETWORK</strong></p>
 <ul class="simple">
 <li><p>EXTERNAL: 192.168.0.0/24, HGWを経由してインターネットに繋がる</p></li>
@@ -123,7 +123,7 @@
 <li><p>各VMはPXEブートが設定されていて、初期起動時、RHCOSがインストールされる。2回目以降は、インストールされたRHCOSで立ち上がる</p></li>
 <li><p>BOOTプロトコルはDNSMASQとMATCHBOXの連携で実現される。</p></li>
 <li><p>TFTPは【調査中】。TFTPでRHCOSインストールメディアが転送される。</p></li>
-<li><p>BOOTプロトコルやTFTPプロトコルは到達力が弱い。地理的に遠いVMはPXEブートが向いてないが、家庭内LANなので問題ない。</p></li>
+<li><p>BOOTプロトコルやTFTPプロトコルは到達力が弱い。==地理的に遠いVMはPXEブートが向いてないが==、家庭内LANなので問題ない。</p></li>
 </ul>
 </section>
 <section id="step-3-openshift-master">
