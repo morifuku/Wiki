@@ -120,9 +120,10 @@
 <section id="step-2-pxerhcos">
 <h2>🟩 Step 2: PXE環境構築とRHCOSインストール<a class="headerlink" href="#step-2-pxerhcos" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>各VMはPXEブートが設定されていて、初期起動時RHCOSがインストールされてる。2回目以降は、インストールされたOSで自力で立ち上がる</p></li>
-<li><p>BOOTプロトコルはDNSMASQとMATCHBOXの連携で実現される</p></li>
-<li><p>DHCPやTFTPプロトコルは到達力が弱いので、遠くのPXEには向いてないが、家庭内LANなので問題ない</p></li>
+<li><p>各VMはPXEブートが設定されていて、初期起動時、RHCOSがインストールされる。2回目以降は、インストールされたRHCOSで立ち上がる</p></li>
+<li><p>BOOTプロトコルはDNSMASQとMATCHBOXの連携で実現される。</p></li>
+<li><p>TFTPは【調査中】。TFTPでRHCOSインストールメディアが転送される。</p></li>
+<li><p>BOOTプロトコルやTFTPプロトコルは到達力が弱い。地理的に遠いVMはPXEブートが向いてないが、家庭内LANなので問題ない。</p></li>
 </ul>
 </section>
 <section id="step-3-openshift-master">
