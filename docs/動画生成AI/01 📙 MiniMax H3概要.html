@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 MiniMax H3概要 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../_static/media.css?v=8a2712fc" />
+    <script src="../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/01%20%F0%9F%93%99%20MiniMax%20H3%E6%A6%82%E8%A6%81.html" />
+    <link rel="icon" href="../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="📗 Windows機に中古GPU入れてMiniMax H3環境を作った" href="10%20%F0%9F%93%97%20Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html" />
+    <link rel="prev" title="🟪 動画生成AI" href="index.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../index.html"><img class="logo" src="../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../index.html">ホーム</a>
+    <span class="sep">»</span><a href="index.html">🟪 動画生成AI</a>
+    <span class="sep">»</span><span class="current">📙 MiniMax H3概要</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">🟪 動画生成AI (2)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">📙 MiniMax H3概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10%20%F0%9F%93%97%20Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html">📗 Windows機に中古GPU入れてMiniMax H3環境を作った</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (7)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (45)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 MiniMax H3概要</a><ul>
+<li><a class="reference internal" href="#q-minimax-h3">🟩 Q: MiniMax H3の機能をリストして、何が生成できるの？</a><ul>
+<li><a class="reference internal" href="#id1">🟨 生成モード</a></li>
+<li><a class="reference internal" href="#id2">🟨 出力スペック</a></li>
+<li><a class="reference internal" href="#id3">🟨 ローカル実行の要件</a></li>
+<li><a class="reference internal" href="#id4">🟨 できないこと【注意点】</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="minimax-h3">
+<h1>📙 MiniMax H3概要<a class="headerlink" href="#minimax-h3" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/19公開 2026/11/19更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/19</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-minimax-h3">
+<h2>🟩 Q: MiniMax H3の機能をリストして、何が生成できるの？<a class="headerlink" href="#q-minimax-h3" title="Link to this heading">¶</a></h2>
+<p>MiniMax H3は、テキスト・画像・動画・音声をまとめて入力として扱い、ステレオ音声付きの動画を1回の生成で出力するモデルです。</p>
+<section id="id1">
+<h3>🟨 生成モード<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>モード</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>チェックポイント</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>テキスト→動画（T2V）</p></td>
+<td><p>プロンプトだけから動画を生成</p></td>
+<td><p>FL2VA</p></td>
+</tr>
+<tr class="row-odd"><td><p>画像→動画（I2V）</p></td>
+<td><p>静止画に動きをつける</p></td>
+<td><p>FL2VA</p></td>
+</tr>
+<tr class="row-even"><td><p>最初・最後のフレーム指定</p></td>
+<td><p>開始フレーム、終了フレーム、またはその両方を固定し、間を補完する</p></td>
+<td><p>FL2VA</p></td>
+</tr>
+<tr class="row-odd"><td><p>リファレンス→動画（R2V）</p></td>
+<td><p>参照用の画像・動画・音声から、被写体・動き・声を引き継ぐ</p></td>
+<td><p>Ref2VA</p></td>
+</tr>
+</tbody>
+</table>
+<p>モードは2つのチェックポイントに分かれています。FL2VAがテキスト→動画、最初のフレーム→動画、最後のフレーム→動画、最初と最後のフレーム指定を担当し、Ref2VAがリファレンスからの生成を担当します。Ref2VAに渡せる参照素材は画像9枚、動画3本、音声3本までで、合計は12ファイルまでです。</p>
+<p>R2Vではモーション転写もできます。参照動画からカメラの動きだけを取り出し、被写体や画風は別の素材から持ってくる、という使い方です。</p>
+</section>
+<section id="id2">
+<h3>🟨 出力スペック<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>音声</strong>：32kHzのステレオ音声をネイティブで生成し、セリフは11言語に対応しています。TTSやリップシンクを別に用意したり、後処理をしたりする必要はありません。</p></li>
+<li><p><strong>解像度</strong>：標準は短辺768pxです。H3-Regenerate-2Kモジュールを使うと2Kで再生成できます。</p></li>
+<li><p><strong>長さ・フレームレート</strong>：1クリップ最大15秒、24fpsです。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 ローカル実行の要件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>フル精度では約123.6GBのメモリが必要です。ComfyUIは重みの一部をルックアップテーブル化し、int8量子化と専用カーネルを組み合わせて、必要メモリを66%減の42.5GBまで減らしました。さらにVRAMの動的オフロードを使えば12GBのGPUにも載り、RTX 3060で動いたと報告されています。</p></li>
+<li><p>int8版の重みは19.5GBです。GGUF版とFP8版もあります。テキストエンコーダーにはQwen3-VL-32Bを使います。</p></li>
+<li><p>ComfyUIには公式のT2V、I2V、R2Vテンプレートが用意されています。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>🟨 できないこと【注意点】<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>既存の動画を直接編集する専用機能は、ローカル版の資料には書かれていません。編集に近いことをするなら、フレーム指定かモーション転写を使うことになります。</p></li>
+<li><p>15秒より長い作品は、クリップをつなぐか別のツールを使う必要があります。</p></li>
+<li><p>ライセンス上、米国・EU・英国・韓国では使えません。</p></li>
+</ul>
+<p>まとめると、ローカルで動くオープンウェイトモデルの中で、音声付き・多言語のセリフ・参照素材を使った生成まで1つでこなせるのはH3の強みです。音声付きのローカルモデルとしては、ほかにLTX-2.5とKandinsky 6.0も候補になります。</p>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="index.html"><span class="label">‹ 前へ</span><span class="title">🟪 動画生成AI</span></a>
+      <a class="next" href="10%20%F0%9F%93%97%20Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html"><span class="label">次へ ›</span><span class="title">📗 Windows機に中古GPU入れてMiniMax H3環境を作った</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
