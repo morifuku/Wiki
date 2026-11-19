@@ -70,7 +70,11 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">🟪 動画生成AI</a><ul>
-<li><a class="reference internal" href="#contents">Contents:</a></li>
+<li><a class="reference internal" href="#q-gpuai">🟩 Q: ローカルGPUで使える動画生成AIをリストして</a><ul>
+<li><a class="reference internal" href="#id1">🟨 補足</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contents">🟩 Contents:</a></li>
 </ul>
 </li>
 </ul>
@@ -82,8 +86,104 @@
     
   <section class="tex2jax_ignore mathjax_ignore" id="ai">
 <h1>🟪 動画生成AI<a class="headerlink" href="#ai" title="Link to this heading">¶</a></h1>
+<p>質問者: Shigeru Morifuku</p>
+<ul class="simple">
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/19</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-gpuai">
+<h2>🟩 Q: ローカルGPUで使える動画生成AIをリストして<a class="headerlink" href="#q-gpuai" title="Link to this heading">¶</a></h2>
+<p>ComfyUIでローカル実行できる主な動画生成モデルは下の表のとおりです（2026年11月時点）。<mark>どれも重みは無料でダウンロードでき、生成ごとの料金はかかりません。「有料」になるのは、売上が一定額を超えた企業向けの商用ライセンスだけです</mark>。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>モデル</p></th>
+<th class="head"><p>開発元</p></th>
+<th class="head"><p>料金</p></th>
+<th class="head"><p>商用利用</p></th>
+<th class="head"><p>ライセンス / 注意点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Wan 2.1 / 2.2</strong>（Wan2.2-Animate-2も含む）</p></td>
+<td><p>Alibaba</p></td>
+<td><p>無料</p></td>
+<td><p>◎ 制限なし</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Kandinsky 5.0 / 6.0</strong></p></td>
+<td><p>Kandinsky Lab</p></td>
+<td><p>無料</p></td>
+<td><p>◎ 制限なし</p></td>
+<td><p>MIT（6.0は音声同期付き）</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mochi 1</strong></p></td>
+<td><p>Genmo</p></td>
+<td><p>無料</p></td>
+<td><p>◎ 制限なし</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CogVideoX-2B</strong></p></td>
+<td><p>Zhipu/清華大学</p></td>
+<td><p>無料</p></td>
+<td><p>◎ 制限なし</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>CogVideoX-5B</strong></p></td>
+<td><p>同上</p></td>
+<td><p>無料</p></td>
+<td><p>○ 条件付き</p></td>
+<td><p>CogVideoX License</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LTX-2 / 2.3 / 2.5</strong></p></td>
+<td><p>Lightricks（LTX）</p></td>
+<td><p>年商$10M未満は無料、以上は有料</p></td>
+<td><p>○ 条件付き</p></td>
+<td><p>LTX-2 Community License</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>HunyuanVideo / 1.5</strong></p></td>
+<td><p>Tencent</p></td>
+<td><p>無料</p></td>
+<td><p>△ 地域制限あり</p></td>
+<td><p>Tencent Hunyuan Community License</p></td>
+</tr>
+<tr class="row-odd"><td><p><mark><strong>MiniMax H3</strong></mark></p></td>
+<td><p>MiniMax</p></td>
+<td><p>年商$20M超は別途許可が必要</p></td>
+<td><p><mark>△ 地域制限あり</mark></p></td>
+<td><p>MiniMax H3 Community License</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Stable Video Diffusion</strong></p></td>
+<td><p>Stability AI</p></td>
+<td><p>小規模なら無料</p></td>
+<td><p>○ 条件付き</p></td>
+<td><p>Stability AI Community License</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pyramid Flow / Open-Sora 2.0 / Allegro</p></td>
+<td><p>各研究機関</p></td>
+<td><p>無料</p></td>
+<td><p>◎</p></td>
+<td><p>MIT / Apache 2.0（古めのモデル）</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h3>🟨 補足<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p><mark><strong>除外地域</strong> ：そのライセンスによる利用許諾そのものがありません。商用だけでなく、個人の非商用利用も含めて、そのライセンスを根拠には使えないという意味です。</mark></p>
+<ul class="simple">
+<li><p><strong>Wan</strong>：ローカルで動かせるのは2.1と2.2だけです。2.5と2.6は重みが公開されておらず、Alibaba Cloudか再販業者経由の秒単位課金です。2.7と3.0もAPI専用です。</p></li>
+<li><p><strong>Kandinsky</strong>：Sberがコードと重みをMITライセンスで公開しており、改変・組み込み・商用利用が自由です。6.0は5秒の動画と44kHzの音声を同時に生成でき、29BのProと3BのLiteがあります。ComfyUI拡張も公式に提供されています。</p></li>
+<li><p><strong>LTX</strong>：年商$10M未満の会社なら、重みのセルフホスト・ファインチューン・商用利用が無料で、利用量の上限もありません。ただしOSI認定のオープンソースではないので、正確には「オープンウェイト」です。ネイティブで音声も生成できます。</p></li>
+<li><p><strong>HunyuanVideo</strong>：ライセンスの対象地域からEU・英国・韓国が除外されています。商用利用は月間アクティブユーザー1億人までなら可能で、それを超えると別ライセンスが必要です。日本は対象地域に入っています。なお、ComfyUI Wikiは1.5を「Apache-2.0」と書いていますが、公式リポジトリはTencentのコミュニティライセンスです。公式の方を基準にしてください。</p></li>
+<li><p><strong>MiniMax H3</strong>：除外地域はEU・英国・韓国・米国です。製品の年商が$20Mを超える商用ユーザーはMiniMaxの書面許可が必要です。<mark>日本は除外されていません</mark>。2026年8月に公開され、ComfyUIは公開当日からネイティブ対応しています。MiniMaxは過去に公開後すぐ規約を変えたことがあるので、LICENSEファイルを直接確認するよう勧められています。</p></li>
+<li><p><strong>CogVideoX-5B</strong>：清華大学のモデルライセンスで、商用利用はできますが禁止用途の制限があります。</p></li>
+</ul>
+<p><strong>選び方の目安</strong>：ライセンスで悩みたくないなら、Wan 2.2、Kandinsky、Mochi 1のどれかです。音声付きで高品質なものが欲しく、個人や小規模事業で使うならLTX-2.5も無料で使えます。</p>
+<p>ComfyUIには「API Nodes」（Kling、Veo、Wan 3.0など）もありますが、これはクラウド実行の有料サービスなので上の表には入れていません。ライセンスは改定されることがあるので、商用で使う前には各モデルのHugging FaceにあるLICENSEを確認してください。</p>
+</section>
+</section>
 <section id="contents">
-<h2>Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
+<h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="%F0%9F%93%97%20Windows%E6%A9%9F%E3%81%AB%E4%B8%AD%E5%8F%A4GPU%E5%85%A5%E3%82%8C%E3%81%A6MiniMax%20H3%E7%92%B0%E5%A2%83%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F.html">📗 Windows機に中古GPU入れてMiniMax H3環境を作った</a></li>
