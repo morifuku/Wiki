@@ -77,6 +77,13 @@
 <li><a class="reference internal" href="#id1">🟨 補足</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#minimax-h3">🟩 日本がMiniMax H3の除外地域に含まれる可能性はあるの？</a><ul>
+<li><a class="reference internal" href="#eu">🟨 なぜEU・英国・韓国・米国が除外されているのか</a></li>
+<li><a class="reference internal" href="#id2">🟨 日本が除外されうるケース</a></li>
+<li><a class="reference internal" href="#id3">🟨 現実的なリスクは規約改定そのもの</a></li>
+<li><a class="reference internal" href="#id4">🟨 自衛策</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -183,6 +190,43 @@
 </ul>
 <p><strong>選び方の目安</strong>：ライセンスで悩みたくないなら、Wan 2.2、Kandinsky、Mochi 1のどれかです。音声付きで高品質なものが欲しく、個人や小規模事業で使うならLTX-2.5も無料で使えます。</p>
 <p>ComfyUIには「API Nodes」（Kling、Veo、Wan 3.0など）もありますが、これはクラウド実行の有料サービスなので上の表には入れていません。ライセンスは改定されることがあるので、商用で使う前には各モデルのHugging FaceにあるLICENSEを確認してください。</p>
+</section>
+</section>
+<section id="minimax-h3">
+<h2>🟩 日本がMiniMax H3の除外地域に含まれる可能性はあるの？<a class="headerlink" href="#minimax-h3" title="Link to this heading">¶</a></h2>
+<p>ゼロではありませんが、今のところ日本が除外される具体的な兆候は見当たりません。ただし規約の変更は開発元が一方的に決められるので、将来どうなるかは誰にも保証できません。</p>
+<section id="eu">
+<h3>🟨 なぜEU・英国・韓国・米国が除外されているのか<a class="headerlink" href="#eu" title="Link to this heading">¶</a></h3>
+<p>開発元は理由を明記していません。一般には、規制や法的リスクを避けるためと見られています。</p>
+<ul class="simple">
+<li><p>EU：AI法（AI Act）で、汎用AIモデルの提供者に透明性や著作権関連の義務が課されている</p></li>
+<li><p>韓国：AI基本法が施行され、生成AIに表示義務などがある</p></li>
+<li><p>英国：EU離脱後に独自の規制とデータ保護制度を持っている</p></li>
+<li><p>米国（MiniMaxのみ）：中国企業に対する規制、訴訟リスク、政治的な緊張が背景にあると考えられる</p></li>
+</ul>
+<p>日本のAI推進法は義務や罰則が軽い「ソフトロー」寄りの法律です。そのため、少なくとも現時点では、規制を理由に除外する動機は弱いと考えられます。</p>
+</section>
+<section id="id2">
+<h3>🟨 日本が除外されうるケース<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>日本で罰則付きのAI規制ができる</p></li>
+<li><p>生成物の著作権侵害訴訟など、開発元にとって法的リスクが大きくなる</p></li>
+<li><p>地政学的な事情（米国のような扱い）</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>🟨 現実的なリスクは規約改定そのもの<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>MiniMaxには前例があります。2026年4月にM2.7の重みを公開した後、すぐに規約を改定して商用利用に書面許可を必須にしており、「Modified-MIT」と称したことも批判されました。同じ記事は、H3でも規約の文面が変わりうると考え、LICENSEファイルを自分で読むべきだと書いています。</p>
+<p>規約が改定された場合に、すでにダウンロード済みのバージョンにも新しい規約が及ぶかどうかは、ライセンスの条文次第です。一般的には、取得した時点のライセンスで許諾を受けたと主張できる余地があります。ただし、規約に「改定後の条件に従う」という条項があれば話は別です。</p>
+</section>
+<section id="id4">
+<h3>🟨 自衛策<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>ダウンロードした時点のLICENSEファイル、モデルのバージョン、取得日を保存しておく</p></li>
+<li><p>長く使い続けたり、顧客に納品したりする用途では、地域制限のないApache 2.0やMITのモデル（Wan 2.2、Kandinsky、Mochi 1）を主力にする</p></li>
+<li><p>H3は、音声付き生成など他のモデルにない機能が必要なときに使う</p></li>
+</ul>
+<p>私は弁護士ではないので、商用案件でH3を使う場合はLICENSEの原文、必要なら専門家の確認を前提にしてください。</p>
 </section>
 </section>
 </section>
