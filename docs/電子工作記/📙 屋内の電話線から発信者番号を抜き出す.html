@@ -73,17 +73,19 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">📙 屋内の電話線から発信者番号を抜き出す</a><ul>
-<li><a class="reference internal" href="#q-nuro-raspberrypi">Q: 🟩 屋内の電話線（Nuro光電話）から、発信者番号をRaspberryPiで取り出せる？</a></li>
-<li><a class="reference internal" href="#nd">前提：回線側でND契約が要る</a></li>
-<li><a class="reference internal" href="#id2">日本式NDの信号の流れ</a></li>
-<li><a class="reference internal" href="#id3">実現方法</a><ul>
-<li><a class="reference internal" href="#q">Q: 🟩 市販モデムをつかってデコードするの？</a></li>
+<li><a class="reference internal" href="#q-nuro-raspberrypi">Q: 🟩 屋内の電話線（Nuro光電話）から、発信者番号をRaspberryPiで取り出せる？</a><ul>
+<li><a class="reference internal" href="#nd">🟨 前提：回線側でND契約が要る</a></li>
+<li><a class="reference internal" href="#id2">🟨 日本式NDの信号の流れ</a></li>
+<li><a class="reference internal" href="#id3">🟨 実現方法</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ndfsk">NDのFSK信号の中身</a></li>
-<li><a class="reference internal" href="#id4">市販モデムとの関係</a></li>
-<li><a class="reference internal" href="#id5">自作するときのデコード方法</a></li>
-<li><a class="reference internal" href="#id6">どちらの方法でも共通して必要なもの</a><ul>
+<li><a class="reference internal" href="#q">Q: 🟩 市販モデムをつかってデコードするの？</a><ul>
+<li><a class="reference internal" href="#ndfsk">🟨 NDのFSK信号の中身</a></li>
+<li><a class="reference internal" href="#id4">🟨 市販モデムとの関係</a></li>
+<li><a class="reference internal" href="#id5">🟨 自作するときのデコード方法</a></li>
+<li><a class="reference internal" href="#id6">🟨 どちらの方法でも共通して必要なもの</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#q-b">Q: 🟩 案Bの場合、ナンバー・ディスプレイ対応の電話機が必要なの？そうだとあまり意味がない</a><ul>
 <li><a class="reference internal" href="#id7">🟨 非対応の電話機をそのまま並列につないだ場合</a></li>
 <li><a class="reference internal" href="#id8">🟨 自作機を直列に入れる場合（ND対応アダプタ方式）</a></li>
@@ -97,8 +99,6 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#id11">Q: 🟩 ソフトウェアの作成方法は？</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -121,13 +121,12 @@
 <section id="q-nuro-raspberrypi">
 <h2>Q: 🟩 屋内の電話線（Nuro光電話）から、発信者番号をRaspberryPiで取り出せる？<a class="headerlink" href="#q-nuro-raspberrypi" title="Link to this heading">¶</a></h2>
 <p>はい、取り出せます。</p>
-</section>
 <section id="nd">
-<h2>前提：回線側でND契約が要る<a class="headerlink" href="#nd" title="Link to this heading">¶</a></h2>
+<h3>🟨 前提：回線側でND契約が要る<a class="headerlink" href="#nd" title="Link to this heading">¶</a></h3>
 <p>NTTでもNuro光でんわでも、ナンバー・ディスプレイは有料オプションです。契約していない回線には番号データが送られてこないので、機材をいくら工夫しても取れません。</p>
 </section>
 <section id="id2">
-<h2>日本式NDの信号の流れ<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h3>🟨 日本式NDの信号の流れ<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>交換機（光回線ならONUのアナログポート）が、呼出音の前に<strong>CAR信号</strong>（短い断続リンガ）を送る</p></li>
 <li><p>端末が回線をループ閉結して応答する（一次応答）</p></li>
@@ -136,7 +135,7 @@
 </ol>
 </section>
 <section id="id3">
-<h2>実現方法<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h3>🟨 実現方法<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>必要な回路：保護素子、絶縁トランス、CAR・リング検出（フォトカプラ）、一次応答用のループ閉結（フォトMOSリレーと直流抵抗）、FSK復調（V.23に対応したFSKデコーダICか、オーディオADCを使ったソフト復調）。</p></li>
 <li><p>Raspberry PiのGPIOでCAR検出から一次応答までのタイミングを制御し、復調したビット列からNDのフレーム（番号などのパラメータ）を取り出します。</p></li>
@@ -147,13 +146,13 @@
 </ul>
 </li>
 </ul>
+</section>
+</section>
 <section id="q">
-<h3>Q: 🟩 市販モデムをつかってデコードするの？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h3>
+<h2>Q: 🟩 市販モデムをつかってデコードするの？<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
 <p>いいえ、市販モデムは必須ではありません。NDの信号はモデム通信の一部分だけを使った単純なものなので、V.23のFSKを受信できる回路があれば足ります。</p>
-</section>
-</section>
 <section id="ndfsk">
-<h2>NDのFSK信号の中身<a class="headerlink" href="#ndfsk" title="Link to this heading">¶</a></h2>
+<h3>🟨 NDのFSK信号の中身<a class="headerlink" href="#ndfsk" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>方式は<strong>ITU-T V.23の1200bps FSK</strong>（1シンボル1ビットなので1200ボー＝1200bps）</p></li>
 <li><p>マーク（1）は1300Hz、スペース（0）は2100Hz</p></li>
@@ -163,7 +162,7 @@
 <p>つまり実体は「1300/2100Hzの2トーンを聞き分けて、1200bpsのUARTとして読む」処理です。</p>
 </section>
 <section id="id4">
-<h2>市販モデムとの関係<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<h3>🟨 市販モデムとの関係<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>方式</p></th>
@@ -188,7 +187,7 @@
 <p>市販モデムでNDが取れるかどうかは、通信速度ではなく日本向けND対応ファームウェアを積んでいるかで決まります。</p>
 </section>
 <section id="id5">
-<h2>自作するときのデコード方法<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<h3>🟨 自作するときのデコード方法<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p><strong>A. FSKデコーダICを使う</strong></p>
 <ul class="simple">
 <li><p>例：HT9032D（Bell 202とV.23の両方に対応）</p></li>
@@ -202,7 +201,7 @@
 </ul>
 </section>
 <section id="id6">
-<h2>どちらの方法でも共通して必要なもの<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<h3>🟨 どちらの方法でも共通して必要なもの<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <p>NDはFSKを復調できるだけでは番号が来ません。以下の部分は自分で作る必要があります。</p>
 <ol class="arabic simple">
 <li><p><strong>CAR信号の検出</strong>：フォトカプラで呼出信号を検出し、通常のリング（1秒ON/2秒OFF）と、CARの短い断続を周期で見分ける</p></li>
@@ -211,11 +210,13 @@
 <li><p><strong>一次応答の解除</strong>：受信後にループを開放する。その後、通常の呼出音が始まる</p></li>
 </ol>
 <p>おすすめはBのソフト復調です。音声入力1本とGPIO 2本（CAR・リング検出の入力、ループ閉結の出力）で構成でき、C/C++で完結させやすいです。必要なら、Goertzel版のV.23復調とNDフレームのパーサをC++で書きます。</p>
+</section>
+</section>
 <section id="q-b">
-<h3>Q: 🟩 案Bの場合、ナンバー・ディスプレイ対応の電話機が必要なの？そうだとあまり意味がない<a class="headerlink" href="#q-b" title="Link to this heading">¶</a></h3>
+<h2>Q: 🟩 案Bの場合、ナンバー・ディスプレイ対応の電話機が必要なの？そうだとあまり意味がない<a class="headerlink" href="#q-b" title="Link to this heading">¶</a></h2>
 <p>いいえ、非対応の電話機でもBは成り立ちます。CARに一次応答してFSKを受け取るのは自作機の役目で、電話機はその間なにもしなくていいからです。</p>
 <section id="id7">
-<h4>🟨 非対応の電話機をそのまま並列につないだ場合<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
+<h3>🟨 非対応の電話機をそのまま並列につないだ場合<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <p>番号は自作機が取れます。電話機側で起きるのは次のことだけです。</p>
 <ul class="simple">
 <li><p>CARの間、電話機のベルが「チリチリ」と短く鳴る</p></li>
@@ -224,7 +225,7 @@
 <p>これは回線事業者も想定している動作で、ナンバー・ディスプレイ非対応の機器をつなぐと、短い断続した呼出音の後に通常の呼出音が聞こえるので、通常の呼出音に変わってから電話に出るようにと案内されています。CARの短いベルが気にならないなら、これだけで動きます。</p>
 </section>
 <section id="id8">
-<h4>🟨 自作機を直列に入れる場合（ND対応アダプタ方式）<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
+<h3>🟨 自作機を直列に入れる場合（ND対応アダプタ方式）<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <p>ONUと電話機の間に自作機を入れ、電話機の回線をリレーで切り替えます。</p>
 <ol class="arabic simple">
 <li><p>待機中は電話機を回線から切り離しておく（またはCARを検出した瞬間に切り離す）</p></li>
@@ -234,19 +235,19 @@
 <p>これで電話機はCARで鳴らず、普通の着信として鳴ります。市販のナンバー・ディスプレイアダプタがやっているのと同じことです。そのため、ND対応電話機を買う必要はありません。</p>
 </section>
 <section id="id9">
-<h4>🟨 注意点<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h4>
+<h3>🟨 注意点<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <p>並列でつなぐ場合、CARに勝手に応答してしまう非対応の留守番電話やFAXが同じ回線にあると、うまく動かないことがあります。</p>
 </section>
 </section>
 <section id="q-nd">
-<h3>Q: 🟩 ND対応アダプタ方式にしたい。回路図描いてください<a class="headerlink" href="#q-nd" title="Link to this heading">¶</a></h3>
+<h2>Q: 🟩 ND対応アダプタ方式にしたい。回路図描いてください<a class="headerlink" href="#q-nd" title="Link to this heading">¶</a></h2>
 <section id="id10">
-<h4>🟨 全体構成<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h4>
+<h3>🟨 全体構成<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <p>![[Pasted image 20261121143146.png]]</p>
 <p>電話機と直列に入れるアダプタ方式で書きます。回線側（ONU〜電話機）とRaspberry Pi側は、フォトカプラ、フォトMOSリレー、メカリレー、トランスの4か所だけでつながり、それ以外は電気的に絶縁しています。</p>
 </section>
 <section id="onutel">
-<h4>🟨 回線側（ONUのTELポートから電話機まで）<a class="headerlink" href="#onutel" title="Link to this heading">¶</a></h4>
+<h3>🟨 回線側（ONUのTELポートから電話機まで）<a class="headerlink" href="#onutel" title="Link to this heading">¶</a></h3>
 <p>![[Pasted image 20261121143212.png]]</p>
 <ul class="simple">
 <li><p><strong>F1と SA1（保護）</strong>：F1はPTCヒューズ（通信用、0.1〜0.15A程度）、SA1はSIDACtor（P3100SBなど、Vdrm 275V）。呼出信号のピークはDC 48VにAC 75Vrmsが重なって約155Vになるので、それより上で動作し、雷サージは逃がすものを選びます。</p></li>
@@ -258,7 +259,7 @@
 </ul>
 </section>
 <section id="raspberry-pi">
-<h4>🟨 Raspberry Pi側<a class="headerlink" href="#raspberry-pi" title="Link to this heading">¶</a></h4>
+<h3>🟨 Raspberry Pi側<a class="headerlink" href="#raspberry-pi" title="Link to this heading">¶</a></h3>
 <p>![[Pasted image 20261121143235.png]]</p>
 <ul class="simple">
 <li><p><strong>GPIO17</strong>：PC1の出力が、16Hzの呼出信号に合わせて32Hzのパルス列になります。ソフト側で包絡を取ってON/OFFの区間を判定します。</p></li>
@@ -270,9 +271,8 @@
 </section>
 </section>
 <section id="id11">
-<h3>Q: 🟩 ソフトウェアの作成方法は？<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<h2>Q: 🟩 ソフトウェアの作成方法は？<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
 <p>以下割愛</p>
-</section>
 </section>
 </section>
 
