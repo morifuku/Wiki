@@ -243,12 +243,12 @@
 <h2>Q: 🟩 ND対応アダプタ方式にしたい。回路図描いてください<a class="headerlink" href="#q-nd" title="Link to this heading">¶</a></h2>
 <section id="id10">
 <h3>🟨 全体構成<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
-<p>![[Pasted image 20261121143146.png]]</p>
+<p><img alt="Pasted image 20261121143146" class="zoomable" src="../_images/Pasted_image_20261121143146.png" /></p>
 <p>電話機と直列に入れるアダプタ方式で書きます。回線側（ONU〜電話機）とRaspberry Pi側は、フォトカプラ、フォトMOSリレー、メカリレー、トランスの4か所だけでつながり、それ以外は電気的に絶縁しています。</p>
 </section>
 <section id="onutel">
 <h3>🟨 回線側（ONUのTELポートから電話機まで）<a class="headerlink" href="#onutel" title="Link to this heading">¶</a></h3>
-<p>![[Pasted image 20261121143212.png]]</p>
+<p><img alt="Pasted image 20261121143212" class="zoomable" src="../_images/Pasted_image_20261121143212.png" /></p>
 <ul class="simple">
 <li><p><strong>F1と SA1（保護）</strong>：F1はPTCヒューズ（通信用、0.1〜0.15A程度）、SA1はSIDACtor（P3100SBなど、Vdrm 275V）。呼出信号のピークはDC 48VにAC 75Vrmsが重なって約155Vになるので、それより上で動作し、雷サージは逃がすものを選びます。</p></li>
 <li><p><strong>着信検出（C1、R1、PC1）</strong>：16Hzの呼出信号で約3mA流れ、フォトカプラのLEDが光ります。C1が直流を止め、通話音声やFSKは振幅が小さいので反応しません。CARと通常のリングの区別は、ソフト側で断続の周期を見て行います。</p></li>
@@ -260,7 +260,7 @@
 </section>
 <section id="raspberry-pi">
 <h3>🟨 Raspberry Pi側<a class="headerlink" href="#raspberry-pi" title="Link to this heading">¶</a></h3>
-<p>![[Pasted image 20261121143235.png]]</p>
+<p><img alt="Pasted image 20261121143235" class="zoomable" src="../_images/Pasted_image_20261121143235.png" /></p>
 <ul class="simple">
 <li><p><strong>GPIO17</strong>：PC1の出力が、16Hzの呼出信号に合わせて32Hzのパルス列になります。ソフト側で包絡を取ってON/OFFの区間を判定します。</p></li>
 <li><p><strong>GPIO27</strong>：PM1のLEDを直接駆動します（約6mA）。</p></li>
