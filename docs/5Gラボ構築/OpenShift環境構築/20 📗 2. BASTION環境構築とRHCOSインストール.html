@@ -246,14 +246,9 @@
 <td><p>192.168.1.122</p></td>
 <td><p>WORKER</p></td>
 </tr>
-<tr class="row-even"><td><p>INTERNALへの経路情報が必要なクライアント等はクライアント内部に設定する。</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
+<p>INTERNALへの経路情報が必要なクライアント等はクライアント内部に設定する。</p>
 </section>
 <section id="bastion">
 <h3>🟨 BASTION用リソース<a class="headerlink" href="#bastion" title="Link to this heading">¶</a></h3>
@@ -281,12 +276,9 @@
 <td><p>&gt; 500GB</p></td>
 <td><p>母艦の総容量は1000GB、LVMS用に1000GBのディスク追加可能※</p></td>
 </tr>
-<tr class="row-even"><td><p>※ WORKER側でLVMSを確保するときは、pc19内のディスクリソースを切り出す。</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
+<p>※ WORKER側でLVMSを確保するときは、pc19内のディスクリソースを切り出す。</p>
 </section>
 <section id="id2">
 <h3>🟨 BASTIONサービス<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
@@ -334,12 +326,9 @@
 <td><p>不要</p></td>
 <td><p>SNOのPVサービスにはLVMS Operatorが定番</p></td>
 </tr>
-<tr class="row-odd"><td><p>※ EXTERNAL側の外部クライアントからこのDNSサービスを利用するときは、/etc/resolver/home.arpaに <code class="docutils literal notranslate"><span class="pre">nameserver</span> <span class="pre">192.168.0.122</span></code> の行を追加する。</p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
+<p>※ EXTERNAL側の外部クライアントからこのDNSサービスを利用するときは、/etc/resolver/home.arpaに <code class="docutils literal notranslate"><span class="pre">nameserver</span> <span class="pre">192.168.0.122</span></code> の行を追加する。</p>
 </section>
 </section>
 <section id="step-1-bastion">
