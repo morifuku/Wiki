@@ -19,7 +19,7 @@
     <link rel="icon" href="../../_static/llama.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="📗 0. 概要" href="00%20%F0%9F%93%97%200.%20%E6%A6%82%E8%A6%81.html" />
+    <link rel="next" title="📗 1. 概要" href="00%20%F0%9F%93%97%201.%20%E6%A6%82%E8%A6%81.html" />
     <link rel="prev" title="📗 OpenShift環境でCNFをビルドする" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/20%20%F0%9F%93%97%20OpenShift%E7%92%B0%E5%A2%83%E3%81%A7CNF%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
@@ -62,9 +62,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 5Gラボ構築 (7)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">🟦 OpenShift SNO環境構築 (4)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="00%20%F0%9F%93%97%200.%20%E6%A6%82%E8%A6%81.html">📗 0. 概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="10%20%F0%9F%93%97%201.%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html">📗 1. KVM環境構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="00%20%F0%9F%93%97%201.%20%E6%A6%82%E8%A6%81.html">📗 1. 概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="20%20%F0%9F%93%97%202.%20BASTION%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html">📗 2. BASTION環境構築とRHCOSインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30%20%F0%9F%93%97%203.%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html">📗 3. KVM環境構築</a></li>
 <li class="toctree-l3"><a class="reference internal" href="40%20%F0%9F%93%99%20RWN%E6%A7%8B%E6%88%90%E3%81%A75G%E3%83%A9%E3%83%9C%E3%82%92%E6%A7%8B%E7%AF%89.html">📙 RWN構成で5Gラボを構築</a></li>
 </ul>
 </li>
@@ -110,9 +110,9 @@
 <h2>🟩 Contents:<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="00%20%F0%9F%93%97%200.%20%E6%A6%82%E8%A6%81.html">📗 0. 概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10%20%F0%9F%93%97%201.%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html">📗 1. KVM環境構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00%20%F0%9F%93%97%201.%20%E6%A6%82%E8%A6%81.html">📗 1. 概要</a></li>
 <li class="toctree-l1"><a class="reference internal" href="20%20%F0%9F%93%97%202.%20BASTION%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%A8RHCOS%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html">📗 2. BASTION環境構築とRHCOSインストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30%20%F0%9F%93%97%203.%20KVM%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89.html">📗 3. KVM環境構築</a></li>
 <li class="toctree-l1"><a class="reference internal" href="40%20%F0%9F%93%99%20RWN%E6%A7%8B%E6%88%90%E3%81%A75G%E3%83%A9%E3%83%9C%E3%82%92%E6%A7%8B%E7%AF%89.html">📙 RWN構成で5Gラボを構築</a></li>
 </ul>
 </div>
@@ -123,7 +123,7 @@
   </main>
     <nav class="prev-next" aria-label="前後のページ">
       <a class="prev" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/20%20%F0%9F%93%97%20OpenShift%E7%92%B0%E5%A2%83%E3%81%A7CNF%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B.html"><span class="label">‹ 前へ</span><span class="title">📗 OpenShift環境でCNFをビルドする</span></a>
-      <a class="next" href="00%20%F0%9F%93%97%200.%20%E6%A6%82%E8%A6%81.html"><span class="label">次へ ›</span><span class="title">📗 0. 概要</span></a>
+      <a class="next" href="00%20%F0%9F%93%97%201.%20%E6%A6%82%E8%A6%81.html"><span class="label">次へ ›</span><span class="title">📗 1. 概要</span></a>
     </nav>
   </div>
 </div>
