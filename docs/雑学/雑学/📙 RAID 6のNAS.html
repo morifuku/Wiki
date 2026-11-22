@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 RAID 6のNAS &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=8a2712fc" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%91%E5%AD%A6/%E9%9B%91%E5%AD%A6/%F0%9F%93%99%20RAID%206%E3%81%AENAS.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="📙 ツァラトゥストラはかく語りき" href="%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html" />
+    <link rel="prev" title="🟦 その他" href="index.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 雑学</a>
+    <span class="sep">»</span><a href="index.html">🟦 その他</a>
+    <span class="sep">»</span><span class="current">📙 RAID 6のNAS</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (7)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html">🟪 電子工作日記 (2)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 雑学 (48)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../AI%E9%9B%91%E5%AD%A6/index.html">🟦 AI雑学 (12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E9%9B%91%E5%AD%A6/index.html">🟦 ネットワーク雑学 (13)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%9B%91%E5%AD%A6/index.html">🟦 ロボット雑学 (11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%E5%8C%96%E5%AD%A6%E3%81%AE%E9%9B%91%E5%AD%A6/index.html">🟦 化学の雑学 (3)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 その他 (9)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 RAID 6のNAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html">📙 ツァラトゥストラはかく語りき</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3%E9%81%8B%E7%94%A8%E3%81%A8%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2.html">📙 ハッカソン運用とアイデア</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E3%83%A2%E3%83%AA%E3%82%B5%E3%83%AF%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88.html">📙 モリサワフォント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E4%B8%8D%E7%A2%BA%E5%AE%9A%E6%80%A7%E5%8E%9F%E7%90%86.html">📙 不確定性原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%86%86%E5%B1%B1%E5%BF%9C%E6%8C%99%E3%81%AE%E9%81%8A%E8%99%8E%E5%9B%B3.html">📙 円山応挙の遊虎図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%86%86%E6%9F%B1%E3%81%A8%E3%82%B3%E3%83%A9%E3%83%A0%E3%81%AE%E9%96%A2%E4%BF%82.html">📙 円柱とコラムの関係</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%8F%A9%E3%81%8B%E3%82%8C%E7%B6%9A%E3%81%91%E3%81%A6%E5%BC%B7%E3%81%8F%E3%81%AA%E3%82%8B%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E7%AE%A1%E7%90%86%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9.html">📙 叩かれ続けて強くなるパスワード管理サービス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="%F0%9F%93%99%20%E5%9C%B0%E6%96%B9%E9%81%B8%E6%8C%99%E3%81%AE%E8%90%BD%E9%81%B8%E5%B8%B8%E9%80%A3%E3%81%AE%E8%B3%87%E9%87%91%E6%BA%90.html">📙 地方選挙の落選常連の資金源</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 RAID 6のNAS</a><ul>
+<li><a class="reference internal" href="#q-nasraid-1raid-511raid-61">🟩 Q: NASの構成でRAID 1やRAID 5は1台故障しても大丈夫だけど、1台逝ってしまったら次の故障に備えてすぐ修理しないといけない。RAID 6は1台逝ってしまっても、次の故障まで時間的余裕があってすばらしいと思った</a></li>
+<li><a class="reference internal" href="#q-n-21">🟩 Q: データセンターのサーバーもN+2構成にして、金曜日の夜に1台コケても、月曜の朝まで放置できるようにしている</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="raid-6nas">
+<h1>📙 RAID 6のNAS<a class="headerlink" href="#raid-6nas" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/22公開 2026/11/22更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/22</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-nasraid-1raid-511raid-61">
+<h2>🟩 Q: NASの構成でRAID 1やRAID 5は1台故障しても大丈夫だけど、1台逝ってしまったら次の故障に備えてすぐ修理しないといけない。RAID 6は1台逝ってしまっても、次の故障まで時間的余裕があってすばらしいと思った<a class="headerlink" href="#q-nasraid-1raid-511raid-61" title="Link to this heading">¶</a></h2>
+<p>そうですね、RAID 6のいちばんの価値はそこだと思います。RAID 5で1台壊れると、リビルドが終わるまでは冗長性ゼロで綱渡りになります。RAID 6なら1台壊れても、まだ1台分の余裕が残っています。</p>
+<p>1台壊れてもまだ安心とはいえ、RAID 6でもできるだけ早く交換したほうがいい理由がいくつかあります。</p>
+<p><strong>同時期に買ったディスクは同時期に壊れやすい</strong><br />
+同じロットで同じ稼働時間のディスクは、寿命も近いことが多いです。1台目の故障は、ほかのディスクも危ないという合図だと受け取ったほうが安全です。</p>
+<p><strong>リビルド中がいちばん危ない</strong><br />
+リビルドでは残りの全ディスクを端から端まで読むので、負荷が高く、弱っていたディスクがここで脱落しがちです。大容量HDDだと何日もかかることがあります。RAID 6が真価を発揮するのは、このリビルド中の2台目の故障や読み取りエラー（URE）に耐えられる点です。RAID 5が大容量ディスクで推奨されなくなったのも、主にこれが理由です。</p>
+<p><strong>ホットスペアとの組み合わせ</strong><br />
+ホットスペアを1台入れておけば、故障と同時に自動でリビルドが始まるので、交換作業の遅れによるリスクを減らせます。ただ、ベイ数に余裕があるなら、RAID 5＋ホットスペアよりRAID 6のほうが一般には安全です。スペアは待機しているだけで、リビルドが終わるまでは冗長性として働かないからです。</p>
+<p><strong>代償</strong><br />
+容量が2台分減ることと、パリティ計算のぶん書き込み性能が落ちることです（ランダム書き込みでは1回の書き込みが6回のI/Oになります）。NASのファイル置き場なら、たいてい気にならない程度です。</p>
+<p>それから定番の注意ですが、RAIDはバックアップの代わりにはなりません。誤って消したファイル、ランサムウェア、コントローラーやNAS本体の故障には無力なので、大事なデータは別の場所にもコピーを置いておくのがおすすめです。</p>
+</section>
+<section id="q-n-21">
+<h2>🟩 Q: データセンターのサーバーもN+2構成にして、金曜日の夜に1台コケても、月曜の朝まで放置できるようにしている<a class="headerlink" href="#q-n-21" title="Link to this heading">¶</a></h2>
+<p>N+2は運用目線でよく考えられた設計だと思います。週末に呼び出しが来ない、というのは技術的な冗長性以上に、人の負担の面で効いてきますね。</p>
+<p>N+1で1台コケると、その瞬間からN+0、つまり冗長性ゼロになります。そうなると「月曜まで持つかどうか」は賭けになるので、結局は誰かが夜中や週末に駆けつけることになります。N+2なら、1台落ちてもまだN+1が残っているので、落ち着いて平日の作業時間に対応できます。さっきのRAID 6の話と、考え方はまったく同じです。</p>
+<p>N+2が効くのは故障の時だけではありません。</p>
+<ul class="simple">
+<li><p><strong>計画メンテナンス中の故障に耐えられる</strong>：パッチ当てやファームウェア更新で1台を外している最中に、別の1台が落ちても大丈夫です。N+1だと、メンテナンス中は常に冗長性ゼロで作業することになります。</p></li>
+<li><p><strong>オンコールのコストと比べると安い</strong>：サーバー1台分の追加費用と、休日対応の人件費や疲弊、深夜作業での操作ミスのリスクを比べると、N+2のほうが安上がりになることが多いです。夜中に慌てて作業すると二次障害を起こしやすい、というのもありますね。</p></li>
+<li><p><strong>部品が届くのを待てる</strong>：保守契約が翌営業日対応でも成り立ちます。</p></li>
+</ul>
+<p>大規模なクラウド事業者では、この考え方をさらに進めて、壊れた機器はその場で放置し、まとめて定期的に交換する運用（fail in place）もあります。台数が多ければ、冗長性を十分持たせて「壊れるのが前提」で回すほうが合理的、という発想です。</p>
+<p>ただ、N+2でも注意したい点がいくつかあります。</p>
+<ul class="simple">
+<li><p><strong>共通原因の故障</strong>：電源系統、ラック、ToRスイッチ、同じファームウェアのバグなどで複数台が同時に落ちると、台数の冗長性は役に立ちません。冗長化した機器は電源系統やラックを分けておく必要があります。</p></li>
+<li><p><strong>ソフトウェアの冗長性も合わせる</strong>：たとえばクォーラム型のクラスタ（etcd、Ceph MONなど）は、2台同時に落ちても耐えられるように5ノード以上にしないと、ハードのN+2がそのまま生きません。</p></li>
+<li><p><strong>検知が遅れないようにする</strong>：放置してよいのは、1台落ちたことにすぐ気づいている場合だけです。監視が鳴らずに金曜に1台、日曜にもう1台落ちていた、というのが一番怖いパターンです。</p></li>
+</ul>
+<p>OpenShiftを組むときも、コントロールプレーンは3ノードなので1台までしか耐えられません。どこまで冗長性を持たせるかは、同じ考え方で決められますね。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="index.html"><span class="label">‹ 前へ</span><span class="title">🟦 その他</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E3%83%84%E3%82%A1%E3%83%A9%E3%83%88%E3%82%A5%E3%82%B9%E3%83%88%E3%83%A9%E3%81%AF%E3%81%8B%E3%81%8F%E8%AA%9E%E3%82%8A%E3%81%8D.html"><span class="label">次へ ›</span><span class="title">📙 ツァラトゥストラはかく語りき</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
