@@ -78,7 +78,7 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">📙 概要</a><ul>
-<li><a class="reference internal" href="#q-sno-masterworker">🟩 Q: SNO MASTERをセンター、WORKERをエッジに配置にしたい</a><ul>
+<li><a class="reference internal" href="#q-openshiftsno-masterworker">🟩 Q: OpenShiftのSNO MASTERをセンター、WORKERをエッジに配置にしたい</a><ul>
 <li><a class="reference internal" href="#id2">🟨 公式の位置づけ</a></li>
 <li><a class="reference internal" href="#id3">🟨 設計で効いてくる点</a></li>
 <li><a class="reference internal" href="#sno">🟨 SNOをセンターにする場合の注意</a></li>
@@ -111,9 +111,9 @@
 <li><p>回答日: 2026/11/17</p></li>
 <li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
 </ul>
-<section id="q-sno-masterworker">
-<h2>🟩 Q: SNO MASTERをセンター、WORKERをエッジに配置にしたい<a class="headerlink" href="#q-sno-masterworker" title="Link to this heading">¶</a></h2>
-<p><img alt="Pasted image 20261117220917" class="zoomable" src="../../_images/Pasted_image_20261117220917.png" /></p>
+<section id="q-openshiftsno-masterworker">
+<h2>🟩 Q: OpenShiftのSNO MASTERをセンター、WORKERをエッジに配置にしたい<a class="headerlink" href="#q-openshiftsno-masterworker" title="Link to this heading">¶</a></h2>
+<p><img alt="Pasted image 20261124195720" class="zoomable" src="../../_images/Pasted_image_20261124195720.png" /></p>
 <p>現実的です。「センターのcontrol planeから、遠隔地のworkerを制御する」構成は、OpenShiftでは <strong>Remote Worker Nodes（RWN）</strong> という正式な構成として扱われています。ただし、ネットワーク断への備えが設計の中心になります。</p>
 <section id="id2">
 <h3>🟨 公式の位置づけ<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
