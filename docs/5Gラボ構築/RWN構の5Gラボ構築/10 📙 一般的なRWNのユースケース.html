@@ -79,10 +79,12 @@
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
 <li><a class="reference internal" href="#">📙 一般的なRWNのユースケース</a><ul>
-<li><a class="reference internal" href="#q-openshiftrwn">🟩 Q: OpenShiftが想定してる一般的なRWNのユースケースは？</a></li>
-<li><a class="reference internal" href="#id1">想定ユースケース</a></li>
-<li><a class="reference internal" href="#id2">前提条件（ここが合わないとRWNは向かない）</a></li>
-<li><a class="reference internal" href="#g">5Gラボで考えるなら</a></li>
+<li><a class="reference internal" href="#q-openshiftrwn">🟩 Q: OpenShiftが想定してる一般的なRWNのユースケースは？</a><ul>
+<li><a class="reference internal" href="#id1">🟨 想定ユースケース</a></li>
+<li><a class="reference internal" href="#id2">🟨 前提条件（ここが合わないとRWNは向かない）</a></li>
+<li><a class="reference internal" href="#g">🟨 5Gラボで考えるなら</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -104,19 +106,18 @@
 <section id="q-openshiftrwn">
 <h2>🟩 Q: OpenShiftが想定してる一般的なRWNのユースケースは？<a class="headerlink" href="#q-openshiftrwn" title="Link to this heading">¶</a></h2>
 <p>RWN（Remote Worker Nodes）は、OpenShift 4.6で正式サポートされた構成です。コントロールプレーンは地域DCや中央DCに置き、ワーカーノードだけを小さなエッジ拠点に分散させます。</p>
-</section>
 <section id="id1">
-<h2>想定ユースケース<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h3>🟨 想定ユースケース<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><strong>Telco 5G（代表例）</strong>：Red HatはRWNの典型的なユースケースとしてtelcoの5Gネットワークを挙げています。RANのDU/CUやUPFのような、セルサイトや局舎近くで動かしたいワークロードをワーカーに載せ、管理は中央に集約する形です。</p></li>
-<li><p><strong>業界横断のエッジ</strong>：公式ドキュメントでは通信、小売、製造、政府など、多くの業界が対象とされています。店舗、工場ライン、出先拠点にサーバを数台置くケースです。</p></li>
+<li><p><strong>Telco 5G（代表例）</strong>：Red HatはRWNの典型的なユースケースとしてtelcoの5Gネットワークを挙げています。 <mark>RANのDU/CUやUPFのような、セルサイトや局舎近くで動かしたいワークロードをワーカーに</mark> 載せ、管理は中央に集約する形です。</p></li>
+<li><p><strong>業界横断のエッジ</strong>：公式ドキュメントでは <mark>通信、小売、製造、政府など、多くの業界が対象</mark> とされています。店舗、工場ライン、出先拠点にサーバを数台置くケースです。</p></li>
 <li><p><strong>多拠点の一元管理</strong>：狙いは、スーパーバイザーノードが数千のエッジ拠点を単一環境として管理し、コアを共有してエッジのワークロードに最大限使うことです。</p></li>
 <li><p><strong>拠点ハードの有効活用</strong>：エッジ側にコントロールプレーンを置かないので、ワーカーノードを丸ごとワークロードに使えるのが利点です。リソースの少ない拠点に向いています。</p></li>
 <li><p><strong>拠点ごとの分離</strong>：リモートワーカーノードをKubernetesのゾーンにまとめれば、プロジェクトやワークロードを分離・隔離できます。</p></li>
 </ul>
 </section>
 <section id="id2">
-<h2>前提条件（ここが合わないとRWNは向かない）<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h3>🟨 前提条件（ここが合わないとRWNは向かない）<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><strong>WANが安定していること</strong>：エッジ拠点とコントロールプレーンの間の接続が安定していることが推奨されています。遅延は200ms未満が推奨ですが、最低帯域は定められていません。</p></li>
 <li><p><strong>切断に耐えられるワークロードであること</strong>：Kubeletは10秒ごとにコントロールプレーンへハートビートを送るため、切断されるとPodがevictされます。そのため、ネットワーク障害や電源断のときにどう動いてほしいかに応じて、DaemonSetかstatic Podを使うことが推奨されています。</p></li>
@@ -125,9 +126,10 @@
 </ul>
 </section>
 <section id="g">
-<h2>5Gラボで考えるなら<a class="headerlink" href="#g" title="Link to this heading">¶</a></h2>
+<h3>🟨 5Gラボで考えるなら<a class="headerlink" href="#g" title="Link to this heading">¶</a></h3>
 <p>実際のRAN DUのfar edge、たとえば回線が不安定なセルサイトでは、WANが切れてもサイトが自立して動けるSNO（Single Node OpenShift）とRHACMのZTPを使う構成が主流になっています。RWNが合うのは、中央に安定した回線でつながるnear edgeです。局舎のCUやUPF、MEC基盤などがこれにあたります。</p>
 <p>仮想化ラボでは、コントロールプレーン用VMとリモートワーカー用VMを別のサブネットやルータ越しに置き、<code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">netem</span></code>で遅延や切断を入れると挙動を確かめやすいです。Podのevictionや、DaemonSet・Deploymentの再配置がどう変わるかが観察できます。</p>
+</section>
 </section>
 </section>
 
