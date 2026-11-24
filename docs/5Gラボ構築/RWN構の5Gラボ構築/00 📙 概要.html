@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📙 RWN構成で5Gラボを構築 &#8212; Llama in Bliss</title>
+    <title>📙 概要 &#8212; Llama in Bliss</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=f411a948" />
     <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=8a2712fc" />
@@ -15,7 +15,7 @@
     <script src="../../_static/translations.js?v=4755f45a"></script>
     <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
     <script defer="defer" src="../../_static/zoom.js?v=1260aa77"></script>
-    <link rel="canonical" href="https://wiki.morifuku.net/5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/RWN%E6%A7%8B%E3%81%AE5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/40%20%F0%9F%93%99%20RWN%E6%A7%8B%E6%88%90%E3%81%A75G%E3%83%A9%E3%83%9C%E3%82%92%E6%A7%8B%E7%AF%89.html" />
+    <link rel="canonical" href="https://wiki.morifuku.net/5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/RWN%E6%A7%8B%E3%81%AE5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/00%20%F0%9F%93%99%20%E6%A6%82%E8%A6%81.html" />
     <link rel="icon" href="../../_static/llama.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -41,7 +41,7 @@
     <a href="../../index.html">ホーム</a>
     <span class="sep">»</span><a href="../index.html">🟪 5Gラボ構築</a>
     <span class="sep">»</span><a href="index.html">🟦 RWN構成の5Gラボ構築</a>
-    <span class="sep">»</span><span class="current">📙 RWN構成で5Gラボを構築</span>
+    <span class="sep">»</span><span class="current">📙 概要</span>
   </nav>
 </header>
 <div class="page">
@@ -64,7 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/index.html">🟦 OpenShift SNO環境構築 (3)</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 RWN構成の5Gラボ構築 (1)</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 RWN構成で5Gラボを構築</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 概要</a></li>
 </ul>
 </li>
 </ul>
@@ -77,20 +77,20 @@
 <nav class="pagetoc" aria-labelledby="pagetoc-label">
   <h3 id="pagetoc-label">このページの目次</h3>
   <ul>
-<li><a class="reference internal" href="#">📙 RWN構成で5Gラボを構築</a><ul>
+<li><a class="reference internal" href="#">📙 概要</a><ul>
 <li><a class="reference internal" href="#q-sno-masterworker">🟩 Q: SNO MASTERをセンター、WORKERをエッジに配置にしたい</a><ul>
-<li><a class="reference internal" href="#id1">🟨 公式の位置づけ</a></li>
-<li><a class="reference internal" href="#id2">🟨 設計で効いてくる点</a></li>
+<li><a class="reference internal" href="#id2">🟨 公式の位置づけ</a></li>
+<li><a class="reference internal" href="#id3">🟨 設計で効いてくる点</a></li>
 <li><a class="reference internal" href="#sno">🟨 SNOをセンターにする場合の注意</a></li>
-<li><a class="reference internal" href="#id3">🟨 もう一つの定番構成</a></li>
-<li><a class="reference internal" href="#id4">🟨 ラボでの試し方</a></li>
+<li><a class="reference internal" href="#id4">🟨 もう一つの定番構成</a></li>
+<li><a class="reference internal" href="#id5">🟨 ラボでの試し方</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#q-gnbupf">🟩 Q: エッジにgNBとUPFを置いて、その他はセンターに配置する構成にしたい</a><ul>
 <li><a class="reference internal" href="#wan">🟨 機能配置とWANをまたぐインターフェース</a></li>
 <li><a class="reference internal" href="#openshift">🟨 OpenShiftでの注意点</a></li>
 <li><a class="reference internal" href="#rwnsno">🟨 RWNか、エッジごとのSNOか</a></li>
-<li><a class="reference internal" href="#id5">🟨 ラボの実装候補（無線なしで構成できるもの）</a></li>
+<li><a class="reference internal" href="#id6">🟨 ラボの実装候補（無線なしで構成できるもの）</a></li>
 </ul>
 </li>
 </ul>
@@ -102,8 +102,8 @@
   <div class="content">
   <main class="body" role="main">
     
-  <section class="tex2jax_ignore mathjax_ignore" id="rwn5g">
-<h1>📙 RWN構成で5Gラボを構築<a class="headerlink" href="#rwn5g" title="Link to this heading">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>📙 概要<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <p class="page-dates">2026/11/17公開 2026/11/24更新</p>
 <ul class="simple">
 <li><p>質問者: Shigeru Morifuku</p></li>
@@ -115,16 +115,16 @@
 <h2>🟩 Q: SNO MASTERをセンター、WORKERをエッジに配置にしたい<a class="headerlink" href="#q-sno-masterworker" title="Link to this heading">¶</a></h2>
 <p><img alt="Pasted image 20261117220917" class="zoomable" src="../../_images/Pasted_image_20261117220917.png" /></p>
 <p>現実的です。「センターのcontrol planeから、遠隔地のworkerを制御する」構成は、OpenShiftでは <strong>Remote Worker Nodes（RWN）</strong> という正式な構成として扱われています。ただし、ネットワーク断への備えが設計の中心になります。</p>
-<section id="id1">
-<h3>🟨 公式の位置づけ<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="id2">
+<h3>🟨 公式の位置づけ<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>OpenShiftには、ネットワークエッジに置いたworkerをクラスタに組み込む「remote worker nodes」が用意されています。Red Hatは4.6でこれをエッジ向けのデプロイ構成として追加しました。</p></li>
 <li><p>典型的な用途は通信キャリアの5G RANで、中央のCUが多数のDUを制御する構成です。「センターが制御し、エッジで処理する」という今回の発想そのものです。</p></li>
 <li><p>control planeとの接続が切れても、workload自体はエッジ側で動き続けます。</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>🟨 設計で効いてくる点<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="id3">
+<h3>🟨 設計で効いてくる点<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p><strong>L3ルーティング</strong>：control planeとエッジノードの間のL2/L3接続は、利用者が構築・保守する前提です。また各エッジノードとの間にルートかデフォルトゲートウェイを用意し、Ingress VIPはcontrol plane側に置く必要があります。今のVLAN（192.168.1.0/24）をVPNでエッジまで延ばすか、エッジを別サブネットにしてルーティングするかを決めることになります。</p></li>
 <li><p><strong>断線時の挙動</strong>：既定では、heartbeatが一定時間途絶えるとPodが退避され、別のノードで再スケジュールされます。エッジ専用の処理なら、DaemonSetやstatic podを使うことが推奨されています。taintとtolerationで「センター側には逃がさない」設計にします。</p></li>
@@ -140,8 +140,8 @@
 <li><p>SNOに追加するworkerは、テスト済みの上限が2台で推奨とされています。それを超える台数のエッジを抱えるなら、センターは3 master構成にするべきです。</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>🟨 もう一つの定番構成<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>🟨 もう一つの定番構成<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>エッジ拠点が多い、またはWANが不安定な場合は、<strong>各エッジにSNOを1台ずつ置き、センターのRed Hat Advanced Cluster Management（ACM）でまとめて管理する</strong>hub-spoke型が主流です。各エッジが自律したクラスタになるので、断線に強くなります。</p>
 <table class="docutils align-default">
 <thead>
@@ -166,8 +166,8 @@
 </tbody>
 </table>
 </section>
-<section id="id4">
-<h3>🟨 ラボでの試し方<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="id5">
+<h3>🟨 ラボでの試し方<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>i9のworker VMを「エッジ役」として、i7とi9の間に<code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">...</span> <span class="pre">netem</span> <span class="pre">delay</span> <span class="pre">30ms</span> <span class="pre">loss</span> <span class="pre">1%</span></code>で遅延と損失を入れると、RWNの挙動（退避のタイミング、latency profileの効き方）を手元で検証できます。</p>
 <p>Sources:</p>
 <ul class="simple">
@@ -236,8 +236,8 @@
 </table>
 <p>ラボで試すなら、まずは今の図のままRWN（i9のworkerをエッジ役）で組むのが近道です。</p>
 </section>
-<section id="id5">
-<h3>🟨 ラボの実装候補（無線なしで構成できるもの）<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="id6">
+<h3>🟨 ラボの実装候補（無線なしで構成できるもの）<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><strong>gNBとUE</strong>：UERANSIMでシミュレートします。</p></li>
 <li><p><strong>5GC</strong>：Open5GSかfree5GCを使います。</p>
