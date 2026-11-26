@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 CUPSの方向性 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../../_static/media.css?v=8a2712fc" />
+    <script src="../../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/RWN%E6%A7%8B%E3%81%AE5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/11%20%F0%9F%93%99%20CUPS%E3%81%AE%E6%96%B9%E5%90%91%E6%80%A7.html" />
+    <link rel="icon" href="../../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="🟪 電子工作日記" href="../../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html" />
+    <link rel="prev" title="📙 一般的なRWNのユースケース" href="10%20%F0%9F%93%99%20%E4%B8%80%E8%88%AC%E7%9A%84%E3%81%AARWN%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../../index.html"><img class="logo" src="../../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../../index.html">ホーム</a>
+    <span class="sep">»</span><a href="../index.html">🟪 5Gラボ構築</a>
+    <span class="sep">»</span><a href="index.html">🟦 RWN構成の5Gラボ構築</a>
+    <span class="sep">»</span><span class="current">📙 CUPSの方向性</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">🟪 5Gラボ構築 (9)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Duranta%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.html">🟦 Durantaプロジェクト (3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OpenShift%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/index.html">🟦 OpenShift SNO環境構築 (3)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">🟦 RWN構成の5Gラボ構築 (3)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="00%20%F0%9F%93%99%20%E6%A6%82%E8%A6%81.html">📙 概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10%20%F0%9F%93%99%20%E4%B8%80%E8%88%AC%E7%9A%84%E3%81%AARWN%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9.html">📙 一般的なRWNのユースケース</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">📙 CUPSの方向性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html">🟪 電子工作日記 (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (52)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 CUPSの方向性</a><ul>
+<li><a class="reference internal" href="#q-4gpgwcups5g">🟩 Q: 4GでのPGWのCUPS化のインターフェース仕様はエレガントではなかった。5Gもそのまま。この先どうなるの？</a><ul>
+<li><a class="reference internal" href="#g-cups-sx-pfcp">🟨 4G CUPS（Sx/PFCP）がエレガントでない点</a></li>
+<li><a class="reference internal" href="#g">🟨 5G でもそのままの理由</a></li>
+<li><a class="reference internal" href="#id1">🟨 この先（6G）</a></li>
+<li><a class="reference internal" href="#id2">🟨 私の見立て（予測です）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#q-upf-ran-cu-up-n6">🟩 Q: 「UPF と RAN（CU-UP）の統合」は、基地局からN6が出ていくかんじ？</a><ul>
+<li><a class="reference internal" href="#id3">🟨 何がくっつくのか</a></li>
+<li><a class="reference internal" href="#id4">🟨 「基地局から」の意味</a></li>
+<li><a class="reference internal" href="#id5">🟨 うれしい点</a></li>
+<li><a class="reference internal" href="#id6">🟨 難しい点（ここが本題）</a></li>
+<li><a class="reference internal" href="#id7">🟨 まとめ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">🟩 ハンドオーバをスムーズにするのが必要なのは、通話サービスだけ？</a><ul>
+<li><a class="reference internal" href="#id9">🟨 「ハンドオーバ」の中身は2層ある</a></li>
+<li><a class="reference internal" href="#ip">🟨 IP アドレスが変わっても平気なもの（大半）</a></li>
+<li><a class="reference internal" href="#id10">🟨 通話以外で困るもの</a></li>
+<li><a class="reference internal" href="#id11">🟨 現実的な落としどころ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="cups">
+<h1>📙 CUPSの方向性<a class="headerlink" href="#cups" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/26公開 2026/11/26更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/26</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-4gpgwcups5g">
+<h2>🟩 Q: 4GでのPGWのCUPS化のインターフェース仕様はエレガントではなかった。5Gもそのまま。この先どうなるの？<a class="headerlink" href="#q-4gpgwcups5g" title="Link to this heading">¶</a></h2>
+<p>結論から言うと、「エレガントではない」という評価は業界内でもよく聞きますし、私もかなり当たっていると思います。ただ、そうなったのにははっきりした理由があります。</p>
+<section id="g-cups-sx-pfcp">
+<h3>🟨 4G CUPS（Sx/PFCP）がエレガントでない点<a class="headerlink" href="#g-cups-sx-pfcp" title="Link to this heading">¶</a></h3>
+<p><strong>1. 汎用の転送抽象ではなく、GW の中身を切っただけ</strong><br />
+CT4 は OpenFlow などを採らず、UDP/IP 上の TLV エンコードによる 3GPP 独自プロトコル PFCP を定義した経緯があります。設計方針はCP が Sx セッションにルール群をプロビジョニングして UP の処理を制御するというもので、中身は「GTP-C っぽいセッション制御プロトコル」です。OpenFlow や P4Runtime のような「match/action を一般化した API」にはなっていません。</p>
+<p><strong>2. 後方互換が最優先の制約だった</strong><br />
+既存の SGW/PGW を、つながっている既存ノードに影響を与えずに分離型ノードへ置き換えられることが要件でした。つまり外から見れば箱は1つのままで、その内部を割ってメッセージ化した形です。GTP トンネルやベアラ、Gx/Gy の課金モデルといった EPC の前提がそのまま PFCP の情報要素に写し込まれています。</p>
+<p><strong>3. ルールモデルが重く、UP に状態が集まる</strong><br />
+PDR/FAR/QER/URR/BAR が ID で互いにリンクし合い、そこに precedence と usage reporting が絡むので、UP はセッションごとの状態を大量に抱えます。CP は UP を細かく管理し続けることになります。Linux カーネルへの PFCP 取り込みが議論されたときも、netdev 側からPFCP はかなり複雑なプロトコルだという反応が出ていました。</p>
+<p><strong>4. マルチベンダ相互接続が実際には難しい</strong><br />
+predefined rule（名前だけを参照し、中身は UP 側の設定に任せる）やベンダ拡張 IE に頼ることが多いです。そのため「CP と UP を別ベンダで組める」という CUPS の売りは、商用ではあまり実現していない印象です。</p>
+</section>
+<section id="g">
+<h3>🟨 5G でもそのままの理由<a class="headerlink" href="#g" title="Link to this heading">¶</a></h3>
+<p>N4 は Sx と同じ PFCP で、5G 向けの拡張（QoS Flow、ULCL/BP、ATSSS、TSN など）が足されただけです。TS 29.244 で規定され、5GC の主要プロトコルでありながら 4G EPC の CUPS にも使われている状態です。5GC は SBA（HTTP/2 + JSON）で統一されましたが、N4 は SBI にならずに残りました。理由は主に次の2つです。</p>
+<ul class="simple">
+<li><p>UPF はパケット処理の箱なので、REST 的なリクエスト/レスポンスでは遅延の面でもモデルの面でも合わない。</p></li>
+<li><p>4G CUPS の実装資産をそのまま流用できる。</p></li>
+</ul>
+<p>Rel-16 では GTP-U に代わる UP プロトコル（SRv6 など）も検討されましたが、結局 GTP-U 維持で落ち着きました。さらに PFCP はBroadBand Forum の TR-459 で定義された分離型 BNG の CP/UP 間インタフェースにも使われています。モバイル以外にも広がったことで、置き換えはますます難しくなりました。</p>
+</section>
+<section id="id1">
+<h3>🟨 この先（6G）<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>6G では、UP 周りを見直す動きがはっきり出ています。</p>
+<ul class="simple">
+<li><p><strong>3GPP CT4</strong>：Rel-20 向けに「6G の UP 管理とプロトコルの検討（FS_6G_UPM）」が提案されています。既存の UP プロトコル（GTP-U）の限界を調べ、拡張または置き換えの可能性を検討することと、UP アーキテクチャ拡張に向けたパケット処理と QoS 制御の改良が作業項目に入っています。</p></li>
+<li><p><strong>SA2</strong>：6G アーキテクチャの文書 TR 23.801 で、より多様なアプリケーションとトラフィックパターンに対応する UP アーキテクチャの改善が目標に掲げられています。</p></li>
+<li><p><strong>IETF（dmm WG）</strong>：SRv6 MUP 系のドラフトが続いています。2024年版では3GPP のアーキテクチャとシグナリングを変えずに一部ベンダ・事業者が推す代替 UP 実装や、6G での UPF とアクセスノードの統合が論じられていました。2026年7月版は6G のマルチベンダ相互接続性、UPF 分散による柔軟性、スケーラビリティと耐障害性を扱っています。</p></li>
+<li><p><strong>時期</strong>：<mark>Rel-20 の WG スタディは 2027年6月に終わる予定なので、方向が決まるのはまだ先</mark>です。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>🟨 私の見立て（予測です）<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>GTP-U</strong>：今回は本気で議論されると思います。それでも全面的に置き換わるより、「GTP-U 継続＋SRv6 などをオプションで許す」という折衷になる可能性が高いと見ています。Rel-16 でも同じ結論でした。</p></li>
+<li><p><strong>N4/PFCP</strong>：消えるより「6G 版 PFCP」として整理・拡張される可能性が高いと思います。SBI 化（UPF を普通の NF にする）案も出るでしょうが、遅延とセッション状態の扱いがネックです。</p></li>
+<li><p><mark><strong>本当に変わるとしたら</strong>：UPF と RAN（CU-UP）の統合や、UP の中身を P4 的に記述するモデルでしょう。ただ、事業者が持つ課金・LI・運用の資産が重く、3GPP がそこまで踏み込むかは五分五分以下だと思います。</mark></p></li>
+</ul>
+<p>要するに CUPS は、技術的なエレガンスより移行性を選んだ設計で、5G はその負債を引き継ぎました。6G はそれを返すかどうかを議論している段階です。ただ、<mark>これまでの3GPPのやり方を見る限り、返さずに借り換えるだけで終わる可能性も十分あります</mark>。</p>
+</section>
+</section>
+<section id="q-upf-ran-cu-up-n6">
+<h2>🟩 Q: 「UPF と RAN（CU-UP）の統合」は、基地局からN6が出ていくかんじ？<a class="headerlink" href="#q-upf-ran-cu-up-n6" title="Link to this heading">¶</a></h2>
+<p>はい、だいたいそういうイメージです。ただし「基地局」が指す場所には少し注意が必要です。</p>
+<section id="id3">
+<h3>🟨 何がくっつくのか<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>今の 5G の UP 経路はこうなっています。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>UE ─(無線)─ DU ─(F1-U)─ CU-UP ─(N3: GTP-U)─ UPF ─(N6)─ DN
+</pre></div>
+</div>
+<p>CU-UP（PDCP/SDAP）と UPF を1つの機能にまとめると、こうなります。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>UE ─(無線)─ DU ─(F1-U)─ [CU-UP + UPF] ─(N6)─ DN
+</pre></div>
+</div>
+<p>N3 の GTP-U トンネルは内部に吸収されて消え、その場所から直接 N6 が出ていきます。前回挙げた IETF のドラフトも、6G のモバイルネットワークで UPF とアクセスノード（AN）を統合する可能性を論点の1つにしています。</p>
+</section>
+<section id="id4">
+<h3>🟨 「基地局から」の意味<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>CU-UP は、アンテナが立っている局舎（DU やセルサイト）ではなく、少し集約した地域局舎やエッジ DC に置かれることが多いです。なので現実的には「セルサイトから N6」より「<mark>CU を集約しているエッジ拠点から N6</mark>」になります。セルサイトまで下ろす形も可能ですが、構成としては極端な部類です。</p>
+</section>
+<section id="id5">
+<h3>🟨 うれしい点<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>GTP-U のホップが1つ減る</strong>：トンネルの終端と再カプセル化、N3 の転送網がいらなくなり、遅延も装置も減ります。</p></li>
+<li><p><strong>QoS の二重管理がなくなる</strong>：今は UPF が QFI を付け、SDAP が QFI を DRB に割り当てる、という2段構えです。統合すれば1か所で済みます。</p></li>
+<li><p><strong><mark>ローカルブレイクアウトが標準の形</mark>になる</strong>：4G の LIPA/SIPTO や、5G の ULCL＋MEC でやってきたことを、例外ではなく基本構成にできます。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>🟨 難しい点（ここが本題）<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p><strong>アンカーの問題</strong>：UE の IP アドレスを払い出し、N6 側に経路を広告する拠点（PSA）がエッジにあると、ハンドオーバーで CU が変わるたびにアンカーも動きます。そうすると IP の継続性が崩れます。</p>
+<ul class="simple">
+<li><p>5G の SSC mode 2/3（アンカーの付け替え）で逃げる</p></li>
+<li><p>アンカーは中央に残し、エッジからは N9 で中央へ戻す（統合のうまみが半減します）</p></li>
+<li><p>SRv6 MUP のように、アンカーという考え方そのものをルーティング（BGP で UE プレフィックスを広告する等）に置き換える</p></li>
+</ul>
+<p>だいたいこの3つの考え方に分かれます。6G の議論の中心もここです。</p>
+</li>
+<li><p><strong>課金・LI・ポリシー</strong>：URR による従量計測や合法的傍受の装置を、多数のエッジに分散配置することになります。運用面でもセキュリティ面でも重いです。</p></li>
+<li><p><strong>ベンダ境界</strong>：RAN ベンダとコアベンダの境目が UPF の中に食い込むことになります。商売上の抵抗はかなり大きいはずです。</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>🟨 まとめ<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<p>「基地局（CU 拠点）から N6 が直接出る」で合っています。ただ技術的な焦点は、統合そのものより「IP アンカーをどこに置き、移動をどう扱うか」です。GTP トンネルとアンカーという前提を捨てるのか、残したまま箱だけまとめるのかで、6G の UP の姿はかなり変わってくると思います。</p>
+</section>
+</section>
+<section id="id8">
+<h2>🟩 ハンドオーバをスムーズにするのが必要なのは、通話サービスだけ？<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<p>かなりの部分はその通りだと思います。ただ「通話だけ」と言い切るには例外がいくつかあります。それと、話を2つに分けたほうが整理しやすいです。</p>
+<section id="id9">
+<h3>🟨 「ハンドオーバ」の中身は2層ある<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>RAN 内の HO</strong>：セルが変わる間にパケットを落とさないこと。これは CU-UP と UPF を統合しても、Xn 経由のデータ転送などでこれまで通り実現できます。</p></li>
+<li><p><strong>IP アンカーの移動</strong>：UE の IP アドレスが変わること。統合で問題になるのはこちらです。</p></li>
+</ol>
+<p>なので論点は「<mark>IP アドレスが変わって困るのはどのアプリか</mark>」になります。</p>
+</section>
+<section id="ip">
+<h3>🟨 IP アドレスが変わっても平気なもの（大半）<a class="headerlink" href="#ip" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Web/HTTP：短い接続の繰り返しなので、つなぎ直せば済みます。</p></li>
+<li><p>QUIC/HTTP3：Connection ID があるので、コネクションをそのまま移行できます。</p></li>
+<li><p>動画視聴（HLS/DASH）：バッファがあるので、セグメント1つ取り直せば済みます。</p></li>
+<li><p>SNS やメッセンジャー：アプリ側で再接続するのが前提の作りです。</p></li>
+</ul>
+<p>スマホのアプリは Wi-Fi とモバイル回線の切り替えに日常的にさらされているので、IP アドレスが変わることを前提に作られています。その意味で「普通のデータ通信はシームレスでなくてもいい」というご指摘は正しいです。</p>
+</section>
+<section id="id10">
+<h3>🟨 通話以外で困るもの<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>リアルタイム系</strong>：ビデオ会議（WebRTC は ICE restart で戻りますが、数百 ms〜秒単位で途切れます）、クラウドゲーム、ライブ配信のアップロード。</p></li>
+<li><p><strong>長時間張りっぱなしのセッション</strong>：SSH、IPsec/企業 VPN（MOBIKE がなければ張り直し）、IP アドレスで ACL を書いている業務システム。</p></li>
+<li><p><strong>産業・車載</strong>：V2X、遠隔操作、TSN 連携などの URLLC 系。6G が売りにしたい領域ほど IP の継続性が要ります。</p></li>
+<li><p><strong>ネットワーク側の都合</strong>：CGNAT やファイアウォールの状態、LI、課金のセッション。</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>🟨 現実的な落としどころ<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<p>実はこの切り分けは DNN（APN）単位でできてしまいます。</p>
+<ul class="simple">
+<li><p><strong>IMS DNN</strong>：アンカーを中央に固定（SSC mode 1）。VoNR はここを通るので通話は守られます。</p></li>
+<li><p><strong>internet DNN</strong>：エッジで統合 UPF から直接 N6 に出す（SSC mode 2/3）。IP が変わってもアプリ側で何とかしてもらいます。</p></li>
+<li><p><strong>URLLC やエンタープライズ向けの DNN/スライス</strong>：用途に応じて中央アンカーか、ルーティングベースの方式を選びます。</p></li>
+</ul>
+<p>つまり「シームレスさが必要なのは通話などの一部だけなので、そこだけ中央アンカーに残し、それ以外はエッジで割り切る」という設計は十分成り立ちます。CU-UP＋UPF 統合を推す側の言い分も、ほぼこの論理です。</p>
+<p>残る問題は、<mark>通話以外で困るリアルタイム系と産業系が、まさに 6G の売りとして挙げられている領域だという点です</mark>。だから標準化の議論が「割り切り」だけで終わらず、アンカーなしで IP の継続性を保つ方式（SRv6 MUP など）に向かっているのだと思います。</p>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="10%20%F0%9F%93%99%20%E4%B8%80%E8%88%AC%E7%9A%84%E3%81%AARWN%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9.html"><span class="label">‹ 前へ</span><span class="title">📙 一般的なRWNのユースケース</span></a>
+      <a class="next" href="../../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html"><span class="label">次へ ›</span><span class="title">🟪 電子工作日記</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
