@@ -95,7 +95,6 @@
 <li><p>回答日: 2026/11/19</p></li>
 <li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
 </ul>
-<p><img alt="Pasted image 20261127092736" class="zoomable" src="../_images/Pasted_image_20261127092736.png" style="width: 790px;" /></p>
 <section id="q-ollamallm">
 <h2>🟩 Q: Ollamaはオープン系LLMの付け外し装置？<a class="headerlink" href="#q-ollamallm" title="Link to this heading">¶</a></h2>
 <p>だいたい合っています。もう少し正確に言うと、<strong>ローカルでLLMを動かすためのランタイム＋モデル管理ツール</strong>です。Dockerに近いイメージで、「モデルを取ってくる・しまっておく・必要なときにメモリに載せて推論サーバーとして提供する」までを一つでやってくれます。</p>
@@ -173,7 +172,6 @@
 </section>
 <section id="q-rag">
 <h2>🟩 Q: RAGはどこに接続される？<a class="headerlink" href="#q-rag" title="Link to this heading">¶</a></h2>
-<p><mark>【冒頭図参照】</mark></p>
 <p>RAGは「新しい部品」というより、<strong>検索の仕組み一式</strong>です。置き場所は大きく2通りあり、前回の図でいうと<mark>「ホストアプリの中」か「MCPサーバーの一つ」のどちらか</mark>になります。</p>
 <p><img alt="Pasted image 20261127092736" class="zoomable" src="../_images/Pasted_image_20261127092736.png" style="width: 875px;" /><br />
 紫がLLMの側、緑が検索の側です。MCPサーバーからOllamaへ向かう横の矢印は、②の構成でMCPサーバーが検索語を埋め込みベクトルに変えるときの呼び出しです。①の構成では、ホストアプリからOllamaへ向かう「埋め込み」の矢印がこの役割を担います。</p>
