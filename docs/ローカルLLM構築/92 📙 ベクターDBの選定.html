@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 ベクターDBの選定 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../_static/media.css?v=8a2712fc" />
+    <script src="../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABLLM%E6%A7%8B%E7%AF%89/92%20%F0%9F%93%99%20%E3%83%99%E3%82%AF%E3%82%BF%E3%83%BCDB%E3%81%AE%E9%81%B8%E5%AE%9A.html" />
+    <link rel="icon" href="../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="🟪 動画生成AI" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html" />
+    <link rel="prev" title="📙 macOS 27のLLM" href="91%20%F0%9F%93%99%20macOS%2027%E3%81%AELLM.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../index.html"><img class="logo" src="../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../index.html">ホーム</a>
+    <span class="sep">»</span><a href="index.html">🟪 ローカルLLM構築</a>
+    <span class="sep">»</span><span class="current">📙 ベクターDBの選定</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">🟪 ローカルLLM構築 (6)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01%20%F0%9F%93%99%20%E6%A6%82%E8%A6%811.%20Ollama%2BMCP%2BRAG%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%99%E3%82%8B.html">📙 概要1. Ollama+MCP+RAGで構成する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02%20%F0%9F%93%99%20%E6%A6%82%E8%A6%812.%20Mac%20mini%20M4%E3%81%AELLM%E3%82%92%E4%BD%BF%E3%81%86.html">📙 概要2. macOS 27のLLMを使う</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11%20%F0%9F%93%97%20Ollama%E3%81%A8AnythingLLM%E3%81%AE%E8%A8%AD%E5%AE%9A.html">📗 OllamaとAnythingLLMの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12%20%F0%9F%93%97%20%E3%83%99%E3%82%AF%E3%82%BF%E3%83%BCDB%E3%81%AE%E8%A8%AD%E5%AE%9A.html">📗 ベクターDBの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="91%20%F0%9F%93%99%20macOS%2027%E3%81%AELLM.html">📙 macOS 27のLLM</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">📙 ベクターDBの選定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (9)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html">🟪 電子工作日記 (4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (51)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 ベクターDBの選定</a><ul>
+<li><a class="reference internal" href="#q-db">🟩 Q: ローカル環境でつかえるベクターDBのお薦めは？</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="db">
+<h1>📙 ベクターDBの選定<a class="headerlink" href="#db" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/27公開 2026/11/27更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/27</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-db">
+<h2>🟩 Q: ローカル環境でつかえるベクターDBのお薦めは？<a class="headerlink" href="#q-db" title="Link to this heading">¶</a></h2>
+<p>結論から言うと、<strong>本命はQdrant</strong>、手軽さを最優先するなら<strong>Chroma</strong>、Postgresを既に使っているなら<strong>pgvector</strong>です。個人用RAGの規模（数千〜数十万チャンク程度）なら性能はどれでも足ります。差が出るのは運用のしやすさと機能です。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Qdrant</p></th>
+<th class="head"><p>Chroma</p></th>
+<th class="head"><p>pgvector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>形態</p></td>
+<td><p>サーバ（Docker/単体バイナリ、Rust製）</p></td>
+<td><p>Python組み込み or サーバ</p></td>
+<td><p>PostgreSQL拡張</p></td>
+</tr>
+<tr class="row-odd"><td><p>導入の手軽さ</p></td>
+<td><p>◎ <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> 一発</p></td>
+<td><p>◎ <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> だけ</p></td>
+<td><p>○ Postgresの運用が前提</p></td>
+</tr>
+<tr class="row-even"><td><p>メタデータで絞り込み</p></td>
+<td><p>◎ 強力</p></td>
+<td><p>○</p></td>
+<td><p>◎ SQLでそのまま書ける</p></td>
+</tr>
+<tr class="row-odd"><td><p>ハイブリッド検索（キーワード＋ベクトル）</p></td>
+<td><p>◎ sparseベクトルに標準対応</p></td>
+<td><p>△</p></td>
+<td><p>○ 全文検索と組み合わせる</p></td>
+</tr>
+<tr class="row-even"><td><p>クライアント</p></td>
+<td><p>REST / gRPC（Python・Rust・Go・JSなど）</p></td>
+<td><p>実質Python/JS</p></td>
+<td><p>SQLなので何でも可（libpqでC/C++も）</p></td>
+</tr>
+<tr class="row-odd"><td><p>管理画面</p></td>
+<td><p>Web UIあり</p></td>
+<td><p>なし</p></td>
+<td><p>既存のDBツールを使う</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Qdrantを推す理由</strong></p>
+<ul class="simple">
+<li><p>LAN上のOllamaサーバと同じマシンにDockerで置けば、Macからはネットワーク越しに叩くだけで済み、構成がきれいに分かれます。</p></li>
+<li><p>日本語の書類は、ベクトル検索だけだと固有名詞や型番を取りこぼしがちです。BM25系のsparseベクトルと併用するハイブリッド検索で精度を上げやすいです。</p></li>
+<li><p>「書類種別」「日付」「ファイルパス」などのpayloadで絞り込めるので、書類サマリ用途と相性が良いです。</p></li>
+<li><p>gRPCなので、C/C++から直接触る道も残ります。</p></li>
+</ul>
+<p><strong>ほかの選択肢</strong></p>
+<ul class="simple">
+<li><p><strong>Chroma</strong>：まずPythonで動かしてみるプロトタイプ段階ならこれが最短です。ただ、本格運用でサーバ化するとQdrantより機能が見劣りします。</p></li>
+<li><p><strong>pgvector</strong>：書類のメタ情報をRDBでしっかり管理したいなら、1つのDBに全部まとめられるのが強みです。</p></li>
+<li><p><strong>LanceDB / sqlite-vec</strong>：ファイル1つで完結する組み込み型です。Mac単体で完結させたい場合に向きます。</p></li>
+</ul>
+<p><strong>進め方の提案</strong>：Ollamaサーバ側でQdrantをDockerで立てます。埋め込みモデルはOllamaの多言語モデル（<code class="docutils literal notranslate"><span class="pre">bge-m3</span></code> など。日本語に強く、sparseベクトルも出せる）を使い、Mac側から投入・検索します。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="91%20%F0%9F%93%99%20macOS%2027%E3%81%AELLM.html"><span class="label">‹ 前へ</span><span class="title">📙 macOS 27のLLM</span></a>
+      <a class="next" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html"><span class="label">次へ ›</span><span class="title">🟪 動画生成AI</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
