@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OllamaとMCPとRAGの関係 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../_static/media.css?v=8a2712fc" />
+    <script src="../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABLLM%E6%A7%8B%E7%AF%89/Ollama%E3%81%A8MCP%E3%81%A8RAG%E3%81%AE%E9%96%A2%E4%BF%82.html" />
+    <link rel="icon" href="../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="🟪 動画生成AI" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html" />
+    <link rel="prev" title="ローカルLLM構築" href="index.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../index.html"><img class="logo" src="../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../index.html">ホーム</a>
+    <span class="sep">»</span><a href="index.html">ローカルLLM構築</a>
+    <span class="sep">»</span><span class="current">OllamaとMCPとRAGの関係</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ローカルLLM構築 (1)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OllamaとMCPとRAGの関係</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (9)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html">🟪 電子工作日記 (4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (52)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">OllamaとMCPとRAGの関係</a><ul>
+<li><a class="reference internal" href="#q-ollamallm">🟩 Q: Ollamaはオープン系LLMの付け外し装置？</a></li>
+<li><a class="reference internal" href="#q-mcpllmdns">🟩 Q: MCPはLLMのDNS?</a></li>
+<li><a class="reference internal" href="#q-mcpollamallm">🟩 Q: ホストアプリ、MCP、Ollama、LLMの関係</a></li>
+<li><a class="reference internal" href="#q-rag">🟩 Q: RAGはどこに接続される？</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="ollamamcprag">
+<h1>OllamaとMCPとRAGの関係<a class="headerlink" href="#ollamamcprag" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/27公開 2026/11/27更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/19</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<p><img alt="Pasted image 20261127092736" class="zoomable" src="../_images/Pasted_image_20261127092736.png" style="width: 790px;" /></p>
+<section id="q-ollamallm">
+<h2>🟩 Q: Ollamaはオープン系LLMの付け外し装置？<a class="headerlink" href="#q-ollamallm" title="Link to this heading">¶</a></h2>
+<p>だいたい合っています。もう少し正確に言うと、<strong>ローカルでLLMを動かすためのランタイム＋モデル管理ツール</strong>です。Dockerに近いイメージで、「モデルを取ってくる・しまっておく・必要なときにメモリに載せて推論サーバーとして提供する」までを一つでやってくれます。</p>
+<p><strong>やっていること</strong></p>
+<ul class="simple">
+<li><p><strong>モデルの取得と管理</strong>：<code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">pull</span> <span class="pre">llama3</span></code> のようにレジストリから量子化済みモデル（GGUF形式）を落としてきて、手元に保管します。<code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">list</span></code> で一覧、<code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">rm</span></code> で削除です。</p></li>
+<li><p><strong>推論エンジン</strong>：中身は元々 llama.cpp（C/C++製）で、CPU・GPU（CUDA、ROCm、Metal）を自動で判別し、VRAMに入るぶんだけレイヤーをGPUに載せます。最近は独自エンジンも併用しています。</p></li>
+<li><p><strong>ロードとアンロード</strong>：「付け外し」に当たる部分です。リクエストが来たら自動でモデルをメモリに載せ、一定時間（<code class="docutils literal notranslate"><span class="pre">keep_alive</span></code>、デフォルトは5分程度）使われなければ降ろします。メモリが許せば複数のモデルを同時に載せておくこともできます。</p></li>
+<li><p><strong>APIサーバー</strong>：<code class="docutils literal notranslate"><span class="pre">localhost:11434</span></code> でREST APIを提供します。OpenAI互換のエンドポイントもあるので、OpenAI向けのクライアントやツールの接続先を書き換えるだけで使えます。</p></li>
+<li><p><strong>Modelfile</strong>：Dockerfileのようなもので、ベースモデル、システムプロンプト、温度やコンテキスト長などのパラメータをまとめて、自分用のモデルとして定義できます。</p></li>
+</ul>
+<p><strong>ほかのツールとの位置づけ</strong></p>
+<ul class="simple">
+<li><p><strong>llama.cpp</strong>：Ollamaの土台です。直接使えば細かく制御できますが、モデル管理は自分でやることになります。</p></li>
+<li><p><strong>Ollama</strong>：llama.cppを包んで扱いやすくしたものです。個人や開発環境で手軽に使うのに向いています。</p></li>
+<li><p><strong>vLLM、TGIなど</strong>：GPUサーバーで高スループット・多数同時接続をさばく本番向けです。</p></li>
+</ul>
+<p>つまり「オープンなLLMを差し替えながら手元で動かすための、パッケージマネージャー兼推論サーバー」と考えるのがいちばん近いです。C/C++から使うなら、HTTPでAPIを叩くか、llama.cppをライブラリとして直接リンクするかのどちらかになります。</p>
+</section>
+<section id="q-mcpllmdns">
+<h2>🟩 Q: MCPはLLMのDNS?<a class="headerlink" href="#q-mcpllmdns" title="Link to this heading">¶</a></h2>
+<p>DNSとは少し違います。DNSは「名前を引いて住所を返す」仕組みですが、MCP（Model Context Protocol）は<strong>LLMアプリと外部のツールやデータをつなぐための共通の接続規格</strong>です。たとえるならUSBやLSPのほうが近いです。</p>
+<p><strong>たとえで言うと</strong></p>
+<ul class="simple">
+<li><p><strong>USB</strong>：機器ごとに専用ケーブルを作らず、一つの規格に合わせれば何でもつながります。MCPも同じで、ツールの提供側がMCPサーバーを一つ作れば、Claude、IDE、自作のエージェントなどMCPに対応したどのアプリからでも使えます。</p></li>
+<li><p><strong>LSP（Language Server Protocol）</strong>：エディタと言語サーバーの組み合わせ「エディタ数×言語数」の問題を「エディタ数＋言語数」にした規格です。MCPは同じことを「LLMアプリ×外部ツール」の組み合わせでやっています。設計も実際にLSPを参考にしています。</p></li>
+</ul>
+<p><strong>中身</strong></p>
+<ul class="simple">
+<li><p><strong>構成</strong>：ホスト（Claude Desktopなどのアプリ）の中にクライアントがあり、MCPサーバーとは1対1で接続します。</p></li>
+<li><p><strong>プロトコル</strong>：JSON-RPC 2.0です。</p></li>
+<li><p><strong>トランスポート</strong>：ローカルなら子プロセスを起動してstdioで通信し、リモートならHTTP（Streamable HTTP）で通信します。</p></li>
+<li><p><strong>サーバーが提供するもの</strong>：</p>
+<ul>
+<li><p>Tools：LLMが呼び出せる関数（DB検索、ファイル操作、API呼び出しなど）</p></li>
+<li><p>Resources：読み取り用のデータ（ファイルの内容、ドキュメントなど）</p></li>
+<li><p>Prompts：定型のプロンプトテンプレート</p></li>
+</ul>
+</li>
+<li><p><strong>流れ</strong>：接続時に「どんなツールがあるか」を問い合わせて一覧（名前、説明、引数のJSONスキーマ）を受け取ります。LLMがそれを見て「このツールをこの引数で呼ぶ」と判断し、クライアントが実行して結果をLLMに返します。</p></li>
+</ul>
+<p><strong>DNSっぽい部分もあるにはある</strong></p>
+<p>「どこにどんなMCPサーバーがあるか」を探すためのレジストリ（ディレクトリ）は別にあり、その部分は名前解決に少し似ています。ただし、それはMCP本体の周辺にある仕組みです。本体はあくまで、つないだ後にどう会話するかの規約です。</p>
+<p>まとめると、MCPは「LLMの外付け機能をつなぐための共通の差し込み口」です。DNSでいう「探す」役割より、「つないで使う」役割のほうが本質です。</p>
+</section>
+<section id="q-mcpollamallm">
+<h2>🟩 Q: ホストアプリ、MCP、Ollama、LLMの関係<a class="headerlink" href="#q-mcpollamallm" title="Link to this heading">¶</a></h2>
+<p>ポイントは、<strong>MCPとOllamaは直接つながらない</strong>ことです。間に「ホストアプリ（エージェント）」が入り、それが両方を仲介します。</p>
+<p><img alt="Pasted image 20261127092548" class="zoomable" src="../_images/Pasted_image_20261127092548.png" style="width: 887px;" /><br />
+紫がLLMの側（Ollama）、緑が業務アプリの側（MCPサーバーと業務アプリ）です。間に入るホストアプリはグレーにしました。</p>
+<p><strong>それぞれの役割</strong></p>
+<ul class="simple">
+<li><p><strong>LLM</strong>：考えて判断する役です。自分では何も実行せず、「このツールをこの引数で呼びたい」というテキスト（tool call）を出すだけです。</p></li>
+<li><p><strong>Ollama</strong>：LLMを動かす土台です。モデルをメモリに載せ、推論APIとして提供します。クラウドのClaudeやGPTを使う場合は、この部分がクラウドAPIに置き換わります。</p></li>
+<li><p><strong>MCPサーバー</strong>：業務アプリに付ける「LLM向けの差し込み口」です。業務アプリの機能を、名前・説明・引数スキーマ付きのツールとして公開します。業務アプリ本体には手を入れず、外付けのアダプタとして作るのが普通です。</p></li>
+<li><p><strong>業務アプリ</strong>：実際にデータや処理を持っている本体です。MCPのことは何も知らなくてかまいません。</p></li>
+<li><p><strong>ホストアプリ</strong>：全体のまとめ役です。MCPサーバーからツール一覧を取ってきてLLMに渡し、LLMがツールを呼びたいと言ったら代わりに実行して、結果をLLMに返します。Claude Desktop、IDE、Open WebUIのようなもの、あるいは自作のプログラムがこれに当たります。</p></li>
+</ul>
+<p><strong>1回の問い合わせの流れ</strong></p>
+<p>例として「昨日のライン3の異常停止件数は？」と聞いた場合です。</p>
+<ol class="arabic simple">
+<li><p>ホストアプリがMCPサーバーからツール一覧（例：<code class="docutils literal notranslate"><span class="pre">get_alarm_history(line,</span> <span class="pre">date)</span></code>）を取得します。</p></li>
+<li><p>質問とツール一覧をOllama経由でLLMに渡します。</p></li>
+<li><p>LLMは「<code class="docutils literal notranslate"><span class="pre">get_alarm_history(line=3,</span> <span class="pre">date=昨日)</span></code> を呼ぶ」と返します。</p></li>
+<li><p>ホストアプリがそれをMCPサーバーに送り、MCPサーバーが業務アプリやDBを実際に叩きます。</p></li>
+<li><p>結果をLLMに戻すと、LLMが「昨日は5件で、主な原因は…」と文章にまとめて答えます。</p></li>
+</ol>
+<p><strong>押さえどころ</strong></p>
+<ul class="simple">
+<li><p><strong>入れ替えが利く</strong>：OllamaをクラウドのLLMに替えても、MCPサーバーはそのまま使えます。逆に、ホストアプリを替えても業務アプリ側のMCPサーバーは作り直す必要がありません。</p></li>
+<li><p><strong>全部社内で閉じられる</strong>：Ollamaでローカルにモデルを動かせば、データを外に出さずに構成できます。業務用途ではこれがOllamaを選ぶ大きな理由です。</p></li>
+<li><p><strong>モデル選びに注意</strong>：Ollamaで使うモデルは、tool callingに対応したもの（Qwen系、Llama 3.1以降など）を選ぶ必要があります。小さいモデルほど、ツールの選び方や引数の作り方を間違えやすくなります。</p></li>
+<li><p><strong>安全対策はMCPサーバー側で</strong>：LLMは何を呼ぶか間違えることがあります。書き込み系の操作（設定変更やPLCへの書き込みなど）は、MCPサーバー側で権限を絞るか、人間の確認を挟む設計にするのが無難です。</p></li>
+</ul>
+</section>
+<section id="q-rag">
+<h2>🟩 Q: RAGはどこに接続される？<a class="headerlink" href="#q-rag" title="Link to this heading">¶</a></h2>
+<p><mark>【冒頭図参照】</mark></p>
+<p>RAGは「新しい部品」というより、<strong>検索の仕組み一式</strong>です。置き場所は大きく2通りあり、前回の図でいうと<mark>「ホストアプリの中」か「MCPサーバーの一つ」のどちらか</mark>になります。</p>
+<p><img alt="Pasted image 20261127092736" class="zoomable" src="../_images/Pasted_image_20261127092736.png" style="width: 875px;" /><br />
+紫がLLMの側、緑が検索の側です。MCPサーバーからOllamaへ向かう横の矢印は、②の構成でMCPサーバーが検索語を埋め込みベクトルに変えるときの呼び出しです。①の構成では、ホストアプリからOllamaへ向かう「埋め込み」の矢印がこの役割を担います。</p>
+<p><strong>RAGを構成する部品</strong></p>
+<ul class="simple">
+<li><p><strong>取り込み（事前処理）</strong>：文書を数百〜千文字程度に分割し、埋め込みモデルでベクトルにしてベクトルDBに入れておきます。</p></li>
+<li><p><strong>埋め込みモデル</strong>：文章をベクトルに変換します。Ollamaは埋め込みモデル（<code class="docutils literal notranslate"><span class="pre">nomic-embed-text</span></code>、<code class="docutils literal notranslate"><span class="pre">bge-m3</span></code> など）も動かせるので、チャット用LLMと同じOllamaでまかなえます。日本語の文書なら <code class="docutils literal notranslate"><span class="pre">bge-m3</span></code> のような多言語対応のモデルが無難です。</p></li>
+<li><p><strong>ベクトルDB</strong>：意味の近い文書片を探す検索エンジンです。</p></li>
+<li><p><strong>LLM</strong>：検索で見つかった文書片を読んで回答を作ります。</p></li>
+</ul>
+<p><strong>① ホストアプリに組み込む場合（従来型RAG）</strong></p>
+<ul class="simple">
+<li><p>流れは、質問が来たら必ず先に検索し、上位数件をプロンプトに足してからLLMに渡す、です。</p></li>
+<li><p>LLMは検索したかどうかを意識しません。</p></li>
+<li><p>仕組みが単純で、小さいモデルでも安定して動きます。</p></li>
+<li><p>その代わり、検索が要らない質問でも毎回検索が走ります。</p></li>
+</ul>
+<p><strong>② MCPサーバーにする場合（エージェント型RAG）</strong></p>
+<ul class="simple">
+<li><p>検索を <code class="docutils literal notranslate"><span class="pre">search_docs(query)</span></code> というツールとして公開し、検索するかどうか、何という語で検索するかはLLMに判断させます。</p></li>
+<li><p>「マニュアルを検索して、さらに業務DBで実績を確認する」のように、他のツールと組み合わせられます。</p></li>
+<li><p>検索の仕組みをホストアプリから切り離せるので、別のアプリからも同じ文書検索を使い回せます。</p></li>
+<li><p>その代わり、LLMにツールを適切に使う能力が必要です。小さいモデルだと検索し忘れたり、検索語が下手だったりします。</p></li>
+</ul>
+<p><strong>使い分けの目安</strong></p>
+<ul class="simple">
+<li><p>「社内マニュアルに答えるQ&amp;Aボット」のように用途が決まっているなら①が簡単で確実です。</p></li>
+<li><p>業務アプリの操作や、DBの照会と組み合わせたエージェントを作るなら②が筋です。前回の構成なら、MCPサーバーを「業務アプリ用」と「文書検索用」に並べる形になります。</p></li>
+</ul>
+<p>まとめると、RAGは**業務アプリと同じく「LLMの外側にある知識源」**です。MCPはそこへの接続方法の一つ、Ollamaはそこで使う埋め込みモデルとLLMの実行役、という関係です。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="index.html"><span class="label">‹ 前へ</span><span class="title">ローカルLLM構築</span></a>
+      <a class="next" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html"><span class="label">次へ ›</span><span class="title">🟪 動画生成AI</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>

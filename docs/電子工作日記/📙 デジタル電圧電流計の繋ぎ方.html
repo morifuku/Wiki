@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 デジタル電圧電流計の繋ぎ方 &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../_static/media.css?v=8a2712fc" />
+    <script src="../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/%F0%9F%93%99%20%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E9%9B%BB%E5%9C%A7%E9%9B%BB%E6%B5%81%E8%A8%88%E3%81%AE%E7%B9%8B%E3%81%8E%E6%96%B9.html" />
+    <link rel="icon" href="../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="📙 屋内の電話線から発信者番号を抜き出す【構想のみ】" href="%F0%9F%93%99%20%E5%B1%8B%E5%86%85%E3%81%AE%E9%9B%BB%E8%A9%B1%E7%B7%9A%E3%81%8B%E3%82%89%E7%99%BA%E4%BF%A1%E8%80%85%E7%95%AA%E5%8F%B7%E3%82%92%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99%E3%80%90%E6%A7%8B%E6%83%B3%E3%81%AE%E3%81%BF%E3%80%91.html" />
+    <link rel="prev" title="📗 電源アダプタを統合する" href="%F0%9F%93%97%20%E9%9B%BB%E6%BA%90%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%82%92%E7%B5%B1%E5%90%88%E3%81%99%E3%82%8B.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../index.html"><img class="logo" src="../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../index.html">ホーム</a>
+    <span class="sep">»</span><a href="index.html">🟪 電子工作日記</a>
+    <span class="sep">»</span><span class="current">📙 デジタル電圧電流計の繋ぎ方</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABLLM%E6%A7%8B%E7%AF%89/index.html">ローカルLLM構築 (1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (9)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">🟪 電子工作日記 (4)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%97%20%E5%A4%A9%E4%BA%95%E3%81%AE%E6%8F%9B%E6%B0%97%E5%8F%A3%E3%82%92%E5%BC%B7%E5%88%B6%E6%8E%92%E6%B0%97%E3%81%AB%E3%81%97%E3%81%9F.html">📗 天井の換気口を強制排気にした</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%97%20%E9%9B%BB%E6%BA%90%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%82%92%E7%B5%B1%E5%90%88%E3%81%99%E3%82%8B.html">📗 電源アダプタを統合する</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">📙 デジタル電圧電流計の繋ぎ方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%99%20%E5%B1%8B%E5%86%85%E3%81%AE%E9%9B%BB%E8%A9%B1%E7%B7%9A%E3%81%8B%E3%82%89%E7%99%BA%E4%BF%A1%E8%80%85%E7%95%AA%E5%8F%B7%E3%82%92%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99%E3%80%90%E6%A7%8B%E6%83%B3%E3%81%AE%E3%81%BF%E3%80%91.html">📙 屋内の電話線から発信者番号を抜き出す【構想のみ】</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (52)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 デジタル電圧電流計の繋ぎ方</a><ul>
+<li><a class="reference internal" href="#q">Q: 🟩 この図を説明して</a><ul>
+<li><a class="reference internal" href="#id2">🟨 配線の役割</a></li>
+<li><a class="reference internal" href="#id3">🟨 上の図：測定対象から電源を取る方式（電源共用）</a></li>
+<li><a class="reference internal" href="#id4">🟨 下の図：独立電源で動かす方式</a></li>
+<li><a class="reference internal" href="#id5">🟨 注意点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>📙 デジタル電圧電流計の繋ぎ方<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/27公開 2026/11/27更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/11/25</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<p><img alt="Pasted image 20261127090205" class="zoomable" src="../_images/Pasted_image_20261127090205.png" style="width: 661px;" /></p>
+<section id="q">
+<h2>Q: 🟩 この図を説明して<a class="headerlink" href="#q" title="Link to this heading">¶</a></h2>
+<p>これは、電圧と電流を同時に表示する、よくある「DC 0〜100V／10A デジタル電圧電流計」の結線図です。電流計は内部のシャント抵抗で測る方式で、マイナス側（ローサイド）に入れます。</p>
+<section id="id2">
+<h3>🟨 配線の役割<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>線</p></th>
+<th class="head"><p>役割</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>細い赤</p></td>
+<td><p>メーター自身の電源＋</p></td>
+</tr>
+<tr class="row-odd"><td><p>細い黒</p></td>
+<td><p>メーター自身の電源−（内部で太い黒とつながっている）</p></td>
+</tr>
+<tr class="row-even"><td><p>細い黄</p></td>
+<td><p>電圧測定の入力（測りたい電圧の＋につなぐ）</p></td>
+</tr>
+<tr class="row-odd"><td><p>太い黒</p></td>
+<td><p>電流測定の入力（電源の−につなぐ）</p></td>
+</tr>
+<tr class="row-even"><td><p>太い赤</p></td>
+<td><p>電流測定の出力（負荷の−につなぐ）</p></td>
+</tr>
+</tbody>
+</table>
+<p>電流の流れは、電源− → 太い黒 → 内部シャント → 太い赤 → 負荷− の順です。負荷の＋は電源の＋に直接つなぎます。</p>
+</section>
+<section id="id3">
+<h3>🟨 上の図：測定対象から電源を取る方式（電源共用）<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>細い赤と黄色の両方を、バッテリー＋につなぎます。</p></li>
+<li><p>太い黒がバッテリー−につながっているので、メーターのGNDはそこから内部で取れます。そのため細い黒はつながなくて構いません（図の「Thin black wire does not need to be connected」）。</p></li>
+<li><p>メーターが測定対象の電圧で動くので、<mark>測れる電圧は動作電圧の範囲 DC4〜28V に限られます</mark>。4V未満ではメーターが動きません。</p></li>
+</ul>
+<p>配線が少なくて済むので、<mark>12Vや24Vのバッテリーを監視するときの定番の使い方</mark>です。</p>
+</section>
+<section id="id4">
+<h3>🟨 下の図：独立電源で動かす方式<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>細い赤と細い黒は、別に用意した DC4〜30V の電源（ACアダプターなど）につなぎます。</p></li>
+<li><p>黄色だけをバッテリー＋につなぎます。</p></li>
+<li><p>メーターの電源と測定対象が別になるので、<mark>0〜100V の全範囲を測れます</mark>。4V以下の低い電圧も測れます。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>🟨 注意点<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>細い黒と太い黒は内部で導通しています。</strong> 下の図の方式では、外部電源の−が測定回路の−と共通になります。外部電源は絶縁型（普通のACアダプターなど）を使ってください。<mark>−側の電位が違う電源を使うと短絡の原因になります</mark>。</p></li>
+<li><p><strong>細い黒を負荷側（太い赤の先）につながないでください。</strong> シャントを通らない経路ができるので、電流の値が正しく出なくなります。</p></li>
+<li><p><strong>太い赤と太い黒を逆にしないでください。</strong> 電流が表示されなかったり、マイナスの値になったりします。太線は10Aに耐えられる太さのまま配線してください。</p></li>
+<li><p>ローサイド測定なので、負荷の−はシャントの電圧降下ぶんだけGNDから少し浮きます。負荷の−を別の経路でGNDに落とすと、シャントを通らない経路ができて電流を測れなくなります。</p></li>
+<li><p>裏面に電圧と電流の校正用の半固定抵抗が付いている製品が多いので、テスターと比べてずれていれば調整できます。</p></li>
+</ul>
+<p>同じ見た目でも、線の色や動作電圧が違う版があります。実際に結線する前に、手元の製品のラベルや説明書で確認してください。</p>
+</section>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%97%20%E9%9B%BB%E6%BA%90%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%82%92%E7%B5%B1%E5%90%88%E3%81%99%E3%82%8B.html"><span class="label">‹ 前へ</span><span class="title">📗 電源アダプタを統合する</span></a>
+      <a class="next" href="%F0%9F%93%99%20%E5%B1%8B%E5%86%85%E3%81%AE%E9%9B%BB%E8%A9%B1%E7%B7%9A%E3%81%8B%E3%82%89%E7%99%BA%E4%BF%A1%E8%80%85%E7%95%AA%E5%8F%B7%E3%82%92%E6%8A%9C%E3%81%8D%E5%87%BA%E3%81%99%E3%80%90%E6%A7%8B%E6%83%B3%E3%81%AE%E3%81%BF%E3%80%91.html"><span class="label">次へ ›</span><span class="title">📙 屋内の電話線から発信者番号を抜き出す【構想のみ】</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
