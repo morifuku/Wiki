@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📙 概要2. macOS 27のLLMを使う &#8212; Llama in Bliss</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/morifuku.css?v=f411a948" />
+    <link rel="stylesheet" type="text/css" href="../_static/media.css?v=8a2712fc" />
+    <script src="../_static/documentation_options.js?v=4eb6406d"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script defer="defer" src="../_static/youtube.js?v=894bc34c"></script>
+    <script defer="defer" src="../_static/zoom.js?v=1260aa77"></script>
+    <link rel="canonical" href="https://wiki.morifuku.net/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABLLM%E6%A7%8B%E7%AF%89/%F0%9F%93%99%2002%20%E6%A6%82%E8%A6%812.%20Mac%20mini%20M4%E3%81%AELLM%E3%82%92%E4%BD%BF%E3%81%86.html" />
+    <link rel="icon" href="../_static/llama.ico"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="📙 macOS 27のfmコマンド" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html" />
+    <link rel="prev" title="📙 概要1. Ollama+MCP+RAGで構成する" href="%F0%9F%93%99%2001%20%E6%A6%82%E8%A6%811.%20Ollama%2BMCP%2BRAG%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%99%E3%82%8B.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://wiki.morifuku.net/llama.jpg">
+<script defer src="../_static/pagetoc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P82LK3ZSXZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P82LK3ZSXZ');
+</script>
+  </head><body>
+<header class="site-header">
+  <div class="site-title">
+    <a href="../index.html"><img class="logo" src="../_static/llama.svg" alt=""><span>wiki.morifuku.net</span>
+    </a>
+  </div>
+  <nav class="breadcrumbs" aria-label="現在位置">
+    <a href="../index.html">ホーム</a>
+    <span class="sep">»</span><a href="index.html">🟪 ローカルLLM構築</a>
+    <span class="sep">»</span><span class="current">📙 概要2. macOS 27のLLMを使う</span>
+  </nav>
+</header>
+<div class="page">
+  <aside class="sphinxsidebar" role="navigation">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<nav class="globaltoc" aria-label="サイトナビゲーション">
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">🟪 ローカルLLM構築 (3)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%99%2001%20%E6%A6%82%E8%A6%811.%20Ollama%2BMCP%2BRAG%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%99%E3%82%8B.html">📙 概要1. Ollama+MCP+RAGで構成する</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">📙 概要2. macOS 27のLLMを使う</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html">📙 macOS 27のfmコマンド</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8B%95%E7%94%BB%E7%94%9F%E6%88%90AI/index.html">🟪 動画生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FPGA%E5%9B%9E%E8%B7%AF%E7%94%9F%E6%88%90AI/index.html">🟪 FPGA回路生成AI (3)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5G%E3%83%A9%E3%83%9C%E6%A7%8B%E7%AF%89/index.html">🟪 5Gラボ構築 (9)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%A8%98/index.html">🟪 電子工作日記 (4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%91%E5%AD%A6/index.html">🟪 雑学 (51)</a></li>
+</ul>
+
+</nav>
+<nav class="pagetoc" aria-labelledby="pagetoc-label">
+  <h3 id="pagetoc-label">このページの目次</h3>
+  <ul>
+<li><a class="reference internal" href="#">📙 概要2. macOS 27のLLMを使う</a><ul>
+<li><a class="reference internal" href="#q-macosllm">🟩 Q: macOSでローカルLLMを構築すると</a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+  </aside>
+  <div class="content">
+  <main class="body" role="main">
+    
+  <section class="tex2jax_ignore mathjax_ignore" id="macos-27llm">
+<h1>📙 概要2. macOS 27のLLMを使う<a class="headerlink" href="#macos-27llm" title="Link to this heading">¶</a></h1>
+<p class="page-dates">2026/11/27公開 2026/11/27更新</p>
+<ul class="simple">
+<li><p>質問者: Shigeru Morifuku</p></li>
+<li><p>回答者: Claude Opus 5.5</p></li>
+<li><p>回答日: 2026/9/30</p></li>
+<li><p>免責: 回答者は AI であり、間違えることがあります。</p></li>
+</ul>
+<section id="q-macosllm">
+<h2>🟩 Q: macOSでローカルLLMを構築すると<a class="headerlink" href="#q-macosllm" title="Link to this heading">¶</a></h2>
+<p>Ollamaの位置、つまり「ホストアプリから推論APIで呼ばれるLLMの実行役」には、<code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code> をそのまま置けます。ただし、Ollamaのように好きなオープンモデルを付け替える装置ではありません。</p>
+<p><strong>相当する部分</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fm</span></code> はmacOS 27から入った標準コマンドで、/usr/bin/fm に置かれ、Appleのオンデバイス基盤モデルを呼び出します。最初から入っていて、APIキーもアカウントもトークン課金も要りません。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code> を実行すると、OpenAI互換のChat Completionsサーバーが <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:1976</span></code> で起動します。接続できるのは自分のマシン内（ループバック）からだけです。既存のOpenAI向けクライアントは、ベースURLを <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:1976/v1</span></code> に変えるだけで使えます。この点はOllamaの <code class="docutils literal notranslate"><span class="pre">localhost:11434</span></code> と同じ使い方です。</p></li>
+</ul>
+<p><strong>Ollamaとの違い</strong></p>
+<ul class="simple">
+<li><p><strong>モデルを付け替えられない</strong>：使えるのは、オンデバイスのApple Foundation Model（<code class="docutils literal notranslate"><span class="pre">system</span></code>、既定で無料・プライベート）と、Private Cloud Compute上の大きいモデル（<code class="docutils literal notranslate"><span class="pre">pcc</span></code>、1日の上限あり、引き上げには有料のiCloud+が必要）の2つです。LlamaやQwenを入れて動かすことはできません。</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pcc</span></code> はローカルではない</strong>：Appleのクラウドで処理されます。「データを社外に出さない」という条件なら <code class="docutils literal notranslate"><span class="pre">system</span></code> に限られます。</p></li>
+<li><p><strong>RAG図の「埋め込みモデル」は代わりにならない</strong>：埋め込み（embeddings）については記載が見当たりません。RAGを組むなら、埋め込みは別途Ollamaなどで動かす必要があります。</p></li>
+<li><p><strong>tool callingは未確認</strong>：ツール呼び出しはFoundation Modelsフレームワーク全体の機能としては説明されていますが、<code class="docutils literal notranslate"><span class="pre">fm</span></code> CLIや <code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code> で使えるかは明記されていません。MCP経由のエージェント構成で使えるかは、手元で <code class="docutils literal notranslate"><span class="pre">tools</span></code> を付けたリクエストを送って確かめるのが確実です。</p></li>
+<li><p><strong>モデルが小さい</strong>：オンデバイスのモデルは小型なので、要約・抽出・分類のような軽い仕事向きです。実際に試した人からは1秒ほどで答えるが、lsofをLinuxのツールだと答えたという報告もあります。</p></li>
+</ul>
+<p><strong>図に当てはめると</strong></p>
+<p>Macの上なら、Ollamaの箱を「<code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code>（チャット用LLM）＋Ollama（埋め込みモデル）」に分けて置く形になります。LLMの部分は <code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code> で済みますが、Ollamaを丸ごと置き換えることはできません。</p>
+<p><img alt="Pasted image 20261127123714" class="zoomable" src="../_images/Pasted_image_20261127123714.png" /></p>
+<p>前の図にあったOllamaの箱を、点線の「Mac（ローカル推論）」の枠の中で2つに分けました。上の <code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code> がチャット用LLM、下のOllamaが埋め込みモデルです。Ollamaへの矢印は2本あり、①の構成ではホストアプリから、②の構成ではRAG用MCPサーバーから届きます。</p>
+<p>この構成で全部をローカルに閉じたいなら、<code class="docutils literal notranslate"><span class="pre">fm</span> <span class="pre">serve</span></code> では <code class="docutils literal notranslate"><span class="pre">system</span></code> モデルを指定してください。<code class="docutils literal notranslate"><span class="pre">pcc</span></code> を指定するとAppleのクラウドで処理されます。</p>
+</section>
+</section>
+
+
+  </main>
+    <nav class="prev-next" aria-label="前後のページ">
+      <a class="prev" href="%F0%9F%93%99%2001%20%E6%A6%82%E8%A6%811.%20Ollama%2BMCP%2BRAG%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%99%E3%82%8B.html"><span class="label">‹ 前へ</span><span class="title">📙 概要1. Ollama+MCP+RAGで構成する</span></a>
+      <a class="next" href="%F0%9F%93%99%20macOS%2027%E3%81%AEfm%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89.html"><span class="label">次へ ›</span><span class="title">📙 macOS 27のfmコマンド</span></a>
+    </nav>
+  </div>
+</div>
+<footer class="site-footer">© 2026 Shigeru Morifuku</footer>
+  </body>
+</html>
